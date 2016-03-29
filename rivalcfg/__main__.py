@@ -107,6 +107,3 @@ else:
     print("type `rivalcfg -h' to display the options")
     sys.exit(1)
 
-
-print options
-print args
