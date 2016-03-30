@@ -1,5 +1,9 @@
+from helpers import is_color, color_string_to_rgb
+
+
 VENDOR_ID = "1038"
 PRODUCT_ID = "1702"
+
 
 class Rival100:
 
@@ -10,7 +14,9 @@ class Rival100:
     BTN_ACTION_OS = 0x01
 
     def __init__(self, device_path):
-        pass
+        self._device = None
+        self._device_path = device_path
+        self._device_open()
 
     def set_default(self):
         """Set all option to their default values"""
@@ -28,7 +34,17 @@ class Rival100:
         pass
 
     def set_color(self, *args):
-        pass
+        color = (0xFF, 0x00, 0x00)
+        if len(args) == 3:
+            for value in args:
+                if type(value) != int or value < 0 or value > 255:
+                    raise ValueError()
+            color = args
+        elif len(args) == 1 and type(args[0]) == str and is_color(args[0]):
+            color = color_string_to_rgb(args[0])
+        else:
+            raise ValueError()
+        self._device_write(0x05, 0x00, *color)
 
     def set_light_effect(self, effect):
         pass
@@ -37,16 +53,22 @@ class Rival100:
         pass
 
     def save(self):
-        pass
+        self._device_write(0x09, 0x00)
 
     def _device_open(self):
-        pass
+        self._device = open(self._device_path, "wb")
 
-    def _device_write(self, bytes_):
-        pass
+    def _device_write(self, *bytes_):
+        if not self._device:
+            return;
+        self._device.write(bytearray(bytes_))
+        self._device.flush()
 
     def _device_close(self):
-        pass
+        if self._device:
+            self._device.close()
+            self._device = None
 
     def __del__(self):
         self._device_close()
+

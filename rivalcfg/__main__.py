@@ -78,7 +78,11 @@ if options.polling_rate != None:
 
 if options.color != None:
     option_setted = True
-    rival.set_color(options.color)
+    try:
+        rival.set_color(options.color)
+    except ValueError:
+        print("E: Invalid color")
+        sys.exit(1)
 
 if options.light_effect != None:
     option_setted = True
@@ -103,7 +107,7 @@ if options.btn6_action != None:
 if option_setted:
     rival.save()
 else:
-    print("E: no options provided")
+    print("E: No options provided")
     print("type `rivalcfg -h' to display the options")
     sys.exit(1)
 
