@@ -43,9 +43,19 @@ def find_hidraw_device_path(vendor_id, product_id):
         return device["DEVNAME"]
 
 def is_color(string):
+    """Checks if the given string is a valid color.
+
+    Arguments
+    string -- the string to check
+    """
     return string in NAMED_COLORS or bool(re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE));
 
 def color_string_to_rgb(color_string):
+    """Converts the color string into an RGB tuple.
+
+    Arguments:
+    color_string -- the string to converts
+    """
     # Named color
     if color_string in NAMED_COLORS:
         return NAMED_COLORS[color_string]

@@ -7,6 +7,8 @@ PRODUCT_ID = "1702"
 
 class Rival100:
 
+    """Handle the Rival 100 gaming mouse."""
+
     EFFECT_STATIC = 0x01
     EFFECT_BREATH = 0x03
 
@@ -19,7 +21,7 @@ class Rival100:
         self._device_open()
 
     def set_default(self):
-        """Set all option to their default values"""
+        """Set all option to their default values."""
         self.set_sensitivity(1, 1000)
         self.set_sensitivity(2, 2000)
         self.set_polling_rate(1000)
@@ -34,6 +36,19 @@ class Rival100:
         pass
 
     def set_color(self, *args):
+        """Set the back-light color.
+
+        Arguments:
+        *args -- the color (red, green, blue channel or hexadecimal color or color name)
+
+        Examples:
+        set_color(255, 0, 0)
+        set_color("red")
+        set_color("#ff0000")
+        set_color("#f00")
+        set_color("ff0000)
+        set_color("f00")
+        """
         color = (0xFF, 0x00, 0x00)
         if len(args) == 3:
             for value in args:
@@ -53,18 +68,26 @@ class Rival100:
         pass
 
     def save(self):
+        """Save the current configuration to the mouse internal memory."""
         self._device_write(0x09, 0x00)
 
     def _device_open(self):
+        """Open the device file"""
         self._device = open(self._device_path, "wb")
 
     def _device_write(self, *bytes_):
+        """Write bytes to the device file.
+
+        Arguments:
+        *bytes_ -- bytes to write
+        """
         if not self._device:
             return;
         self._device.write(bytearray(bytes_))
         self._device.flush()
 
     def _device_close(self):
+        """Close the device file."""
         if self._device:
             self._device.close()
             self._device = None
