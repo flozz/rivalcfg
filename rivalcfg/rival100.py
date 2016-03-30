@@ -30,7 +30,27 @@ class Rival100:
         self.set_btn6_action(self.BTN_ACTION_DEFAULT)
 
     def set_sensitivity(self, preset, value):
-        pass
+        """Defines a sensor sensitivity preset.
+
+        Arguments:
+        preset -- the preset to define (0 or 1)
+        value -- the sensitivity (250, 500, 1000, 1250, 1500, 1750, 2000, 4000)
+        """
+        allowed_values = {
+            250: 0x08,
+            500: 0x07,
+            1000: 0x06,
+            1250: 0x05,
+            1500: 0x04,
+            1750: 0x03,
+            2000: 0x02,
+            4000: 0x01,
+        }
+        if preset not in (1, 2):
+            raise ValueError()
+        if value not in allowed_values:
+            raise ValueError()
+        self._device_write(0x03, preset, allowed_values[value])
 
     def set_polling_rate(self, rate):
         pass
