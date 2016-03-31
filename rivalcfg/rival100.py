@@ -82,7 +82,14 @@ class Rival100:
         self._device_write(0x05, 0x00, *color)
 
     def set_light_effect(self, effect):
-        pass
+        """Set the light effect (static, breath,...)
+
+        Arguments:
+        effect -- the effect (1 or self.EFFECT_STATIC, 2, 3 or self.EFFECT_BREATH, 4)
+        """
+        if effect < 1 or effect > 4:
+            raise ValueError()
+        self._device_write(0x07, 0x00, effect)
 
     def set_btn6_action(self, action):
         pass
