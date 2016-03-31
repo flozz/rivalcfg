@@ -74,7 +74,7 @@ if options.sensitivity2 != None:
 
 if options.polling_rate != None:
     option_setted = True
-    rival.set_polling_rate(int(polling_rate))
+    rival.set_polling_rate(int(options.polling_rate))
 
 if options.color != None:
     option_setted = True

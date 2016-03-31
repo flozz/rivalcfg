@@ -53,7 +53,20 @@ class Rival100:
         self._device_write(0x03, preset, allowed_values[value])
 
     def set_polling_rate(self, rate):
-        pass
+        """Set the polling rate.
+
+        Arguments:
+        rate -- the polling rate (125, 250, 500, 1000)
+        """
+        rates = {
+            125: 0x04,
+            250: 0x03,
+            500: 0x02,
+            1000: 0x01,
+        }
+        if not rate in rates:
+            raise ValueError()
+        self._device_write(0x04, 0x00, rates[rate])
 
     def set_color(self, *args):
         """Set the back-light color.
@@ -82,7 +95,7 @@ class Rival100:
         self._device_write(0x05, 0x00, *color)
 
     def set_light_effect(self, effect):
-        """Set the light effect (static, breath,...)
+        """Set the light effect (static, breath,...).
 
         Arguments:
         effect -- the effect (1 or self.EFFECT_STATIC, 2, 3 or self.EFFECT_BREATH, 4)
