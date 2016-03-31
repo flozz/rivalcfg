@@ -105,7 +105,15 @@ class Rival100:
         self._device_write(0x07, 0x00, effect)
 
     def set_btn6_action(self, action):
-        pass
+        """Set the action of the button under the wheel (toggle sensitivity
+        presets or controlled by the os).
+
+        Arguments:
+        action -- the action (self.BTN_ACTION_DEFAULT, self.BTN_ACTION_OS)
+        """
+        if action not in (self.BTN_ACTION_DEFAULT, self.BTN_ACTION_OS):
+            raise ValueError()
+        self._device_write(0x0B, action)
 
     def save(self):
         """Save the current configuration to the mouse internal memory."""
