@@ -1,7 +1,7 @@
 import sys
 from optparse import OptionParser
 
-from helpers import find_hidraw_device_path
+from helpers import find_hidraw_device_path, usb_device_is_connected
 from rival100 import Rival100, VENDOR_ID, PRODUCT_ID
 
 
@@ -47,10 +47,18 @@ parser.add_option("-r", "--reset",
 options, args = parser.parse_args();
 
 
+if not usb_device_is_connected(VENDOR_ID, PRODUCT_ID):
+    print("E: Unable to find any SteelSeries Rival 100 gaming mouse connected to the computer.")
+    sys.exit(1)
+
 device_path = find_hidraw_device_path(VENDOR_ID, PRODUCT_ID)
 
 if not device_path:
-    print("E: Unable to find any SteelSeries Rival 100 gaming mouse connected to the computer")
+    print("E: The mouse is detected but the control interface is not available.")
+    print("\nTry to:")
+    print("  * unplug the mouse from the USB port,")
+    print("  * wait fiew seconds,")
+    print("  * and plug the mouse to the USB port again.")
     sys.exit(1)
 
 rival = Rival100(device_path)

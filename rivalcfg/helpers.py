@@ -22,14 +22,29 @@ NAMED_COLORS = {
      "purple": (0x80, 0x00, 0x80),
 }
 
+def usb_device_is_connected(vendor_id, product_id):
+    """Checks if the given device is connected to the USB bus.
 
-def find_hidraw_device_path(vendor_id, product_id):
+    Arguments:
+    vendor_id -- the vendor id of the device
+    product_id -- the product id of the device
+    """
+    ctx = pyudev.Context();
+    devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
+
+    for device in devices:
+        if (device["ID_MODEL_ID"] == product_id):
+            return True
+    return False
+
+def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
     """
     Find the first HID interface for the given USB vendor id and product id
 
-    arguments:
+    Arguments:
     vendor_id -- the vendor id of the device
     product_id -- the product id of the device
+    interface_num -- the interface number (default: 0)
     """
     ctx = pyudev.Context();
     devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
@@ -38,6 +53,8 @@ def find_hidraw_device_path(vendor_id, product_id):
         if (device["ID_MODEL_ID"] != product_id):
             continue
         if (device["SUBSYSTEM"] != "hidraw"):
+            continue
+        if int(device["ID_USB_INTERFACE_NUM"]) != interface_num:
             continue
 
         return device["DEVNAME"]
