@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
+from rivalcfg import VERSION
 
 setup(
     name="rivalcfg",
-    version="1.0.0",
+    version=VERSION,
     description="Configure the SteelSeries Rival 100 gaming mouse",
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",

@@ -3,6 +3,7 @@ from optparse import OptionParser
 
 from helpers import find_hidraw_device_path, usb_device_is_connected
 from rival100 import Rival100, VENDOR_ID, PRODUCT_ID
+from version import VERSION
 
 
 parser = OptionParser("Usage: rivalcfg [options]")
@@ -44,7 +45,17 @@ parser.add_option("-r", "--reset",
         action="store_true"
         )
 
+parser.add_option("-v", "--version",
+        help="print the rivalcfg version and exit",
+        action="store_true"
+        )
+
 options, args = parser.parse_args();
+
+
+if options.version:
+    print("rivalcfg %s" % VERSION)
+    sys.exit(0)
 
 
 if not usb_device_is_connected(VENDOR_ID, PRODUCT_ID):
@@ -61,7 +72,13 @@ if not device_path:
     print("  * and plug the mouse to the USB port again.")
     sys.exit(1)
 
-rival = Rival100(device_path)
+rival = None
+
+try:
+    rival = Rival100(device_path)
+except IOError as e:
+    print("E: Cannot open the mouse control interface: %s") % e.strerror
+    sys.exit(1)
 
 
 if options.reset:
