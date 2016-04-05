@@ -53,86 +53,87 @@ parser.add_option("-v", "--version",
 options, args = parser.parse_args();
 
 
-if options.version:
-    print("rivalcfg %s" % VERSION)
-    sys.exit(0)
+def main():
+    if options.version:
+        print("rivalcfg %s" % VERSION)
+        sys.exit(0)
 
-
-if not usb_device_is_connected(VENDOR_ID, PRODUCT_ID):
-    print("E: Unable to find any SteelSeries Rival 100 gaming mouse connected to the computer.")
-    sys.exit(1)
-
-device_path = find_hidraw_device_path(VENDOR_ID, PRODUCT_ID)
-
-if not device_path:
-    print("E: The mouse is detected but the control interface is not available.")
-    print("\nTry to:")
-    print("  * unplug the mouse from the USB port,")
-    print("  * wait fiew seconds,")
-    print("  * and plug the mouse to the USB port again.")
-    sys.exit(1)
-
-rival = None
-
-try:
-    rival = Rival100(device_path)
-except IOError as e:
-    print("E: Cannot open the mouse control interface: %s") % e.strerror
-    sys.exit(1)
-
-
-if options.reset:
-    rival.set_default()
-    rival.save()
-    sys.exit(0)
-
-
-option_setted = False
-
-if options.sensitivity1 != None:
-    option_setted = True
-    rival.set_sensitivity(1, int(options.sensitivity1))
-
-if options.sensitivity2 != None:
-    option_setted = True
-    rival.set_sensitivity(2, int(options.sensitivity2))
-
-if options.polling_rate != None:
-    option_setted = True
-    rival.set_polling_rate(int(options.polling_rate))
-
-if options.color != None:
-    option_setted = True
-    try:
-        rival.set_color(options.color)
-    except ValueError:
-        print("E: Invalid color")
+    if not usb_device_is_connected(VENDOR_ID, PRODUCT_ID):
+        print("E: Unable to find any SteelSeries Rival 100 gaming mouse connected to the computer.")
         sys.exit(1)
 
-if options.light_effect != None:
-    option_setted = True
-    effects = {
-        "1": 0x01,
-        "2": 0x02,
-        "3": 0x03,
-        "4": 0x04,
-        "static": rival.EFFECT_STATIC,
-        "breath": rival.EFFECT_BREATH,
-    }
-    rival.set_light_effect(effects[options.light_effect])
+    device_path = find_hidraw_device_path(VENDOR_ID, PRODUCT_ID)
 
-if options.btn6_action != None:
-    option_setted = True
-    actions = {
-        "default": rival.BTN_ACTION_DEFAULT,
-        "os": rival.BTN_ACTION_OS,
-    }
-    rival.set_btn6_action(actions[options.btn6_action])
+    if not device_path:
+        print("E: The mouse is detected but the control interface is not available.")
+        print("\nTry to:")
+        print("  * unplug the mouse from the USB port,")
+        print("  * wait fiew seconds,")
+        print("  * and plug the mouse to the USB port again.")
+        sys.exit(1)
 
-if option_setted:
-    rival.save()
-else:
-    print("E: No options provided")
-    print("type `rivalcfg -h' to display the options")
-    sys.exit(1)
+    rival = None
+
+    try:
+        rival = Rival100(device_path)
+    except IOError as e:
+        print("E: Cannot open the mouse control interface: %s") % e.strerror
+        sys.exit(1)
+
+    if options.reset:
+        rival.set_default()
+        rival.save()
+        sys.exit(0)
+
+    option_setted = False
+
+    if options.sensitivity1 != None:
+        option_setted = True
+        rival.set_sensitivity(1, int(options.sensitivity1))
+
+    if options.sensitivity2 != None:
+        option_setted = True
+        rival.set_sensitivity(2, int(options.sensitivity2))
+
+    if options.polling_rate != None:
+        option_setted = True
+        rival.set_polling_rate(int(options.polling_rate))
+
+    if options.color != None:
+        option_setted = True
+        try:
+            rival.set_color(options.color)
+        except ValueError:
+            print("E: Invalid color")
+            sys.exit(1)
+
+    if options.light_effect != None:
+        option_setted = True
+        effects = {
+            "1": 0x01,
+            "2": 0x02,
+            "3": 0x03,
+            "4": 0x04,
+            "static": rival.EFFECT_STATIC,
+            "breath": rival.EFFECT_BREATH,
+        }
+        rival.set_light_effect(effects[options.light_effect])
+
+    if options.btn6_action != None:
+        option_setted = True
+        actions = {
+            "default": rival.BTN_ACTION_DEFAULT,
+            "os": rival.BTN_ACTION_OS,
+        }
+        rival.set_btn6_action(actions[options.btn6_action])
+
+    if option_setted:
+        rival.save()
+    else:
+        print("E: No options provided")
+        print("type `rivalcfg -h' to display the options")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
 

@@ -25,7 +25,7 @@ setup(
 
     entry_points = {
         "console_scripts": [
-            "rivalcfg = rivalcfg.__main__"
+            "rivalcfg = rivalcfg.__main__:main"
         ]
     },
 )

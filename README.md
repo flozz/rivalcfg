@@ -3,6 +3,31 @@
 rivalcfg is a small CLI utility program that allows you to configure
 the SteelSeries Rival 100 gaming mouse on Linux.
 
+
+## Requirement
+
+* Any Linux distribution that use `udev` (Debian, Ubuntu, ArchLinux,
+  Fedora,...)
+* [`pyudev`](https://pypi.python.org/pypi/pyudev)
+
+
+## Installation
+
+Clone the repositiory:
+
+    git clone https://github.com/flozz/rivalcfg.git
+    cd rivalcfg
+
+Install rivalcfg (as root):
+
+    pip install .
+
+Install `udev` rules to allow non-root users to configure the mouse (as root):
+
+    cp extra/99-steelseries-rival-100.rules /etc/udev/rules.d/
+    udevadm trigger
+
+
 ## CLI
 
     Usage: rivalcfg [options]
