@@ -7,6 +7,7 @@ setup(
     name="rivalcfg",
     version=VERSION,
     description="Configure the SteelSeries Rival 100 gaming mouse",
+    long_description=open("README.md").read(),
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",
 
@@ -20,6 +21,12 @@ setup(
 
     install_requires=[
         "pyudev>=0.19.0"
-    ]
+    ],
+
+    entry_points = {
+        "console_scripts": [
+            "rivalcfg = rivalcfg.__main__"
+        ]
+    },
 )
 
