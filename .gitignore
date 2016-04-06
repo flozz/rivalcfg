@@ -1,2 +1,4 @@
 __env__
 *.pyc
+*.egg-info
+dist

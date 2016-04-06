@@ -7,9 +7,17 @@ setup(
     name="rivalcfg",
     version=VERSION,
     description="Configure the SteelSeries Rival 100 gaming mouse",
-    long_description=open("README.md").read(),
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",
+
+    long_description="""
+    rivalcfg is a small CLI utility program that allows you to configure
+    the SteelSeries Rival 100 gaming mouse on Linux.
+
+    Usage: rivalcfg [options]
+
+    Type "rivalcfg --help" to list available options.
+    """,
 
     author="Fabien LOISON",
     author_email="http://www.flozz.fr/",
