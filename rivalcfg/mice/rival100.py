@@ -57,7 +57,7 @@ rival100 = {
                 500: 0x02,
                 1000: 0x01,
             },
-            "default": 1000
+            "default": 1000,
         },
 
         "set_color": {
@@ -81,7 +81,7 @@ rival100 = {
                 3: 0x03,
                 4: 0x04,
             },
-            "default": "steady"
+            "default": "steady",
         },
 
         "set_btn6_action": {
@@ -93,14 +93,14 @@ rival100 = {
                 "default": 0x00,
                 "os": 0x01,
             },
-            "default": "default"
+            "default": "default",
         },
 
         "save": {
             "description": "Save the configuration to the mouse memory",
             "cli": None,
             "command": [0x09, 0x00],
-            "value_type": None
+            "value_type": None,
         },
 
     },
