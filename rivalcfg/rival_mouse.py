@@ -7,13 +7,13 @@ class RivalMouse:
 
     """Generic class to handle any Rival mouse."""
 
-    def __init__(self, mouse_profile):
+    def __init__(self, profile):
         """Contructor.
 
         Arguments:
-        mouse_profile -- the mouse profile (rivalcfg.mice.*)
+        profile -- the mouse profile (rivalcfg.mice.*)
         """
-        self.profile = mouse_profile
+        self.profile = profile
         self.device_path = None
         self._device = None
         self._device_find()
