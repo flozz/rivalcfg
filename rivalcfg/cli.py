@@ -95,6 +95,11 @@ def main():
 
     options, args = parser.parse_args();
 
+    # Mouse indep commands
+    if options.list:
+        _print_compatible_mice()
+        sys.exit(0)
+
     # Check everything is ok
     if not profile:
         print("E: No compatible mouse found. Type 'rivalcfg --help' for more informations.")
@@ -117,10 +122,6 @@ def main():
 
     if profile["command_before"]:
         getattr(mouse, profile["command_before"])()
-
-    if options.list:
-        _print_compatible_mice()
-        sys.exit(0)
 
     if hasattr(options, "reset") and options.reset:
         mouse.set_default()
