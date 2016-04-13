@@ -1,10 +1,13 @@
 import sys
-from optparse import OptionParser, OptionGroup
+from optparse import OptionParser, OptionGroup, OptionValueError
 
-from helpers import usb_device_is_connected, find_hidraw_device_path
+from helpers import usb_device_is_connected, find_hidraw_device_path, is_color
 from mice import mice_list
+import re
+
 from rival_mouse import RivalMouse
 from version import VERSION
+
 
 def get_plugged_mouse_profile():
     """Returns the profile of the mouse plugged on the computer."""
@@ -12,35 +15,73 @@ def get_plugged_mouse_profile():
         if usb_device_is_connected(profile["vendor_id"], profile["product_id"]):
             return profile
 
-def print_compatible_mice():
+
+def _print_compatible_mice():
     """Prints mice currently supported by this software."""
     print("\n".join([profile["name"] for profile in mice_list]))
 
-def print_software_version():
-    """Prints the software version."""
-    print("rivalcfg %s" % VERSION)
+
+def _check_color(option, opt_str, value, parser):
+    """OptionParser callback to check if the given color is valid."""
+    if not is_color(value):
+        raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, value))
+    setattr(parser.values, option.dest, value)
+
 
 def _generate_default_cli_options(parser):
+    """Add common cli options"""
     parser.add_option("-l", "--list",
         help="print the mice compatible with this software",
         action="store_true"
         )
-    parser.add_option("-v", "--version",
-        help="print the rivalcfg version and exit",
-        action="store_true"
-        )
+
 
 def _generate_mouse_cli_options(parser, profile):
+    """generate CLI specific to the plugged mouse."""
     group = OptionGroup(parser, "%s Options" % profile["name"])
-    # TODO
+    commands = profile["commands"].keys();
+    commands.sort()
+    for command in commands:
+        cmd = profile["commands"][command]
+        if not cmd["cli"]:
+            continue
+        if cmd["value_type"] == "choice":
+            description = "%s (values: %s, default: %s)" % (cmd["description"], ", ".join([str(k) for k in cmd["choices"]]), str(cmd["default"]))
+            group.add_option(
+                    *cmd["cli"],
+                    help=description,
+                    dest=command,
+                    choices=[str(choice) for choice in cmd["choices"].keys()]
+                    )
+        elif cmd["value_type"] == "rgbcolor":
+            description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (cmd["description"], str(cmd["default"]))
+            group.add_option(
+                    *cmd["cli"],
+                    dest=command,
+                    help=description,
+                    type="string",
+                    action="callback",
+                    callback=_check_color
+                    )
+        else:
+            raise NotImplementedError("Cannot generate CLI option for value_type '%s'" % cmd["value_type"])
+    group.add_option("-r", "--reset",
+            help="Reset all options to their factory values",
+            action="store_true"
+            )
     parser.add_option_group(group)
 
+
 def main():
+    """Run rivalcfg's CLI"""
     # Find the plugged mouse's profile
     profile = get_plugged_mouse_profile()
 
     # Generates CLI options
-    parser = OptionParser("Usage: rivalcfg [options]")
+    parser = OptionParser("Usage: rivalcfg [options]",
+            version=VERSION,
+            epilog="Please report any bug on Github: https://github.com/flozz/rivalcfg/issues"
+            )
     _generate_default_cli_options(parser);
     if profile:
         _generate_mouse_cli_options(parser, profile)
@@ -60,15 +101,29 @@ def main():
         print("  * and plug the mouse to the USB port again.")
         sys.exit(1)
 
+    if len(sys.argv) <= 1:
+        parser.print_help()
+
     # Configure the mouse
     mouse = RivalMouse(profile)
 
+    if profile["command_before"]:
+        getattr(mouse, profile["command_before"])()
+
+    if options.list:
+        _print_compatible_mice()
+        sys.exit(0)
+
+    if hasattr(options, "reset") and options.reset:
+        mouse.set_default()
+
     for option, value in options.__dict__.items():
-        if option == "list" and value:
-            print_compatible_mice()
-            sys.exit(0)
-        elif option == "version" and value:
-            print_software_version()
-            sys.exit(0)
-        else:
-            pass  # TODO
+        if option in ["list", "reset"] or value == None:
+            continue
+        if value.isdigit():
+            value = int(value)
+        getattr(mouse, option)(value)
+
+    if profile["command_after"]:
+        getattr(mouse, profile["command_after"])()
+

@@ -11,7 +11,7 @@ rival100 = {
     "commands": {
 
         "set_sensitivity1": {
-            "desription": "Set sensitivity preset 1",
+            "description": "Set sensitivity preset 1",
             "cli": ["-s", "--sensitivity1"],
             "command": [0x03, 0x01],
             "value_type": "choice",
@@ -29,7 +29,7 @@ rival100 = {
         },
 
         "set_sensitivity2": {
-            "desription": "Set sensitivity preset 2",
+            "description": "Set sensitivity preset 2",
             "cli": ["-S", "--sensitivity2"],
             "command": [0x03, 0x02],
             "value_type": "choice",

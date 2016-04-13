@@ -22,6 +22,7 @@ NAMED_COLORS = {
      "purple": (0x80, 0x00, 0x80),
 }
 
+
 def usb_device_is_connected(vendor_id, product_id):
     """Checks if the given device is connected to the USB bus.
 
@@ -36,6 +37,7 @@ def usb_device_is_connected(vendor_id, product_id):
         if (device["ID_MODEL_ID"] == product_id):
             return True
     return False
+
 
 def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
     """
@@ -59,6 +61,7 @@ def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
 
         return device["DEVNAME"]
 
+
 def is_color(string):
     """Checks if the given string is a valid color.
 
@@ -66,6 +69,7 @@ def is_color(string):
     string -- the string to check
     """
     return string in NAMED_COLORS or bool(re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE));
+
 
 def color_string_to_rgb(color_string):
     """Converts the color string into an RGB tuple.
@@ -88,3 +92,4 @@ def color_string_to_rgb(color_string):
         int(color_string[2:4], 16),
         int(color_string[4:], 16)
     )
+

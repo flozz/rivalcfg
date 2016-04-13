@@ -21,7 +21,7 @@ class RivalMouse:
 
     def set_default(self):
         """Set all option to their default values."""
-        pass  # TODO
+        raise NotImplementedError()
 
     def _device_find(self):
         """Find the HIDRAW device file path."""
