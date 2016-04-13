@@ -56,7 +56,7 @@ class RivalMouse:
         if not value in command["choices"]:
             raise ValueError("value must be one of [%s]" % ", ".join([str(k) for k in command["choices"].keys()]))
         bytes_ = list(command["command"])
-        bytes_.append(value)
+        bytes_.append(command["choices"][value])
         self._device_write(*bytes_)
 
     def _handler_rgbcolor(self, command, *args):
