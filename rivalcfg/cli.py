@@ -13,19 +13,20 @@ def get_plugged_mouse_profile():
             return profile
 
 def print_compatible_mice():
-    """Returns a list of mice supported by this software."""
-    return [profile["name"] for profile in mice_list]
+    """Prints mice currently supported by this software."""
+    print("\n".join([profile["name"] for profile in mice_list]))
 
 def print_software_version():
-    pass
+    """Prints the software version."""
+    print("rivalcfg %s" % VERSION)
 
 def _generate_default_cli_options(parser):
-    parser.add_option("-v", "--version",
-        help="print the rivalcfg version and exit",
-        action="store_true"
-        )
     parser.add_option("-l", "--list",
         help="print the mice compatible with this software",
+        action="store_true"
+        )
+    parser.add_option("-v", "--version",
+        help="print the rivalcfg version and exit",
         action="store_true"
         )
 
@@ -33,9 +34,6 @@ def _generate_mouse_cli_options(parser, profile):
     group = OptionGroup(parser, "%s Options" % profile["name"])
     # TODO
     parser.add_option_group(group)
-
-def _configure_moues_from_cli_options(mouse, options):
-    pass
 
 def main():
     # Find the plugged mouse's profile
@@ -64,4 +62,13 @@ def main():
 
     # Configure the mouse
     mouse = RivalMouse(profile)
-    _configure_moues_from_cli_options(mouse, options)
+
+    for option, value in options.__dict__.items():
+        if option == "list" and value:
+            print_compatible_mice()
+            sys.exit(0)
+        elif option == "version" and value:
+            print_software_version()
+            sys.exit(0)
+        else:
+            pass  # TODO
