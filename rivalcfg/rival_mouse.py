@@ -20,8 +20,10 @@ class RivalMouse:
         self._device_open()
 
     def set_default(self):
-        """Set all option to their default values."""
-        raise NotImplementedError()
+        """Set all option to their factory values."""
+        for command in self.profile["commands"]:
+            if "default" in self.profile["commands"][command]:
+                getattr(self, command)(self.profile["commands"][command]["default"])
 
     def _device_find(self):
         """Find the HIDRAW device file path."""
