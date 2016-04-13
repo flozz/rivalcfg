@@ -53,21 +53,37 @@ class RivalMouse:
 
     def _handler_choice(self, command, value):
         """Handle commands with value picked from a dict."""
-        pass  # TODO
+        if not value in command["choices"]:
+            raise ValueError("value must be one of [%s]" % ", ".join([str(k) for k in command["choices"].keys()]))
+        bytes_ = list(command["command"])
+        bytes_.append(value)
+        self._device_write(*bytes_)
 
     def _handler_rgbcolor(self, command, *args):
         """Handle commands with RGB color values."""
-        pass  # TODO
+        color = (0x00, 0x00, 0x00)
+        if len(args) == 3:
+            for value in args:
+                if type(value) != int or value < 0 or value > 255:
+                    raise ValueError()
+            color = args
+        elif len(args) == 1 and type(args[0]) == str and is_color(args[0]):
+            color = color_string_to_rgb(args[0])
+        else:
+            raise ValueError()
+        bytes_ = list(command["command"])
+        bytes_.extend(color)
+        self._device_write(*bytes_)
 
     def _handler_none(self, command):
         """Handle commands with no values."""
-        pass  # TODO
+        self._device_write(*command["command"])
 
     def __getattr__(self, name):
         if not name in self.profile["commands"]:
             raise AttributeError("There is no command named '%s'" % name)
         command = self.profile["commands"][name]
-        handler = "_handler_%s" % command["value_type"]
+        handler = "_handler_%s" % str(command["value_type"]).lower()
         if not hasattr(self, handler):
             raise Exception("There is not handler for the '%s' value type" % command["value_type"])
         return partial(getattr(self, handler), command)
