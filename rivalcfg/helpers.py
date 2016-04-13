@@ -41,7 +41,7 @@ def usb_device_is_connected(vendor_id, product_id):
 
 def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
     """
-    Find the first HID interface for the given USB vendor id and product id
+    Find the first HID interface for the given USB vendor id and product id.
 
     Arguments:
     vendor_id -- the vendor id of the device
@@ -65,10 +65,10 @@ def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
 def is_color(string):
     """Checks if the given string is a valid color.
 
-    Arguments
+    Arguments:
     string -- the string to check
     """
-    return string in NAMED_COLORS or bool(re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE));
+    return string in NAMED_COLORS or bool(re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE))
 
 
 def color_string_to_rgb(color_string):
@@ -76,6 +76,9 @@ def color_string_to_rgb(color_string):
 
     Arguments:
     color_string -- the string to converts
+
+    Returns:
+    an (R, G, B) tuple
     """
     # Named color
     if color_string in NAMED_COLORS:

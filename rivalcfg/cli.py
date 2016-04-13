@@ -32,7 +32,7 @@ def _check_color(option, opt_str, value, parser):
 def _generate_default_cli_options(parser):
     """Add common cli options"""
     parser.add_option("-l", "--list",
-        help="print the mice compatible with this software",
+        help="print compatible mice and exit",
         action="store_true"
         )
 
@@ -40,8 +40,7 @@ def _generate_default_cli_options(parser):
 def _generate_mouse_cli_options(parser, profile):
     """generate CLI specific to the plugged mouse."""
     group = OptionGroup(parser, "%s Options" % profile["name"])
-    commands = profile["commands"].keys();
-    commands.sort()
+    commands = sorted(profile["commands"].keys());
     for command in commands:
         cmd = profile["commands"][command]
         if not cmd["cli"]:
@@ -111,6 +110,7 @@ def main():
 
     if len(sys.argv) <= 1:
         parser.print_help()
+        sys.exit(1)
 
     # Configure the mouse
     mouse = RivalMouse(profile)
