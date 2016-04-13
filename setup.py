@@ -6,13 +6,20 @@ from rivalcfg import VERSION
 setup(
     name="rivalcfg",
     version=VERSION,
-    description="Configure the SteelSeries Rival 100 gaming mouse",
+    description="Configure SteelSeries Rival gaming mice",
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",
 
     long_description="""
     rivalcfg is a small CLI utility program that allows you to configure
-    the SteelSeries Rival 100 gaming mouse on Linux.
+    SteelSeries Rival gaming mice on Linux.
+
+    Supported mice:
+
+    * ~~SteelSeries Rival~~ **WORK IN PROGRESS**
+    * SteelSeries Rival 100
+    * ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
+
 
     Usage: rivalcfg [options]
 
@@ -33,7 +40,7 @@ setup(
 
     entry_points = {
         "console_scripts": [
-            "rivalcfg = rivalcfg.__main__:main"
+            "rivalcfg = rivalcfg.cli:main"
         ]
     },
 )
