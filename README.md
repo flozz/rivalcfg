@@ -32,28 +32,31 @@ Install `udev` rules to allow non-root users to configure the mouse (as root):
 
     Usage: rivalcfg [options]
 
-    Options:
-    -h, --help            show this help message and exit
-    -s SENSITIVITY, --sensitivity1=SENSITIVITY
-                            Set sensitivity preset 1 (allowed values are 250, 500,
-                            1000, 1250, 1500, 1750, 2000 and 4000; default value
-                            is 1000)
-    -S SENSITIVITY, --sensitivity2=SENSITIVITY
-                            Set sensitivity preset 2 (allowed values are 250, 500,
-                            1000, 1250, 1500, 1750, 2000 and 4000; default value
-                            is 2000)
-    -p POLLING_RATE, --polling-rate=POLLING_RATE
-                            Set polling rate in Hz (allowed values are 125, 250,
-                            500 and 1000; default value is 1000)
-    -c COLOR, --color=COLOR
-                            Set the mouse backlight color (color can be an
-                            hexadecimal color or a nammed color; e.g. ff0000, f00,
-                            #ff0000, #f00, red,...)
-    -e LIGHT_EFFECT, --light-effect=LIGHT_EFFECT
-                            Set the light effect (allowed values are 1 or static,
-                            2, 3 or breath, 4)
-    -b ACTION, --btn6-action=ACTION
-                            Set the action of the button under the wheel (allowed
-                            values are default and os)
-    -r, --reset           Reset all options to their default values
+Main Options:
+
+    --version           show program's version number and exit
+    -h, --help          show this help message and exit
+    -l, --list          print compatible mice and exit
+
+SteelSeries Rival 100 Options:
+
+    -b SET_BTN6_ACTION, --btn6-action=SET_BTN6_ACTION
+                        Set the action of the button under the wheel (values:
+                        default, os, default: default)
+    -c SET_COLOR, --color=SET_COLOR
+                        Set the mouse backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #00FFFF)
+    -e SET_LIGHT_EFFECT, --light-effect=SET_LIGHT_EFFECT
+                        Set the light effect (values: 1, 2, 3, 4, breath,
+                        steady, default: steady)
+    -p SET_POLLING_RATE, --polling-rate=SET_POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -s SET_SENSITIVITY1, --sensitivity1=SET_SENSITIVITY1
+                        Set sensitivity preset 1 (values: 250, 500, 1000,
+                        1250, 1500, 1750, 2000, 4000, default: 1000)
+    -S SET_SENSITIVITY2, --sensitivity2=SET_SENSITIVITY2
+                        Set sensitivity preset 2 (values: 250, 500, 1000,
+                        1250, 1500, 1750, 2000, 4000, default: 2000)
+    -r, --reset         Reset all options to their factory values
 
