@@ -1,6 +1,6 @@
 from functools import partial
 
-from helpers import find_hidraw_device_path, is_color, color_string_to_rgb
+from helpers import find_hidraw_device_path, is_color, color_string_to_rgb, choices_to_string
 
 
 class RivalMouse:
@@ -54,7 +54,7 @@ class RivalMouse:
     def _handler_choice(self, command, value):
         """Handle commands with value picked from a dict."""
         if not value in command["choices"]:
-            raise ValueError("value must be one of [%s]" % ", ".join([str(k) for k in command["choices"].keys()]))
+            raise ValueError("value must be one of [%s]" % choices_to_string(command["choices"]))
         bytes_ = list(command["command"])
         bytes_.append(command["choices"][value])
         self._device_write(*bytes_)

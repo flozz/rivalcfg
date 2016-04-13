@@ -91,5 +91,23 @@ def color_string_to_rgb(color_string):
         int(color_string[0:2], 16),
         int(color_string[2:4], 16),
         int(color_string[4:], 16)
-    )
+        )
+
+
+def choices_to_list(choices):
+    """Transforms choices dict to an ordered string list.
+
+    Arguments:
+    choices -- the dict containing available choices
+    """
+    return [str(choice) for choice in sorted(choices.keys())]
+
+
+def choices_to_string(choices):
+    """Transforms choices dict to a printable string.
+
+    Arguments:
+    choices -- the dict containing available choices
+    """
+    return ", ".join(choices_to_list(choices))
 

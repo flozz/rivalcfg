@@ -1,7 +1,8 @@
 import sys
 from optparse import OptionParser, OptionGroup, OptionValueError
 
-from helpers import usb_device_is_connected, find_hidraw_device_path, is_color
+from helpers import (usb_device_is_connected, find_hidraw_device_path,
+        is_color, choices_to_list, choices_to_string)
 from mice import mice_list
 import re
 
@@ -46,15 +47,22 @@ def _generate_mouse_cli_options(parser, profile):
         if not cmd["cli"]:
             continue
         if cmd["value_type"] == "choice":
-            description = "%s (values: %s, default: %s)" % (cmd["description"], ", ".join([str(k) for k in cmd["choices"]]), str(cmd["default"]))
+            description = "%s (values: %s, default: %s)" % (
+                    cmd["description"],
+                    choices_to_string(cmd["choices"]),
+                    str(cmd["default"])
+                    )
             group.add_option(
                     *cmd["cli"],
                     help=description,
                     dest=command,
-                    choices=[str(choice) for choice in cmd["choices"].keys()]
+                    choices=choices_to_list(cmd["choices"])
                     )
         elif cmd["value_type"] == "rgbcolor":
-            description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (cmd["description"], str(cmd["default"]))
+            description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (
+                    cmd["description"],
+                    str(cmd["default"])
+                    )
             group.add_option(
                     *cmd["cli"],
                     dest=command,
