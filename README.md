@@ -1,7 +1,13 @@
-# rivalcfg: Configure the SteelSeries Rival 100 gaming mouse
+# rivalcfg: Configure SteelSeries Rival gaming mice
 
 rivalcfg is a small CLI utility program that allows you to configure
-the SteelSeries Rival 100 gaming mouse on Linux.
+SteelSeries Rival gaming mice on Linux.
+
+Supported mice:
+
+* ~~SteelSeries Rival~~ **WORK IN PROGRESS**
+* SteelSeries Rival 100
+* ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
 
 
 ## Requirement
@@ -59,4 +65,11 @@ SteelSeries Rival 100 Options:
                         Set sensitivity preset 2 (values: 250, 500, 1000,
                         1250, 1500, 1750, 2000, 4000, default: 2000)
     -r, --reset         Reset all options to their factory values
+
+
+## Changelog
+
+* **2.O.0:** Refactored to support multiple mice
+* **1.0.1:** Fixes the pypi package
+* **1.0.0:** Initial release
 
