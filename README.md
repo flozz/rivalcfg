@@ -67,6 +67,18 @@ SteelSeries Rival 100 Options:
     -r, --reset         Reset all options to their factory values
 
 
+## Debug
+
+* `DEBUG_DRY=true`: Dry run (simulate commands, do not write anything to the
+  device).
+* `DEBUG_MOUSE=<VendorID>:<ProductId>`: Force to load the corresponding
+  profile.
+
+Example:
+
+    DEBUG_DRY=true DEBUG_MOUSE=1038:1384 rivalcfg -c ff3300
+
+
 ## Changelog
 
 * **2.0.0:** Refactored to support multiple mice

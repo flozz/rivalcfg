@@ -1,25 +1,36 @@
+import os
 import sys
+import re
 from optparse import OptionParser, OptionGroup, OptionValueError
 
+import mice
 from helpers import (usb_device_is_connected, find_hidraw_device_path,
         is_color, choices_to_list, choices_to_string)
-from mice import mice_list
-import re
-
 from rival_mouse import RivalMouse
 from version import VERSION
 
 
+DEBUG_DRY = "DEBUG_DRY" in os.environ
+DEBUG_VENDOR_ID = None
+DEBUG_PRODUCT_ID = None
+if "DEBUG_MOUSE" in os.environ:
+    DEBUG_VENDOR_ID = os.environ["DEBUG_MOUSE"].split(":")[0]
+    DEBUG_PRODUCT_ID = os.environ["DEBUG_MOUSE"].split(":")[1]
+DEBUG = DEBUG_DRY or DEBUG_VENDOR_ID
+
+
 def get_plugged_mouse_profile():
     """Returns the profile of the mouse plugged on the computer."""
-    for profile in mice_list:
-        if usb_device_is_connected(profile["vendor_id"], profile["product_id"]):
+    for profile in mice.mice_list:
+        if profile["vendor_id"] == DEBUG_VENDOR_ID and profile["product_id"] == DEBUG_PRODUCT_ID:
+            return profile
+        elif not DEBUG_VENDOR_ID and usb_device_is_connected(profile["vendor_id"], profile["product_id"]):
             return profile
 
 
 def _print_compatible_mice():
     """Prints mice currently supported by this software."""
-    print("\n".join([profile["name"] for profile in mice_list]))
+    print("\n".join([profile["name"] for profile in mice.mice_list]))
 
 
 def _check_color(option, opt_str, value, parser):
@@ -84,6 +95,18 @@ def main():
     # Find the plugged mouse's profile
     profile = get_plugged_mouse_profile()
 
+    # Debug infos
+    if DEBUG:
+        print("[DEBUG] Debugging rivalcfg %s..." % VERSION)
+    if DEBUG_DRY:
+        print("[DEBUG] Dry run enabled")
+    if DEBUG_PRODUCT_ID:
+        print("[DEBUG] Debugging mouse profile %s:%s" % (DEBUG_VENDOR_ID, DEBUG_PRODUCT_ID))
+    if DEBUG and profile:
+        print("[DEBUG] Mouse profile found: %s" % profile["name"])
+    if DEBUG and not profile:
+        print("[DEBUG] No mouse profile found")
+
     # Generates CLI options
     parser = OptionParser("Usage: rivalcfg [options]",
             version=VERSION,
@@ -105,7 +128,7 @@ def main():
         print("E: No compatible mouse found. Type 'rivalcfg --help' for more informations.")
         sys.exit(1);
 
-    if not find_hidraw_device_path(profile["vendor_id"], profile["product_id"], profile["hidraw_interface_number"]):
+    if not DEBUG_DRY and not find_hidraw_device_path(profile["vendor_id"], profile["product_id"], profile["hidraw_interface_number"]):
         print("E: The '%s' mouse is plugged in but the control interface is not available." % profile["name"])
         print("\nTry to:")
         print("  * unplug the mouse from the USB port,")

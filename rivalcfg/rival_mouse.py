@@ -1,6 +1,10 @@
+import os
 from functools import partial
 
 from helpers import find_hidraw_device_path, is_color, color_string_to_rgb, choices_to_string
+
+
+DEBUG_DRY = "DEBUG_DRY" in os.environ
 
 
 class RivalMouse:
@@ -16,8 +20,9 @@ class RivalMouse:
         self.profile = profile
         self.device_path = None
         self._device = None
-        self._device_find()
-        self._device_open()
+        if not DEBUG_DRY:
+            self._device_find()
+            self._device_open()
 
     def set_default(self):
         """Set all option to their factory values."""
@@ -42,6 +47,9 @@ class RivalMouse:
         Arguments:
         *bytes_ -- bytes to write
         """
+        if DEBUG_DRY:
+            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % b for b in bytes_]))
+            return
         if not self._device:
             return;
         self._device.write(bytearray(bytes_))

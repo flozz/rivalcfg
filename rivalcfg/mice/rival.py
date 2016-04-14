@@ -68,7 +68,7 @@ rival = {
 
         "set_wheel_light_effect": {
             "description": "Set the wheel light effect",
-            "cli": ["-e", "--wheel-light-effect"],
+            "cli": ["-E", "--wheel-light-effect"],
             "command": [0x07, 0x02],
             "value_type": "choice",
             "choices": {
