@@ -67,7 +67,10 @@ class RivalMouse:
         """Handle commands with value picked from a dict."""
         if not value in command["choices"]:
             raise ValueError("value must be one of [%s]" % choices_to_string(command["choices"]))
-        self._device_write(*merge_bytes(command["command"], command["choices"][value]))
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](value)))
+        else:
+            self._device_write(*merge_bytes(command["command"], command["choices"][value]))
 
     def _handler_rgbcolor(self, command, *args):
         """Handle commands with RGB color values."""
@@ -81,7 +84,10 @@ class RivalMouse:
             color = color_string_to_rgb(args[0])
         else:
             raise ValueError()
-        self._device_write(*merge_bytes(command["command"], color))
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](*args)))
+        else:
+            self._device_write(*merge_bytes(command["command"], color))
 
     def _handler_range(self, command, value):
         """Handle commands with value from a range."""
@@ -96,7 +102,10 @@ class RivalMouse:
                 value,
                 command["range_increment"]
                 ))
-        self._device_write(*merge_bytes(command["command"], value))
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](value)))
+        else:
+            self._device_write(*merge_bytes(command["command"], value))
 
 
     def _handler_none(self, command):
