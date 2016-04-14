@@ -78,6 +78,15 @@ Example:
 
     DEBUG_DRY=true DEBUG_MOUSE=1038:1384 rivalcfg -c ff3300
 
+Result:
+
+    [DEBUG] Debugging rivalcfg 2.0.0...
+    [DEBUG] Dry run enabled
+    [DEBUG] Debugging mouse profile 1038:1384
+    [DEBUG] Mouse profile found: SteelSeries Rival
+    [DEBUG] _device_write: 08 01 FF 33 00
+    [DEBUG] _device_write: 09 00
+
 
 ## Changelog
 

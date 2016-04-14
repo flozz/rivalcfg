@@ -81,6 +81,20 @@ def _generate_mouse_cli_options(parser, profile):
                     action="callback",
                     callback=_check_color
                     )
+        elif cmd["value_type"] == "range":
+            description = "%s (from %i to %i in increments of %i, default: %i)" % (
+                    cmd["description"],
+                    cmd["range_min"],
+                    cmd["range_max"],
+                    cmd["range_increment"],
+                    cmd["default"]
+                    )
+            group.add_option(
+                    *cmd["cli"],
+                    dest=command,
+                    help=description
+                    # choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
+                    )
         else:
             raise NotImplementedError("Cannot generate CLI option for value_type '%s'" % cmd["value_type"])
     group.add_option("-r", "--reset",
