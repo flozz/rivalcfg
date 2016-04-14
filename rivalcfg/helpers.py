@@ -114,3 +114,14 @@ def choices_to_string(choices):
     """
     return ", ".join(choices_to_list(choices))
 
+
+def merge_bytes(*args):
+    """Merge byte and list of byte into a single list of byte."""
+    result = []
+    for arg in args:
+        if type(arg) in [list, tuple]:
+            result.extend(arg)
+        else:
+            result.append(arg)
+    return result
+

@@ -1,7 +1,9 @@
 import os
 from functools import partial
 
-from helpers import find_hidraw_device_path, is_color, color_string_to_rgb, choices_to_string
+from helpers import (
+        find_hidraw_device_path, is_color, color_string_to_rgb,
+        choices_to_string, merge_bytes)
 
 
 DEBUG_DRY = "DEBUG_DRY" in os.environ
@@ -65,9 +67,7 @@ class RivalMouse:
         """Handle commands with value picked from a dict."""
         if not value in command["choices"]:
             raise ValueError("value must be one of [%s]" % choices_to_string(command["choices"]))
-        bytes_ = list(command["command"])
-        bytes_.append(command["choices"][value])
-        self._device_write(*bytes_)
+        self._device_write(*merge_bytes(command["command"], command["choices"][value]))
 
     def _handler_rgbcolor(self, command, *args):
         """Handle commands with RGB color values."""
@@ -81,9 +81,23 @@ class RivalMouse:
             color = color_string_to_rgb(args[0])
         else:
             raise ValueError()
-        bytes_ = list(command["command"])
-        bytes_.extend(color)
-        self._device_write(*bytes_)
+        self._device_write(*merge_bytes(command["command"], color))
+
+    def _handler_range(self, command, value):
+        """Handle commands with value from a range."""
+        if not command["range_min"] <= value <= command["range_max"]:
+            raise ValueError("Value %i not in range (%i, %i)" % (
+                value,
+                command["range_min"],
+                command["range_max"]
+                ))
+        if value % command["range_increment"] != 0:
+            raise ValueError("Value %i is not an increment of %i" % (
+                value,
+                command["range_increment"]
+                ))
+        self._device_write(*merge_bytes(command["command"], value))
+
 
     def _handler_none(self, command):
         """Handle commands with no values."""
