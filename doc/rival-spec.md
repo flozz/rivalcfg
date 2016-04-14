@@ -2,8 +2,8 @@
 
 Extracted from https://github.com/andrepl/rivalctl/blob/master/rival/rival.py
 
-__NOTE:__ There is maybe more commands available for this mouse but I don"t have it, so
-I cannot check.
+__NOTE:__ There is maybe more commands available for this mouse but I don't
+have it, so I cannot check.
 
 
 ## Devices infos
