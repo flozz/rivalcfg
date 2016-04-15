@@ -1,4 +1,4 @@
-# SteelSeries Rival 100 gaming mouse's USB HID protocol spec
+# SteelSeries Rival 100 gaming mouse's USB HID commands
 
 Translated from http://blog.flozz.fr/2016-03-27/steelseries-rival-100-reverse-engineering-peripherique-usb/
 
@@ -8,6 +8,7 @@ Translated from http://blog.flozz.fr/2016-03-27/steelseries-rival-100-reverse-en
     USB class: HID
     VendorID: 1038
     ProductID: 1702
+    HIDRAW interface no: 0
 
 
 ## Commands
@@ -24,13 +25,16 @@ Translated from http://blog.flozz.fr/2016-03-27/steelseries-rival-100-reverse-en
 
 ### set_sensitivity
 
+The mouse can store two sensitivity presets (you can switch between them using
+the button under the wheel).
+
     0x03 <preset> <value>
 
 Params:
 
 * `preset`: preset number:
   * `0x01`: first preset
-  * `0x02`: second
+  * `0x02`: second preset
 * `value`: sensitivity:
   * `0x08`: 250 DPI
   * `0x07`: 500 DPI
@@ -42,6 +46,10 @@ Params:
   * `0x01`: 4000 DPI
 
 ### set_polling_rate
+
+Defines the frequency at which the computer will poll the mouse for new
+position. A low polling rate can makes the mouse laggy, a high one will use
+more bandwidth on the USB bus and will use more CPU cycles.
 
     0x04 0x00 <rate>
 
@@ -56,6 +64,8 @@ Params:
 
 ### set_color
 
+Set the mouse backlight color.
+
     0x05 0x00 <red> <green> <blue>
 
 Params:
@@ -66,6 +76,8 @@ Params:
 * `blue`: blue channel of the RGB color (from `0x00` to `0xFF`)
 
 ### set_light_effect
+
+Defines the effect applied on the lights?
 
     0x07 0x00 <effect>
 

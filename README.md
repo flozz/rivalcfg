@@ -5,10 +5,13 @@ SteelSeries Rival gaming mice on Linux.
 
 Supported mice:
 
-* ~~SteelSeries Rival~~ **WORK IN PROGRESS**
+* SteelSeries Rival (experimental¹)
 * SteelSeries Rival 100
 * ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
 
+__experimental¹:__ I don't have this mouse so I am unable to test it. If you
+have this mouse, please test all commands and report what is working or not by
+openning an issue on Github: https://github.com/flozz/rivalcfg/issues
 
 ## Requirement
 
@@ -30,7 +33,7 @@ Install rivalcfg (as root):
 
 Install `udev` rules to allow non-root users to configure the mouse (as root):
 
-    cp extra/99-steelseries-rival-100.rules /etc/udev/rules.d/
+    cp extra/99-steelseries-rival.rules /etc/udev/rules.d/
     udevadm trigger
 
 
@@ -43,6 +46,31 @@ Main Options:
     --version           show program's version number and exit
     -h, --help          show this help message and exit
     -l, --list          print compatible mice and exit
+
+SteelSeries Rival Options:
+
+    -c SET_LOGO_COLOR, --logo-color=SET_LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -e SET_LOGO_LIGHT_EFFECT, --logo-light-effect=SET_LOGO_LIGHT_EFFECT
+                        Set the logo light effect (values: 1, 2, 3, 4, breath,
+                        steady, default: steady)
+    -p SET_POLLING_RATE, --polling-rate=SET_POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -s SET_SENSITIVITY1, --sensitivity1=SET_SENSITIVITY1
+                        Set sensitivity preset 1 (from 50 to 6500 in
+                        increments of 50, default: 800)
+    -S SET_SENSITIVITY2, --sensitivity2=SET_SENSITIVITY2
+                        Set sensitivity preset 2 (from 50 to 6500 in
+                        increments of 50, default: 1600)
+    -C SET_WHEEL_COLOR, --wheel-color=SET_WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -E SET_WHEEL_LIGHT_EFFECT, --wheel-light-effect=SET_WHEEL_LIGHT_EFFECT
+                        Set the wheel light effect (values: 1, 2, 3, 4,
+                        breath, steady, default: steady)
+    -r, --reset         Reset all options to their factory values
 
 SteelSeries Rival 100 Options:
 
@@ -67,9 +95,30 @@ SteelSeries Rival 100 Options:
     -r, --reset         Reset all options to their factory values
 
 
+## Debug
+
+* `DEBUG_DRY=true`: Dry run (simulate commands, do not write anything to the
+  device).
+* `DEBUG_MOUSE=<VendorID>:<ProductId>`: Force to load the corresponding
+  profile.
+
+Example:
+
+    DEBUG_DRY=true DEBUG_MOUSE=1038:1384 rivalcfg -c ff3300
+
+Result:
+
+    [DEBUG] Debugging rivalcfg 2.0.0...
+    [DEBUG] Dry run enabled
+    [DEBUG] Debugging mouse profile 1038:1384
+    [DEBUG] Mouse profile found: SteelSeries Rival
+    [DEBUG] _device_write: 08 01 FF 33 00
+    [DEBUG] _device_write: 09 00
+
+
 ## Changelog
 
-* **2.O.0:** Refactored to support multiple mice
+* **2.0.0:** Refactored to support multiple mice
 * **1.0.1:** Fixes the pypi package
 * **1.0.0:** Initial release
 

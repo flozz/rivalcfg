@@ -1,6 +1,12 @@
+import os
 from functools import partial
 
-from helpers import find_hidraw_device_path, is_color, color_string_to_rgb, choices_to_string
+from helpers import (
+        find_hidraw_device_path, is_color, color_string_to_rgb,
+        choices_to_string, merge_bytes)
+
+
+DEBUG_DRY = "DEBUG_DRY" in os.environ
 
 
 class RivalMouse:
@@ -16,8 +22,9 @@ class RivalMouse:
         self.profile = profile
         self.device_path = None
         self._device = None
-        self._device_find()
-        self._device_open()
+        if not DEBUG_DRY:
+            self._device_find()
+            self._device_open()
 
     def set_default(self):
         """Set all option to their factory values."""
@@ -42,6 +49,9 @@ class RivalMouse:
         Arguments:
         *bytes_ -- bytes to write
         """
+        if DEBUG_DRY:
+            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % b for b in bytes_]))
+            return
         if not self._device:
             return;
         self._device.write(bytearray(bytes_))
@@ -57,9 +67,10 @@ class RivalMouse:
         """Handle commands with value picked from a dict."""
         if not value in command["choices"]:
             raise ValueError("value must be one of [%s]" % choices_to_string(command["choices"]))
-        bytes_ = list(command["command"])
-        bytes_.append(command["choices"][value])
-        self._device_write(*bytes_)
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](value)))
+        else:
+            self._device_write(*merge_bytes(command["command"], command["choices"][value]))
 
     def _handler_rgbcolor(self, command, *args):
         """Handle commands with RGB color values."""
@@ -73,9 +84,29 @@ class RivalMouse:
             color = color_string_to_rgb(args[0])
         else:
             raise ValueError()
-        bytes_ = list(command["command"])
-        bytes_.extend(color)
-        self._device_write(*bytes_)
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](*args)))
+        else:
+            self._device_write(*merge_bytes(command["command"], color))
+
+    def _handler_range(self, command, value):
+        """Handle commands with value from a range."""
+        if not command["range_min"] <= value <= command["range_max"]:
+            raise ValueError("Value %i not in range (%i, %i)" % (
+                value,
+                command["range_min"],
+                command["range_max"]
+                ))
+        if value % command["range_increment"] != 0:
+            raise ValueError("Value %i is not an increment of %i" % (
+                value,
+                command["range_increment"]
+                ))
+        if "value_transform" in command:
+            self._device_write(*merge_bytes(command["command"], command["value_transform"](value)))
+        else:
+            self._device_write(*merge_bytes(command["command"], value))
+
 
     def _handler_none(self, command):
         """Handle commands with no values."""

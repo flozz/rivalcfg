@@ -16,9 +16,13 @@ setup(
 
     Supported mice:
 
-    * ~~SteelSeries Rival~~ **WORK IN PROGRESS**
+    * SteelSeries Rival (experimental¹)
     * SteelSeries Rival 100
     * ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
+
+    __experimental¹:__ I don't have this mouse so I am unable to test it. If you
+    have this mouse, please test all commands and report what is working or not by
+    openning an issue on Github: https://github.com/flozz/rivalcfg/issues
 
 
     Usage: rivalcfg [options]
