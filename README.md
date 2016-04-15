@@ -118,6 +118,7 @@ Result:
 
 ## Changelog
 
+* **2.1.0:** Experimental Original Rival support
 * **2.0.0:** Refactored to support multiple mice
 * **1.0.1:** Fixes the pypi package
 * **1.0.0:** Initial release
