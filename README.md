@@ -118,6 +118,7 @@ Result:
 
 ## Changelog
 
+* **2.2.0:** Experimental Rival 300 support
 * **2.1.1:** Includes udev rules in the package and automatically install the
   rules (if possible)
 * **2.1.0:** Experimental Original Rival support
