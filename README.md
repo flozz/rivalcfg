@@ -7,7 +7,7 @@ Supported mice:
 
 * SteelSeries Rival (experimental¹)
 * SteelSeries Rival 100
-* ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
+* SteelSeries Rival 300 (experimental¹)
 
 __experimental¹:__ I don't have this mouse so I am unable to test it. If you
 have this mouse, please test all commands and report what is working or not by
@@ -47,7 +47,7 @@ Main Options:
     -h, --help          show this help message and exit
     -l, --list          print compatible mice and exit
 
-SteelSeries Rival Options:
+SteelSeries Rival and Rival 300 Options:
 
     -c SET_LOGO_COLOR, --logo-color=SET_LOGO_COLOR
                         Set the logo backlight color (e.g. red, #ff0000,

@@ -45,7 +45,7 @@ setup(
 
     * SteelSeries Rival (experimental¹)
     * SteelSeries Rival 100
-    * ~~SteelSeries Rival 300~~ **WORK IN PROGRESS**
+    * SteelSeries Rival 300 (experimental¹)
 
     __experimental¹:__ I don't have this mouse so I am unable to test it. If you
     have this mouse, please test all commands and report what is working or not by
