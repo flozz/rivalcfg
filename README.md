@@ -13,6 +13,7 @@ __experimental¹:__ I don't have this mouse so I am unable to test it. If you
 have this mouse, please test all commands and report what is working or not by
 openning an issue on Github: https://github.com/flozz/rivalcfg/issues
 
+
 ## Requirement
 
 * Any Linux distribution that use `udev` (Debian, Ubuntu, ArchLinux,
@@ -31,10 +32,9 @@ Install rivalcfg (as root):
 
     pip install .
 
-Install `udev` rules to allow non-root users to configure the mouse (as root):
-
-    cp extra/99-steelseries-rival.rules /etc/udev/rules.d/
-    udevadm trigger
+__NOTE:__ udev rules should be automatically installed, but if setup fails, you
+should copy the rules manually: `cp rivalcfg/data/99-steelseries-rival.rules
+/etc/udev/rules.d/` and then run the `udevadm trigger` command.
 
 
 ## CLI

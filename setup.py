@@ -1,7 +1,34 @@
 #!/usr/bin/env python
+# encoding: UTF-8
 
+import os
+import shutil
+import subprocess
 from setuptools import setup, find_packages
+from setuptools.command.install import install as _install
+
 from rivalcfg import VERSION
+
+
+class install(_install):
+    def run(self):
+        _install.run(self)
+        print("Installing udev rules...")
+        if not os.path.isdir("/etc/udev/rules.d"):
+            print("WARNING: udev rules have not been installed (/etc/udev/rules.d is not a directory)")
+            return
+        try:
+            shutil.copy("./rivalcfg/data/99-steelseries-rival.rules", "/etc/udev/rules.d/")
+        except IOError:
+            print("WARNING: udev rules have not been installed (permission denied)")
+            return
+        try:
+            subprocess.call(["udevadm", "trigger"])
+        except OSError:
+            print("WARNING: unable to update udev rules, please run the 'udevadm trigger' command")
+            return
+        print("Done!")
+
 
 setup(
     name="rivalcfg",
@@ -47,5 +74,11 @@ setup(
             "rivalcfg = rivalcfg.cli:main"
         ]
     },
+
+    package_data={
+        "rivalcfg": ["data/*"]
+    },
+
+    cmdclass={"install": install}
 )
 
