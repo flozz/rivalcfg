@@ -5,13 +5,13 @@ SteelSeries Rival gaming mice on Linux.
 
 Supported mice:
 
-* SteelSeries Rival (experimental¹)
+* SteelSeries Rival
 * SteelSeries Rival 100
-* SteelSeries Rival 300 (experimental¹)
+* SteelSeries Rival 300
 
-__experimental¹:__ I don't have this mouse so I am unable to test it. If you
-have this mouse, please test all commands and report what is working or not by
-openning an issue on Github: https://github.com/flozz/rivalcfg/issues
+If you have trouble running this software, please open an issue on Github:
+
+* https://github.com/flozz/rivalcfg/issues
 
 
 ## Requirement
