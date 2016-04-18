@@ -47,6 +47,10 @@ def _generate_default_cli_options(parser):
         action="store_true"
         )
 
+def _command_name_to_metavar(command_name):
+    """Trnansforms a command name to a better metaname (used for -h)."""
+    return command_name.replace("set_", "").upper()
+
 
 def _generate_mouse_cli_options(parser, profile):
     """generate CLI specific to the plugged mouse."""
@@ -66,7 +70,8 @@ def _generate_mouse_cli_options(parser, profile):
                     *cmd["cli"],
                     help=description,
                     dest=command,
-                    choices=choices_to_list(cmd["choices"])
+                    choices=choices_to_list(cmd["choices"]),
+                    metavar=_command_name_to_metavar(command)
                     )
         elif cmd["value_type"] == "rgbcolor":
             description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (
@@ -79,7 +84,8 @@ def _generate_mouse_cli_options(parser, profile):
                     help=description,
                     type="string",
                     action="callback",
-                    callback=_check_color
+                    callback=_check_color,
+                    metavar=_command_name_to_metavar(command)
                     )
         elif cmd["value_type"] == "range":
             description = "%s (from %i to %i in increments of %i, default: %i)" % (
@@ -92,8 +98,9 @@ def _generate_mouse_cli_options(parser, profile):
             group.add_option(
                     *cmd["cli"],
                     dest=command,
-                    help=description
-                    # choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
+                    help=description,
+                    metavar=_command_name_to_metavar(command),
+                    choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
                     )
         else:
             raise NotImplementedError("Cannot generate CLI option for value_type '%s'" % cmd["value_type"])
