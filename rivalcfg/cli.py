@@ -30,7 +30,12 @@ def get_plugged_mouse_profile():
 
 def _print_compatible_mice():
     """Prints mice currently supported by this software."""
-    print("\n".join([profile["name"] for profile in mice.mice_list]))
+    print("\n".join(["%-25s %s:%s   %s" % (
+        profile["name"],
+        profile["vendor_id"],
+        profile["product_id"],
+        "(plugged)" if usb_device_is_connected(profile["vendor_id"], profile["product_id"]) else ""
+        ) for profile in mice.mice_list]))
 
 
 def _check_color(option, opt_str, value, parser):
