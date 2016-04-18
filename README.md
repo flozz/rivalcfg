@@ -5,13 +5,13 @@ SteelSeries Rival gaming mice on Linux.
 
 Supported mice:
 
-* SteelSeries Rival (experimental¹)
+* SteelSeries Rival
 * SteelSeries Rival 100
-* SteelSeries Rival 300 (experimental¹)
+* SteelSeries Rival 300
 
-__experimental¹:__ I don't have this mouse so I am unable to test it. If you
-have this mouse, please test all commands and report what is working or not by
-openning an issue on Github: https://github.com/flozz/rivalcfg/issues
+If you have trouble running this software, please open an issue on Github:
+
+* https://github.com/flozz/rivalcfg/issues
 
 
 ## Requirement
@@ -49,47 +49,47 @@ Main Options:
 
 SteelSeries Rival and Rival 300 Options:
 
-    -c SET_LOGO_COLOR, --logo-color=SET_LOGO_COLOR
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
                         Set the logo backlight color (e.g. red, #ff0000,
                         ff0000, #f00, f00, default: #FF1800)
-    -e SET_LOGO_LIGHT_EFFECT, --logo-light-effect=SET_LOGO_LIGHT_EFFECT
+    -e LOGO_LIGHT_EFFECT, --logo-light-effect=LOGO_LIGHT_EFFECT
                         Set the logo light effect (values: 1, 2, 3, 4, breath,
                         steady, default: steady)
-    -p SET_POLLING_RATE, --polling-rate=SET_POLLING_RATE
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
                         Set polling rate in Hz (values: 125, 250, 500, 1000,
                         default: 1000)
-    -s SET_SENSITIVITY1, --sensitivity1=SET_SENSITIVITY1
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (from 50 to 6500 in
                         increments of 50, default: 800)
-    -S SET_SENSITIVITY2, --sensitivity2=SET_SENSITIVITY2
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
                         Set sensitivity preset 2 (from 50 to 6500 in
                         increments of 50, default: 1600)
-    -C SET_WHEEL_COLOR, --wheel-color=SET_WHEEL_COLOR
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
                         Set the wheel backlight color (e.g. red, #ff0000,
                         ff0000, #f00, f00, default: #FF1800)
-    -E SET_WHEEL_LIGHT_EFFECT, --wheel-light-effect=SET_WHEEL_LIGHT_EFFECT
+    -E WHEEL_LIGHT_EFFECT, --wheel-light-effect=WHEEL_LIGHT_EFFECT
                         Set the wheel light effect (values: 1, 2, 3, 4,
                         breath, steady, default: steady)
     -r, --reset         Reset all options to their factory values
 
 SteelSeries Rival 100 Options:
 
-    -b SET_BTN6_ACTION, --btn6-action=SET_BTN6_ACTION
+    -b BTN6_ACTION, --btn6-action=BTN6_ACTION
                         Set the action of the button under the wheel (values:
                         default, os, default: default)
-    -c SET_COLOR, --color=SET_COLOR
+    -c COLOR, --color=COLOR
                         Set the mouse backlight color (e.g. red, #ff0000,
                         ff0000, #f00, f00, default: #00FFFF)
-    -e SET_LIGHT_EFFECT, --light-effect=SET_LIGHT_EFFECT
+    -e LIGHT_EFFECT, --light-effect=LIGHT_EFFECT
                         Set the light effect (values: 1, 2, 3, 4, breath,
                         steady, default: steady)
-    -p SET_POLLING_RATE, --polling-rate=SET_POLLING_RATE
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
                         Set polling rate in Hz (values: 125, 250, 500, 1000,
                         default: 1000)
-    -s SET_SENSITIVITY1, --sensitivity1=SET_SENSITIVITY1
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (values: 250, 500, 1000,
                         1250, 1500, 1750, 2000, 4000, default: 1000)
-    -S SET_SENSITIVITY2, --sensitivity2=SET_SENSITIVITY2
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
                         Set sensitivity preset 2 (values: 250, 500, 1000,
                         1250, 1500, 1750, 2000, 4000, default: 2000)
     -r, --reset         Reset all options to their factory values

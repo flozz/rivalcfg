@@ -30,7 +30,12 @@ def get_plugged_mouse_profile():
 
 def _print_compatible_mice():
     """Prints mice currently supported by this software."""
-    print("\n".join([profile["name"] for profile in mice.mice_list]))
+    print("\n".join(["%-25s %s:%s   %s" % (
+        profile["name"],
+        profile["vendor_id"],
+        profile["product_id"],
+        "(plugged)" if usb_device_is_connected(profile["vendor_id"], profile["product_id"]) else ""
+        ) for profile in mice.mice_list]))
 
 
 def _check_color(option, opt_str, value, parser):
@@ -46,6 +51,10 @@ def _generate_default_cli_options(parser):
         help="print compatible mice and exit",
         action="store_true"
         )
+
+def _command_name_to_metavar(command_name):
+    """Trnansforms a command name to a better metaname (used for -h)."""
+    return command_name.replace("set_", "").upper()
 
 
 def _generate_mouse_cli_options(parser, profile):
@@ -66,7 +75,8 @@ def _generate_mouse_cli_options(parser, profile):
                     *cmd["cli"],
                     help=description,
                     dest=command,
-                    choices=choices_to_list(cmd["choices"])
+                    choices=choices_to_list(cmd["choices"]),
+                    metavar=_command_name_to_metavar(command)
                     )
         elif cmd["value_type"] == "rgbcolor":
             description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (
@@ -79,7 +89,8 @@ def _generate_mouse_cli_options(parser, profile):
                     help=description,
                     type="string",
                     action="callback",
-                    callback=_check_color
+                    callback=_check_color,
+                    metavar=_command_name_to_metavar(command)
                     )
         elif cmd["value_type"] == "range":
             description = "%s (from %i to %i in increments of %i, default: %i)" % (
@@ -92,8 +103,9 @@ def _generate_mouse_cli_options(parser, profile):
             group.add_option(
                     *cmd["cli"],
                     dest=command,
-                    help=description
-                    # choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
+                    help=description,
+                    metavar=_command_name_to_metavar(command),
+                    choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
                     )
         else:
             raise NotImplementedError("Cannot generate CLI option for value_type '%s'" % cmd["value_type"])
@@ -166,7 +178,7 @@ def main():
     for option, value in options.__dict__.items():
         if option in ["list", "reset"] or value == None:
             continue
-        if value.isdigit():
+        if profile["commands"][option]["value_type"] in ["choice", "range"] and value.isdigit():
             value = int(value)
         getattr(mouse, option)(value)
 

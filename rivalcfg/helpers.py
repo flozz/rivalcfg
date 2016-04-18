@@ -30,7 +30,7 @@ def usb_device_is_connected(vendor_id, product_id):
     vendor_id -- the vendor id of the device
     product_id -- the product id of the device
     """
-    ctx = pyudev.Context();
+    ctx = pyudev.Context()
     devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
 
     for device in devices:
@@ -48,7 +48,7 @@ def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
     product_id -- the product id of the device
     interface_num -- the interface number (default: 0)
     """
-    ctx = pyudev.Context();
+    ctx = pyudev.Context()
     devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
 
     for device in devices:
@@ -60,6 +60,20 @@ def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
             continue
 
         return device["DEVNAME"]
+
+    # Old Kernels...
+    devices = ctx.list_devices(SUBSYSTEM="hidraw")
+    deviceMatcher = re.compile(r"^.*/usb./[0-9/.-]+:[0-9]+\.%i/[0-9]+:%s:%s.*$" % (
+        interface_num,
+        vendor_id,
+        product_id
+        ))
+    for device in devices:
+        if not deviceMatcher.match(device["DEVPATH"]):
+            continue
+
+        return device["DEVNAME"]
+
 
 
 def is_color(string):
