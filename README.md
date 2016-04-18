@@ -118,6 +118,11 @@ Result:
 
 ## Changelog
 
+* **2.3.0:**
+  * Rival and Rival 300 support is no more experimental
+  * Improves the device listing (--list)
+  * Fixes bug with color parsing in CLI (#1)
+  * Fixes unrecognized devices path on old kernel (#2)
 * **2.2.0:** Experimental Rival 300 support
 * **2.1.1:** Includes udev rules in the package and automatically install the
   rules (if possible)
