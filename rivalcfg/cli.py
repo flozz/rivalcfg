@@ -166,7 +166,7 @@ def main():
     for option, value in options.__dict__.items():
         if option in ["list", "reset"] or value == None:
             continue
-        if value.isdigit():
+        if profile["commands"][option]["value_type"] in ["choice", "range"] and value.isdigit():
             value = int(value)
         getattr(mouse, option)(value)
 
