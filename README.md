@@ -118,6 +118,7 @@ Result:
 
 ## Changelog
 
+* **2.4.0:** Python 3 support (#4)
 * **2.3.0:**
   * Rival and Rival 300 support is no more experimental
   * Improves the device listing (--list)
