@@ -3,11 +3,11 @@ import sys
 import re
 from optparse import OptionParser, OptionGroup, OptionValueError
 
-import mice
-from helpers import (usb_device_is_connected, find_hidraw_device_path,
+from . import mice
+from .helpers import (usb_device_is_connected, find_hidraw_device_path,
         is_color, choices_to_list, choices_to_string)
-from rival_mouse import RivalMouse
-from version import VERSION
+from .rival_mouse import RivalMouse
+from .version import VERSION
 
 
 DEBUG_DRY = "DEBUG_DRY" in os.environ
@@ -175,7 +175,7 @@ def main():
     if hasattr(options, "reset") and options.reset:
         mouse.set_default()
 
-    for option, value in options.__dict__.items():
+    for option, value in list(options.__dict__.items()):
         if option in ["list", "reset"] or value == None:
             continue
         if profile["commands"][option]["value_type"] in ["choice", "range"] and value.isdigit():

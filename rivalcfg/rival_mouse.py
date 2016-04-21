@@ -1,7 +1,7 @@
 import os
 from functools import partial
 
-from helpers import (
+from .helpers import (
         find_hidraw_device_path, is_color, color_string_to_rgb,
         choices_to_string, merge_bytes)
 

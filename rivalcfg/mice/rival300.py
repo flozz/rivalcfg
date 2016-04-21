@@ -1,4 +1,4 @@
-from rival import rival
+from .rival import rival
 
 rival300 = {
     "name": "SteelSeries Rival 300",
