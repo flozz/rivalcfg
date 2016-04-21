@@ -1,5 +1,8 @@
 # rivalcfg: Configure SteelSeries Rival gaming mice
 
+[![PYPI Version](https://img.shields.io/pypi/v/rivalcfg.svg)](https://pypi.python.org/pypi/rivalcfg)
+[![License](https://img.shields.io/pypi/l/rivalcfg.svg)](https://github.com/flozz/rivalcfg/blob/master/LICENSE)
+
 rivalcfg is a small CLI utility program that allows you to configure
 SteelSeries Rival gaming mice on Linux.
 
@@ -22,6 +25,14 @@ If you have trouble running this software, please open an issue on Github:
 
 
 ## Installation
+
+### From PYPI
+
+Run the following command (as root):
+
+    pip install rivalcfg
+
+### From sources
 
 Clone the repositiory:
 
