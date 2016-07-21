@@ -117,7 +117,7 @@ def choices_to_list(choices):
     Arguments:
     choices -- the dict containing available choices
     """
-    return sorted([str(choice) for choice in choices.keys()])
+    return map(str, sorted(choices.keys()))
 
 
 def choices_to_string(choices):
