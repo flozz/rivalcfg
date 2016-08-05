@@ -47,6 +47,10 @@ __NOTE:__ udev rules should be automatically installed, but if setup fails, you
 should copy the rules manually: `cp rivalcfg/data/99-steelseries-rival.rules
 /etc/udev/rules.d/` and then run the `udevadm trigger` command.
 
+### From Arch Linux AUR package
+
+Use package [rivalcfg-git](https://aur.archlinux.org/packages/rivalcfg-git)
+
 
 ## CLI
 
