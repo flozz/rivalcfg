@@ -129,6 +129,7 @@ Result:
 
 ## Changelog
 
+* **2.4.2:** Fixes a TypeError with Python 3 (#7)
 * **2.4.1:** Help improved
 * **2.4.0:** Python 3 support (#4)
 * **2.3.0:**
