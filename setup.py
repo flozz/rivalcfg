@@ -69,7 +69,7 @@ setup(
         "pyudev>=0.19.0"
     ],
 
-    entry_points = {
+    entry_points={
         "console_scripts": [
             "rivalcfg = rivalcfg.cli:main"
         ]
