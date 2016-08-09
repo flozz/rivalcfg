@@ -124,6 +124,11 @@ def main():
     # Debug infos
     if DEBUG:
         print("[DEBUG] Debugging rivalcfg %s..." % VERSION)
+        print("[DEBUG] Python %i.%i.%i" % (
+            sys.version_info.major,
+            sys.version_info.minor,
+            sys.version_info.micro
+            ))
     if DEBUG_DRY:
         print("[DEBUG] Dry run enabled")
     if DEBUG_PRODUCT_ID:
