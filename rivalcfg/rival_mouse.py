@@ -50,7 +50,7 @@ class RivalMouse:
         *bytes_ -- bytes to write
         """
         if DEBUG_DRY:
-            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % b for b in bytes_]))
+            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % int(b) for b in bytes_]))
             return
         if not self._device:
             return;
