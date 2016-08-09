@@ -6,5 +6,5 @@ python:
     - "3.4"
     - "3.5"
     - "nightly"
-install: pip install -e
+install: pip install -e .
 script: bash test.sh
