@@ -19,7 +19,7 @@ rival = {
             "range_min": 50,
             "range_max": 6500,
             "range_increment": 50,
-            "value_transform": lambda x: x / 50,
+            "value_transform": lambda x: int(x / 50),
             "default": 800,
         },
 
@@ -32,7 +32,7 @@ rival = {
             "range_min": 50,
             "range_max": 6500,
             "range_increment": 50,
-            "value_transform": lambda x: x / 50,
+            "value_transform": lambda x: int(x / 50),
             "default": 1600,
         },
 
