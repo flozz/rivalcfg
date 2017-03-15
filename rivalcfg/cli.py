@@ -1,4 +1,3 @@
-import os
 import sys
 import re
 from optparse import OptionParser, OptionGroup, OptionValueError
@@ -8,23 +7,7 @@ from .helpers import (usb_device_is_connected, find_hidraw_device_path,
         is_color, choices_to_list, choices_to_string)
 from .rival_mouse import RivalMouse
 from .version import VERSION
-
-
-DEBUG_DRY = "DEBUG_DRY" in os.environ
-
-DEBUG_PROFILE_VENDOR_ID = None
-DEBUG_PROFILE_PRODUCT_ID = None
-if "DEBUG_PROFILE" in os.environ:
-    DEBUG_PROFILE_VENDOR_ID = os.environ["DEBUG_PROFILE"].split(":")[0]
-    DEBUG_PROFILE_PRODUCT_ID = os.environ["DEBUG_PROFILE"].split(":")[1]
-
-DEBUG_DEVICE_VENDOR_ID = None
-DEBUG_DEVICE_PRODUCT_ID = None
-if "DEBUG_DEVICE" in os.environ:
-    DEBUG_DEVICE_VENDOR_ID = os.environ["DEBUG_DEVICE"].split(":")[0]
-    DEBUG_DEVICE_PRODUCT_ID = os.environ["DEBUG_DEVICE"].split(":")[1]
-
-DEBUG = DEBUG_DRY or DEBUG_PROFILE_VENDOR_ID or DEBUG_DEVICE_VENDOR_ID
+from .debug import *
 
 
 def get_plugged_mouse_profile():
