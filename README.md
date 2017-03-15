@@ -9,9 +9,9 @@ SteelSeries Rival gaming mice on Linux.
 
 Supported mice:
 
-* SteelSeries Rival
-* SteelSeries Rival 100
-* SteelSeries Rival 300
+* SteelSeries Rival _(1038:1384)_
+* SteelSeries Rival 100 _(1038:1702)_
+* SteelSeries Rival 300 _(1038:1710)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -115,12 +115,14 @@ SteelSeries Rival 100 Options:
 
 * `DEBUG_DRY=true`: Dry run (simulate commands, do not write anything to the
   device).
-* `DEBUG_MOUSE=<VendorID>:<ProductId>`: Force to load the corresponding
+* `DEBUG_PROFILE=<VendorID>:<ProductId>`: Force to load the corresponding
   profile.
+* `DEBUG_DEVICE=<VendorID>:<ProductId>` Force to use the specified USB device
+  instead of the one that matches the profile
 
 Example:
 
-    DEBUG_DRY=true DEBUG_MOUSE=1038:1384 rivalcfg -c ff3300
+    DEBUG_DRY=true DEBUG_PROFILE=1038:1384 rivalcfg -c ff3300
 
 Result:
 

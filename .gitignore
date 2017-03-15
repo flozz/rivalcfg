@@ -3,3 +3,4 @@ __env__
 __pycache__
 *.egg-info
 dist
+__dev__

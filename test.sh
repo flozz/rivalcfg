@@ -74,7 +74,7 @@ python --version
 
 _title "Rival Mouse"
 
-export DEBUG_MOUSE=1038:1384
+export DEBUG_PROFILE=1038:1384
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l
@@ -111,7 +111,7 @@ _exec python -m rivalcfg -r
 
 _title "Rival 100 Mouse"
 
-export DEBUG_MOUSE=1038:1702
+export DEBUG_PROFILE=1038:1702
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l
@@ -142,7 +142,7 @@ _exec python -m rivalcfg -r
 
 _title "Rival 300 Mouse"
 
-export DEBUG_MOUSE=1038:1710
+export DEBUG_PROFILE=1038:1710
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l

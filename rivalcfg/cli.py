@@ -11,20 +11,30 @@ from .version import VERSION
 
 
 DEBUG_DRY = "DEBUG_DRY" in os.environ
-DEBUG_VENDOR_ID = None
-DEBUG_PRODUCT_ID = None
-if "DEBUG_MOUSE" in os.environ:
-    DEBUG_VENDOR_ID = os.environ["DEBUG_MOUSE"].split(":")[0]
-    DEBUG_PRODUCT_ID = os.environ["DEBUG_MOUSE"].split(":")[1]
-DEBUG = DEBUG_DRY or DEBUG_VENDOR_ID
+
+DEBUG_PROFILE_VENDOR_ID = None
+DEBUG_PROFILE_PRODUCT_ID = None
+if "DEBUG_PROFILE" in os.environ:
+    DEBUG_PROFILE_VENDOR_ID = os.environ["DEBUG_PROFILE"].split(":")[0]
+    DEBUG_PROFILE_PRODUCT_ID = os.environ["DEBUG_PROFILE"].split(":")[1]
+
+DEBUG_DEVICE_VENDOR_ID = None
+DEBUG_DEVICE_PRODUCT_ID = None
+if "DEBUG_DEVICE" in os.environ:
+    DEBUG_DEVICE_VENDOR_ID = os.environ["DEBUG_DEVICE"].split(":")[0]
+    DEBUG_DEVICE_PRODUCT_ID = os.environ["DEBUG_DEVICE"].split(":")[1]
+
+DEBUG = DEBUG_DRY or DEBUG_PROFILE_VENDOR_ID or DEBUG_DEVICE_VENDOR_ID
 
 
 def get_plugged_mouse_profile():
     """Returns the profile of the mouse plugged on the computer."""
+    if DEBUG_PROFILE_VENDOR_ID:
+        for profile in mice.mice_list:
+            if profile["vendor_id"] == DEBUG_PROFILE_VENDOR_ID and profile["product_id"] == DEBUG_PROFILE_PRODUCT_ID:
+                return profile
     for profile in mice.mice_list:
-        if profile["vendor_id"] == DEBUG_VENDOR_ID and profile["product_id"] == DEBUG_PRODUCT_ID:
-            return profile
-        elif not DEBUG_VENDOR_ID and usb_device_is_connected(profile["vendor_id"], profile["product_id"]):
+        if not DEBUG_PROFILE_VENDOR_ID and usb_device_is_connected(profile["vendor_id"], profile["product_id"]):
             return profile
 
 
@@ -131,12 +141,16 @@ def main():
             ))
     if DEBUG_DRY:
         print("[DEBUG] Dry run enabled")
-    if DEBUG_PRODUCT_ID:
-        print("[DEBUG] Debugging mouse profile %s:%s" % (DEBUG_VENDOR_ID, DEBUG_PRODUCT_ID))
+
+    if DEBUG_PROFILE_PRODUCT_ID:
+        print("[DEBUG] Debugging mouse profile %s:%s" % (DEBUG_PROFILE_VENDOR_ID, DEBUG_PROFILE_PRODUCT_ID))
     if DEBUG and profile:
         print("[DEBUG] Mouse profile found: %s" % profile["name"])
     if DEBUG and not profile:
         print("[DEBUG] No mouse profile found")
+
+    if DEBUG_DEVICE_PRODUCT_ID:
+        print("[DEBUG] Debugging mouse device %s:%s" % (DEBUG_DEVICE_VENDOR_ID, DEBUG_DEVICE_PRODUCT_ID))
 
     # Generates CLI options
     parser = OptionParser("Usage: rivalcfg [options]",
@@ -159,7 +173,7 @@ def main():
         print("E: No compatible mouse found. Type 'rivalcfg --help' for more informations.")
         sys.exit(1);
 
-    if not DEBUG_DRY and not find_hidraw_device_path(profile["vendor_id"], profile["product_id"], profile["hidraw_interface_number"]):
+    if not DEBUG and not find_hidraw_device_path(profile["vendor_id"], profile["product_id"], profile["hidraw_interface_number"]):
         print("E: The '%s' mouse is plugged in but the control interface is not available." % profile["name"])
         print("\nTry to:")
         print("  * unplug the mouse from the USB port,")

@@ -8,6 +8,20 @@ from .helpers import (
 
 DEBUG_DRY = "DEBUG_DRY" in os.environ
 
+DEBUG_PROFILE_VENDOR_ID = None
+DEBUG_PROFILE_PRODUCT_ID = None
+if "DEBUG_PROFILE" in os.environ:
+    DEBUG_PROFILE_VENDOR_ID = os.environ["DEBUG_PROFILE"].split(":")[0]
+    DEBUG_PROFILE_PRODUCT_ID = os.environ["DEBUG_PROFILE"].split(":")[1]
+
+DEBUG_DEVICE_VENDOR_ID = None
+DEBUG_DEVICE_PRODUCT_ID = None
+if "DEBUG_DEVICE" in os.environ:
+    DEBUG_DEVICE_VENDOR_ID = os.environ["DEBUG_DEVICE"].split(":")[0]
+    DEBUG_DEVICE_PRODUCT_ID = os.environ["DEBUG_DEVICE"].split(":")[1]
+
+DEBUG = DEBUG_DRY or DEBUG_PROFILE_VENDOR_ID or DEBUG_DEVICE_VENDOR_ID
+
 
 class RivalMouse:
 
@@ -22,7 +36,7 @@ class RivalMouse:
         self.profile = profile
         self.device_path = None
         self._device = None
-        if not DEBUG_DRY:
+        if not DEBUG_DRY or DEBUG_DRY and DEBUG_DEVICE_VENDOR_ID:
             self._device_find()
             self._device_open()
 
@@ -34,8 +48,15 @@ class RivalMouse:
 
     def _device_find(self):
         """Find the HIDRAW device file path."""
-        self.device_path = find_hidraw_device_path(self.profile["vendor_id"],
-                self.profile["product_id"], self.profile["hidraw_interface_number"])
+        vendor_id = self.profile["vendor_id"]
+        product_id = self.profile["product_id"]
+
+        if DEBUG_DEVICE_VENDOR_ID:
+            vendor_id = DEBUG_DEVICE_VENDOR_ID
+            product_id = DEBUG_DEVICE_PRODUCT_ID
+
+        self.device_path = find_hidraw_device_path(
+                vendor_id, product_id, self.profile["hidraw_interface_number"])
         if not self.device_path:
             raise Exception("Unable to locate the HIDRAW interface for the given profile")
 
@@ -49,8 +70,9 @@ class RivalMouse:
         Arguments:
         *bytes_ -- bytes to write
         """
-        if DEBUG_DRY:
+        if DEBUG:
             print("[DEBUG] _device_write: %s" % " ".join(["%02X" % int(b) for b in bytes_]))
+        if DEBUG_DRY:
             return
         if not self._device:
             return;
