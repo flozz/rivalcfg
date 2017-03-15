@@ -136,6 +136,7 @@ Result:
 
 ## Changelog
 
+* **2.4.4:** Improves debug options
 * **2.4.3:** Fixes an issue with Python 3 (#8)
 * **2.4.2:** Fixes a TypeError with Python 3 (#7)
 * **2.4.1:** Help improved
@@ -152,4 +153,3 @@ Result:
 * **2.0.0:** Refactored to support multiple mice
 * **1.0.1:** Fixes the pypi package
 * **1.0.0:** Initial release
-
