@@ -58,7 +58,6 @@ setup(
     """,
 
     author="Fabien LOISON",
-    author_email="http://www.flozz.fr/",
 
     keywords="steelseries rival rival100 mouse",
     platforms=["Linux"],
