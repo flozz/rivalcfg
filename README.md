@@ -12,6 +12,7 @@ Supported mice:
 * SteelSeries Rival _(1038:1384)_
 * SteelSeries Rival 100 _(1038:1702)_
 * SteelSeries Rival 300 _(1038:1710)_
+* SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 
 If you have trouble running this software, please open an issue on Github:
 

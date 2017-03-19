@@ -46,6 +46,7 @@ setup(
     * SteelSeries Rival
     * SteelSeries Rival 100
     * SteelSeries Rival 300
+    * SteelSeries Rival 300 CS:GO Fade Edition
 
     If you have trouble running this software, please open an issue on Github:
 

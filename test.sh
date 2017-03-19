@@ -177,6 +177,56 @@ _exec python -m rivalcfg -E 1
 _exec python -m rivalcfg -r
 
 
+_title "Rival 300 CS:GO Fade Edition Mouse"
+
+export DEBUG_PROFILE=1038:1394
+
+_exec python -m rivalcfg -h
+_exec python -m rivalcfg -l
+
+_exec python -m rivalcfg -b default
+_exec python -m rivalcfg -b os
+
+_exec python -m rivalcfg -c red
+_exec python -m rivalcfg -c f00
+_exec python -m rivalcfg -c FF0000
+_exec python -m rivalcfg -c "#fF0000"
+
+_exec python -m rivalcfg -e breathslow
+_exec python -m rivalcfg -e breathmed
+_exec python -m rivalcfg -e breathfast
+_exec python -m rivalcfg -e steady
+_exec python -m rivalcfg -e 4
+_exec python -m rivalcfg -e 3
+_exec python -m rivalcfg -e 2
+_exec python -m rivalcfg -e 1
+
+_exec python -m rivalcfg -E breathslow
+_exec python -m rivalcfg -E breathmed
+_exec python -m rivalcfg -E breathfast
+_exec python -m rivalcfg -E steady
+_exec python -m rivalcfg -E 4
+_exec python -m rivalcfg -E 3
+_exec python -m rivalcfg -E 2
+_exec python -m rivalcfg -E 1
+
+_exec python -m rivalcfg -p 125
+_exec python -m rivalcfg -p 1000
+
+_exec python -m rivalcfg -s 50
+_exec python -m rivalcfg -s 6500
+
+_exec python -m rivalcfg -S 50
+_exec python -m rivalcfg -S 6500
+
+_exec python -m rivalcfg -C red
+_exec python -m rivalcfg -C f00
+_exec python -m rivalcfg -C FF0000
+_exec python -m rivalcfg -C "#fF0000"
+
+_exec python -m rivalcfg -r
+
+
 if [ $_ERROR == 0 ] ; then
     echo -e "\n${_COLOR_SUCCESS}Everything is OK!${_COLOR_NORMAL}";
     exit 0
