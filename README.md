@@ -182,6 +182,7 @@ Result:
 
 ## Changelog
 
+* **2.5.0:** Rival 300 CS:GO Fade Edition support (thanks @Percinnamon, #20)
 * **2.4.4:** Improves debug options
 * **2.4.3:** Fixes an issue with Python 3 (#8)
 * **2.4.2:** Fixes a TypeError with Python 3 (#7)
