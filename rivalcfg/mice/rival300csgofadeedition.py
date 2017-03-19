@@ -1,5 +1,5 @@
-rival300csgofade = {
-    "name": "SteelSeries Rival 300 CSGO Fade",
+rival300csgofadeedition = {
+    "name": "SteelSeries Rival 300 CS:GO Fade Edition",
 
     "vendor_id": "1038",
     "product_id": "1394",

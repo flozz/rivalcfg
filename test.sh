@@ -177,9 +177,9 @@ _exec python -m rivalcfg -E 1
 _exec python -m rivalcfg -r
 
 
-_title "Rival 300 CSGO Fade Mouse"
+_title "Rival 300 CS:GO Fade Edition Mouse"
 
-export DEBUG_MOUSE=1038:1394
+export DEBUG_PROFILE=1038:1394
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l

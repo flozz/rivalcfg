@@ -1,4 +1,4 @@
-# SteelSeries Rival 300 CSGO Fade gaming mouse's USB HID commands
+# SteelSeries Rival 300 CS:GO Fade Editon gaming mouse's USB HID commands
 
 
 ## Devices infos
