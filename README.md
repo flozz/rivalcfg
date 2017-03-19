@@ -142,6 +142,21 @@ SteelSeries Rival 300 CS:GO Fade Edition Options:
     -r, --reset         Reset all options to their factory values
 
 
+## FAQ (Frequently Asked Questions)
+
+### How can I turn the lights off
+
+You can turn the lights off by setting the black color to the lights.
+
+Example with Rival 100:
+
+    rivalcfg --color=black
+
+Example with Rival, Rival 300:
+
+    rivalcfg --logo-color=black --wheel-color=black
+
+
 ## Debug
 
 * `DEBUG_DRY=true`: Dry run (simulate commands, do not write anything to the
