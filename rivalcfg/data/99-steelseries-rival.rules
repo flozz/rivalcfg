@@ -6,3 +6,6 @@ SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1702", MODE="06
 
 # SteelSeries Rival 300
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1710", MODE="0666"
+
+#SteelSeries Rival 300 CSGO Fade
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1394", MODE="0666"
