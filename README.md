@@ -111,6 +111,36 @@ SteelSeries Rival 100 Options:
                         1250, 1500, 1750, 2000, 4000, default: 2000)
     -r, --reset         Reset all options to their factory values
 
+SteelSeries Rival 300 CS:GO Fade Edition Options:
+
+    -b BTN6_ACTION, --btn6-action=BTN6_ACTION
+                        Set the action of the button under the wheel (values:
+                        default, os, default: default)
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF5200)
+    -e LOGO_LIGHT_EFFECT, --logo-light-effect=LOGO_LIGHT_EFFECT
+                        Set the logo light effect (values: breathfast,
+                        breathmed, breathslow, steady, 1, 2, 3, 4, default:
+                        steady)
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 50 to 6500 in
+                        increments of 50, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 50 to 6500 in
+                        increments of 50, default: 1600)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF5200)
+    -E WHEEL_LIGHT_EFFECT, --wheel-light-effect=WHEEL_LIGHT_EFFECT
+                        Set the wheel light effect (values: breathfast,
+                        breathmed, breathslow, steady, 1, 2, 3, 4, default:
+                        steady)
+    -r, --reset         Reset all options to their factory values
+
 
 ## Debug
 
