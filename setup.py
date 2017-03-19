@@ -30,6 +30,13 @@ class install(_install):
         print("Done!")
 
 
+long_description = ""
+if os.path.isfile("README.rst"):
+    long_description = open("README.rst", "r").read()
+elif os.path.isfile("README.md"):
+    long_description = open("README.md", "r").read()
+
+
 setup(
     name="rivalcfg",
     version=VERSION,
@@ -37,26 +44,7 @@ setup(
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",
 
-    long_description="""
-    rivalcfg is a small CLI utility program that allows you to configure
-    SteelSeries Rival gaming mice on Linux.
-
-    Supported mice:
-
-    * SteelSeries Rival
-    * SteelSeries Rival 100
-    * SteelSeries Rival 300
-    * SteelSeries Rival 300 CS:GO Fade Edition
-
-    If you have trouble running this software, please open an issue on Github:
-
-    * https://github.com/flozz/rivalcfg/issues
-
-
-    Usage: rivalcfg [options]
-
-    Type "rivalcfg --help" to list available options.
-    """,
+    long_description=long_description,
 
     author="Fabien LOISON",
 
@@ -73,10 +61,6 @@ setup(
         "console_scripts": [
             "rivalcfg = rivalcfg.cli:main"
         ]
-    },
-
-    package_data={
-        "rivalcfg": ["data/*"]
     },
 
     cmdclass={"install": install}

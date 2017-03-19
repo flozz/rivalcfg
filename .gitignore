@@ -4,3 +4,4 @@ __pycache__
 *.egg-info
 dist
 __dev__
+*.rst
