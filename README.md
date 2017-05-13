@@ -144,7 +144,7 @@ SteelSeries Rival 300 CS:GO Fade Edition Options:
 
 ## FAQ (Frequently Asked Questions)
 
-### How can I turn the lights off
+### How can I turn the lights off?
 
 You can turn the lights off by setting the black color to the lights.
 
@@ -155,6 +155,19 @@ Example with Rival 100:
 Example with Rival, Rival 300:
 
     rivalcfg --logo-color=black --wheel-color=black
+
+### I have a "Permission denied" error, what can I do?
+
+If you have an error like
+
+    IOError: [Errno 13] Permission denied: u'/dev/hidrawXX'
+
+this means that the udev rules have not been installed with the software. This
+can be fixed using the following commands (as root):
+
+    wget https://raw.githubusercontent.com/flozz/rivalcfg/master/rivalcfg/data/99-steelseries-rival.rules -O /etc/udev/rules.d/99-steelseries-rival.rules
+
+    sudo udevadm trigger
 
 
 ## Debug
