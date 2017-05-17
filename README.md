@@ -195,6 +195,7 @@ Result:
 
 ## Changelog
 
+* **2.5.2:** Fixes Rival 300 with updated firmware not working (#5, #25, #28, special thanks to @Thiblizz)
 * **2.5.1:** Fixes mouse not recognized on system with more than 10 USB busses (#21)
 * **2.5.0:** Rival 300 CS:GO Fade Edition support (thanks @Percinnamon, #20)
 * **2.4.4:** Improves debug options
