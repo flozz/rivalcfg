@@ -53,13 +53,15 @@ class RivalMouse:
         Arguments:
         *bytes_ -- bytes to write
         """
+        pbytes = [0x00]
+        pbytes.extend(bytes_)  # XXX fixes issue with Rival 300 new firmware (#5, #25, #28)
         if DEBUG:
-            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % int(b) for b in bytes_]))
+            print("[DEBUG] _device_write: %s" % " ".join(["%02X" % int(b) for b in pbytes]))
         if DEBUG_DRY:
             return
         if not self._device:
             return;
-        self._device.write(bytearray(bytes_))
+        self._device.write(bytearray(pbytes))
         self._device.flush()
 
     def _device_close(self):

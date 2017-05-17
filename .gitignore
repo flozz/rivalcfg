@@ -5,3 +5,4 @@ __pycache__
 dist
 __dev__
 *.rst
+__cap__
