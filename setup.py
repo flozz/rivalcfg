@@ -7,8 +7,6 @@ import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.install import install as _install
 
-from rivalcfg import VERSION
-
 
 class install(_install):
     def run(self):
@@ -39,7 +37,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="rivalcfg",
-    version=VERSION,
+    version="2.5.2",
     description="Configure SteelSeries Rival gaming mice",
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",

@@ -1,18 +1,40 @@
 import os
+import re
+import collections
 
 
-DEBUG_DRY = "DEBUG_DRY" in os.environ
+DEBUG = (
+        "RIVALCFG_DEBUG" in os.environ or
+        "RIVALCFG_DRY" in os.environ or
+        "RIVALCFG_PROFILE" in os.environ or
+        "RIVALCFG_DEVICE" in os.environ)
 
-DEBUG_PROFILE_VENDOR_ID = None
-DEBUG_PROFILE_PRODUCT_ID = None
-if "DEBUG_PROFILE" in os.environ:
-    DEBUG_PROFILE_VENDOR_ID = os.environ["DEBUG_PROFILE"].split(":")[0]
-    DEBUG_PROFILE_PRODUCT_ID = os.environ["DEBUG_PROFILE"].split(":")[1]
+DRY = "RIVALCFG_DRY" in os.environ
 
-DEBUG_DEVICE_VENDOR_ID = None
-DEBUG_DEVICE_PRODUCT_ID = None
-if "DEBUG_DEVICE" in os.environ:
-    DEBUG_DEVICE_VENDOR_ID = os.environ["DEBUG_DEVICE"].split(":")[0]
-    DEBUG_DEVICE_PRODUCT_ID = os.environ["DEBUG_DEVICE"].split(":")[1]
 
-DEBUG = DEBUG_DRY or DEBUG_PROFILE_VENDOR_ID or DEBUG_DEVICE_VENDOR_ID
+MouseId = collections.namedtuple(
+        "MouseId", ("vendor_id", "product_id"))
+
+
+def _get_mouse_id_from_env(env_name):
+    if not env_name in os.environ:
+        return None
+    env_value = os.environ[env_name]
+    if not re.match(r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{4}$", env_value):
+        raise ValueError("%s='%s' is not a valid mouse identifier" % (
+            env_name, env_value))
+    vendor_id, product_id = env_value.split(":")
+    return MouseId(
+            vendor_id=int(vendor_id, 16),
+            product_id=int(product_id, 16))
+
+
+def get_debug_profile():
+    return _get_mouse_id_from_env("RIVALCFG_PROFILE")
+
+
+def get_debug_device():
+    mouseId = _get_mouse_id_from_env("RIVALCFG_DEVICE")
+    if mouseId:
+        return mouseId
+    return _get_mouse_id_from_env("RIVALCFG_PROFILE")

@@ -1,0 +1,2 @@
+hidapi==0.7.99.post20
+pytest==3.0.7
