@@ -51,10 +51,6 @@ setup(
 
     packages=find_packages(),
 
-    install_requires=[
-        "pyudev>=0.19.0"
-    ],
-
     entry_points={
         "console_scripts": [
             "rivalcfg = rivalcfg.cli:main"
