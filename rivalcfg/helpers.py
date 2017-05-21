@@ -1,7 +1,5 @@
 import re
 
-import pyudev
-
 
 NAMED_COLORS = {
       "white": (0x00, 0x00, 0x00),
@@ -28,59 +26,6 @@ NAMED_COLORS = {
     "preset4": (0xFF, 0xF2, 0x00),
     "preset5": (0xFF, 0x00, 0x00),
 }
-
-
-def usb_device_is_connected(vendor_id, product_id):
-    """Checks if the given device is connected to the USB bus.
-
-    Arguments:
-    vendor_id -- the vendor id of the device
-    product_id -- the product id of the device
-    """
-    ctx = pyudev.Context()
-    devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
-
-    for device in devices:
-        if (device["ID_MODEL_ID"] == product_id):
-            return True
-    return False
-
-
-def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
-    """
-    Find the first HID interface for the given USB vendor id and product id.
-
-    Arguments:
-    vendor_id -- the vendor id of the device
-    product_id -- the product id of the device
-    interface_num -- the interface number (default: 0)
-    """
-    ctx = pyudev.Context()
-    devices = ctx.list_devices(ID_VENDOR_ID=vendor_id)
-
-    for device in devices:
-        if (device["ID_MODEL_ID"] != product_id):
-            continue
-        if (device["SUBSYSTEM"] != "hidraw"):
-            continue
-        if int(device["ID_USB_INTERFACE_NUM"]) != interface_num:
-            continue
-
-        return device["DEVNAME"]
-
-    # Old Kernels...
-    devices = ctx.list_devices(SUBSYSTEM="hidraw")
-    deviceMatcher = re.compile(r"^.*/usb[0-9]+/[0-9/.-]+:[0-9]+\.%i/[0-9]+:%s:%s.*$" % (
-        interface_num,
-        vendor_id,
-        product_id
-        ))
-    for device in devices:
-        if not deviceMatcher.match(device["DEVPATH"]):
-            continue
-
-        return device["DEVNAME"]
-
 
 
 def is_color(string):
