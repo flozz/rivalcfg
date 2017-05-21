@@ -34,7 +34,7 @@ def get_debug_profile():
 
 
 def get_debug_device():
-    mouseId = _get_mouse_id_from_env("RIVALCFG_DEVICE")
-    if mouseId:
-        return mouseId
+    mouse_id = _get_mouse_id_from_env("RIVALCFG_DEVICE")
+    if mouse_id:
+        return mouse_id
     return _get_mouse_id_from_env("RIVALCFG_PROFILE")
