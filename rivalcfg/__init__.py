@@ -22,7 +22,7 @@ def list_available_mice():
     """Return the list of supported mice currently availale (plugged to the
     computer)."""
     for mouse in list_supported_mice():
-        if usbhid.is_mouse_plugged(mouse.vendor_id, mouse.product_id):
+        if usbhid.is_device_plugged(mouse.vendor_id, mouse.product_id):
             yield mouse
 
 
