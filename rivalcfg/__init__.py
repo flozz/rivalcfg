@@ -3,6 +3,7 @@ import collections
 from . import usbhid
 from .version import VERSION
 from .profiles import mice_profiles
+from .mouse import Mouse
 
 
 MouseInfo = collections.namedtuple(
@@ -48,4 +49,8 @@ def get_mouse(vendor_id, product_id):
     vendor_id -- The vendor id (currenlty this should be set to 0x1038)
     product_id -- The product id of the mouse (e.g. 0x1710 for the Rival 300)
     """
-    raise NotImplementedError()
+    profile = get_mouse_profile(vendor_id, product_id)
+    if not profile:
+        return None
+    return Mouse(profile)
+
