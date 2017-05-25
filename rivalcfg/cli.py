@@ -46,12 +46,12 @@ def _generate_default_cli_options(parser):
         )
 
 def _command_name_to_metavar(command_name):
-    """Trnansforms a command name to a better metaname (used for -h)."""
+    """Transforms a command name to a better metaname (used for -h)."""
     return command_name.replace("set_", "").upper()
 
 
 def _generate_mouse_cli_options(parser, profile):
-    """generate CLI specific to the plugged mouse."""
+    """Generate CLI specific to the plugged mouse."""
     group = OptionGroup(parser, "%s Options" % profile["name"])
     commands = sorted(profile["commands"].keys());
     for command in commands:
@@ -160,7 +160,7 @@ def main():
         print("E: The '%s' mouse is plugged in but the control interface is not available." % profile["name"])
         print("\nTry to:")
         print("  * unplug the mouse from the USB port,")
-        print("  * wait fiew seconds,")
+        print("  * wait few seconds,")
         print("  * and plug the mouse to the USB port again.")
         sys.exit(1)
 
