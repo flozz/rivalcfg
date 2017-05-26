@@ -20,7 +20,6 @@ class TestTransform(object):
         assert value == 4
 
     def test_multiple_arguments_with_no_transform_function(self):
-        pass
         values = rivalcfg.command_handlers._transform({}, 8, 4)
         assert values == (8, 4)
 
