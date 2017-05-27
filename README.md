@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/flozz/rivalcfg.svg?branch=master)](https://travis-ci.org/flozz/rivalcfg)
 [![PYPI Version](https://img.shields.io/pypi/v/rivalcfg.svg)](https://pypi.python.org/pypi/rivalcfg)
 [![License](https://img.shields.io/pypi/l/rivalcfg.svg)](https://github.com/flozz/rivalcfg/blob/master/LICENSE)
+[![IRC Freenode #rivalcfg](https://img.shields.io/badge/IRC_Freenode-%23rivalcfg-brightgreen.svg)](http://webchat.freenode.net/?channels=rivalcfg)
 
 rivalcfg is a small CLI utility program that allows you to configure
 SteelSeries Rival gaming mice on Linux.
