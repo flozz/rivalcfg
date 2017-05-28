@@ -3,9 +3,9 @@ from .rival import rival
 rival300 = {
     "name": "SteelSeries Rival 300",
 
-    "vendor_id": "1038",
-    "product_id": "1710",
-    "hidraw_interface_number": 0,
+    "vendor_id": 0x1038,
+    "product_id": 0x1710,
+    "interface_number": 0,
 
     "command_before": None,
     "command_after": "save",

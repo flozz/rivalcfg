@@ -1,16 +1,15 @@
-rival = {
-    "name": "SteelSeries Rival",
+rival300csgofadeedition = {
+    "name": "SteelSeries Rival 300 CS:GO Fade Edition",
 
-    "vendor_id": "1038",
-    "product_id": "1384",
-    "hidraw_interface_number": 0,
+    "vendor_id": 0x1038,
+    "product_id": 0x1394,
+    "interface_number": 0,
 
     "command_before": None,
     "command_after": "save",
 
     "commands": {
 
-        # TODO
         "set_sensitivity1": {
             "description": "Set sensitivity preset 1",
             "cli": ["-s", "--sensitivity1"],
@@ -23,7 +22,6 @@ rival = {
             "default": 800,
         },
 
-        # TODO
         "set_sensitivity2": {
             "description": "Set sensitivity preset 2",
             "cli": ["-S", "--sensitivity2"],
@@ -57,7 +55,9 @@ rival = {
             "value_type": "choice",
             "choices": {
                 "steady": 0x01,
-                "breath": 0x03,
+                "breathslow": 0x02,
+                "breathmed": 0x03,
+                "breathfast": 0x04,
                 1: 0x01,
                 2: 0x02,
                 3: 0x03,
@@ -73,7 +73,9 @@ rival = {
             "value_type": "choice",
             "choices": {
                 "steady": 0x01,
-                "breath": 0x03,
+                "breathslow": 0x02,
+                "breathmed": 0x03,
+                "breathfast": 0x04,
                 1: 0x01,
                 2: 0x02,
                 3: 0x03,
@@ -87,7 +89,7 @@ rival = {
             "cli": ["-c", "--logo-color"],
             "command": [0x08, 0x01],
             "value_type": "rgbcolor",
-            "default": "#FF1800"
+            "default": "#FF5200"
         },
 
         "set_wheel_color": {
@@ -95,7 +97,19 @@ rival = {
             "cli": ["-C", "--wheel-color"],
             "command": [0x08, 0x02],
             "value_type": "rgbcolor",
-            "default": "#FF1800"
+            "default": "#FF5200"
+        },
+
+        "set_btn6_action": {
+            "description": "Set the action of the button under the wheel",
+            "cli": ["-b", "--btn6-action"],
+            "command": [0x0B],
+            "value_type": "choice",
+            "choices": {
+                "default": 0x00,
+                "os": 0x01,
+            },
+            "default": "default",
         },
 
         "save": {

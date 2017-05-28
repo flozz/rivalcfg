@@ -1,8 +1,16 @@
-language: python
-python:
-    - "2.7"
-    - "3.4"
-    - "3.5"
-    - "nightly"
-install: pip install -e .
-script: bash test.sh
+#language: python
+
+#python:
+    #- "2.7"
+    #- "3.4"
+    #- "3.5"
+    #- "3.6"
+    #- "nightly"
+
+#install:
+    #- pip install -r requirements.txt
+    #- pip install -e .
+
+#script:
+    #- pytest
+    #- bash test/test_cli.sh
