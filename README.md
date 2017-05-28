@@ -173,25 +173,48 @@ can be fixed using the following commands (as root):
 
 ## Debug
 
-* `DEBUG_DRY=true`: Dry run (simulate commands, do not write anything to the
-  device).
-* `DEBUG_PROFILE=<VendorID>:<ProductId>`: Force to load the corresponding
-  profile.
-* `DEBUG_DEVICE=<VendorID>:<ProductId>` Force to use the specified USB device
-  instead of the one that matches the profile
+Rivalcfg uses several environment variable to enable different debug features:
 
-Example:
+* `RIVALCFG_DEBUG=1`: Enable debug. Setting this variable will allow rivalcfg
+  to write debug information to stdout.
 
-    DEBUG_DRY=true DEBUG_PROFILE=1038:1384 rivalcfg -c ff3300
+* `RIVALCFG_DRY=1` Enable dry run. Setting this variable will avoid rivalcfg to
+  write anything to a real device plugged to the computer (i any). It will
+  instead simulate the device, so it can be used to make test on mice that are
+  not plugged to the computer if used in conjunction to the `RIVALCFG_PROFILE`
+  variable.
 
-Result:
+* `RIVALCFG_PROFILE=<VendorID>:<ProductID>`: Forces rivalcfg to load the
+  corresponding profile instead of the one of the plugged device (if any).
 
-    [DEBUG] Debugging rivalcfg 2.0.0...
+* `RIVALCFG_DEVICE=<VendorID>:<ProductID>`: Forces rivalcfg to write bytes to
+  this device, even if it is not matching the selected profile.
+
+**Example: debug logging only:**
+
+    $ RIVALCFG_DEBUG=1  rivalcfg --list
+
+**Example: dry run on Rival 300 profile:**
+
+    $ RIVALCFG_DRY=1 RIVALCFG_PROFILE=1038:1710  rivalcfg -c ff1800
+
+**Example: using Rival 300 command set on Rival 300 CS:GO Fade Editon mouse:**
+
+    $ RIVALCFG_PROFILE=1038:1710     RIVALCFG_DEVICE=1038:1394    rivalcfg -c ff1800
+    # ↑ selects "Rival 300" profile  ↑ but write on the "Rival 300 CS:GO Fade Edition" device
+
+**Example debug output:**
+
+    [DEBUG] Rivalcfg 2.5.3
+    [DEBUG] Python version: 2.7.13
+    [DEBUG] OS: Linux
+    [DEBUG] Linux distribution: Ubuntu 17.04 zesty
     [DEBUG] Dry run enabled
-    [DEBUG] Debugging mouse profile 1038:1384
-    [DEBUG] Mouse profile found: SteelSeries Rival
-    [DEBUG] _device_write: 08 01 FF 33 00
-    [DEBUG] _device_write: 09 00
+    [DEBUG] Forced profile: 1038:1710
+    [DEBUG] Targeted device: 1038:1710
+    [DEBUG] Selected mouse: <Mouse SteelSeries Rival 300 (1038:1710:00)>
+    [DEBUG] Mouse._device_write: 00 08 01 FF 18 00
+    [DEBUG] Mouse._device_write: 00 09 00
 
 
 ## Changelog
