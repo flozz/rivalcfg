@@ -12,7 +12,7 @@ addons:
     packages:
         - python-dev
         - libusb-1.0-0-dev
-        - libudev1
+        - libudev
         - libudev-dev
 
 install:
