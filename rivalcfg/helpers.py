@@ -72,8 +72,8 @@ def find_hidraw_device_path(vendor_id, product_id, interface_num=0):
     devices = ctx.list_devices(SUBSYSTEM="hidraw")
     deviceMatcher = re.compile(r"^.*/usb[0-9]+/[0-9/.-]+:[0-9]+\.%i/[0-9]+:%s:%s.*$" % (
         interface_num,
-        vendor_id,
-        product_id
+        vendor_id.upper(),
+        product_id.upper()
         ))
     for device in devices:
         if not deviceMatcher.match(device["DEVPATH"]):
