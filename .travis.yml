@@ -12,6 +12,8 @@ addons:
     packages:
         - python-dev
         - libusb-1.0-0-dev
+        - libudev1
+        - libudev-dev
 
 install:
     - pip install -r requirements.txt
