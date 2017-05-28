@@ -1,24 +1,16 @@
-language: python
+#language: python
 
-python:
-    - "2.7"
-    - "3.4"
-    - "3.5"
-    - "3.6"
-    - "nightly"
+#python:
+    #- "2.7"
+    #- "3.4"
+    #- "3.5"
+    #- "3.6"
+    #- "nightly"
 
-addons:
-  apt:
-    packages:
-        - python-dev
-        - libusb-1.0-0-dev
-        - libudev
-        - libudev-dev
+#install:
+    #- pip install -r requirements.txt
+    #- pip install -e .
 
-install:
-    - pip install -r requirements.txt
-    - pip install -e .
-
-script:
-    - pytest
-    - bash test/test_cli.sh
+#script:
+    #- pytest
+    #- bash test/test_cli.sh
