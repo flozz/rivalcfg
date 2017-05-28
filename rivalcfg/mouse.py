@@ -35,7 +35,7 @@ class Mouse:
         # XXX fixes issue with Rival 300 new firmware (#5, #25, #28)
         bytes_ = helpers.merge_bytes(0x00, *bytes_)
         if debug.DEBUG:
-            debug.log_bytes_hex("_device_write", bytes_)
+            debug.log_bytes_hex("Mouse._device_write", bytes_)
         self._device.write(bytearray(bytes_))
 
     def __getattr__(self, name):
