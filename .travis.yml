@@ -1,16 +1,21 @@
 language: python
 
 python:
-    - "2.7"
-    - "3.4"
-    - "3.5"
-    - "3.6"
-    - "nightly"
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "nightly"
+
+addons:
+  apt:
+    packages:
+      - libusb-1.0-0
 
 install:
-    - pip install -r requirements.txt
-    - pip install -e .
+  - pip install -r requirements.txt
+  - pip install -e .
 
 script:
-    - pytest
-    - bash test/test_cli.sh
+  - pytest
+  - bash test/test_cli.sh
