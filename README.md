@@ -14,6 +14,7 @@ Supported mice:
 * SteelSeries Rival 100 _(1038:1702)_
 * SteelSeries Rival 300 _(1038:1710)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
+* SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -219,6 +220,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **2.6.0:** Add CS:GO Hyperbeast Edition support (thanks @chriscoyfish, #33)
 * **2.5.3:** Minor typo fixes for cli (thanks @chriscoyfish, #31)
 * **2.5.2:** Fixes Rival 300 with updated firmware not working (#5, #25, #28, special thanks to @Thiblizz)
 * **2.5.1:** Fixes mouse not recognized on system with more than 10 USB busses (#21)
