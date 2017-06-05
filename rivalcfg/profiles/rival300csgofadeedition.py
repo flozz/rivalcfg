@@ -5,9 +5,6 @@ rival300csgofadeedition = {
     "product_id": 0x1394,
     "interface_number": 0,
 
-    "command_before": None,
-    "command_after": "save",
-
     "commands": {
 
         "set_sensitivity1": {

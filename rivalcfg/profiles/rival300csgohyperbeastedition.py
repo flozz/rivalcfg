@@ -7,9 +7,6 @@ rival300csgohyperbeastedition = {
     "product_id": 0x171a,
     "interface_number": 0,
 
-    "command_before": None,
-    "command_after": "save",
-
     # Hyperbeast command mapping is same as CS:GO Fade Edition
     "commands": rival300csgofadeedition["commands"]
 }

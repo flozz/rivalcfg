@@ -5,9 +5,6 @@ rival = {
     "product_id": 0x1384,
     "interface_number": 0,
 
-    "command_before": None,
-    "command_after": "save",
-
     "commands": {
 
         # TODO

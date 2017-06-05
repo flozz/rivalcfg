@@ -7,8 +7,5 @@ rival300 = {
     "product_id": 0x1710,
     "interface_number": 0,
 
-    "command_before": None,
-    "command_after": "save",
-
     "commands": rival["commands"]
 }
