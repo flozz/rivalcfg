@@ -37,7 +37,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="rivalcfg",
-    version="2.5.2",
+    version="2.6.0",
     description="Configure SteelSeries Rival gaming mice",
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",

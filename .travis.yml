@@ -7,11 +7,6 @@ python:
   - "3.6"
   - "nightly"
 
-addons:
-  apt:
-    packages:
-      - libusb-1.0-0
-
 install:
   - pip install -r requirements.txt
   - pip install -e .
