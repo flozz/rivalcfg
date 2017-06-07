@@ -28,3 +28,4 @@ class TestOpenDevice(object):
         device = rivalcfg.usbhid.open_device(0x1038, 0x0002, 0x00)
         assert hasattr(device, "write")
         assert hasattr(device, "close")
+        assert hasattr(device, "send_feature_report")

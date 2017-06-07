@@ -5,6 +5,10 @@ import hid
 from . import debug
 
 
+HID_REPORT_TYPE_OUTPUT = 0x02
+HID_REPORT_TYPE_FEATURE = 0x03
+
+
 def is_device_plugged(vendor_id, product_id):
     """Returns True if the given HID device is plugged to the computer.
 
@@ -30,7 +34,9 @@ def open_device(vendor_id, product_id, interface_number):
     """
     # Dry run
     if debug.DEBUG and debug.DRY and is_device_plugged(vendor_id, product_id):
-        return BytesIO()  # Moke the device
+        device = BytesIO()  # Moke the device
+        device.send_feature_report = device.write
+        return device
 
     # Real device
     for interface in hid.enumerate(vendor_id, product_id):
