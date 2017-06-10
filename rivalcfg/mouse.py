@@ -55,15 +55,21 @@ class Mouse:
 
         command = self.profile["commands"][name]
         handler = "%s_handler" % str(command["value_type"]).lower()
+
         report_type = usbhid.HID_REPORT_TYPE_OUTPUT
         if "report_type" in command:
             report_type = command["report_type"]
+
+        suffix = []
+        if "suffix" in command:
+            suffix = command["suffix"]
 
         if not hasattr(command_handlers, handler):
             raise Exception("There is not handler for the '%s' value type" % command["value_type"])
 
         def _exec_command(*args):
             bytes_ = getattr(command_handlers, handler)(command, *args)
+            bytes_ = helpers.merge_bytes(bytes_, suffix)
             self._device_write(bytes_, report_type)
 
         return _exec_command
