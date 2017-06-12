@@ -33,7 +33,7 @@ def _print_debug_info():
 
 def _print_compatible_mice():
     """Prints mice currently supported by this software."""
-    print("\n".join(["%-45s %04X:%04X   %s" % (
+    print("\n".join(["%-50s %04X:%04X   %s" % (
             mouse.name,
             mouse.vendor_id,
             mouse.product_id,
