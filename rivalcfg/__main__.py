@@ -75,7 +75,9 @@ def main(argv):
             continue
         if profile["commands"][option]["value_type"] in ["choice", "range"] and value.isdigit():
             value = int(value)
-        getattr(mouse, option)(value)
+        if not type(value) in (list, tuple):
+            value = [value]
+        getattr(mouse, option)(*value)
 
     if hasattr(mouse, "save"):
         mouse.save()

@@ -95,3 +95,17 @@ def merge_bytes(*args):
             result.append(arg)
     return result
 
+
+def uint_to_little_endian_bytearray(number, size):
+    """Converts an unsigned interger to a little endian bytearray.
+
+    Arguments:
+    number -- the number to convert
+    size -- the length of the target bytearray
+    """
+    if number > (2 ** (8 * size) - 1):
+        raise ValueError("Integer overflow")
+    nle = [0] * size
+    for i in range(size):
+        nle[i] = number >> i*8 & 0xFF
+    return nle

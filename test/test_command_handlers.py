@@ -100,6 +100,30 @@ class TestRgbcolorHandler(object):
         assert bytes_ == [0x02, 0xFE, 0x1A, 0x0A]
 
 
+class TestRgbcolorshiftHandler(object):
+
+    @pytest.fixture
+    def rgbcolorshift_command(self):
+        return {"command": [0x01, 0x02]}
+
+    @pytest.fixture
+    def rgbcolorshift_command_transform(self):
+        return {
+            "command": [0x02],
+            "value_transform": lambda cs, s: ((cs[0]+1, cs[1]+1, cs[2]+1, cs[3]+1, cs[4]+1, cs[5]+1), s+1)
+            }
+
+    def test_valid_colors(self, rgbcolorshift_command):
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command, [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]], 0x88)
+        assert bytes_ == [0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command, ["010203", "#060504"], 0x88)
+        assert bytes_ == [0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
+
+    def test_valid_colors_and_no_with_tranform(self, rgbcolorshift_command_transform):
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command_transform, [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]], 0x88)
+        assert bytes_ == [0x02, 0x02, 0x03, 0x04, 0x07, 0x06, 0x05, 0x89, 0x00]
+
+
 class TestRangeHandler(object):
 
     @pytest.fixture

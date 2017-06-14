@@ -16,6 +16,21 @@ def _check_color(option, opt_str, value, parser):
     setattr(parser.values, option.dest, value)
 
 
+def _check_colorshift(option, opt_str, values, parser):
+    """OptionParser callback to check if the given colors are valid.
+    Also transfroms a little bit the args to make it works:
+    [color1, color2, speed] -> [[color1, color2], speed]
+    """
+    colors = values[:-1]
+    speed = values[-1]
+    for color in colors:
+        if not helpers.is_color(color):
+            raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, color))
+    if not speed.isdigit():
+        raise OptionValueError("option %s: invalid speed: '%s'" % (opt_str, speed))
+    setattr(parser.values, option.dest, [colors, int(speed)])
+
+
 def _add_choice_option(group, command_name, command):
     description = "%s (values: %s, default: %s)" % (
             command["description"],
@@ -44,6 +59,24 @@ def _add_rgbcolor_option(group, command_name, command):
             action="callback",
             callback=_check_color,
             metavar=_command_name_to_metavar(command_name)
+            )
+
+
+def _add_rgbcolorshift_option(group, command_name, command):
+    description = "%s (e.g. red aqua 200, ff0000 00ffff 200, default: %s %s)" % (
+            command["description"],
+            " ".join(command["default"][0]),
+            " ".join((str(v) for v in command["default"][1:]))
+            )
+    group.add_option(
+            *command["cli"],
+            dest=command_name,
+            help=description,
+            type="string",
+            action="callback",
+            callback=_check_colorshift,
+            nargs=3,
+            metavar="COLOR1 COLOR2 SPEED"
             )
 
 
