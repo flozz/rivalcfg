@@ -108,4 +108,4 @@ def uint_to_little_endian_bytearray(number, size):
     nle = [0] * size
     for i in range(size):
         nle[i] = number >> i*8 & 0xFF
-    return bytearray(nle)
+    return nle

@@ -40,14 +40,39 @@ def rgbcolor_handler(command, *args):
     if len(args) == 3:
         for value in args:
             if type(value) != int or value < 0 or value > 255:
-                raise ValueError("Not a valid color")
+                raise ValueError("Not a valid color %s" % str(args))
         color = args
     elif len(args) == 1 and type(args[0]) == str and helpers.is_color(args[0]):
         color = helpers.color_string_to_rgb(args[0])
     else:
-        raise ValueError("Not a valid color")
+        raise ValueError("Not a valid color %s" % str(args))
     color = _transform(command, *color)
     return helpers.merge_bytes(command["command"], color)
+
+
+def rgbcolorshift_handler(command, colors, speed=200):
+    """Returns command bytes from RGB color commands.
+
+    Arguments:
+    command -- the command description dict
+    colors -- the colors as an array of string (color name or hexadecimal RGB),
+              or as an array of array of R, G and B int (e.g. fn(cmd, ["red"]),
+              fn(cmd, ["#ff0000"]), fn(cmd, [[255, 0, 0]]))
+
+    Keyword arguments:
+    speed -- the color shift speed (default 200ms)
+    """
+    parsed_colors = []
+    for color in colors:
+        if type(color) in (list, tuple) and len(color) == 3:
+            parsed_colors.extend(color)
+        elif type(color) == str and helpers.is_color(color):
+            parsed_colors.extend(helpers.color_string_to_rgb(color))
+        else:
+            raise ValueError("Not a valid color %s" % str(color))
+    parsed_colors, speed = _transform(command, parsed_colors, speed)
+    speed = helpers.uint_to_little_endian_bytearray(speed, 2)
+    return helpers.merge_bytes(command["command"], parsed_colors, speed)
 
 
 def range_handler(command, value):
