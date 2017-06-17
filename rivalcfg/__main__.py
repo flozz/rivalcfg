@@ -41,7 +41,7 @@ def _print_compatible_mice():
         ) for mouse in list_supported_mice()]))
 
 
-def main(argv):
+def main(argv=sys.argv[1:]):
     _print_debug_info()
 
     mouse = get_first_available_mouse()

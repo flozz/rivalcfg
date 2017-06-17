@@ -8,3 +8,5 @@ __dev__
 __cap__
 .tox
 .cache
+build
+__env3__
