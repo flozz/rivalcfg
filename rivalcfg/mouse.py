@@ -30,7 +30,10 @@ class Mouse:
         """Sets all option to their factory values."""
         for command in self.profile["commands"]:
             if "default" in self.profile["commands"][command]:
-                getattr(self, command)(self.profile["commands"][command]["default"])
+                default = self.profile["commands"][command]["default"]
+                if not type(default) in [list, tuple]:
+                    default = [default]
+                getattr(self, command)(*default)
 
     def _device_write(self, bytes_, report_type=usbhid.HID_REPORT_TYPE_OUTPUT):
         """Writes bytes to the device.
