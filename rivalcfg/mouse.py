@@ -14,6 +14,9 @@ class Mouse:
 
     """Generic class to handle any supported mouse."""
 
+    profile = None
+    _device = None
+
     def __init__(self, profile):
         """Contructor.
 
@@ -88,5 +91,6 @@ class Mouse:
         return self.__repr__()
 
     def __del__(self):
-        self._device.close()
+        if self._device:
+            self._device.close()
 

@@ -12,10 +12,21 @@ def get_first_available_mouse():
     available_mice = list(list_available_mice())
     if not available_mice:
         return None
-    return get_mouse(
-            available_mice[0].vendor_id,
-            available_mice[0].product_id
-            )
+    mouse = available_mice[0]
+    try:
+        return get_mouse(
+                mouse.vendor_id,
+                mouse.product_id
+                )
+    except IOError as error:
+        print("W: The following mouse was found but rivalcfg was not able to open it:")
+        print("  * mouse: %s (%4X:%4X)" % mouse)
+        print("  * error: %s" % error)
+        print("\nPlease check that no other application is controlling this mouse and try to:")
+        print("  * unplug the mouse from the USB port,")
+        print("  * wait few seconds,")
+        print("  * and plug the mouse to the USB port again.\n")
+        return None
 
 
 def _print_debug_info():
