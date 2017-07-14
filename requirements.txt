@@ -1,2 +1,9 @@
+configparser==3.5.0
+enum34==1.1.6
+flake8==3.3.0
 hidapi==0.7.99.post20
-pytest==3.0.7
+mccabe==0.6.1
+py==1.4.34
+pycodestyle==2.3.1
+pyflakes==1.5.0
+pytest==3.1.3
