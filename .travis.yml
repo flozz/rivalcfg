@@ -18,6 +18,6 @@ install:
   - pip install -e .
 
 script:
-    flake8 rivalcfg test
+  - flake8 rivalcfg test
   - pytest -v test
   - bash test/test_cli.sh
