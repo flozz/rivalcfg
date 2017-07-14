@@ -19,7 +19,8 @@ def is_device_plugged(vendor_id, product_id):
     if debug.DEBUG:
         mouse_id = debug.get_debug_profile()
         if mouse_id:
-            return mouse_id.vendor_id == vendor_id and mouse_id.product_id == product_id
+            return (mouse_id.vendor_id == vendor_id
+                    and mouse_id.product_id == product_id)
     return len(hid.enumerate(vendor_id, product_id)) > 0
 
 

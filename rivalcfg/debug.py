@@ -19,7 +19,7 @@ MouseId = collections.namedtuple(
 
 
 def _get_mouse_id_from_env(env_name):
-    if not env_name in os.environ:
+    if env_name not in os.environ:
         return None
     env_value = os.environ[env_name]
     if not re.match(r"^[0-9a-fA-F]{4}:[0-9a-fA-F]{4}$", env_value):
@@ -79,4 +79,4 @@ def log_bytes_hex(message, bytes_):
     """
     if not DEBUG:
         return
-    print("[DEBUG]", "%s:" % message, " ".join(["%02X" % int(b) for b in bytes_]))
+    print("[DEBUG]", "%s:" % message, " ".join(["%02X" % int(b) for b in bytes_]))  # noqa

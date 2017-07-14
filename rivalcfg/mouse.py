@@ -45,18 +45,23 @@ class Mouse:
         bytes_ -- bytes to write
 
         Keyword arguments:
-        report_type -- the HID Repport Type (0x02: output (default), 0x03: feature)
+        report_type -- the HID Repport Type (0x02: output (default), 0x03:
+                       feature)
         """
         report_id = 0x00
         if debug.DEBUG:
-            debug.log_bytes_hex("Mouse._device_write [wValue]", [report_type, report_id])
+            debug.log_bytes_hex(
+                    "Mouse._device_write [wValue]",
+                    [report_type, report_id])
             debug.log_bytes_hex("Mouse._device_write   [data]", bytes_)
         bytes_ = helpers.merge_bytes(report_id, bytes_)
-        report_function = getattr(self._device, REPORT_TYPE_TO_HIDAPI_FUNCTION[report_type])
+        report_function = getattr(
+                self._device,
+                REPORT_TYPE_TO_HIDAPI_FUNCTION[report_type])
         report_function(bytearray(bytes_))
 
     def __getattr__(self, name):
-        if not name in self.profile["commands"]:
+        if name not in self.profile["commands"]:
             raise AttributeError("There is no command named '%s'" % name)
 
         command = self.profile["commands"][name]
@@ -71,7 +76,7 @@ class Mouse:
             suffix = command["suffix"]
 
         if not hasattr(command_handlers, handler):
-            raise Exception("There is not handler for the '%s' value type" % command["value_type"])
+            raise Exception("There is not handler for the '%s' value type" % command["value_type"])  # noqa
 
         def _exec_command(*args):
             bytes_ = getattr(command_handlers, handler)(command, *args)
@@ -93,4 +98,3 @@ class Mouse:
     def __del__(self):
         if self._device:
             self._device.close()
-

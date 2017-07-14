@@ -2,22 +2,22 @@ import re
 
 
 NAMED_COLORS = {
-      "white": (0xFF, 0xFF, 0xFF),
-     "silver": (0xC0, 0xC0, 0xC0),
-       "gray": (0x80, 0x80, 0x80),
-      "black": (0x00, 0x00, 0x00),
-        "red": (0xFF, 0x00, 0x00),
-     "maroon": (0x80, 0x00, 0x00),
-     "yellow": (0xFF, 0xFF, 0x00),
-      "olive": (0x80, 0x80, 0x00),
-       "lime": (0x00, 0xFF, 0x00),
-      "green": (0x00, 0x80, 0x00),
-       "aqua": (0x00, 0xFF, 0xFF),
-       "teal": (0x00, 0x80, 0x80),
-       "blue": (0x00, 0x00, 0xFF),
-       "navy": (0x00, 0x00, 0x80),
+    "white":   (0xFF, 0xFF, 0xFF),
+    "silver":  (0xC0, 0xC0, 0xC0),
+    "gray":    (0x80, 0x80, 0x80),
+    "black":   (0x00, 0x00, 0x00),
+    "red":     (0xFF, 0x00, 0x00),
+    "maroon":  (0x80, 0x00, 0x00),
+    "yellow":  (0xFF, 0xFF, 0x00),
+    "olive":   (0x80, 0x80, 0x00),
+    "lime":    (0x00, 0xFF, 0x00),
+    "green":   (0x00, 0x80, 0x00),
+    "aqua":    (0x00, 0xFF, 0xFF),
+    "teal":    (0x00, 0x80, 0x80),
+    "blue":    (0x00, 0x00, 0xFF),
+    "navy":    (0x00, 0x00, 0x80),
     "fuchsia": (0xFF, 0x00, 0xFF),
-     "purple": (0x80, 0x00, 0x80),
+    "purple":  (0x80, 0x00, 0x80),
 
     # Rival 300 CS:GO Fade Edition presets
     "preset1": (0xFF, 0x52, 0x00),
@@ -34,7 +34,11 @@ def is_color(string):
     Arguments:
     string -- the string to check
     """
-    return string in NAMED_COLORS or bool(re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE))
+    if string in NAMED_COLORS:
+        return True
+    if re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE):
+        return True
+    return False
 
 
 def color_string_to_rgb(color_string):
@@ -54,7 +58,7 @@ def color_string_to_rgb(color_string):
         color_string = color_string[1:]
     # f00 -> ff0000
     if len(color_string) == 3:
-        color_string = color_string[0] * 2 + color_string[1] * 2 + color_string[2] * 2
+        color_string = color_string[0] * 2 + color_string[1] * 2 + color_string[2] * 2  # noqa
     # ff0000 -> (255, 0, 0)
     return (
         int(color_string[0:2], 16),
@@ -69,7 +73,7 @@ def choices_to_list(choices):
     Arguments:
     choices -- the dict containing available choices
     """
-    return list(map(str, sorted(choices.keys(), key=lambda v: v if type(v) == int else -1)))
+    return list(map(str, sorted(choices.keys(), key=lambda v: v if type(v) == int else -1)))  # noqa
 
 
 def choices_to_string(choices):

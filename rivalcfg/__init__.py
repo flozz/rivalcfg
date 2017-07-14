@@ -1,7 +1,7 @@
 import collections
 
 from . import usbhid
-from .version import VERSION
+from .version import VERSION  # noqa
 from .profiles import mice_profiles
 from .mouse import Mouse
 
@@ -16,7 +16,7 @@ def list_supported_mice():
             name=profile["name"],
             vendor_id=profile["vendor_id"],
             product_id=profile["product_id"],
-        ) for profile in mice_profiles)
+            ) for profile in mice_profiles)
 
 
 def list_available_mice():
@@ -36,7 +36,8 @@ def get_mouse_profile(vendor_id, product_id):
     product_id -- The product id of the mouse (e.g. 0x1710 for the Rival 300)
     """
     for profile in mice_profiles:
-        if profile["vendor_id"] == vendor_id and profile["product_id"] == product_id:
+        if (profile["vendor_id"] == vendor_id
+                and profile["product_id"] == product_id):
             return profile
     return None
 
@@ -53,4 +54,3 @@ def get_mouse(vendor_id, product_id):
     if not profile:
         return None
     return Mouse(profile)
-

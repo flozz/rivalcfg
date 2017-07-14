@@ -20,8 +20,9 @@ def choice_handler(command, choice):
     command -- the command description dict
     choice -- the choosen value
     """
-    if not choice in command["choices"]:
-        raise ValueError("value must be one of [%s]" %
+    if choice not in command["choices"]:
+        raise ValueError(
+                "value must be one of [%s]" %
                 helpers.choices_to_string(command["choices"]))
     value = command["choices"][choice]
     value = _transform(command, value)
@@ -34,7 +35,8 @@ def rgbcolor_handler(command, *args):
     Arguments:
     command -- the command description dict
     *args -- the color as a string (color name or hexadecimal RGB), or as R, G
-             and B int (e.g. fn(cmd, "red"), fn(cmd, "#ff0000"), fn(cmd, 255, 0, 0))
+             and B int (e.g. fn(cmd, "red"), fn(cmd, "#ff0000"),
+             fn(cmd, 255, 0, 0))
     """
     color = (0x00, 0x00, 0x00)
     if len(args) == 3:
@@ -88,7 +90,8 @@ def range_handler(command, value):
             command["range_min"],
             command["range_max"]
             ))
-    if "range_increment" in command and value % command["range_increment"] != 0:
+    if ("range_increment" in command
+            and value % command["range_increment"] != 0):
         raise ValueError("Value %i is not a multiple of %i" % (
             value,
             command["range_increment"]
@@ -104,4 +107,3 @@ def none_handler(command):
     command -- the command description dict
     """
     return command["command"]
-
