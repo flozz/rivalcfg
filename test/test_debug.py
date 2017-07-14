@@ -36,16 +36,15 @@ class TestGetDebugDevice(object):
         with pytest.raises(ValueError):
             rivalcfg.debug.get_debug_device()
 
-    def test_device_env_variable_not_defined_but_profile_env_variable_defined(self, monkeypatch):
+    def test_device_env_variable_not_defined_but_profile_env_variable_defined(self, monkeypatch):  # noqa
         monkeypatch.setenv("RIVALCFG_PROFILE", "1038:1702")
         debugMouseInfo = rivalcfg.debug.get_debug_device()
         assert debugMouseInfo.vendor_id == 0x1038
         assert debugMouseInfo.product_id == 0x1702
 
-    def test_device_env_variable_and_profile_env_variable_defined(self, monkeypatch):
+    def test_device_env_variable_and_profile_env_variable_defined(self, monkeypatch):  # noqa
         monkeypatch.setenv("RIVALCFG_DEVICE", "1038:1710")
         monkeypatch.setenv("RIVALCFG_PROFILE", "1038:1702")
         debugMouseInfo = rivalcfg.debug.get_debug_device()
         assert debugMouseInfo.vendor_id == 0x1038
         assert debugMouseInfo.product_id == 0x1710
-

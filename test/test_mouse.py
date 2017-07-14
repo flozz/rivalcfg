@@ -84,6 +84,7 @@ class TestGetattr(object):
         with pytest.raises(Exception):
             mouse.undefined_handler_command()
 
+
 class TestStrRepr(object):
 
     def test_str(self, mouse):

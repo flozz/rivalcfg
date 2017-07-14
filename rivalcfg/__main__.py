@@ -19,10 +19,10 @@ def get_first_available_mouse():
                 mouse.product_id
                 )
     except IOError as error:
-        print("W: The following mouse was found but rivalcfg was not able to open it:")
+        print("W: The following mouse was found but rivalcfg was not able to open it:")  # noqa
         print("  * mouse: %s (%4X:%4X)" % mouse)
         print("  * error: %s" % error)
-        print("\nPlease check that no other application is controlling this mouse and try to:")
+        print("\nPlease check that no other application is controlling this mouse and try to:")  # noqa
         print("  * unplug the mouse from the USB port,")
         print("  * wait few seconds,")
         print("  * and plug the mouse to the USB port again.\n")
@@ -34,7 +34,7 @@ def _print_debug_info():
     debug.log("Python version: %s" % platform.python_version())
     debug.log("OS: %s" % platform.system())
     if platform.system() == "Linux":
-        debug.log("Linux distribution: %s" % " ".join(platform.linux_distribution()))
+        debug.log("Linux distribution: %s" % " ".join(platform.linux_distribution()))  # noqa
     if debug.DRY:
         debug.log("Dry run enabled")
     if debug.get_debug_profile():
@@ -82,9 +82,10 @@ def main(argv=sys.argv[1:]):
         mouse.set_default()
 
     for option, value in list(options.__dict__.items()):
-        if option in ["list", "reset"] or value == None:
+        if option in ["list", "reset"] or value is None:
             continue
-        if profile["commands"][option]["value_type"] in ["choice", "range"] and value.isdigit():
+        if (profile["commands"][option]["value_type"] in ["choice", "range"]
+                and value.isdigit()):
             value = int(value)
         if not type(value) in (list, tuple):
             value = [value]
@@ -96,4 +97,3 @@ def main(argv=sys.argv[1:]):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-

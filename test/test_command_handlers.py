@@ -54,7 +54,8 @@ class TestChoiceHandler(object):
             rivalcfg.command_handlers.choice_handler(choice_command, 42)
 
     def test_value_tranform(self, choice_command_transform):
-        bytes_ = rivalcfg.command_handlers.choice_handler(choice_command_transform, 1)
+        bytes_ = rivalcfg.command_handlers.choice_handler(
+                choice_command_transform, 1)
         assert bytes_ == [0x02, 0xAA]
 
 
@@ -72,31 +73,38 @@ class TestRgbcolorHandler(object):
             }
 
     def test_valid_color_string(self, rgbcolor_command):
-        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, "#ff1800")
+        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(
+                rgbcolor_command, "#ff1800")
         assert bytes_ == [0x01, 0x02, 0xFF, 0x18, 0x00]
 
     def test_not_valid_color_string(self, rgbcolor_command):
         with pytest.raises(ValueError):
-            rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, "hello")
+            rivalcfg.command_handlers.rgbcolor_handler(
+                    rgbcolor_command, "hello")
 
     def test_valid_color_ints(self, rgbcolor_command):
-        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, 0xFF, 0x18, 0x00)
+        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(
+                rgbcolor_command, 0xFF, 0x18, 0x00)
         assert bytes_ == [0x01, 0x02, 0xFF, 0x18, 0x00]
 
     def test_not_valid_color_ints_2_channels(self, rgbcolor_command):
         with pytest.raises(ValueError):
-            rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, 0xFF, 0x18)
+            rivalcfg.command_handlers.rgbcolor_handler(
+                    rgbcolor_command, 0xFF, 0x18)
 
     def test_not_valid_color_ints_wrong_range(self, rgbcolor_command):
         with pytest.raises(ValueError):
-            rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, -1, 256, 1337)
+            rivalcfg.command_handlers.rgbcolor_handler(
+                    rgbcolor_command, -1, 256, 1337)
 
     def test_not_valid_color_ints_wrong_type(self, rgbcolor_command):
         with pytest.raises(ValueError):
-            rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command, "ff", "18", "00")
+            rivalcfg.command_handlers.rgbcolor_handler(
+                    rgbcolor_command, "ff", "18", "00")
 
     def test_color_command_with_transform(self, rgbcolor_command_transform):
-        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(rgbcolor_command_transform,  0xFF, 0x18, 0x00)
+        bytes_ = rivalcfg.command_handlers.rgbcolor_handler(
+                rgbcolor_command_transform,  0xFF, 0x18, 0x00)
         assert bytes_ == [0x02, 0xFE, 0x1A, 0x0A]
 
 
@@ -110,17 +118,27 @@ class TestRgbcolorshiftHandler(object):
     def rgbcolorshift_command_transform(self):
         return {
             "command": [0x02],
-            "value_transform": lambda cs, s: ((cs[0]+1, cs[1]+1, cs[2]+1, cs[3]+1, cs[4]+1, cs[5]+1), s+1)
+            "value_transform": lambda cs, s: (
+                (cs[0]+1, cs[1]+1, cs[2]+1, cs[3]+1, cs[4]+1, cs[5]+1), s+1)
             }
 
     def test_valid_colors(self, rgbcolorshift_command):
-        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command, [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]], 0x88)
-        assert bytes_ == [0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
-        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command, ["010203", "#060504"], 0x88)
-        assert bytes_ == [0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(
+                rgbcolorshift_command,
+                [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]],
+                0x88)
+        assert bytes_ == [
+                0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(
+                rgbcolorshift_command, ["010203", "#060504"], 0x88)
+        assert bytes_ == [
+                0x01, 0x02, 0x01, 0x02, 0x03, 0x06, 0x05, 0x04, 0x88, 0x00]
 
-    def test_valid_colors_and_no_with_tranform(self, rgbcolorshift_command_transform):
-        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(rgbcolorshift_command_transform, [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]], 0x88)
+    def test_valid_colors_and_no_with_tranform(self, rgbcolorshift_command_transform):  # noqa
+        bytes_ = rivalcfg.command_handlers.rgbcolorshift_handler(
+                rgbcolorshift_command_transform,
+                [[0x01, 0x02, 0x03], [0x06, 0x05, 0x04]],
+                0x88)
         assert bytes_ == [0x02, 0x02, 0x03, 0x04, 0x07, 0x06, 0x05, 0x89, 0x00]
 
 
@@ -165,15 +183,18 @@ class TestRangeHandler(object):
             rivalcfg.command_handlers.range_handler(range_command, 151)
 
     def test_value_multiple_of_increment(self, range_command_increment):
-        bytes_ = rivalcfg.command_handlers.range_handler(range_command_increment, 0x96)
+        bytes_ = rivalcfg.command_handlers.range_handler(
+                range_command_increment, 0x96)
         assert bytes_ == [0x02, 0x96]
 
     def test_value_not_multiple_of_increment(self, range_command_increment):
         with pytest.raises(ValueError):
-            rivalcfg.command_handlers.range_handler(range_command_increment, 101)
+            rivalcfg.command_handlers.range_handler(
+                    range_command_increment, 101)
 
     def test_range_command_with_transform(self, range_command_transform):
-        bytes_ = rivalcfg.command_handlers.range_handler(range_command_transform, 0x70)
+        bytes_ = rivalcfg.command_handlers.range_handler(
+                range_command_transform, 0x70)
         assert bytes_ == [0x03, 0xE0]
 
 

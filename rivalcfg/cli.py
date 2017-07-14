@@ -12,7 +12,7 @@ def _command_name_to_metavar(command_name):
 def _check_color(option, opt_str, value, parser):
     """OptionParser callback to check if the given color is valid."""
     if not helpers.is_color(value):
-        raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, value))
+        raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, value))  # noqa
     setattr(parser.values, option.dest, value)
 
 
@@ -25,9 +25,9 @@ def _check_colorshift(option, opt_str, values, parser):
     speed = values[-1]
     for color in colors:
         if not helpers.is_color(color):
-            raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, color))
+            raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, color))  # noqa
     if not speed.isdigit():
-        raise OptionValueError("option %s: invalid speed: '%s'" % (opt_str, speed))
+        raise OptionValueError("option %s: invalid speed: '%s'" % (opt_str, speed))  # noqa
     setattr(parser.values, option.dest, [colors, int(speed)])
 
 
@@ -63,7 +63,7 @@ def _add_rgbcolor_option(group, command_name, command):
 
 
 def _add_rgbcolorshift_option(group, command_name, command):
-    description = "%s (e.g. red aqua 200, ff0000 00ffff 200, default: %s %s)" % (
+    description = "%s (e.g. red aqua 200, ff0000 00ffff 200, default: %s %s)" % (  # noqa
             command["description"],
             " ".join(command["default"][0]),
             " ".join((str(v) for v in command["default"][1:]))
@@ -93,29 +93,34 @@ def _add_range_option(group, command_name, command):
             dest=command_name,
             help=description,
             metavar=_command_name_to_metavar(command_name),
-            choices=[str(i) for i in range(command["range_min"], command["range_max"] + 1, command["range_increment"])]
+            choices=[str(i) for i in range(
+                command["range_min"],
+                command["range_max"] + 1,
+                command["range_increment"])]
             )
 
 
 def _add_standard_options(parser):
-    parser.add_option("-l", "--list",
-        help="print compatible mice and exit",
-        action="store_true"
-        )
+    parser.add_option(
+            "-l", "--list",
+            help="print compatible mice and exit",
+            action="store_true"
+            )
 
 
 def _add_mouse_options(parser, profile):
     group = OptionGroup(parser, "%s Options" % profile["name"])
-    command_names = sorted(profile["commands"].keys());
+    command_names = sorted(profile["commands"].keys())
     for command_name in command_names:
         if command_name == "save":
             continue
         command = profile["commands"][command_name]
         adder_name = "_add_%s_option" % command["value_type"]
-        if not adder_name in globals():
-            raise Exception("Unable to create a CLI option for value type '%s'" % command["value_type"])
+        if adder_name not in globals():
+            raise Exception("Unable to create a CLI option for value type '%s'" % command["value_type"])  # noqa
         globals()[adder_name](group, command_name, command)
-    group.add_option("-r", "--reset",
+    group.add_option(
+            "-r", "--reset",
             help="Reset all options to their factory values",
             action="store_true"
             )
@@ -123,9 +128,10 @@ def _add_mouse_options(parser, profile):
 
 
 def generate_cli(profile=None):
-    parser = OptionParser("Usage: rivalcfg [options]",
+    parser = OptionParser(
+            "Usage: rivalcfg [options]",
             version=VERSION,
-            epilog="Please report any bug on Github: https://github.com/flozz/rivalcfg/issues"
+            epilog="Please report any bug on Github: https://github.com/flozz/rivalcfg/issues"  # noqa
             )
     _add_standard_options(parser)
     if profile:
