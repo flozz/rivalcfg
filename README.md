@@ -31,19 +31,30 @@ If you have trouble running this software, please open an issue on Github:
 
 ## Installation
 
-__NOTE:__ Installation may require compilation toolchain and python headers to
-compile `hidapi`. On Debian / Ubuntu, this can be installed with the following
-command (as root):
+### Prerequisites
+
+**Linux:**
+
+Installation require a compilation toolchain and python headers to compile
+`hidapi`. On Debian / Ubuntu, this can be installed with the following command
+(as root):
 
     apt-get install build-essential python-dev
 
-### From PYPI
+**Windows:**
+
+On Windows, you have to install first:
+
+* Python 3.6 or 2.7: https://www.python.org/
+* Visual C++ 2015 Build Tools: http://landinghub.visualstudio.com/visual-cpp-build-tools
+
+### Installing From PYPI
 
 Run the following command (as root):
 
     pip install rivalcfg
 
-### From sources
+### Installing From sources
 
 Clone the repositiory:
 
@@ -58,7 +69,7 @@ __NOTE:__ udev rules should be automatically installed, but if setup fails, you
 should copy the rules manually: `cp rivalcfg/data/99-steelseries-rival.rules
 /etc/udev/rules.d/` and then run the `udevadm trigger` command.
 
-### From Arch Linux AUR package
+### Archlinux AUR package
 
 Use package [rivalcfg-git](https://aur.archlinux.org/packages/rivalcfg-git)
 
