@@ -31,6 +31,12 @@ If you have trouble running this software, please open an issue on Github:
 
 ## Installation
 
+__NOTE:__ Installation may require compilation toolchain and python headers to
+compile `hidapi`. On Debian / Ubuntu, this can be installed with the following
+command (as root):
+
+    apt-get install build-essential python-dev
+
 ### From PYPI
 
 Run the following command (as root):
