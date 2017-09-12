@@ -15,6 +15,7 @@ Supported mice:
 * SteelSeries Rival 300 _(1038:1710)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
+* _SteelSeries Rival 500 (Experimental) (1038:170e)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -25,7 +26,7 @@ If you have trouble running this software, please open an issue on Github:
 
 * Any Linux distribution that use `udev` (Debian, Ubuntu, ArchLinux,
   Fedora,...)
-* [`pyudev`](https://pypi.python.org/pypi/pyudev)
+* [hidapi](https://pypi.python.org/pypi/hidapi/0.7.99.post20)
 
 
 ## Installation
@@ -142,6 +143,23 @@ SteelSeries Rival 300 CS:GO Fade Edition Options:
                         breathmed, breathslow, steady, 1, 2, 3, 4, default:
                         steady)
     -r, --reset         Reset all options to their factory values
+
+SteelSeries Rival 500 (Experimental)
+
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -t COLOR1 COLOR2 SPEED, --logo-colorshift=COLOR1 COLOR2 SPEED
+                        Set the logo backlight color (e.g. red aqua 200,
+                        ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -T COLOR1 COLOR2 SPEED, --wheel-colorshift=COLOR1 COLOR2 SPEED
+                        Set the wheel backlight color (e.g. red aqua 200,
+                        ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+    -r, --reset         Reset all options to their factory values
+
 
 
 ## FAQ (Frequently Asked Questions)
