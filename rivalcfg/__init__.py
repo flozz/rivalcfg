@@ -1,7 +1,7 @@
 import collections
 
 from . import usbhid
-from .version import VERSION  # noqa
+from .version import VERSION
 from .profiles import mice_profiles
 from .mouse import Mouse
 
@@ -54,3 +54,21 @@ def get_mouse(vendor_id, product_id):
     if not profile:
         return None
     return Mouse(profile)
+
+
+def get_first_mouse():
+    """Returns the first available mouse if any mouse is connected, else
+    returns None.
+    """
+    for mouse in list_available_mice():
+        return get_mouse(mouse.vendor_id, mouse.product_id)
+    return None
+
+
+__all__ = [
+        VERSION,
+        list_supported_mice,
+        list_available_mice,
+        get_mouse_profile,
+        get_mouse
+        ]

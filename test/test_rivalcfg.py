@@ -38,7 +38,7 @@ class TestGetMouseProfile(object):
 
 class TestGetMouse(object):
 
-    def test_unsupoorted_mouse(self):
+    def test_unsuported_mouse(self):
         assert not rivalcfg.get_mouse(0x1038, 0x0001)
 
     def test_supported_mouse(self, monkeypatch):
@@ -46,3 +46,18 @@ class TestGetMouse(object):
         monkeypatch.setattr("rivalcfg.debug.DRY", True)
         monkeypatch.setenv("RIVALCFG_PROFILE", "1038:1710")
         assert rivalcfg.get_mouse(0x1038, 0x1710)
+
+
+class TestGetFirstMouse(object):
+
+    def test_unsuported_mouse(self, monkeypatch):
+        monkeypatch.setattr("rivalcfg.debug.DEBUG", True)
+        monkeypatch.setattr("rivalcfg.debug.DRY", True)
+        monkeypatch.setenv("RIVALCFG_PROFILE", "1038:0001")
+        assert not rivalcfg.get_first_mouse()
+
+    def test_supported_mouse(self, monkeypatch):
+        monkeypatch.setattr("rivalcfg.debug.DEBUG", True)
+        monkeypatch.setattr("rivalcfg.debug.DRY", True)
+        monkeypatch.setenv("RIVALCFG_PROFILE", "1038:1710")
+        assert rivalcfg.get_first_mouse()
