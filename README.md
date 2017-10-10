@@ -6,7 +6,8 @@
 [![IRC Freenode #rivalcfg](https://img.shields.io/badge/IRC_Freenode-%23rivalcfg-brightgreen.svg)](http://webchat.freenode.net/?channels=rivalcfg)
 
 rivalcfg is a small CLI utility program that allows you to configure
-SteelSeries Rival gaming mice on Linux.
+SteelSeries Rival gaming mice on Linux and Windows (probably works on BSD and
+Mac OS too, but not tested).
 
 Supported mice:
 
@@ -25,7 +26,7 @@ If you have trouble running this software, please open an issue on Github:
 ## Requirement
 
 * Any Linux distribution that use `udev` (Debian, Ubuntu, ArchLinux,
-  Fedora,...)
+  Fedora,...) or Windows
 * [hidapi](https://pypi.python.org/pypi/hidapi/0.7.99.post20)
 
 
