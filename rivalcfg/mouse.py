@@ -12,7 +12,8 @@ REPORT_TYPE_TO_HIDAPI_FUNCTION = {
 
 class Mouse:
 
-    """Generic class to handle any supported mouse."""
+    """Generic class to handle any supported mouse. The methods availabled on
+    this class depends of the loaded profile."""
 
     profile = None
     _device = None
