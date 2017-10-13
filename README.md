@@ -13,6 +13,7 @@ Supported mice:
 * SteelSeries Rival _(1038:1384)_
 * SteelSeries Rival 100 _(1038:1702)_
 * SteelSeries Rival 300 _(1038:1710)_
+* SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
 
@@ -66,7 +67,7 @@ Main Options:
     -h, --help          show this help message and exit
     -l, --list          print compatible mice and exit
 
-SteelSeries Rival and Rival 300 Options:
+SteelSeries Rival, Rival 300 and Rival 310 Options:
 
     -c LOGO_COLOR, --logo-color=LOGO_COLOR
                         Set the logo backlight color (e.g. red, #ff0000,
@@ -154,7 +155,7 @@ Example with Rival 100:
 
     rivalcfg --color=black
 
-Example with Rival, Rival 300:
+Example with Rival, Rival 300, Rival 310:
 
     rivalcfg --logo-color=black --wheel-color=black
 
