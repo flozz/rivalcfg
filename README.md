@@ -16,6 +16,9 @@ Supported mice:
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
 
+Experimental support:
+* SteelSeries Rival 310 _(1038:1720)_
+
 If you have trouble running this software, please open an issue on Github:
 
 * https://github.com/flozz/rivalcfg/issues
@@ -142,6 +145,15 @@ SteelSeries Rival 300 CS:GO Fade Edition Options:
                         breathmed, breathslow, steady, 1, 2, 3, 4, default:
                         steady)
     -r, --reset         Reset all options to their factory values
+
+SteelSeries Rival 310 Options:
+
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 100 to 12000 in
+                        increments of 100, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 100 to 12000 in
+                        increments of 100, default: 1600)
 
 
 ## FAQ (Frequently Asked Questions)
