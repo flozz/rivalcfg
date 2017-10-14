@@ -13,17 +13,16 @@ REPORT_TYPE_TO_HIDAPI_FUNCTION = {
 class Mouse:
 
     """Generic class to handle any supported mouse. The methods availabled on
-    this class depends of the loaded profile."""
+    this class depends of the loaded profile.
+
+    :param dict profile: the mouse profile to load (``rivalcfg.profiles.*``)
+    """
 
     profile = None
     _device = None
 
     def __init__(self, profile):
-        """Contructor.
-
-        Arguments:
-        profile -- the mouse profile (rivalcfg.profiles.*)
-        """
+        """Contructor."""
         self.profile = profile
         self._device = usbhid.open_device(
                 profile["vendor_id"],
@@ -42,12 +41,9 @@ class Mouse:
     def _device_write(self, bytes_, report_type=usbhid.HID_REPORT_TYPE_OUTPUT):
         """Writes bytes to the device.
 
-        Arguments:
-        bytes_ -- bytes to write
-
-        Keyword arguments:
-        report_type -- the HID Repport Type (0x02: output (default), 0x03:
-                       feature)
+        :param bytes bytes_: bytes to write
+        :param int report_type: the HID Repport Type (0x02: output (default),
+                                0x03: feature)
         """
         report_id = 0x00
         if debug.DEBUG:
