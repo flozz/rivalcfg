@@ -2,6 +2,7 @@
 
 This mouse is expected to be the same as the Sensei Raw. 
 Button Layout:
+
         `*Btn8` (Below the wheel (mouse3))
     
     `*Btn5` (Left Top)       `*Btn7` (Right Top) 
@@ -87,7 +88,9 @@ Params:
 * Mouse 1 to Mouse 8 instructions are listed in serial order.
 * Alphanumeric keys: a: `0x10` `0x04` `0x00`, b: `0x10` `0x05` `0x00`, so on ... till 1, 2, 3, .. 0 :`0x10` `0x27` `0x00`
 * `0x10` stands for keyboard key
+
 * Other special keys: 
+```
     "lctrl": [0x10,0xE0,0x00],
     "lshift": [0x10, 0xE1,0x00],
     "lalt": [0x10,0xE2,0x00],
@@ -108,7 +111,7 @@ Params:
     "mouse6": [0x06,0x00,0x00],
     "mouse7": [0x07,0x00,0x00],
     "mouse8": [0x08,0x00,0x00]
-
+```
 ### save
 
 Save the current config to the mouse's internal memory.
