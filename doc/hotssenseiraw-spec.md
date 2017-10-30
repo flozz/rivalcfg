@@ -3,8 +3,10 @@
 This mouse is expected to be the same as the Sensei Raw. 
 Button Layout:
         `*Btn8` (Below the wheel (mouse3))
-    `*Btn5`    `*Btn7` 
-    `*Btn4`    `*Btn6`
+    
+    `*Btn5` (Left Top)       `*Btn7` (Right Top) 
+    
+    `*Btn4` (Left Bottom)    `*Btn6` (Right Bottom)
 
 ## Devices infos
 
@@ -21,7 +23,7 @@ Button Layout:
 | set_sensitivity       | `0x03`     | `<preset> <value>`          | Set the sensitivity of the sensor                           |
 | set_light_effect      | `0x07 0x01`| `<effect>`                  | Set the light effect (static, breath,...)                   |
 | set_light_brightness  | `0x05 0x01`| `<effect>`                  | Set the light brightness (low, medium, high)                |
-| set_mouse_btn_action  | 0x31 0x00  | `<8 3 Byte Values>`         | Configure what the mouse buttons do on press (all 8 at once)| 
+| set_mouse_btn_action  | `0x31``0x00`| `<8 3 Byte Values>`         | Configure what the mouse buttons do on press (all 8 at once)| 
 | save                  | `0x09`     | -                           | Save the configuration to the mouse's memory                |
 
 ### set_sensitivity
