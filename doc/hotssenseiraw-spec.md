@@ -2,9 +2,9 @@
 
 This mouse is expected to be the same as the Sensei Raw. 
 Button Layout:
-        Btn8 (Below the wheel (mouse3))
-    Btn5    Btn7
-    Btn4    Btn6
+        `*Btn8` (Below the wheel (mouse3))
+    `*Btn5`    `*Btn7` 
+    `*Btn4`    `*Btn6`
 
 ## Devices infos
 
