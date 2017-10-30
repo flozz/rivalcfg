@@ -56,7 +56,7 @@ hotssenseiraw = {
 
         "set_logo_light_brightness": {
             "description": "Set logo light brightness",
-            "cli": ["-E", "--wheel-light-effect"],
+            "cli": ["-E", "--logo-light-brightness"],
             "command": [0x05, 0x01],
             "value_type": "choice",
             "choices": {
@@ -69,22 +69,15 @@ hotssenseiraw = {
             },
             "default": "high",
         },
+        
 
         "set_mouse_btn_action": {
             "description": "Set mouse button actions",
-            "cli": ["-E", "--wheel-light-effect"],
+            "cli": ["-z", "--set-btns"],
             "command": [0x31, 0x00],
-            "value_type": "choice",
-            "choices": {
-                "low": 0x02,
-                "med": 0x03,
-                "high": 0x04,
-                1: 0x02,
-                2: 0x03,
-                3: 0x04,
-            },
-            "default": "high",
+            "value_type": "btn_map",
         },
+
 
         "save": {
             "description": "Save the configuration to the mouse memory",
