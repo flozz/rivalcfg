@@ -6,3 +6,4 @@ dist
 __dev__
 *.rst
 __cap__
+.vscode/*

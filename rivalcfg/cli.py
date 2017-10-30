@@ -4,7 +4,7 @@ from optparse import OptionParser, OptionGroup, OptionValueError
 
 from . import mice
 from .helpers import (usb_device_is_connected, find_hidraw_device_path,
-        is_color, choices_to_list, choices_to_string)
+        is_color, choices_to_list, choices_to_string, NAMED_KEYS)
 from .rival_mouse import RivalMouse
 from .version import VERSION
 from .debug import *
@@ -35,6 +35,8 @@ def _check_color(option, opt_str, value, parser):
     """OptionParser callback to check if the given color is valid."""
     if not is_color(value):
         raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, value))
+    setattr(parser.values, option.dest, value)
+def _blah(option, opt_str, value, parser):
     setattr(parser.values, option.dest, value)
 
 
@@ -100,6 +102,23 @@ def _generate_mouse_cli_options(parser, profile):
                     metavar=_command_name_to_metavar(command),
                     choices=[str(i) for i in range(cmd["range_min"], cmd["range_max"] + 1, cmd["range_increment"])]
                     )
+
+            
+
+        elif cmd["value_type"] == "btn_map":
+            description = "%s. Specify all 8 mouse btn settings as a string, for example --set-btns=\"btn1 btn2 ... btn8\". \nYou can map alphanumeric keys, or these special keys: Key Names\n : %s" % (
+                    cmd["description"],
+                    ", ".join(["%s" % x for x in NAMED_KEYS.keys()])
+                    )
+            group.add_option(
+                    *cmd["cli"],
+                    dest=command,
+                    help=description,
+                    type="string",
+                    action="callback",
+                    callback=_blah,
+                    metavar=_command_name_to_metavar(command)
+                    )            
         else:
             raise NotImplementedError("Cannot generate CLI option for value_type '%s'" % cmd["value_type"])
     group.add_option("-r", "--reset",
