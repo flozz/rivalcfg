@@ -60,12 +60,14 @@ hotssenseiraw = {
             "command": [0x05, 0x01],
             "value_type": "choice",
             "choices": {
+                "off": 0x01
                 "low": 0x02,
                 "med": 0x03,
                 "high": 0x04,
-                1: 0x02,
-                2: 0x03,
-                3: 0x04,
+                1: 0x01,
+                2: 0x02,
+                3: 0x03,
+                4: 0x04,
             },
             "default": "high",
         },

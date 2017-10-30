@@ -4,7 +4,7 @@ from optparse import OptionParser, OptionGroup, OptionValueError
 
 from . import mice
 from .helpers import (usb_device_is_connected, find_hidraw_device_path,
-        is_color, choices_to_list, choices_to_string)
+        is_color, choices_to_list, choices_to_string, NAMED_KEYS)
 from .rival_mouse import RivalMouse
 from .version import VERSION
 from .debug import *
@@ -106,8 +106,9 @@ def _generate_mouse_cli_options(parser, profile):
             
 
         elif cmd["value_type"] == "btn_map":
-            description = "%s " % (
+            description = "%s. Specify all 8 mouse btn settings as a string, for example --set-btns=\"btn1 btn2 ... btn8\". \nYou can map alphanumeric keys, or these special keys: Key Names\n : %s" % (
                     cmd["description"],
+                    ", ".join(["%s" % x for x in NAMED_KEYS.keys()])
                     )
             group.add_option(
                     *cmd["cli"],
