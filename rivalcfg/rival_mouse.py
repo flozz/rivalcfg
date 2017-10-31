@@ -2,7 +2,8 @@ from functools import partial
 
 from .helpers import (
         find_hidraw_device_path, is_color, color_string_to_rgb,
-        choices_to_string, merge_bytes)
+        choices_to_string, merge_bytes,
+        keymap_to_string) #Added for heroes of the storm
 from .debug import *
 
 
@@ -55,6 +56,7 @@ class RivalMouse:
         """
         pbytes = [0x00]
         pbytes.extend(bytes_)  # XXX fixes issue with Rival 300 new firmware (#5, #25, #28)
+        
         if DEBUG:
             print("[DEBUG] _device_write: %s" % " ".join(["%02X" % int(b) for b in pbytes]))
         if DEBUG_DRY:
@@ -96,6 +98,13 @@ class RivalMouse:
         else:
             self._device_write(*merge_bytes(command["command"], color))
 
+    def _handler_btn_map(self, command, istr):
+        """Handle commands with btn set values.""" #For Heroes of the Storm (sensei)
+        olist = keymap_to_string(istr)
+        if len(olist) != 8:
+            raise ValueError("Please provide 8 keys to be mapped.")
+        self._device_write(*merge_bytes(command["command"], olist[0], olist[1], olist[2], olist[3], olist[4], olist[5], olist[6], olist[7]))
+        #Olist itself is a list of lists. How to merge?
     def _handler_range(self, command, value):
         """Handle commands with value from a range."""
         if not command["range_min"] <= value <= command["range_max"]:
