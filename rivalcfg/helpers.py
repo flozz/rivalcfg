@@ -151,7 +151,7 @@ def keymap_to_string(kstring):
     if not len(kstring) == 8:
         raise ValueError("Invalid length of argument to Set Button Commands!")
     for x in range(0, 8):
-        kstring[0] = kstring[0][1:] #First char of first string is '=' for some reason 
+        #kstring[0] = kstring[0][1:] #First char of first string is '=' for some reason 
         dd = kstring[x].lower()
         if dd in NAMED_KEYS:
             outlist.append(NAMED_KEYS[kstring[x]])
@@ -170,7 +170,7 @@ def keymap_to_string(kstring):
                     
             continue
 
-        raise ValueError("Invalid entry key name")
+        raise ValueError("Invalid entry key name: %s" % dd) 
     
     return outlist #It is a list of lists.
 #keymap_to_string ends
