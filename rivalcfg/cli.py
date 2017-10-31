@@ -100,6 +100,16 @@ def _add_range_option(group, command_name, command):
             )
 
 
+def _add_hotsbtnmap_option(group, command_name, command):
+    description = command["description"]
+    group.add_option(
+            *command["cli"],
+            dest=command_name,
+            help=description,
+            metavar=_command_name_to_metavar(command_name)
+            )
+
+
 def _add_standard_options(parser):
     parser.add_option(
             "-l", "--list",
