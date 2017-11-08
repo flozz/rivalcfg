@@ -107,3 +107,17 @@ def none_handler(command):
     command -- the command description dict
     """
     return command["command"]
+
+
+def hotsbtnmap_handler(command, value):
+    """Returns command bytes for HotS button map.
+
+    Arguments:
+    command -- the command description dict
+    value -- the choosen value
+    """
+    olist = helpers.hotsbtnmap_to_list(value)
+    if len(olist) != 8:
+        raise ValueError("Please provide 8 keys to be mapped.")
+    value = _transform(command, value)
+    return helpers.merge_bytes(command["command"], *olist)

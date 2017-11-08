@@ -11,3 +11,4 @@ __cap__
 build
 __env3__
 dbg.py
+.vscode/*
