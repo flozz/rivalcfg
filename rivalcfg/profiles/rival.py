@@ -1,12 +1,9 @@
 rival = {
     "name": "SteelSeries Rival",
 
-    "vendor_id": "1038",
-    "product_id": "1384",
-    "hidraw_interface_number": 0,
-
-    "command_before": None,
-    "command_after": "save",
+    "vendor_id": 0x1038,
+    "product_id": 0x1384,
+    "interface_number": 0,
 
     "commands": {
 

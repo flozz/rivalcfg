@@ -1,12 +1,9 @@
 rival300csgofadeedition = {
     "name": "SteelSeries Rival 300 CS:GO Fade Edition",
 
-    "vendor_id": "1038",
-    "product_id": "1394",
-    "hidraw_interface_number": 0,
-
-    "command_before": None,
-    "command_after": "save",
+    "vendor_id": 0x1038,
+    "product_id": 0x1394,
+    "interface_number": 0,
 
     "commands": {
 

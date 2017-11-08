@@ -1,12 +1,9 @@
 rival310 = {
-    "name": "SteelSeries Rival 310",
+    "name": "SteelSeries Rival 310 (Experimental)",
 
-    "vendor_id": "1038",
-    "product_id": "1720",
-    "hidraw_interface_number": 0,
-
-    "command_before": None,
-    "command_after": "save",
+    "vendor_id": 0x1038,
+    "product_id": 0x1720,
+    "interface_number": 0,
 
     "commands": {
 

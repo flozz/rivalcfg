@@ -1,8 +1,23 @@
 language: python
+
 python:
-    - "2.7"
-    - "3.4"
-    - "3.5"
-    - "nightly"
-install: pip install -e .
-script: bash test.sh
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "nightly"
+
+addons:
+  apt:
+    packages:
+      - libusb-1.0-0-dev
+      - libudev-dev
+
+install:
+  - pip install -r requirements.txt
+  - pip install -e .
+
+script:
+  - flake8 rivalcfg test
+  - pytest -v test
+  - bash test/test_cli.sh

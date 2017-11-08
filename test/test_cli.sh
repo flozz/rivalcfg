@@ -68,13 +68,13 @@ _title() {
 
 
 _init
-export DEBUG_DRY=true
+export RIVALCFG_DRY=true
 python --version
 
 
 _title "Rival Mouse"
 
-export DEBUG_PROFILE=1038:1384
+export RIVALCFG_PROFILE=1038:1384
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l
@@ -111,7 +111,7 @@ _exec python -m rivalcfg -r
 
 _title "Rival 100 Mouse"
 
-export DEBUG_PROFILE=1038:1702
+export RIVALCFG_PROFILE=1038:1702
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l
@@ -142,7 +142,7 @@ _exec python -m rivalcfg -r
 
 _title "Rival 300 Mouse"
 
-export DEBUG_PROFILE=1038:1710
+export RIVALCFG_PROFILE=1038:1710
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l
@@ -179,7 +179,7 @@ _exec python -m rivalcfg -r
 
 _title "Rival 300 CS:GO Fade Edition Mouse"
 
-export DEBUG_PROFILE=1038:1394
+export RIVALCFG_PROFILE=1038:1394
 
 _exec python -m rivalcfg -h
 _exec python -m rivalcfg -l

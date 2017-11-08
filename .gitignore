@@ -4,5 +4,11 @@ __pycache__
 *.egg-info
 dist
 __dev__
-*.rst
+README.rst
 __cap__
+.tox
+.cache
+build
+__env3__
+dbg.py
+.vscode/*
