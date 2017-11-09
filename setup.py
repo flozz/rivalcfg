@@ -29,10 +29,14 @@ class install(_install):
 
 
 long_description = ""
-if os.path.isfile("README.rst"):
-    long_description = open("README.rst", "r").read()
-elif os.path.isfile("README.md"):
-    long_description = open("README.md", "r").read()
+
+try:
+    if os.path.isfile("README.rst"):
+        long_description = open("README.rst", "r").read()
+    elif os.path.isfile("README.md"):
+        long_description = open("README.md", "r").read()
+except Exception as error:
+    print("Unable to read the README file: " + str(error))
 
 
 setup(
