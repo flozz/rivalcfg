@@ -1,4 +1,4 @@
-# rivalcfg: Configure SteelSeries Rival gaming mice
+# rivalcfg: Configure SteelSeries gaming mice
 
 [![Build Status](https://travis-ci.org/flozz/rivalcfg.svg?branch=master)](https://travis-ci.org/flozz/rivalcfg)
 [![PYPI Version](https://img.shields.io/pypi/v/rivalcfg.svg)](https://pypi.python.org/pypi/rivalcfg)
@@ -42,7 +42,7 @@ If you have trouble running this software, please open an issue on Github:
 **Linux:**
 
 Installation require a compilation toolchain and python headers to compile
-`hidapi`. On Debian / Ubuntu, this can be installed with the following command
+`hidapi`. On Debian / Ubuntu, this can be installed with the following command
 (as root):
 
     apt-get install build-essential python-dev
