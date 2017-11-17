@@ -2,6 +2,7 @@ from .rival import rival
 from .rival100 import rival100
 from .rival300 import rival300
 from .rival310 import rival310
+from .sensei310 import sensei310
 from .rival300csgofadeedition import rival300csgofadeedition
 from .rival300csgohyperbeastedition import rival300csgohyperbeastedition
 from .rival500 import rival500
@@ -14,6 +15,7 @@ mice_profiles = [
     rival300csgofadeedition,
     rival300csgohyperbeastedition,
     rival310,
+    sensei310,
     rival500,
     hotssenseiraw,
 ]

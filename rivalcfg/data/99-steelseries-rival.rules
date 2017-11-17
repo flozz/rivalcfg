@@ -22,6 +22,10 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="171A", MODE="0666"
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1720", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1720", MODE="0666"
 
+# SteelSeries SENSEI 310 eSports Mouse
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1722", MODE="0666"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1722", MODE="0666"
+
 # SteelSeries Rival 500
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="170E", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="170E", MODE="0666"
