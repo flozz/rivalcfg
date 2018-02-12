@@ -13,6 +13,7 @@ Supported mice:
 
 * SteelSeries Rival _(1038:1384)_
 * SteelSeries Rival 100 _(1038:1702)_
+* SteelSeries Rival 110 _(1038:1729)_
 * SteelSeries Rival 300 _(1038:1710)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
@@ -136,6 +137,43 @@ SteelSeries Rival 100 Options:
                         Set sensitivity preset 2 (values: 250, 500, 1000,
                         1250, 1500, 1750, 2000, 4000, default: 2000)
     -r, --reset         Reset all options to their factory values
+
+SteelSeries Rival 110 Options:
+
+    -b BTN6_ACTION, --btn6-action=BTN6_ACTION
+                        Set the action of the button under the wheel (values:
+                        default, os, default: default)
+    -c COLOR, --color=COLOR
+                        Set the mouse backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #00FFFF)
+    -e LIGHT_EFFECT, --light-effect=LIGHT_EFFECT
+                        Set the light effect (values: steady, breath, 1, 2, 3,
+                        4, default: steady)
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (values: 200, 300, 400, 500,
+                        600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400,
+                        1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300,
+                        2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200,
+                        3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100,
+                        4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000,
+                        5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900,
+                        6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800,
+                        6900, 7000, 7100, 7200, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (values: 200, 300, 400, 500,
+                        600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400,
+                        1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300,
+                        2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200,
+                        3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100,
+                        4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000,
+                        5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900,
+                        6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800,
+                        6900, 7000, 7100, 7200, default: 1600)
+    -r, --reset         Reset all options to their factory values
+
 
 SteelSeries Rival 300 CS:GO Fade Edition Options:
 
