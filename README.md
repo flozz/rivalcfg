@@ -307,6 +307,15 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.0.0-beta1:**
+  * Support of the Rival 110
+  * Support of the Heroes of the Storm (Sensei Raw)
+  * Partial support of the Rival 310
+  * Partial support of the Rival 500
+  * Microsoft Windows (and Mac OS?) support
+  * rivalcfg now uses the `hidapi` lib instead of manipulating udev directly
+  * Code refactored (almost all API changed)
+  * Varous bug fixes
 * **2.6.0:** Add CS:GO Hyperbeast Edition support (thanks @chriscoyfish, #33)
 * **2.5.3:** Minor typo fixes for cli (thanks @chriscoyfish, #31)
 * **2.5.2:** Fixes Rival 300 with updated firmware not working (#5, #25, #28, special thanks to @Thiblizz)
