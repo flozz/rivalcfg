@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/flozz/rivalcfg.svg?branch=master)](https://travis-ci.org/flozz/rivalcfg)
 [![PYPI Version](https://img.shields.io/pypi/v/rivalcfg.svg)](https://pypi.python.org/pypi/rivalcfg)
 [![License](https://img.shields.io/pypi/l/rivalcfg.svg)](https://github.com/flozz/rivalcfg/blob/master/LICENSE)
-[![IRC Freenode #rivalcfg](https://img.shields.io/badge/IRC_Freenode-%23rivalcfg-brightgreen.svg)](http://webchat.freenode.net/?channels=rivalcfg)
+[![Gitter](https://badges.gitter.im/gitter.svg)](https://gitter.im/rivalcfg/Lobby)
 
 rivalcfg is a small CLI utility program that allows you to configure
 SteelSeries Rival gaming mice on Linux and Windows (probably works on BSD and
@@ -315,7 +315,7 @@ Rivalcfg uses several environment variable to enable different debug features:
   * Microsoft Windows (and Mac OS?) support
   * rivalcfg now uses the `hidapi` lib instead of manipulating udev directly
   * Code refactored (almost all API changed)
-  * Varous bug fixes
+  * Various bug fixes
 * **2.6.0:** Add CS:GO Hyperbeast Edition support (thanks @chriscoyfish, #33)
 * **2.5.3:** Minor typo fixes for cli (thanks @chriscoyfish, #31)
 * **2.5.2:** Fixes Rival 300 with updated firmware not working (#5, #25, #28, special thanks to @Thiblizz)
