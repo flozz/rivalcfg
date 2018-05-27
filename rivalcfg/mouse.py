@@ -1,5 +1,4 @@
 import time
-import colorsys
 from . import usbhid
 from . import debug
 from . import helpers
@@ -83,19 +82,19 @@ class Mouse:
 
         def _exec_command(*args):
             if is_gradient:
-                h = 0.01
-                s = 1.0
-                v = 255
+                t = 0.01
                 c = 1
+                SLEEP = 0.02
+                INCREMENT = 0.001
                 while True:
-                    colors = [int(i) for i in colorsys.hsv_to_rgb(h, s, v)]
-                    bytes_ = getattr(command_handlers, handler)(command, *colors)
+                    bytes_ = getattr(command_handlers, handler)(command, *args, t=t)
                     bytes_ = helpers.merge_bytes(bytes_, suffix)
                     self._device_write(bytes_, report_type)
-                    time.sleep(0.02)
-                    if h > 0.99 or h < 0.01:
+                    time.sleep(SLEEP)
+                    t = t + c*(INCREMENT)
+                    if t > 0.99 or t < 0.01:
                         c = -c
-                    h = h + c*(0.01)
+
             else:
                 bytes_ = getattr(command_handlers, handler)(command, *args)
                 bytes_ = helpers.merge_bytes(bytes_, suffix)
