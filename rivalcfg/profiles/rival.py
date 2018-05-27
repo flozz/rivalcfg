@@ -95,6 +95,24 @@ rival = {
             "default": "#FF1800"
         },
 
+        "set_logo_color_gradient": {
+            "description": "Set a gradient for the logo backlight",
+            "cli": ["-g", "--logo-gradient"],
+            "command": [0x08, 0x01],
+            "is_gradient": True,
+            "value_type": "hsvgradient",
+            "default": "0.1",
+        },
+
+        "set_wheel_color_gradient": {
+            "description": "Set a gradient for the wheel backlight",
+            "cli": ["-G", "--wheel-gradient"],
+            "command": [0x08, 0x02],
+            "is_gradient": True,
+            "value_type": "hsvgradient",
+            "default": "0.1 1.0 255",
+        },
+
         "save": {
             "description": "Save the configuration to the mouse memory",
             "cli": None,

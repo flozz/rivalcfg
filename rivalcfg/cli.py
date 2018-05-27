@@ -62,6 +62,22 @@ def _add_rgbcolor_option(group, command_name, command):
             )
 
 
+def _add_hsvgradient_option(group, command_name, command):
+    description = "%s (e.g. 0.1 1.0 255, default: %s)" % (
+            command["description"],
+            str(command["default"])
+            )
+    group.add_option(
+            *command["cli"],
+            dest=command_name,
+            help=description,
+            type="string",
+            action="callback",
+            callback=_check_color,
+            metavar=_command_name_to_metavar(command_name)
+            )
+
+
 def _add_rgbcolorshift_option(group, command_name, command):
     description = "%s (e.g. red aqua 200, ff0000 00ffff 200, default: %s %s)" % (  # noqa
             command["description"],

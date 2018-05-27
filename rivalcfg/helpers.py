@@ -61,7 +61,7 @@ def is_color(string):
     """
     if string in NAMED_COLORS:
         return True
-    if re.match(r"^#?[0-9a-f]{3}([0-9a-f]{3})?$", string, re.IGNORECASE):
+    if re.match(r"^#?[0-9a-f.]{3}([0-9a-f.]{3})?$", string, re.IGNORECASE):
         return True
     return False
 

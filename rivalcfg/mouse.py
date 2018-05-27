@@ -1,3 +1,4 @@
+import time
 from . import usbhid
 from . import debug
 from . import helpers
@@ -72,13 +73,32 @@ class Mouse:
         if "suffix" in command:
             suffix = command["suffix"]
 
+        is_gradient = False
+        if "is_gradient" in command:
+            is_gradient = command['is_gradient']
+
         if not hasattr(command_handlers, handler):
             raise Exception("There is not handler for the '%s' value type" % command["value_type"])  # noqa
 
         def _exec_command(*args):
-            bytes_ = getattr(command_handlers, handler)(command, *args)
-            bytes_ = helpers.merge_bytes(bytes_, suffix)
-            self._device_write(bytes_, report_type)
+            if is_gradient:
+                t = 0.01
+                c = 1
+                SLEEP = 0.02
+                INCREMENT = 0.001
+                while True:
+                    bytes_ = getattr(command_handlers, handler)(command, *args, t=t)
+                    bytes_ = helpers.merge_bytes(bytes_, suffix)
+                    self._device_write(bytes_, report_type)
+                    time.sleep(SLEEP)
+                    t = t + c*(INCREMENT)
+                    if t > 0.99 or t < 0.01:
+                        c = -c
+
+            else:
+                bytes_ = getattr(command_handlers, handler)(command, *args)
+                bytes_ = helpers.merge_bytes(bytes_, suffix)
+                self._device_write(bytes_, report_type)
 
         return _exec_command
 

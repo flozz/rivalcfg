@@ -1,4 +1,5 @@
 from . import helpers
+import colorsys
 
 
 def _transform(command, *args):
@@ -48,6 +49,15 @@ def rgbcolor_handler(command, *args):
         color = helpers.color_string_to_rgb(args[0])
     else:
         raise ValueError("Not a valid color %s" % str(args))
+    color = _transform(command, *color)
+    return helpers.merge_bytes(command["command"], color)
+
+
+def hsvgradient_handler(command, h=0.1, s=1.0, v=255, max_h=1.0, t=0.0):
+    """TODO write this.
+    """
+    color = [int(i) for i in colorsys.hsv_to_rgb(float(h)+(float(max_h)-float(h))*t,
+                                                 float(s), float(v))]
     color = _transform(command, *color)
     return helpers.merge_bytes(command["command"], color)
 
