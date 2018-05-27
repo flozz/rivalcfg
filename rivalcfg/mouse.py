@@ -1,3 +1,5 @@
+import time
+import colorsys
 from . import usbhid
 from . import debug
 from . import helpers
@@ -72,13 +74,32 @@ class Mouse:
         if "suffix" in command:
             suffix = command["suffix"]
 
+        is_gradient = False
+        if "is_gradient" in command:
+            is_gradient = command['is_gradient']
+
         if not hasattr(command_handlers, handler):
             raise Exception("There is not handler for the '%s' value type" % command["value_type"])  # noqa
 
         def _exec_command(*args):
-            bytes_ = getattr(command_handlers, handler)(command, *args)
-            bytes_ = helpers.merge_bytes(bytes_, suffix)
-            self._device_write(bytes_, report_type)
+            if is_gradient:
+                h = 0.01
+                s = 1.0
+                v = 255
+                c = 1
+                while True:
+                    colors = [int(i) for i in colorsys.hsv_to_rgb(h, s, v)]
+                    bytes_ = getattr(command_handlers, handler)(command, *colors)
+                    bytes_ = helpers.merge_bytes(bytes_, suffix)
+                    self._device_write(bytes_, report_type)
+                    time.sleep(0.02)
+                    if h > 0.99 or h < 0.01:
+                        c = -c
+                    h = h + c*(0.01)
+            else:
+                bytes_ = getattr(command_handlers, handler)(command, *args)
+                bytes_ = helpers.merge_bytes(bytes_, suffix)
+                self._device_write(bytes_, report_type)
 
         return _exec_command
 
