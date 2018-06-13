@@ -46,7 +46,7 @@ Installation require a compilation toolchain and python headers to compile
 `hidapi`. On Debian / Ubuntu, this can be installed with the following command
 (as root):
 
-    apt-get install build-essential python-dev
+    apt-get install build-essential python-dev libusb-1.0-0-dev
 
 **Windows:**
 
