@@ -24,6 +24,7 @@ Experimental support:
 
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
+* SteelSeries Rival 600 _(1038:1724)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -229,6 +230,48 @@ SteelSeries Rival 500 Options (Experimental):
     -T COLOR1 COLOR2 SPEED, --wheel-colorshift=COLOR1 COLOR2 SPEED
                         Set the wheel backlight color (e.g. red aqua 200,
                         ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+    -r, --reset         Reset all options to their factory values
+
+SteelSeries Rival 600 Options (Experimental):
+
+    -2 LEFT_STRIP_BOTTOM_COLOR, --lstrip-bottom-color=LEFT_STRIP_BOTTOM_COLOR
+                        Set the color of the left LED strip bottom section
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #FF5200)
+    -1 LEFT_STRIP_MID_COLOR, --lstrip-mid-color=LEFT_STRIP_MID_COLOR
+                        Set the color of the left LED strip middle section
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #FF5200)
+    -0 LEFT_STRIP_TOP_COLOR, --lstrip-top-color=LEFT_STRIP_TOP_COLOR
+                        Set the color of the left LED strip upper section
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #FF5200)
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF5200)
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -5 RIGHT_STRIP_BOTTOM_COLOR, --rstrip-bottom-color=RIGHT_STRIP_BOTTOM_COLOR
+                        Set the color of the right LED strip bottom section
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #FF5200)
+    -4 RIGHT_STRIP_MID_COLOR, --rstrip-mid-color=RIGHT_STRIP_MID_COLOR
+                        Set the color of the right LED strip mid section (e.g.
+                        red, #ff0000, ff0000, #f00, f00, default: #FF5200)
+    -3 RIGHT_STRIP_TOP_COLOR, --rstrip-top-color=RIGHT_STRIP_TOP_COLOR
+                        Set the color of the right LED strip upper section
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #FF5200)
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 100 to 12000 in
+                        increments of 100, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 100 to 12000 in
+                        increments of 100, default: 1600)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF5200)
     -r, --reset         Reset all options to their factory values
 
 
