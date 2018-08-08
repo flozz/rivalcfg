@@ -1,39 +1,5 @@
 from .. import usbhid
 
-# TODO: the color transform functions are ugly and lacking R&D
-
-""" Function: solid_color_transformer
-Replicates solid color commands of official tool:
-      led            led                                               solid          length
-|cmd--|^^|unkown1----|^^|speed|unknown2---------------------------------|^^|unknown3---|^^|color---|--clr1--|p1|--clr2--|p2|
-|05:00:04:2d:00:b4:00:04:10:27:00:00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:00:00:00:02:ff:4d:00:ff:4d:00:00:ff:4d:00:ff|
-      |partial-------------------------------------------------------------------------|this function----------------------|
-
-This function should not be called outside of make_transform()
-"""
-def solid_color_transformer(partial):
-    def transform(r, g, b):
-        length = [0x02]
-        color = [r, g, b]
-        color_chain = color + color + [0x0] + color + [0xff]
-        return partial + length + color_chain
-    return transform
-
-""" Function: make_transform
-Arguments:
-    led   (int)         : The led id to change color.
-    solid (boolean)     : Wether it should be a solid color or color shifting.
-    aux_builder (fn(x)) : A function which returns a "value_transform"-compliant 
-                        : fn, for completing the partial data made by this fn.
-    speed               : The rate of change when using color shift.
-    u1..3               : Data segments of unknown meaning. Needs more R&D.
-"""
-def make_transform(led, solid, aux_builder, speed=[0x10, 0x27], u1=[0]*4, \
-                    u2=[0]*14, u3=[0]*4):
-    solid = [1] if solid else [0]
-    led = [led]
-    partial = led + u1 + led + speed + u2 + solid + u3
-    return aux_builder(partial)
 
 rival600 = {
     "name": "SteelSeries Rival 600 (Experimental)",
@@ -41,6 +7,16 @@ rival600 = {
     "vendor_id": 0x1038,
     "product_id": 0x1724,
     "interface_number": 0,
+
+    "rgbuniversal_format": {
+        "header_len": 28,   # Number of bytes in header excluding command bytes
+        "led_id": [0, 5],   # Index(es) of LED ID (unsure why rival600 have 2)
+        "speed": 6,         # Index of the colorshift speed field
+        "speed_len": 2,     # How many bytes the speed field takes up
+        "repeat": 22,       # Index of the repeat flag
+        "triggers": 23,     # Index of the trigger button mask field
+        "point_count": 27,  # Index of the color count field
+    },
 
     "commands": {
 
@@ -56,6 +32,7 @@ rival600 = {
             "value_transform": lambda x: int((x / 100) - 1),
             "default": 800,
         },
+
         "set_sensitivity2": {
             "description": "Set sensitivity preset 2",
             "cli": ["-S", "--sensitivity2"],
@@ -84,83 +61,83 @@ rival600 = {
         },
 
         "set_wheel_color": {
-            "description": "Set the wheel backlight color",
+            "description": "Set the wheel backlight color(s) and effects",
             "cli": ["-C", "--wheel-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(0, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x0,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_logo_color": {
-            "description": "Set the logo backlight color",
+            "description": "Set the logo backlight color(s) and effects",
             "cli": ["-c", "--logo-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(1, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x1,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_left_strip_top_color": {
-            "description": "Set the color of the left LED strip upper section",
+            "description": "Set the color(s) and effects of the left LED strip upper section", # noqa
             "cli": ["-0", "--lstrip-top-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(2, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x2,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_left_strip_mid_color": {
-            "description": "Set the color of the left LED strip middle section",
+            "description": "Set the color(s) and effects of the left LED strip middle section", # noqa
             "cli": ["-1", "--lstrip-mid-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(4, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x4,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_left_strip_bottom_color": {
-            "description": "Set the color of the left LED strip bottom section",
+            "description": "Set the color(s) and effects of the left LED strip bottom section", # noqa
             "cli": ["-2", "--lstrip-bottom-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(6, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x6,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_right_strip_top_color": {
-            "description": "Set the color of the right LED strip upper section",
+            "description": "Set the color(s) and effects of the right LED strip upper section", # noqa
             "cli": ["-3", "--rstrip-top-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(3, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x3,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_right_strip_mid_color": {
-            "description": "Set the color of the right LED strip mid section",
+            "description": "Set the color(s) and effects of the right LED strip mid section", # noqa
             "cli": ["-4", "--rstrip-mid-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(5, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x5,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "set_right_strip_bottom_color": {
-            "description": "Set the color of the right LED strip bottom section",
+            "description": "Set the color(s) and effects of the right LED strip bottom section", # noqa
             "cli": ["-5", "--rstrip-bottom-color"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "value_type": "rgbcolor",
-            "value_transform": make_transform(7, True, solid_color_transformer),
-            "default": "#FF5200"
+            "value_type": "rgbuniversal",
+            "led_id": 0x7,
+            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
         },
 
         "save": {
