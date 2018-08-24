@@ -72,6 +72,14 @@ class Mouse:
         if "suffix" in command:
             suffix = command["suffix"]
 
+        if command["value_type"] == "rgbuniversal":
+            if "rgbuniversal_format" in self.profile:
+                debug.log("rgbuniversal_format found")
+                command["rgbuniversal_format"] = \
+                    self.profile["rgbuniversal_format"]
+            else:
+                raise Exception("rgbuniversal value type was specified, but the format is not defined for %s" % self.profile["name"]) # noqa
+
         if not hasattr(command_handlers, handler):
             raise Exception("There is not handler for the '%s' value type" % command["value_type"])  # noqa
 

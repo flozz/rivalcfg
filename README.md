@@ -24,6 +24,7 @@ Experimental support:
 
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
+* SteelSeries Rival 600 _(1038:1724)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -229,6 +230,73 @@ SteelSeries Rival 500 Options (Experimental):
     -T COLOR1 COLOR2 SPEED, --wheel-colorshift=COLOR1 COLOR2 SPEED
                         Set the wheel backlight color (e.g. red aqua 200,
                         ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+    -r, --reset         Reset all options to their factory values
+
+SteelSeries Rival 600 Options (Experimental):
+
+    -2 LEFT_STRIP_BOTTOM_COLOR, --lstrip-bottom-color=LEFT_STRIP_BOTTOM_COLOR
+                        Set the color(s) and effects of the left LED strip
+                        bottom section (e.g. red, #ff0000, ff0000, #f00, f00).
+                        If more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -1 LEFT_STRIP_MID_COLOR, --lstrip-mid-color=LEFT_STRIP_MID_COLOR
+                        Set the color(s) and effects of the left LED strip
+                        middle section (e.g. red, #ff0000, ff0000, #f00, f00).
+                        If more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -0 LEFT_STRIP_TOP_COLOR, --lstrip-top-color=LEFT_STRIP_TOP_COLOR
+                        Set the color(s) and effects of the left LED strip
+                        upper section (e.g. red, #ff0000, ff0000, #f00, f00).
+                        If more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color(s) and effects (e.g. red,
+                        #ff0000, ff0000, #f00, f00). If more than one value is
+                        specified, a color shifting effect is set (e.g.
+                        x,x,red,0,green,54,blue,54) syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -5 RIGHT_STRIP_BOTTOM_COLOR, --rstrip-bottom-color=RIGHT_STRIP_BOTTOM_COLOR
+                        Set the color(s) and effects of the right LED strip
+                        bottom section (e.g. red, #ff0000, ff0000, #f00, f00).
+                        If more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -4 RIGHT_STRIP_MID_COLOR, --rstrip-mid-color=RIGHT_STRIP_MID_COLOR
+                        Set the color(s) and effects of the right LED strip
+                        mid section (e.g. red, #ff0000, ff0000, #f00, f00). If
+                        more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -3 RIGHT_STRIP_TOP_COLOR, --rstrip-top-color=RIGHT_STRIP_TOP_COLOR
+                        Set the color(s) and effects of the right LED strip
+                        upper section (e.g. red, #ff0000, ff0000, #f00, f00).
+                        If more than one value is specified, a color shifting
+                        effect is set (e.g. x,x,red,0,green,54,blue,54)
+                        syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 100 to 12000 in
+                        increments of 100, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 100 to 12000 in
+                        increments of 100, default: 1600)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color(s) and effects (e.g.
+                        red, #ff0000, ff0000, #f00, f00). If more than one
+                        value is specified, a color shifting effect is set
+                        (e.g. x,x,red,0,green,54,blue,54) syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
 
 

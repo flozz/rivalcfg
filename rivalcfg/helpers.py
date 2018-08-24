@@ -66,6 +66,14 @@ def is_color(string):
     return False
 
 
+def is_hex(string):
+    try:
+        int(string, 16)
+        return True
+    except ValueError:
+        return False
+
+
 def color_string_to_rgb(color_string):
     """Converts the color string into an RGB tuple.
 

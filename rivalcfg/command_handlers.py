@@ -77,6 +77,57 @@ def rgbcolorshift_handler(command, colors, speed=200):
     return helpers.merge_bytes(command["command"], parsed_colors, speed)
 
 
+def rgbuniversal_handler(command, colors, positions, speed, triggers):
+    """ Returns command bytes from RGB color commands.
+    It crafts packets on a per mouse basis, by reading the format given
+    in "rgbuniversal_format" in the command dict. If a single color is given,
+    it creates a steady color command. If multiple colors are given, it creates
+    a colorshift command. If triggermask is nonzero, a reactive command is
+    created.
+
+    Arguments:
+    command -- the command description dict
+    colors -- the colors as an array of string (color name or hexadecimal RGB)
+    positions -- cumulative color positions as an array of hex strings
+    speed -- the colorshift cycle time as a string (milliseconds)
+    triggers -- trigger button mask as a hex string
+    """
+    colors = map(helpers.color_string_to_rgb, colors)
+    positions = map(lambda x: int(x, 16), positions)
+    speed = 5000 if speed.lower() == "x" else int(speed, 10)
+    triggers = 0 if triggers.lower() == "x" else int(triggers, 16)
+
+    rgb_format = command["rgbuniversal_format"]
+    header = [0] * rgb_format["header_len"]
+
+    for led_id in rgb_format["led_id"]:
+        header[led_id] = command["led_id"]
+
+    speed_pos, speed_len = rgb_format["speed"], rgb_format["speed_len"]
+    speed = helpers.uint_to_little_endian_bytearray(speed, speed_len)
+
+    header[speed_pos:speed_pos + speed_len] = speed
+    header[rgb_format["repeat"]] = 1 if len(colors) == 1 or triggers > 0 else 0
+    header[rgb_format["triggers"]] = triggers
+    header[rgb_format["point_count"]] = len(colors) + 1
+
+    # data segment format:
+    # color1:color1:pos1:...:colorn:posn:color1:pos1
+    data = colors[0]
+
+    for color, pos in zip(colors, positions):
+        data = helpers.merge_bytes(data, color, pos)
+
+    remaining = 0xff - sum(positions)
+    if remaining < 0:
+        raise ValueError("The cumulative position offsets must be < 255 (is %d)" % sum(positions)) # noqa
+
+    # inserts first color at the end for smooth colorshifting
+    data = helpers.merge_bytes(data, colors[0], remaining)
+
+    return helpers.merge_bytes(command["command"], header, data)
+
+
 def range_handler(command, value):
     """Returns command bytes from range commands.
 

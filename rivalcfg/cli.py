@@ -31,6 +31,47 @@ def _check_colorshift(option, opt_str, values, parser):
     setattr(parser.values, option.dest, [colors, int(speed)])
 
 
+def _check_rgbuniversal(option, opt_str, value, parser):
+    """OptionParser callback to check and process inputs for rgbuniversal.
+    Accepts 2 formats:
+        -x color
+        -x time,triggers,color1,pos1[,...,colorn,posn]
+    In both cases, it sets option.dest to a 4tuple:
+        (colors, positions, time, triggers)
+    Note that time and triggers can be "x" for "don't care", and gets assigned
+    a default value later on.
+    """
+    args = value.split(",")
+    if len(args) == 1:
+        if not helpers.is_color(value):
+            raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, value))  # noqa
+        setattr(parser.values, option.dest, ([value], ["0"], "x", "x"))
+
+    elif len(args) >= 4 and len(args) & 1 == 0:
+        time = args[0]
+        if not (time.isdigit() or time.lower() == "x"):
+            raise OptionValueError("option %s: invalid time: '%s'" % (opt_str, time))  # noqa
+
+        triggers = args[1]
+        if not (helpers.is_hex(triggers) or triggers.lower() == "x"):
+            raise OptionValueError("option %s: invalid triggers: '%s'" % (opt_str, triggers))  # noqa
+
+        colors = args[2::2]
+        for color in colors:
+            if not helpers.is_color(color):
+                raise OptionValueError("option %s: invalid color: '%s'" % (opt_str, color))  # noqa
+
+        positions = args[3::2]
+        for position in positions:
+            if not helpers.is_hex(position):
+                raise OptionValueError("option %s: invalid color position: '%s'" % (opt_str, position))  # noqa
+
+        setattr(parser.values, option.dest,
+                (colors, positions, time, triggers))
+    else:
+        raise OptionValueError("option %s: invalid number of values" % (opt_str))  # noqa
+
+
 def _add_choice_option(group, command_name, command):
     description = "%s (values: %s, default: %s)" % (
             command["description"],
@@ -77,6 +118,24 @@ def _add_rgbcolorshift_option(group, command_name, command):
             callback=_check_colorshift,
             nargs=3,
             metavar="COLOR1 COLOR2 SPEED"
+            )
+
+
+def _add_rgbuniversal_option(group, command_name, command):
+    description = (command["description"] +
+                   " (e.g. red, #ff0000, ff0000, #f00, f00). "
+                   "If more than one value is specified, "
+                   "a color shifting effect is set "
+                   "(e.g. x,x,red,0,green,54,blue,54) "
+                   "syntax: time(ms),trigger_mask,color1,pos1,...,colorn,posn")
+    group.add_option(
+            *command["cli"],
+            dest=command_name,
+            help=description,
+            type="string",
+            action="callback",
+            callback=_check_rgbuniversal,
+            metavar=_command_name_to_metavar(command_name)
             )
 
 
