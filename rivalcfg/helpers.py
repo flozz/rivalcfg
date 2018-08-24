@@ -70,7 +70,7 @@ def is_hex(string):
     try:
         int(string, 16)
         return True
-    except:
+    except ValueError:
         return False
 
 

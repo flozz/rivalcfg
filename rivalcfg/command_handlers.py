@@ -94,8 +94,8 @@ def rgbuniversal_handler(command, colors, positions, speed, triggers):
     """
     colors = map(helpers.color_string_to_rgb, colors)
     positions = map(lambda x: int(x, 16), positions)
-    speed = 5000 if speed == "x" else int(speed, 10)
-    triggers = 0 if triggers == "x" else int(triggers, 16)
+    speed = 5000 if speed.lower() == "x" else int(speed, 10)
+    triggers = 0 if triggers.lower() == "x" else int(triggers, 16)
 
     rgb_format = command["rgbuniversal_format"]
     header = [0] * rgb_format["header_len"]
@@ -103,17 +103,16 @@ def rgbuniversal_handler(command, colors, positions, speed, triggers):
     for led_id in rgb_format["led_id"]:
         header[led_id] = command["led_id"]
 
-    a, l = rgb_format["speed"], rgb_format["speed_len"]
-    speed = helpers.uint_to_little_endian_bytearray(speed, l)
+    speed_pos, speed_len = rgb_format["speed"], rgb_format["speed_len"]
+    speed = helpers.uint_to_little_endian_bytearray(speed, speed_len)
 
-    header[a:a+l] = speed
+    header[speed_pos:speed_pos + speed_len] = speed
     header[rgb_format["repeat"]] = 1 if len(colors) == 1 or triggers > 0 else 0
     header[rgb_format["triggers"]] = triggers
     header[rgb_format["point_count"]] = len(colors) + 1
 
-    """ data segment format:
-    color1:color1:pos1:...:colorn:posn:color1:pos1
-    """
+    # data segment format:
+    # color1:color1:pos1:...:colorn:posn:color1:pos1
     data = colors[0]
 
     for color, pos in zip(colors, positions):
