@@ -380,6 +380,10 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.0.0**:
+  * Adds support of the Rival 300 HP Omen Edition (#52, @FadedCoder)
+  * Adds experimental support of the Rival 600 (#60, @ergor)
+  * Varous fixes
 * **3.0.0-beta1:**
   * Support of the Rival 110
   * Support of the Heroes of the Storm (Sensei Raw)
