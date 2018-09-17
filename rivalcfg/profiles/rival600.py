@@ -67,7 +67,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x0,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_logo_color": {
@@ -77,7 +77,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x1,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_left_strip_top_color": {
@@ -87,7 +87,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x2,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_left_strip_mid_color": {
@@ -97,7 +97,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x4,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_left_strip_bottom_color": {
@@ -107,7 +107,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x6,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_right_strip_top_color": {
@@ -117,7 +117,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x3,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_right_strip_mid_color": {
@@ -127,7 +127,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x5,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "set_right_strip_bottom_color": {
@@ -137,7 +137,7 @@ rival600 = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbuniversal",
             "led_id": 0x7,
-            "default": "x,x,#FF0000,0,#00FF00,54,#0000FF,54"
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "save": {
