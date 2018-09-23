@@ -380,6 +380,9 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.1.0:**
+  * Support of sensitivity commands for Rival 500 (#65, @hungarian-notation)
+  * Fix of the reset command on Rival 600 (#66, @ergor)
 * **3.0.0**:
   * Adds support of the Rival 300 HP Omen Edition (#52, @FadedCoder)
   * Adds experimental support of the Rival 600 (#60, @ergor)
