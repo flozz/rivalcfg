@@ -1,5 +1,5 @@
 from .rival import rival
-from .rivaldota import rivaldota
+from .rivaldota2 import rivaldota2
 from .rival100 import rival100
 from .rival110 import rival110
 from .rival300 import rival300
@@ -13,7 +13,7 @@ from .hotssenseiraw import hotssenseiraw
 
 mice_profiles = [
     rival,
-    rivaldota,
+    rivaldota2,
     rival100,
     rival110,
     rival300,
