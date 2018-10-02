@@ -17,6 +17,7 @@ Supported mice:
 * SteelSeries Rival 300 _(1038:1710)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
+* SteelSeries Rival 300 Dota 2 Edition _(1038:1392)_
 * SteelSeries Rival 300 HP Omen Edition _(1038:1718)_
 * SteelSeries Heroes of the Storm (Sensei Raw) _(1038:1390)_
 
@@ -93,31 +94,6 @@ Main Options:
     -h, --help          show this help message and exit
     -l, --list          print compatible mice and exit
 
-SteelSeries Rival and Rival 300 Options:
-
-    -c LOGO_COLOR, --logo-color=LOGO_COLOR
-                        Set the logo backlight color (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #FF1800)
-    -e LOGO_LIGHT_EFFECT, --logo-light-effect=LOGO_LIGHT_EFFECT
-                        Set the logo light effect (values: 1, 2, 3, 4, breath,
-                        steady, default: steady)
-    -p POLLING_RATE, --polling-rate=POLLING_RATE
-                        Set polling rate in Hz (values: 125, 250, 500, 1000,
-                        default: 1000)
-    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
-                        Set sensitivity preset 1 (from 50 to 6500 in
-                        increments of 50, default: 800)
-    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
-                        Set sensitivity preset 2 (from 50 to 6500 in
-                        increments of 50, default: 1600)
-    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
-                        Set the wheel backlight color (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #FF1800)
-    -E WHEEL_LIGHT_EFFECT, --wheel-light-effect=WHEEL_LIGHT_EFFECT
-                        Set the wheel light effect (values: 1, 2, 3, 4,
-                        breath, steady, default: steady)
-    -r, --reset         Reset all options to their factory values
-
 SteelSeries Rival 100 Options:
 
     -b BTN6_ACTION, --btn6-action=BTN6_ACTION
@@ -176,19 +152,14 @@ SteelSeries Rival 110 Options:
                         6900, 7000, 7100, 7200, default: 1600)
     -r, --reset         Reset all options to their factory values
 
+SteelSeries Rival and Rival 300 (all editions) Options:
 
-SteelSeries Rival 300 CS:GO Fade Edition Options:
-
-    -b BTN6_ACTION, --btn6-action=BTN6_ACTION
-                        Set the action of the button under the wheel (values:
-                        default, os, default: default)
     -c LOGO_COLOR, --logo-color=LOGO_COLOR
                         Set the logo backlight color (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #FF5200)
+                        ff0000, #f00, f00, default: #FF1800)
     -e LOGO_LIGHT_EFFECT, --logo-light-effect=LOGO_LIGHT_EFFECT
-                        Set the logo light effect (values: breathfast,
-                        breathmed, breathslow, steady, 1, 2, 3, 4, default:
-                        steady)
+                        Set the logo light effect (values: 1, 2, 3, 4, breath,
+                        steady, default: steady)
     -p POLLING_RATE, --polling-rate=POLLING_RATE
                         Set polling rate in Hz (values: 125, 250, 500, 1000,
                         default: 1000)
@@ -200,11 +171,10 @@ SteelSeries Rival 300 CS:GO Fade Edition Options:
                         increments of 50, default: 1600)
     -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
                         Set the wheel backlight color (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #FF5200)
+                        ff0000, #f00, f00, default: #FF1800)
     -E WHEEL_LIGHT_EFFECT, --wheel-light-effect=WHEEL_LIGHT_EFFECT
-                        Set the wheel light effect (values: breathfast,
-                        breathmed, breathslow, steady, 1, 2, 3, 4, default:
-                        steady)
+                        Set the wheel light effect (values: 1, 2, 3, 4,
+                        breath, steady, default: steady)
     -r, --reset         Reset all options to their factory values
 
 SteelSeries Rival 310 Options (Experimental):
