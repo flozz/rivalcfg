@@ -350,6 +350,9 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.2.0:**
+  * Support of the Rival 300 Dota 2 Edition (#67, @virrim)
+  * Fixes case issue in udev rule file (#68, @hungarian-notation)
 * **3.1.0:**
   * Support of sensitivity commands for Rival 500 (#65, @hungarian-notation)
   * Fix of the reset command on Rival 600 (#66, @ergor)
