@@ -21,6 +21,7 @@ Supported mice:
 * SteelSeries Rival 300 Dota 2 Edition _(1038:1392)_
 * SteelSeries Rival 300 HP Omen Edition _(1038:1718)_
 * SteelSeries Heroes of the Storm (Sensei Raw) _(1038:1390)_
+* SteelSeries Kana V2 _(1038:137a)_
 
 Experimental support:
 
@@ -270,6 +271,25 @@ SteelSeries Rival 600 Options (Experimental):
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
 
+SteelSeries Kana V2 Options:
+
+    -i LED_INTENSITY1, --intensity1=LED_INTENSITY1
+                        Set LED intensity preset 1 (values: high, medium, off,
+                        low, default: off)
+    -I LED_INTENSITY2, --intensity2=LED_INTENSITY2
+                        Set LED intensity preset 2 (values: high, medium, off,
+                        low, default: high)
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (values: 400, 800, 1200,
+                        1600, 2000, 2400, 3200, 4000, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (values: 400, 800, 1200,
+                        1600, 2000, 2400, 3200, 4000, default: 1600)
+    -r, --reset         Reset all options to their factory values
+
 
 ## FAQ (Frequently Asked Questions)
 
@@ -351,6 +371,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.4.0:** Support of the Kana V2 mouse (thanks @pqlaz, #74)
 * **3.3.0:** Support of the Acer Predator Gaming Mouse (a rebranded Rival 300) (#72)
 * **3.2.0:**
   * Support of the Rival 300 Dota 2 Edition (#67, @virrim)
