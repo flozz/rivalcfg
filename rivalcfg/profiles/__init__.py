@@ -11,6 +11,7 @@ from .rival310 import rival310
 from .rival500 import rival500
 from .rival600 import rival600
 from .hotssenseiraw import hotssenseiraw
+from .kanav2 import kanav2
 
 mice_profiles = [
     rival,
@@ -26,4 +27,5 @@ mice_profiles = [
     rival500,
     rival600,
     hotssenseiraw,
+    kanav2,
 ]
