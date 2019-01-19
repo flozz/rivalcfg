@@ -6,6 +6,10 @@ SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1384", MODE="0666"
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1702", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1702", MODE="0666"
 
+# SteelSeries Rival 100 Dota 2 Edition
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="170c", MODE="0666"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="170c", MODE="0666"
+
 # SteelSeries Rival 110
 SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1729", MODE="0666"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1729", MODE="0666"
