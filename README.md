@@ -13,6 +13,7 @@ Supported mice:
 
 * SteelSeries Rival _(1038:1384)_
 * SteelSeries Rival 100 _(1038:1702)_
+* SteelSeries Rival 100 Dota 2 Edition _(1038:170c)_
 * SteelSeries Rival 110 _(1038:1729)_
 * SteelSeries Rival 300 _(1038:1710)_
 * Acer Predator Gaming Mouse (Rival 300) _(1038:1714)_
@@ -96,7 +97,7 @@ Main Options:
     -h, --help          show this help message and exit
     -l, --list          print compatible mice and exit
 
-SteelSeries Rival 100 Options:
+SteelSeries Rival 100 (all editions) Options:
 
     -b BTN6_ACTION, --btn6-action=BTN6_ACTION
                         Set the action of the button under the wheel (values:
@@ -371,6 +372,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.5.0:** Supports of the Rival 100 Dota 2 Edition (#75)
 * **3.4.0:** Support of the Kana V2 mouse (thanks @pqlaz, #74)
 * **3.3.0:** Support of the Acer Predator Gaming Mouse (a rebranded Rival 300) (#72)
 * **3.2.0:**
