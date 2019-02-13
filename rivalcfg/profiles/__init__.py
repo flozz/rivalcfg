@@ -1,5 +1,6 @@
 from .rival import rival
 from .rival100 import rival100
+from .rival100dota2edition import rival100dota2edition
 from .rival110 import rival110
 from .rival300 import rival300
 from .rival300acerpredator import rival300acerpredator
@@ -16,6 +17,7 @@ from .kanav2 import kanav2
 mice_profiles = [
     rival,
     rival100,
+    rival100dota2edition,
     rival110,
     rival300,
     rival300acerpredator,
