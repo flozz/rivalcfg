@@ -372,7 +372,8 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
-* **3.5.0:** Supports of the Rival 100 Dota 2 Edition (#75)
+* **3.6.0:** Improved error handeling when sending commands to mice (thanks @Demon000, #76)
+* **3.5.0:** Support of the Rival 100 Dota 2 Edition (#75)
 * **3.4.0:** Support of the Kana V2 mouse (thanks @pqlaz, #74)
 * **3.3.0:** Support of the Acer Predator Gaming Mouse (a rebranded Rival 300) (#72)
 * **3.2.0:**
