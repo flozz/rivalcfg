@@ -89,10 +89,16 @@ def main(argv=sys.argv[1:]):
             value = int(value)
         if not type(value) in (list, tuple):
             value = [value]
-        getattr(mouse, option)(*value)
+        count = getattr(mouse, option)(*value)
+        if count < 0:
+            print("An error occured when updating mouse settings!")
+            sys.exit(1)
 
     if hasattr(mouse, "save"):
-        mouse.save()
+        count = mouse.save()
+        if count < 0:
+            print("An error occured when saving mouse settings!")
+            sys.exit(1)
 
 
 if __name__ == "__main__":
