@@ -44,6 +44,8 @@ class Mouse:
         :param bytes bytes_: bytes to write
         :param int report_type: the HID Repport Type (0x02: output (default),
                                 0x03: feature)
+
+        :returns int: the number of bytes written, or -1 on failure.
         """
         report_id = 0x00
         if debug.DEBUG:
@@ -55,7 +57,7 @@ class Mouse:
         report_function = getattr(
                 self._device,
                 REPORT_TYPE_TO_HIDAPI_FUNCTION[report_type])
-        report_function(bytearray(bytes_))
+        return report_function(bytearray(bytes_))
 
     def __getattr__(self, name):
         if name not in self.profile["commands"]:
@@ -86,7 +88,7 @@ class Mouse:
         def _exec_command(*args):
             bytes_ = getattr(command_handlers, handler)(command, *args)
             bytes_ = helpers.merge_bytes(bytes_, suffix)
-            self._device_write(bytes_, report_type)
+            return self._device_write(bytes_, report_type)
 
         return _exec_command
 
