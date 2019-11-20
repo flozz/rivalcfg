@@ -33,8 +33,6 @@ def _print_debug_info():
     debug.log("Rivalcfg %s" % VERSION)
     debug.log("Python version: %s" % platform.python_version())
     debug.log("OS: %s" % platform.system())
-    if platform.system() == "Linux":
-        debug.log("Linux distribution: %s" % " ".join(platform.linux_distribution()))  # noqa
     if debug.DRY:
         debug.log("Dry run enabled")
     if debug.get_debug_profile():
