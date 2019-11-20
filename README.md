@@ -372,6 +372,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.6.1:** Removes the call of a deprecated function that have been removed from Python 3.8 (#86)
 * **3.6.0:** Improved error handeling when sending commands to mice (thanks @Demon000, #76)
 * **3.5.0:** Support of the Rival 100 Dota 2 Edition (#75)
 * **3.4.0:** Support of the Kana V2 mouse (thanks @pqlaz, #74)
