@@ -35,7 +35,7 @@ rival710 = {
             "value_transform": lambda x: int((x / 100) - 1),
             "default": 1600,
         },
-        
+
         "set_logo_color": {
             "description": "Set the logo backlight color",
             "cli": ["-c", "--logo-color"],
@@ -45,7 +45,7 @@ rival710 = {
             "value_type": "rgbcolor",
             "default": "#FF1800"
         },
-        
+
         "set_wheel_color": {
             "description": "Set the wheel backlight color",
             "cli": ["-C", "--wheel-color"],
