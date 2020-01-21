@@ -273,7 +273,7 @@ SteelSeries Rival 600 Options (Experimental):
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
     
-SteelSeries Rival 710 Options:
+SteelSeries Rival 710 Options (Experimental):
 
     -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (from 100 to 12000 in
