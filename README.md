@@ -21,7 +21,6 @@ Supported mice:
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
 * SteelSeries Rival 300 Dota 2 Edition _(1038:1392)_
 * SteelSeries Rival 300 HP Omen Edition _(1038:1718)_
-* SteelSeries Rival 710 _(1038:1730)_
 * SteelSeries Heroes of the Storm (Sensei Raw) _(1038:1390)_
 * SteelSeries Kana V2 _(1038:137a)_
 
@@ -30,6 +29,7 @@ Experimental support:
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
+* SteelSeries Rival 710 _(1038:1730)_
 
 If you have trouble running this software, please open an issue on Github:
 
