@@ -2,7 +2,7 @@
 from .. import usbhid
 
 rival710 = {
-    "name": "SteelSeries Rival 710",
+    "name": "SteelSeries Rival 710 (Experimental)",
 
     "vendor_id": 0x1038,
     "product_id": 0x1730,
