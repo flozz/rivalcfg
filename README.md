@@ -272,7 +272,7 @@ SteelSeries Rival 600 Options (Experimental):
                         (e.g. x,x,red,0,green,54,blue,54) syntax:
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
-    
+
 SteelSeries Rival 710 Options (Experimental):
 
     -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
@@ -388,6 +388,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.7.0:** Initial support of the Rival 710 (#91, thanks @mobaradev)
 * **3.6.1:** Removes the call of a deprecated function that have been removed from Python 3.8 (#86)
 * **3.6.0:** Improved error handeling when sending commands to mice (thanks @Demon000, #76)
 * **3.5.0:** Support of the Rival 100 Dota 2 Edition (#75)
