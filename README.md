@@ -29,6 +29,7 @@ Experimental support:
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
+* SteelSeries Rival 710 _(1038:1730)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -271,6 +272,21 @@ SteelSeries Rival 600 Options (Experimental):
                         (e.g. x,x,red,0,green,54,blue,54) syntax:
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
+    
+SteelSeries Rival 710 Options (Experimental):
+
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 100 to 12000 in
+                        increments of 100, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 100 to 12000 in
+                        increments of 100, default: 1600)
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
 
 SteelSeries Kana V2 Options:
 
