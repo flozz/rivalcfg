@@ -1,3 +1,5 @@
+from .. import usbhid
+
 sensei310 = {
     "name": "SteelSeries Sensei 310 (Experimental)",
 
@@ -5,9 +7,37 @@ sensei310 = {
     "product_id": 0x1722,
     "interface_number": 0,
 
+    "rgbuniversal_format": {
+        "header_len": 26,   # Number of bytes in header excluding command bytes
+        "led_id": [0],      # Index(es) of LED ID
+        "speed": 1,         # Index of the colorshift speed field
+        "speed_len": 2,     # How many bytes the speed field takes up
+        "repeat": 17,       # Index of the repeat flag
+        "triggers": 21,     # Index of the trigger button mask field
+        "point_count": 25,  # Index of the color count field
+    },
+
     "commands": {
 
-        # TODO
+        "set_logo_color": {
+            "description": "Set the logo backlight color(s) and effects",
+            "cli": ["-c", "--logo-color"],
+            "command": [0x5B, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbuniversal",
+            "led_id": 0x00,
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
+        },
+
+        "set_wheel_color": {
+            "description": "Set the wheel backlight color(s) and effects",
+            "cli": ["-C", "--wheel-color"],
+            "command": [0x5B, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbuniversal",
+            "led_id": 0x01,
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
+        },
 
         "save": {
             "description": "Save the configuration to the mouse memory",
