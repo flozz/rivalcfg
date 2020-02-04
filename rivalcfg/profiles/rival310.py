@@ -1,3 +1,5 @@
+from .. import usbhid
+
 rival310 = {
     "name": "SteelSeries Rival 310 (Experimental)",
 
