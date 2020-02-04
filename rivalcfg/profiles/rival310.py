@@ -45,6 +45,20 @@ rival310 = {
             "default": 1600,
         },
 
+        "set_polling_rate": {
+            "description": "Set polling rate in Hz",
+            "cli": ["-p", "--polling-rate"],
+            "command": [0x54, 0x00],
+            "value_type": "choice",
+            "choices": {
+                125: 0x04,
+                250: 0x03,
+                500: 0x02,
+                1000: 0x01,
+            },
+            "default": 1000,
+        },
+
         "set_logo_color": {
             "description": "Set the logo backlight color(s) and effects",
             "cli": ["-c", "--logo-color"],

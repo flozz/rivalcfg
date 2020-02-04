@@ -40,9 +40,23 @@ sensei310 = {
             "range_min": 100,
             "range_max": 12000,
             "range_increment": 100,
-            "value_transform": lambda x: int(x / 100) -1,
+            "value_transform": lambda x: int(x / 100) - 1,
             "suffix": [0x00, 0x42],
             "default": 1600,
+        },
+
+        "set_polling_rate": {
+            "description": "Set polling rate in Hz",
+            "cli": ["-p", "--polling-rate"],
+            "command": [0x54, 0x00],
+            "value_type": "choice",
+            "choices": {
+                125: 0x04,
+                250: 0x03,
+                500: 0x02,
+                1000: 0x01,
+            },
+            "default": 1000,
         },
 
         "set_logo_color": {
