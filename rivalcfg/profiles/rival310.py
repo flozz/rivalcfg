@@ -7,7 +7,6 @@ rival310 = {
 
     "commands": {
 
-        # TODO
         "set_sensitivity1": {
             "description": "Set sensitivity preset 1",
             "cli": ["-s", "--sensitivity1"],
@@ -20,7 +19,6 @@ rival310 = {
             "default": 800,
         },
 
-        # TODO
         "set_sensitivity2": {
             "description": "Set sensitivity preset 2",
             "cli": ["-S", "--sensitivity2"],
@@ -31,6 +29,26 @@ rival310 = {
             "range_increment": 100,
             "value_transform": lambda x: int(x / 100),
             "default": 1600,
+        },
+
+        "set_logo_color": {
+            "description": "Set the logo backlight color(s) and effects",
+            "cli": ["-c", "--logo-color"],
+            "command": [0x5B, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbuniversal",
+            "led_id": 0x00,
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
+        },
+
+        "set_wheel_color": {
+            "description": "Set the wheel backlight color(s) and effects",
+            "cli": ["-C", "--wheel-color"],
+            "command": [0x5B, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbuniversal",
+            "led_id": 0x01,
+            "default": (["red", "green", "blue"], ["0", "54", "54"], "x", "x")
         },
 
         "save": {
