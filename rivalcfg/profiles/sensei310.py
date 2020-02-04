@@ -27,7 +27,8 @@ sensei310 = {
             "range_min": 100,
             "range_max": 12000,
             "range_increment": 100,
-            "value_transform": lambda x: int(x / 100),
+            "value_transform": lambda x: int(x / 100) - 1,
+            "suffix": [0x00, 0x42],
             "default": 800,
         },
 
@@ -39,7 +40,8 @@ sensei310 = {
             "range_min": 100,
             "range_max": 12000,
             "range_increment": 100,
-            "value_transform": lambda x: int(x / 100),
+            "value_transform": lambda x: int(x / 100) -1,
+            "suffix": [0x00, 0x42],
             "default": 1600,
         },
 
