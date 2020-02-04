@@ -7,6 +7,16 @@ rival310 = {
     "product_id": 0x1720,
     "interface_number": 0,
 
+    "rgbuniversal_format": {
+        "header_len": 26,   # Number of bytes in header excluding command bytes
+        "led_id": [0],      # Index(es) of LED ID
+        "speed": 1,         # Index of the colorshift speed field
+        "speed_len": 2,     # How many bytes the speed field takes up
+        "repeat": 17,       # Index of the repeat flag
+        "triggers": 21,     # Index of the trigger button mask field
+        "point_count": 25,  # Index of the color count field
+    },
+
     "commands": {
 
         "set_sensitivity1": {
