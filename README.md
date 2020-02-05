@@ -30,6 +30,7 @@ Experimental support:
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
 * SteelSeries Rival 710 _(1038:1730)_
+* SteelSeries Sensei 310 _(1038:1722)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -181,14 +182,30 @@ SteelSeries Rival and Rival 300 (all editions) Options:
                         breath, steady, default: steady)
     -r, --reset         Reset all options to their factory values
 
-SteelSeries Rival 310 Options (Experimental):
+SteelSeries Rival 310 and Sensei 310 Options (Experimental):
 
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color(s) and effects (e.g. red,
+                        #ff0000, ff0000, #f00, f00). If more than one value is
+                        specified, a color shifting effect is set (e.g.
+                        x,x,red,0,green,54,blue,54) syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -p POLLING_RATE, --polling-rate=POLLING_RATE
+                        Set polling rate in Hz (values: 125, 250, 500, 1000,
+                        default: 1000)
     -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (from 100 to 12000 in
                         increments of 100, default: 800)
     -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
                         Set sensitivity preset 2 (from 100 to 12000 in
                         increments of 100, default: 1600)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color(s) and effects (e.g.
+                        red, #ff0000, ff0000, #f00, f00). If more than one
+                        value is specified, a color shifting effect is set
+                        (e.g. x,x,red,0,green,54,blue,54) syntax:
+                        time(ms),trigger_mask,color1,pos1,...,colorn,posn
+    -r, --reset         Reset all options to their factory values
 
 SteelSeries Rival 500 Options (Experimental):
 
@@ -388,6 +405,9 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.8.0:**
+  * Experimental support of Sensei 310 (thx @tobozo #82, @FFY00 #43)
+  * Improved support of Rival 310 (still experimental)
 * **3.7.0:** Initial support of the Rival 710 (#91, thanks @mobaradev)
 * **3.6.1:** Removes the call of a deprecated function that have been removed from Python 3.8 (#86)
 * **3.6.0:** Improved error handeling when sending commands to mice (thanks @Demon000, #76)
