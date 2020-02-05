@@ -1,10 +1,10 @@
 from .. import usbhid
 
-rival310 = {
-    "name": "SteelSeries Rival 310 (Experimental)",
+sensei310 = {
+    "name": "SteelSeries Sensei 310 (Experimental)",
 
     "vendor_id": 0x1038,
-    "product_id": 0x1720,
+    "product_id": 0x1722,
     "interface_number": 0,
 
     "rgbuniversal_format": {
