@@ -93,7 +93,7 @@ def rgbuniversal_handler(command, colors, positions, speed, triggers):
     triggers -- trigger button mask as a hex string
     """
     colors = list(map(helpers.color_string_to_rgb, colors))
-    positions = map(lambda x: int(x, 16), positions)
+    positions = list(map(lambda x: int(x, 16), positions))
     speed = 5000 if speed.lower() == "x" else int(speed, 10)
     triggers = 0 if triggers.lower() == "x" else int(triggers, 16)
 
