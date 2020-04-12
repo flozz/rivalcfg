@@ -1,5 +1,5 @@
 rival95 = {
-    "name": "SteelSeries Rival 95",
+    "name": "SteelSeries Rival 95 (Experimental)",
 
     "vendor_id": 0x1038,
     "product_id": 0x1706,

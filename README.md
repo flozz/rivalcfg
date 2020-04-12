@@ -26,12 +26,13 @@ Supported mice:
 
 Experimental support:
 
+* SteelSeries Rival 95 _(1038:1706)_
+* SteelSeries Rival 105 _(1038:1814)_
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
 * SteelSeries Rival 710 _(1038:1730)_
 * SteelSeries Sensei 310 _(1038:1722)_
-* SteelSeries Rival 105 _(1038:1814)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -406,6 +407,10 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.9.0:**
+  * Experimental support of the Rival 95 (thx @LAKostis, #97)
+  * Experimental support of the Rival 105 (thx @vonsowic, #98)
+  * Fixes an issue with colorshift (rgbuniversal handler) on Python 3 (thx @uglynewt, #96)
 * **3.8.0:**
   * Experimental support of Sensei 310 (thx @tobozo #82, @FFY00 #43)
   * Improved support of Rival 310 (still experimental)
