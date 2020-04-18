@@ -31,6 +31,7 @@ Experimental support:
 * SteelSeries Rival 310 _(1038:1720)_
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
+* SteelSeries Rival 700 _(1038:1700)_
 * SteelSeries Rival 710 _(1038:1730)_
 * SteelSeries Sensei 310 _(1038:1722)_
 
@@ -292,7 +293,7 @@ SteelSeries Rival 600 Options (Experimental):
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
 
-SteelSeries Rival 710 Options (Experimental):
+SteelSeries Rival 700 and 710 Options (Experimental):
 
     -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (from 100 to 12000 in
