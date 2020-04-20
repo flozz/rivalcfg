@@ -49,7 +49,7 @@ rival700 = {
             },
             "default": 1000,
         },
-        
+
         "set_logo_color": {
             "description": "Set the logo backlight color",
             "cli": ["-c", "--logo-color"],
