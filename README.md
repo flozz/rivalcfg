@@ -408,6 +408,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **3.10.0:** Initial experimental support of the Rival 100 (thx @nixtux, #101)
 * **3.9.0:**
   * Experimental support of the Rival 95 (thx @LAKostis, #97)
   * Experimental support of the Rival 105 (thx @vonsowic, #98)
