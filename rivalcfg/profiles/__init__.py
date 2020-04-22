@@ -13,6 +13,7 @@ from .rival300hpomen import rival300hpomen
 from .rival310 import rival310
 from .rival500 import rival500
 from .rival600 import rival600
+from .rival700 import rival700
 from .rival710 import rival710
 from .hotssenseiraw import hotssenseiraw
 from .sensei310 import sensei310
@@ -34,6 +35,7 @@ mice_profiles = [
     rival310,
     rival500,
     rival600,
+    rival700,
     rival710,
     hotssenseiraw,
     sensei310,
