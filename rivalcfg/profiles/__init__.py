@@ -7,6 +7,7 @@ from .rival110 import rival110
 from .rival300 import rival300
 from .rival300acerpredator import rival300acerpredator
 from .rival300csgofadeedition import rival300csgofadeedition
+from .rival300csgofadeeditionstm32 import rival300csgofadeeditionstm32
 from .rival300csgohyperbeastedition import rival300csgohyperbeastedition
 from .rival300dota2edition import rival300dota2edition
 from .rival300hpomen import rival300hpomen
@@ -29,6 +30,7 @@ mice_profiles = [
     rival300,
     rival300acerpredator,
     rival300csgofadeedition,
+    rival300csgofadeeditionstm32,
     rival300csgohyperbeastedition,
     rival300dota2edition,
     rival300hpomen,
