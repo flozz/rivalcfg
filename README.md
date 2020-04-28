@@ -34,6 +34,7 @@ Experimental support:
 * SteelSeries Rival 700 _(1038:1700)_
 * SteelSeries Rival 710 _(1038:1730)_
 * SteelSeries Sensei 310 _(1038:1722)_
+* SteelSeries Sensei Raw _(1038:1369)_
 
 If you have trouble running this software, please open an issue on Github:
 
