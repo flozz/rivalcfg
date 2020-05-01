@@ -52,6 +52,51 @@ NAMED_KEYS = {
     "mouse8":  [0x08, 0x00, 0x00],
 }
 
+# Tactile feekback for the rival 700
+# Not a full list
+NAMED_HAPTIC = {
+    "none":             0b000000,
+    "strong":           0b000001,
+    "soft":             0b000010,
+    "light":            0b000011,
+    "sharp":            0b000100,
+    "bump":             0b000111,
+    "ping":             0b001000,
+    "lightbump":        0b001001,
+    "double":           0b001010,
+    "quicktriple":      0b001100,
+    "longbuzz":         0b001111,
+    "ring":             0b010000,
+    "quickring":        0b010001,
+    "tick":             0b011000,
+    "quickdouble":      0b011011,
+    "lighttick":        0b011010,
+    "quicksoftdouble":  0b100000,
+    "buzz":             0b101111,
+    "lightbuzz":        0b110011,
+    "strongpulse":      0b110100,
+    "pulse":            0b110101,
+    "softpulse":        0b110111,
+    "longlightbuzz":    0b111111,
+}
+
+# Position feeback command sits in data string
+BUTTON_POSITION = {
+    "mouse1":           2,
+    "leftclick":        2,
+    "mouse2":           6,
+    "rightclick":       6,
+    "mouse3":           10,
+    "mouse4":           14,
+    "backwards":        14,
+    "mouse5":           18,
+    "forwards":         18,
+    "mouse6":           22,
+    "mouse7":           26,
+    "cpi":              26,
+    "cpitoggle":        26,
+}
+
 
 def is_color(string):
     """Checks if the given string is a valid color.
@@ -133,6 +178,28 @@ def hotsbtnmap_to_list(kstring):
         raise ValueError("Invalid entry key name")
 
     return outlist  # It is a list of lists.
+
+
+def tactilebtnmap_to_list(choices):
+    """Converts a list of buttons and feeback types to a list of command bytes.
+    """
+    result = []
+    for e in range(28):
+        result.append(0x00)
+    choices = choices.split(",")
+    for x in range(len(choices)):
+        options = choices[x].lower()
+        selection = options.split("=")
+        if selection[0] in BUTTON_POSITION:
+            position = BUTTON_POSITION[selection[0]]-1
+            if selection[1] in NAMED_HAPTIC:
+                haptic = NAMED_HAPTIC[selection[1]]
+                result[position] = haptic
+            else:
+                raise ValueError("Invalid entrys set for tactile feedback!")
+        else:
+            raise ValueError("Invalid entrys set for mouse button")
+    return (result)
 
 
 def choices_to_list(choices):
