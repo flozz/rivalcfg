@@ -18,6 +18,7 @@ Supported mice:
 * SteelSeries Rival 300 _(1038:1710)_
 * Acer Predator Gaming Mouse (Rival 300) _(1038:1714)_
 * SteelSeries Rival 300 CS:GO Fade Edition _(1038:1394)_
+* SteelSeries Rival 300 CS:GO Fade Edition (stm32) _(1038:1716)_
 * SteelSeries Rival 300 CS:GO Hyperbeast Edition _(1038:171a)_
 * SteelSeries Rival 300 Dota 2 Edition _(1038:1392)_
 * SteelSeries Rival 300 HP Omen Edition _(1038:1718)_
