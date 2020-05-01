@@ -70,6 +70,13 @@ rival700 = {
             "default": "#FF1800"
         },
 
+        "set_tactile_settings": {
+            "description": "Set tactile feedback for mouse buttons",
+            "cli": ["-t", "--tactile-settings"],
+            "command": [0x92, 0x00],
+            "value_type": "tactilebtnmap",
+        },
+
         "save": {
             "description": "Save the configuration to the mouse memory",
             "cli": None,

@@ -1,3 +1,4 @@
+
 from . import helpers
 
 
@@ -172,3 +173,12 @@ def hotsbtnmap_handler(command, value):
         raise ValueError("Please provide 8 keys to be mapped.")
     value = _transform(command, value)
     return helpers.merge_bytes(command["command"], *olist)
+
+
+def tactilebtnmap_handler(command, value):
+    """Returns command bytes for command with not arguments.
+    Arguments:
+    command -- the command description dict
+    """
+    value = helpers.tactilebtnmap_to_list(value)
+    return helpers.merge_bytes(command["command"], value)
