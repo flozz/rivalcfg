@@ -171,9 +171,9 @@ def _add_hotsbtnmap_option(group, command_name, command):
 
 def _add_tactilebtnmap_option(group, command_name, command):
     description = (command["description"] +
-            " ,Button 1-7 are avilable "
-            " to clear a setting use feeback none, "
-            "syntax: button1=softpulse,button2=lightbump...")
+                   " ,Button 1-7 are avilable "
+                   " to clear a setting use feeback none, "
+                   "syntax: button1=softpulse,button2=lightbump...")
     group.add_option(
             *command["cli"],
             dest=command_name,

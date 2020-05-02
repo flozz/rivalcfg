@@ -52,9 +52,9 @@ NAMED_KEYS = {
     "mouse8":  [0x08, 0x00, 0x00],
 }
 
+# Tactile feekback for the rival 700
+# Not a full list
 NAMED_HAPTIC = {
-#Tactile feekback for the rival 700
-#Not a full list
     "none":             0b000000,
     "strong":           0b000001,
     "soft":             0b000010,
@@ -80,8 +80,8 @@ NAMED_HAPTIC = {
     "longlightbuzz":    0b111111,
 }
 
+# Position feeback command sits in data string
 BUTTON_POSITION = {
-#Position feeback command sits in data string
     "mouse1":           2,
     "leftclick":        2,
     "mouse2":           6,
@@ -95,7 +95,7 @@ BUTTON_POSITION = {
     "mouse7":           26,
     "cpi":              26,
     "cpitoggle":        26,
-    }
+}
 
 
 def is_color(string):
@@ -179,9 +179,9 @@ def hotsbtnmap_to_list(kstring):
 
     return outlist  # It is a list of lists.
 
+
 def tactilebtnmap_to_list(choices):
-    """Converts a list of button choices and feeback choices to a list of command bytes.
-       Button and feeback are seperated by an equales sign and each set by a comma.
+    """Converts a list of buttons and feeback types to a list of command bytes.
     """
     result = []
     for e in range(28):
