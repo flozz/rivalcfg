@@ -176,9 +176,10 @@ def hotsbtnmap_handler(command, value):
 
 
 def tactilebtnmap_handler(command, value):
-    """Returns command bytes for command with not arguments.
+    """Returns command bytes for rival 700 tactile feedback.
     Arguments:
     command -- the command description dict
+    value -- the choosen value
     """
     value = helpers.tactilebtnmap_to_list(value)
     return helpers.merge_bytes(command["command"], value)
