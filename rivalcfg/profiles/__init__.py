@@ -20,6 +20,7 @@ from .rival710 import rival710
 from .hotssenseiraw import hotssenseiraw
 from .sensei310 import sensei310
 from .senseiraw import senseiraw
+from .senseiten import senseiten
 from .kanav2 import kanav2
 
 mice_profiles = [
@@ -45,5 +46,6 @@ mice_profiles = [
     hotssenseiraw,
     sensei310,
     senseiraw,
+    senseiten,
     kanav2,
 ]
