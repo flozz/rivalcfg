@@ -30,6 +30,7 @@ Experimental support:
 * SteelSeries Rival 95 _(1038:1706)_
 * SteelSeries Rival 105 _(1038:1814)_
 * SteelSeries Rival 310 _(1038:1720)_
+* SteelSeries Rival 310 PUBG Edition _(1038:1736)_
 * SteelSeries Rival 500 _(1038:170e)_
 * SteelSeries Rival 600 _(1038:1724)_
 * SteelSeries Rival 700 _(1038:1700)_
@@ -409,6 +410,8 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
+* **next:**
+  * Experimental support of the Rival 310 PUBG Edition (#109)
 * **3.11.0:** Adds support of a later version if the Rival 300 CS:GO Fade Edition (thx @platyple, #105)
 * **3.10.0:** Initial experimental support of the Rival 700 (thx @nixtux, #101)
 * **3.9.0:**

@@ -12,6 +12,7 @@ from .rival300csgohyperbeastedition import rival300csgohyperbeastedition
 from .rival300dota2edition import rival300dota2edition
 from .rival300hpomen import rival300hpomen
 from .rival310 import rival310
+from .rival310pubgedition import rival310pubgedition
 from .rival500 import rival500
 from .rival600 import rival600
 from .rival700 import rival700
@@ -35,6 +36,7 @@ mice_profiles = [
     rival300dota2edition,
     rival300hpomen,
     rival310,
+    rival310pubgedition,
     rival500,
     rival600,
     rival700,
