@@ -1,5 +1,5 @@
 senseiraw = {
-    "name": "SteelSeries Sensei Raw",
+    "name": "SteelSeries Sensei RAW (Experimental)",
 
     "vendor_id": 0x1038,
     "product_id": 0x1369,

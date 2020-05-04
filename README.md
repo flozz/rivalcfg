@@ -36,7 +36,7 @@ Experimental support:
 * SteelSeries Rival 700 _(1038:1700)_
 * SteelSeries Rival 710 _(1038:1730)_
 * SteelSeries Sensei 310 _(1038:1722)_
-* SteelSeries Sensei Raw _(1038:1369)_
+* SteelSeries Sensei RAW _(1038:1369)_
 
 If you have trouble running this software, please open an issue on Github:
 
@@ -413,6 +413,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 * **next:**
   * Experimental support of the Rival 310 PUBG Edition (#109)
+  * Experimental support of the Sensei RAW
 * **3.11.0:** Adds support of a later version if the Rival 300 CS:GO Fade Edition (thx @platyple, #105)
 * **3.10.0:** Initial experimental support of the Rival 700 (thx @nixtux, #101)
 * **3.9.0:**
