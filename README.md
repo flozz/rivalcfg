@@ -412,7 +412,7 @@ Rivalcfg uses several environment variable to enable different debug features:
 
 ## Changelog
 
-* **next:**
+* **3.12.0:**
   * Experimental support of the Rival 310 PUBG Edition (#109)
   * Experimental support of the Sensei RAW (thx @cbergqvist, #106)
   * Experimental support of the Sensei Ten (thx @beardstorm, #94)
