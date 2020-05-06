@@ -53,31 +53,17 @@ NAMED_KEYS = {
 }
 
 # Tactile feekback for the rival 700
-# Not a full list
 NAMED_HAPTIC = {
-    "none":             0b000000,
-    "strong":           0b000001,
-    "soft":             0b000010,
-    "light":            0b000011,
-    "sharp":            0b000100,
-    "bump":             0b000111,
-    "ping":             0b001000,
-    "lightbump":        0b001001,
-    "double":           0b001010,
-    "quicktriple":      0b001100,
-    "longbuzz":         0b001111,
-    "ring":             0b010000,
-    "quickring":        0b010001,
-    "tick":             0b011000,
-    "quickdouble":      0b011011,
-    "lighttick":        0b011010,
-    "quicksoftdouble":  0b100000,
-    "buzz":             0b101111,
-    "lightbuzz":        0b110011,
-    "strongpulse":      0b110100,
-    "pulse":            0b110101,
-    "softpulse":        0b110111,
-    "longlightbuzz":    0b111111,
+    "none":                 0x00,
+    "strongclick":          0x04,
+    "softbump":             0x07,
+    "doubleclick":          0x0a,
+    "shortdoubleclick":     0x1b,
+    "tripleclick":          0x03,
+    "buzz":                 0x2f,
+    "longbuzz":             0x0f,
+    "sharptick":            0x18,
+    "pulsing":              0x35,
 }
 
 # Position feeback command sits in data string
@@ -196,9 +182,9 @@ def tactilebtnmap_to_list(choices):
                 haptic = NAMED_HAPTIC[selection[1]]
                 result[position] = haptic
             else:
-                raise ValueError("Invalid entrys set for tactile feedback!")
+                raise ValueError("Invalid entry set for tactile feedback!")
         else:
-            raise ValueError("Invalid entrys set for mouse button")
+            raise ValueError("Invalid entry set for mouse button")
     return (result)
 
 
