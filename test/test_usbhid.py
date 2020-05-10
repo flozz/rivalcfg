@@ -11,7 +11,8 @@ class TestIsDevicePlugged(object):
 
 class TestOpenDevice(object):
 
-    def test_a_not_plugged_device(self):
+    def test_a_not_plugged_device(self, monkeypatch):
+        monkeypatch.delenv("RIVALCFG_DRY")  # Be sure that dry mode is disabled
         with pytest.raises(usbhid.DeviceNotFound):
             usbhid.open_device(0x1038, 0xbaad, 0x00)
 

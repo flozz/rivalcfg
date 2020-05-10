@@ -11,5 +11,6 @@ interact with SteelSeries mice from your own scripts, read the
    :maxdepth: 2
    :caption: Contents:
 
+   ./helpers.rst
    ./mouse.rst
    ./usbhid.rst

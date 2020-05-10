@@ -54,7 +54,7 @@ def open_device(vendor_id, product_id, endpoint):
     :rtype: hid.device
 
     >>> from rivalcfg import usbhid
-    >>> usbhid.open_device(0x1038, 0x1702, 0)  # doctest: +ELLIPSIS
+    >>> usbhid.open_device(0x1038, 0x1702, 0)
     <hid.device at 0x...>
     """
     # Instanciate the device (real or fake depending of environment)

@@ -12,3 +12,4 @@ Mouse Class
 
 .. autoclass:: rivalcfg.mouse.Mouse
    :members:
+   :private-members:
