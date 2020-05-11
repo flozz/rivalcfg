@@ -3,7 +3,7 @@ import pytest
 from rivalcfg.handlers import choice
 
 
-class TestChoiceHandler(object):
+class TestProcessValue(object):
 
     @pytest.fixture
     def setting_info(self):

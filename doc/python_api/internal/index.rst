@@ -11,6 +11,7 @@ interact with SteelSeries mice from your own scripts, read the
    :maxdepth: 2
    :caption: Contents:
 
+   ./color_helpers.rst
    ./handlers/index.rst
    ./helpers.rst
    ./mouse.rst
