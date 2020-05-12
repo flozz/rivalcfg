@@ -132,7 +132,6 @@ class TestMouse(object):
     def test_set_setting2_is_available(self, mouse):
         assert hasattr(mouse, "set_setting2")
 
-    @pytest.mark.skip("choice handler is not implemented yet")
     @pytest.mark.parametrize("value,expected_hid_report", [
         ("foo",  b"\x02\x00\xCC\x01"),
         ("bar",  b"\x02\x00\xCC\x02"),

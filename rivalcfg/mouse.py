@@ -1,5 +1,6 @@
 from . import usbhid
 from . import devices
+from . import handlers
 from . import helpers
 
 
@@ -111,13 +112,26 @@ class Mouse:
         if setting_name not in self._mouse_profile["settings"]:
             raise AttributeError("Mouse instance has no attribute '%s'" % name)
 
-        setting = self._mouse_profile["settings"][setting_name]
+        setting_info = self._mouse_profile["settings"][setting_name]
+
+        handler_name = None
+
+        if "value_type" in setting_info and setting_info["value_type"]:
+            handler_name = setting_info["value_type"]
+            if handler_name not in helpers.module_ls(handlers):
+                raise ValueError("Unknown handler '%s' for '%s' setting of the %s" % (  # noqa
+                    handler_name,
+                    setting_name,
+                    self._mouse_profile["name"]))
 
         def _exec_command(*args):
-            # TODO call handlers
+            data = []
+            if handler_name:
+                data = getattr(handlers, handler_name) \
+                        .process_value(setting_info, *args)
             self._hid_write(
-                    report_type=setting["report_type"],
-                    data=helpers.merge_bytes(setting["command"]))
+                    report_type=setting_info["report_type"],
+                    data=helpers.merge_bytes(setting_info["command"], data))
 
         return _exec_command
 
