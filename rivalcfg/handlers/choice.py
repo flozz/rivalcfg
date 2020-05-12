@@ -20,6 +20,7 @@ Example of a choice value type in a device profile:
                 "label": "Light effect",
                 "description": "Set the light effect",
                 "cli": ["-e", "--light-effect"],
+                "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
                 "command": [0x07, 0x00],
                 "value_type": "choice",
                 "choices": {

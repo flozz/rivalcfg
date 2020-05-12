@@ -42,6 +42,7 @@ profile = {
             "label": "Sensibility preset 1",
             "description": "Set sensitivity preset 1 (DPI)",
             "cli": ["-s", "--sensitivity1"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x01],
             "value_type": "choice",
             "choices": {
@@ -61,6 +62,7 @@ profile = {
             "label": "Sensibility preset 2",
             "description": "Set sensitivity preset 2 (DPI)",
             "cli": ["-S", "--sensitivity2"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x02],
             "value_type": "choice",
             "choices": {
@@ -80,6 +82,7 @@ profile = {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
             "cli": ["-p", "--polling-rate"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x04, 0x00],
             "value_type": "choice",
             "choices": {
@@ -95,6 +98,7 @@ profile = {
             "label": "LED color",
             "description": "Set the mouse backlight color",
             "cli": ["-c", "--color"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x05, 0x00],
             "value_type": "rgbcolor",
             "default": "#FF1800"
@@ -104,6 +108,7 @@ profile = {
             "label": "Light effect",
             "description": "Set the light effect",
             "cli": ["-e", "--light-effect"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x07, 0x00],
             "value_type": "choice",
             "choices": {
@@ -121,6 +126,7 @@ profile = {
             "label": "Button 6 mode",
             "description": "Set the mode of the button under the wheel",
             "cli": ["-b", "--btn6-mode"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x0B],
             "value_type": "choice",
             "choices": {
