@@ -65,7 +65,13 @@ class Mouse:
 
     def reset_settings(self):
         """Sets all settings to their factory default values."""
-        pass
+        for name, setting_info in self._mouse_profile["settings"].items():
+            method_name = "set_%s" % name
+            method = getattr(self, method_name)
+            if "value_type" in setting_info and setting_info["value_type"]:
+                method(setting_info["default"])
+            else:
+                method()
 
     def save(self):
         """Save current config to the mouse internal memory."""

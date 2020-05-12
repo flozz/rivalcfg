@@ -83,7 +83,6 @@ class TestMouse(object):
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == b"\x02\x00\x5A\x0E"
 
-    @pytest.mark.skip("choice handler is not implemented yet")
     def test_reset_settings(self, mouse):
         mouse.reset_settings()
         mouse._hid_device.bytes.seek(0)
