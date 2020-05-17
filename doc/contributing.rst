@@ -29,7 +29,7 @@ If not, open an issue providing the following information:
 * The mouse ``vendor_id``, ``product_id`` and ``product_string``. On Linux you
   will find this information with the following command::
 
-     lsusb | grep 1038:
+     lsusb -d 1038:
 
   Example result for a Rival 100::
 
