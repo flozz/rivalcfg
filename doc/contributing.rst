@@ -11,8 +11,8 @@ Questions
 If you have any question, you can:
 
 * `open an issue <https://github.com/flozz/rivalcfg/issues>`_ on Github,
-* or `asking on Gitter <https://gitter.im/rivalcfg/Lobby>`_ (I am not always
-  available for chatting but I try to answer to everybody).
+* or `ask on Gitter <https://gitter.im/rivalcfg/Lobby>`_ (I am not always
+  available for chatting but I try to answer to everyone).
 
 
 Unsupported devices
@@ -35,22 +35,22 @@ If not, open an issue providing the following information:
 
      Bus 005 Device 009: ID 1038:1702 SteelSeries ApS SteelSeries Rival 100 Gaming Mouse
 
-* When possible, a link to the product description (open the SteelSeries
+* When possible, a link to the product description (on the SteelSeries
   website or any other online shop)
 
 Then, it depend...
 
 Sometime SteelSeries release new mice that are identical to an exiting model
-but only will some aesthetic changes (like the Rival 100, Rival 100 Dota
-2 Edition, and so on). In that case, I will be easy to support your mouse.
+but only with some aesthetic changes (like the Rival 100, Rival 100 Dota
+2 Edition, and so on). In that case, it will be easy to support your mouse.
 
-And sometime it is a new model that will need some reverse engineering... This
-can only be done by someone that own the mouse. It can be you (it is easier
-than you think), it can be me (if I can find someone that can lend me the
+And sometime it is a brand new model that will need some reverse engineering...
+This can only be done by someone that own the mouse. It can be you (it is
+easier than you think), it can be me (if I can find someone to lend me the
 mouse) or it can be any other contributor.
 
 You can also consider supporting the project using the ``Sponsor`` button on
-Github to allow me to buy new SteelSeries mice in order to support them in
+Github to allow me buying new SteelSeries mice in order to support them in
 rivalcfg.
 
 
@@ -72,10 +72,10 @@ Pull Requests
 -------------
 
 Please consider `filing a bug <https://github.com/flozz/rivalcfg/issues>`_
-before start working on a new feature or on the support of a new mouse. This
-will allow us to discuss the best way to make it. This is of course not
-necessary if you just want to fix typo in the documentation or small errors in
-the code.
+before starting to work on a new feature or on the support of a new mouse. This
+will allow us to discuss the best way to do it. This is of course not necessary
+if you just want to fix some typo in the documentation or small errors in the
+code.
 
 Please note that your code must pass tests and follow the coding style defined
 in by the `pep8 <https://pep8.org/>`_.
@@ -86,7 +86,7 @@ Running The Tests
 
 You will first have to install `nox <https://nox.thea.codes/>`_::
 
-    pip install nox
+    pip3 install nox
 
 Then you can check for lint error::
 
@@ -97,7 +97,8 @@ or run the tests::
     nox --session test
 
 To run the tests only for a specific Python version, you can use following
-commands (the corresponding Python interpreter must be installed)::
+commands (the corresponding Python interpreter must be installed on your
+machine)::
 
     nox --session test-2.7
     nox --session test-3.5
