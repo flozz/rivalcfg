@@ -82,7 +82,7 @@ class TestAddCliOption(object):
         ])
     def test_passing_valid_color_arguments(self, cli, color):
         params = cli.parse_args(["--color", color])
-        assert params.color0 == color
+        assert params.COLOR0 == color
 
     @pytest.mark.parametrize("color", [
         "hello",

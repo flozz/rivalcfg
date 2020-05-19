@@ -118,7 +118,7 @@ class CheckColorAction(argparse.Action):
     def __call__(self, parser, namespace, value, option_string=None):
         if not is_color(value):
             raise argparse.ArgumentError(self, "invalid color: '%s'" %  value)  # noqa
-        setattr(namespace, self.dest, value)
+        setattr(namespace, self.dest.upper(), value)
 
 
 def add_cli_option(cli, setting_name, setting_info):
