@@ -117,7 +117,7 @@ class CheckColorAction(argparse.Action):
 
     def __call__(self, parser, namespace, value, option_string=None):
         if not is_color(value):
-            raise ValueError("option %s: invalid color: '%s'" % (option_string, value))  # noqa
+            raise argparse.ArgumentError(self, "invalid color: '%s'" %  value)  # noqa
         setattr(namespace, self.dest, value)
 
 

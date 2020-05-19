@@ -92,5 +92,7 @@ class TestAddCliOption(object):
         "fa0b",
         ])
     def test_passing_invalid_color_arguments(self, cli, color):
-        with pytest.raises(ValueError):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
             cli.parse_args(["--color", color])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2
