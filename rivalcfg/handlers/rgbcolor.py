@@ -83,6 +83,8 @@ Functions
 """
 
 
+import argparse
+
 from ..color_helpers import is_color, parse_color_string
 
 
@@ -110,6 +112,15 @@ def process_value(setting_info, color):
     raise ValueError("Not a valid color %s" % str(color))
 
 
+class CheckColorAction(argparse.Action):
+    """Validate colors from CLI"""
+
+    def __call__(self, parser, namespace, value, option_string=None):
+        if not is_color(value):
+            raise ValueError("option %s: invalid color: '%s'" % (option_string, value))  # noqa
+        setattr(namespace, self.dest, value)
+
+
 def add_cli_option(cli, setting_name, setting_info):
     """Add the given "rgbcolor" type setting to the given CLI arguments parser.
 
@@ -118,4 +129,15 @@ def add_cli_option(cli, setting_name, setting_info):
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     """
-    pass
+    description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (
+            setting_info["description"],
+            str(setting_info["default"])
+            )
+    cli.add_argument(
+            *setting_info["cli"],
+            dest=setting_name,
+            help=description,
+            type=str,
+            action=CheckColorAction,
+            metavar=setting_name.upper(),
+            )

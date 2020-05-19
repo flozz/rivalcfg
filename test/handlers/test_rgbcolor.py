@@ -1,3 +1,5 @@
+import argparse
+
 import pytest
 
 from rivalcfg.handlers import rgbcolor
@@ -42,3 +44,53 @@ class TestProcessValue(object):
     def test_not_valid_color_ints_wrong_type(self, setting_info):
         with pytest.raises(ValueError):
             rgbcolor.process_value(setting_info, ["ff", "18", "00"])
+
+
+class TestAddCliOption(object):
+
+    @pytest.fixture
+    def cli(self):
+        cli = argparse.ArgumentParser()
+        rgbcolor.add_cli_option(cli, "color0", {
+                "label": "LED color",
+                "description": "Set the mouse backlight color",
+                "cli": ["-c", "--color", "--foobar"],
+                "command": [0x05, 0x00],
+                "value_type": "rgbcolor",
+                "default": "#FF1800"
+            })
+        return cli
+
+    def test_cli_options(self, cli):
+        assert "-c" in cli.format_help()
+        assert "--color" in cli.format_help()
+        assert "--foobar" in cli.format_help()
+
+    def test_cli_metavar(self, cli):
+        assert "-c COLOR0" in cli.format_help()
+
+    def test_default_value_displayed(self, cli):
+        assert "#FF1800" in cli.format_help()
+
+    @pytest.mark.parametrize("color", [
+        "#AABBCC",
+        "#aaBBcc",
+        "AAbbCC",
+        "#ABC",
+        "AbC",
+        "red",
+        ])
+    def test_passing_valid_color_arguments(self, cli, color):
+        params = cli.parse_args(["--color", color])
+        assert params.color0 == color
+
+    @pytest.mark.parametrize("color", [
+        "hello",
+        "#AABBCCFF",
+        "~AABBCC",
+        "#HHIIFF",
+        "fa0b",
+        ])
+    def test_passing_invalid_color_arguments(self, cli, color):
+        with pytest.raises(ValueError):
+            cli.parse_args(["--color", color])
