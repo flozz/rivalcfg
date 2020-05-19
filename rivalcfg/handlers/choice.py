@@ -119,7 +119,7 @@ def add_cli_option(cli, setting_name, setting_info):
     cli.add_argument(
             *setting_info["cli"],
             help=description,
-            dest=setting_name,
+            dest=setting_name.upper(),
             choices=choices_to_list(setting_info["choices"]),
             metavar=setting_name.upper()
             )
