@@ -12,6 +12,7 @@ interact with SteelSeries mice from your own scripts, read the
    :caption: Contents:
 
    ./color_helpers.rst
+   ./cli.rst
    ./handlers/index.rst
    ./helpers.rst
    ./mouse.rst

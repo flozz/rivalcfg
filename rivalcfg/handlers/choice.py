@@ -102,10 +102,10 @@ def process_value(setting_info, choice):
     return [value]
 
 
-def add_cli_option(cli, setting_name, setting_info):
+def add_cli_option(cli_parser, setting_name, setting_info):
     """Add the given "choice" type setting to the given CLI arguments parser.
 
-    :param ArgumentParser cli: An :class:`ArgumentParser` instance.
+    :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     :param str setting_name: The name of the setting.
     :param dict setting_info: The information dict of the setting from the
                               device profile.
@@ -116,7 +116,7 @@ def add_cli_option(cli, setting_name, setting_info):
             str(setting_info["default"])
             )
     # FIXME this need to be checked
-    cli.add_argument(
+    cli_parser.add_argument(
             *setting_info["cli"],
             help=description,
             dest=setting_name.upper(),
