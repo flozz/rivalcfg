@@ -19,12 +19,12 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Nox
       run: |
-        python -m pip install --upgrade pip
-        pip install nox
+        pip3 install setuptools
+        pip3 install nox
     - name: Lint with flake8
       run: |
-        nox --session lint
+        python3 -m nox --session lint
     - name: Test with pytest (and doctest if Python 3)
       run: |
-        nox --session test-${{ matrix.python-version }}
+        python3 -m nox --session test-${{ matrix.python-version }}
 
