@@ -139,5 +139,5 @@ def add_cli_option(cli, setting_name, setting_info):
             help=description,
             type=str,
             action=CheckColorAction,
-            metavar=setting_name.upper(),
+            metavar=setting_name.upper()
             )
