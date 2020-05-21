@@ -67,8 +67,8 @@ def choices_to_list(choices):
     :param dict choices: The dict containing available choices.
     :rtype: list[str]
 
-    >>> choices_to_list({"foo": 0, "bar": 2, 0: 0, 1: 1, 2: 2})
-    ['foo', 'bar', '0', '1', '2']
+    >>> choices_to_list({0: 0, 1: 1, 2: 2, "foo": 2})
+    ['foo', '0', '1', '2']
     """
     return list(map(str, sorted(choices.keys(), key=lambda v: v if type(v) == int else -1)))  # noqa
 
@@ -79,8 +79,8 @@ def choices_to_string(choices):
     :param dict choices: The dict containing available choices.
     :rtype: str
 
-    >>> choices_to_string({"foo": 0, "bar": 2, 0: 0, 1: 1, 2: 2})
-    'foo, bar, 0, 1, 2'
+    >>> choices_to_string({0: 0, 1: 1, 2: 2, "foo": 2})
+    'foo, 0, 1, 2'
     """
     return ", ".join(choices_to_list(choices))
 
