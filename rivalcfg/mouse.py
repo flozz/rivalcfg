@@ -12,6 +12,9 @@ def get_mouse(vendor_id=0x1038, product_id=None):
                           (``0x1038``)).
     :param int product_id: The product id of one of the supported device (e.g.
                            ``0x1702``).
+    :raise rivalcfg.devices.UnsupportedDevice: The requested device is not
+                                               supported by rivalcfg.
+    :rtype: Mouse
 
     >>> from rivalcfg.mouse import get_mouse
     >>> get_mouse(vendor_id=0x1038, product_id=0x1702)
@@ -21,9 +24,6 @@ def get_mouse(vendor_id=0x1038, product_id=None):
         raise ValueError("You must define the 'product_id' parameter")
 
     profile = devices.get_profile(vendor_id, product_id)
-
-    if not profile:
-        pass  # TODO raise an error
 
     hid_device = usbhid.open_device(vendor_id, product_id, profile["endpoint"])
 

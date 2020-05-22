@@ -13,6 +13,7 @@ interact with SteelSeries mice from your own scripts, read the
 
    ./color_helpers.rst
    ./cli.rst
+   ./devices.rst
    ./handlers/index.rst
    ./helpers.rst
    ./mouse.rst
