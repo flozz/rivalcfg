@@ -9,6 +9,7 @@ import argparse
 
 from . import handlers
 from . import devices
+from .version import VERSION
 
 
 def normalize_cli_option_name(name):
@@ -60,7 +61,12 @@ def add_main_cli(cli_parser):
             help="List supported devices and exit",
             nargs=0,
             action=PrintSupportedDevicesAction)
-    # TODO --version
+
+    cli_parser.add_argument(
+            "--version",
+            action="version",
+            version=VERSION)
+
     # TODO --print-info
     pass
 
