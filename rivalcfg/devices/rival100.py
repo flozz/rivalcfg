@@ -133,7 +133,7 @@ profile = {
                 "dpi": 0x00,
                 "os": 0x01,
             },
-            "default": "default",
+            "default": "dpi",
         },
 
     },
