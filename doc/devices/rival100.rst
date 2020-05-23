@@ -11,7 +11,7 @@ Supported Models
 Command-Line Usage
 ------------------
 
-TODO
+.. rivalcfg_device_cli:: rival100
 
 
 Python API

@@ -33,6 +33,7 @@ release = '4.0.0.dev0'
 extensions = [
     'sphinx.ext.autodoc',
     'scripts.sphinxext.rivalcfg_device_family',
+    'scripts.sphinxext.rivalcfg_device_cli',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

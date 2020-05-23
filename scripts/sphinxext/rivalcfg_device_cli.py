@@ -1,36 +1,29 @@
+import os
+import subprocess
 from importlib import import_module
 
-from docutils.parsers.rst import Directive, directives
-from docutils import utils, nodes
-from docutils.parsers.rst.directives.tables import ListTable
+from docutils.parsers.rst import Directive
+from docutils import nodes
 
 
-class RivalcfgDeviceFamily(ListTable, Directive):
+class RivalcfgDeviceCLI(Directive):
     required_arguments = 1
     has_content = False
-
-    def _generate_model_table(self, profile):
-        table_data = []
-
-        for model in profile["models"]:
-            table_data.append([
-                nodes.paragraph(text=model["name"]),
-                nodes.paragraph(text="%04x:%04x" % (
-                    model["vendor_id"],
-                    model["product_id"])),
-            ])
-
-        return self.build_table_from_list(
-            table_data, [1] * 2, 0, 0)
 
     def run(self):
         device_family = self.arguments[0]
         profile = import_module("rivalcfg.devices.%s" % device_family).profile
+        device_id = "%04x:%04x" % (
+                profile["models"][0]["vendor_id"],
+                profile["models"][0]["product_id"])
 
-        table = self._generate_model_table(profile)
+        os.environ["RIVALCFG_DRY"] = "1"
+        os.environ["RIVALCFG_PROFILE"] = device_id
+        usage = subprocess.check_output(["python", "-m", "rivalcfg", "--help"])
+        usage = usage.decode("utf-8")
 
-        return [table]
+        return [nodes.literal_block(text=usage, language="text")]
 
 
 def setup(app):
-    app.add_directive("rivalcfg_device_family", RivalcfgDeviceFamily)
+    app.add_directive("rivalcfg_device_cli", RivalcfgDeviceCLI)
