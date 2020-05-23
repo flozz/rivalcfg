@@ -50,13 +50,6 @@ def add_main_cli(cli_parser):
     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     """
     cli_parser.add_argument(
-            "--no-save",
-            help="Do not persist settings in the internal device memory",
-            dest="SAVE",
-            action="store_false",
-            default=True)
-
-    cli_parser.add_argument(
             "--list",
             help="List supported devices and exit",
             nargs=0,
@@ -66,6 +59,13 @@ def add_main_cli(cli_parser):
             "--version",
             action="version",
             version=VERSION)
+
+    cli_parser.add_argument(
+            "--no-save",
+            help="Do not persist settings in the internal device memory",
+            dest="SAVE",
+            action="store_false",
+            default=True)
 
     # TODO --print-info
     pass
