@@ -124,7 +124,7 @@ Module API
     Profiles of each supported devices::
 
        {
-           "vendor_id:product_id": {
+           (vendor_id, product_id): {
                # profile data ...
            },
        }
@@ -162,7 +162,7 @@ def get_profile(vendor_id=0x1038, product_id=None):
     """
     if not product_id:
         raise ValueError("You must provide a product_id")
-    profile_name = "%04x:%04x" % (vendor_id, product_id)
+    profile_name = (vendor_id, product_id)
     if profile_name not in PROFILES:
         raise UnsupportedDevice(
                 "The requested device is not supported (%s)" % profile_name)
@@ -183,7 +183,7 @@ def _generate_profiles():
             continue
         for model in item.profile["models"]:
             profile = item.profile.copy()
-            profile_name = "%04x:%04x" % (
+            profile_name = (
                     model["vendor_id"],
                     model["product_id"])
             del profile["models"]
