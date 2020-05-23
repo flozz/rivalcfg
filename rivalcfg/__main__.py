@@ -31,6 +31,10 @@ def main(args):
                 continue
             getattr(mouse, method_name)(value)
 
+        # Save settings in the internal device memory
+        if settings.SAVE:
+            mouse.save()
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])

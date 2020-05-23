@@ -23,6 +23,12 @@ def add_main_cli(cli_parser):
 
     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     """
+    cli_parser.add_argument(
+            "--no-save",
+            help="Do not persist settings in the internal device memory",
+            dest="SAVE",
+            action="store_false",
+            default=True)
     # TODO --list
     # TODO --print-info
     pass
@@ -37,6 +43,7 @@ def add_mouse_cli(cli_parser, mouse_profile):
     """
     cli_group = cli_parser.add_argument_group(
             "%s Options" % mouse_profile["name"])
+
     for setting_name, setting_info in mouse_profile["settings"].items():
         handler = getattr(handlers, setting_info["value_type"])
         handler.add_cli_option(cli_group, setting_name, setting_info)
