@@ -1,3 +1,5 @@
+import os
+
 from . import devices
 from . import mouse
 
@@ -9,10 +11,16 @@ def get_first_mouse():
     :rtype: rivalcfg.mouse.Mouse
     :return: The mouse if one supported device is found, else returns ``None``.
 
+    Always return ``None`` when ``RIVALCFG_PROFILE=0000:0000`` is defined in
+    the environment.
+
     >>> import rivalcfg
     >>> rivalcfg.get_first_mouse()  # doctest: +SKIP
     <Mouse ...>
     """
+    if "RIVALCFG_PROFILE" in os.environ \
+            and os.environ["RIVALCFG_PROFILE"] == "0000:0000":
+        return None
     plugged_devices = list(devices.list_plugged_devices())
     if not plugged_devices:
         return None

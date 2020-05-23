@@ -12,10 +12,15 @@ class RivalcfgDeviceCLI(Directive):
 
     def run(self):
         device_family = self.arguments[0]
-        profile = import_module("rivalcfg.devices.%s" % device_family).profile
-        device_id = "%04x:%04x" % (
-                profile["models"][0]["vendor_id"],
-                profile["models"][0]["product_id"])
+
+        if device_family.lower() == "none":
+            device_id = "0000:0000"
+        else:
+            profile = import_module(
+                    "rivalcfg.devices.%s" % device_family).profile
+            device_id = "%04x:%04x" % (
+                    profile["models"][0]["vendor_id"],
+                    profile["models"][0]["product_id"])
 
         os.environ["RIVALCFG_DRY"] = "1"
         os.environ["RIVALCFG_PROFILE"] = device_id
