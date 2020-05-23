@@ -135,6 +135,7 @@ import os
 import types
 
 from . import rival100  # noqa: F401
+from . import rival100_pc_bang  # noqa: F401
 from .. import usbhid
 
 
@@ -229,7 +230,7 @@ def _generate_profiles():
                 profile[k] = v
             # TODO override_defaults
             profiles[profile_name] = profile
-        return profiles
+    return profiles
 
 
 PROFILES = _generate_profiles()

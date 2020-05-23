@@ -6,3 +6,4 @@ Supported Devices
    :caption: Contents:
 
    ./rival100.rst
+   ./rival100_pc_bang.rst
