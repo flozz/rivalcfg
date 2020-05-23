@@ -131,6 +131,7 @@ Module API
 """
 
 
+import os
 import types
 
 from . import rival100  # noqa: F401
@@ -155,7 +156,20 @@ def list_plugged_devices():
        [
            {"vendor_id": ..., "product_id": ..., "name": ...},
        ]
+
+    If the ``RIVALCFG_PROFILE=vendor_id:product_id`` environment varialbe is
+    defined, only the corresponding profile will be listed.
     """
+    if "RIVALCFG_PROFILE" in os.environ:
+        debug_vendor_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[0], 16)
+        debug_product_id = int(
+                os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
+        profile = PROFILES[(debug_vendor_id, debug_product_id)]
+        yield {
+            "vendor_id": profile["vendor_id"],
+            "product_id": profile["product_id"],
+            "name": profile["name"],
+            }
     for profile in PROFILES.values():
         if usbhid.is_device_plugged(
                 profile["vendor_id"], profile["product_id"]):
