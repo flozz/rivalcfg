@@ -3,9 +3,18 @@ This module contains low level functions to interact with USB HID devices. The
 `hidapi <https://pypi.org/project/hidapi/>`_ module is used to abstract the
 access to the devices across all different operating systems.
 
-This module can also simulate devices: if you define the ``RIVALCFG_DRY``
-environment variable, a fake device will be returned instead of a real one.
-This is useful for debugging and testing.
+This module can also simulate devices:
+
+* if you define the ``RIVALCFG_DRY`` environment variable, a fake device will
+  be returned instead of a real one. This is useful for debugging and testing::
+
+    RIVALCFG_DRY=1 rivalcfg -c ff0000
+
+* If you define the ``RIVALCFG_PROFILE`` environment variable with a vendor id
+  and a product id, this module will report the corresponding device as being
+  plugged::
+
+    RIVALCFG_PROFILE=1038:1702 rivalcfg -h
 """
 
 
@@ -35,6 +44,12 @@ def is_device_plugged(vendor_id, product_id):
     >>> usbhid.is_device_plugged(0x1038, 0xbaad)
     False
     """
+    if "RIVALCFG_PROFILE" in os.environ:
+        debug_vendor_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[0], 16)
+        debug_product_id = int(
+                os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
+        if debug_vendor_id == vendor_id and debug_product_id == product_id:
+            return True
     return len(hid.enumerate(vendor_id, product_id)) > 0
 
 

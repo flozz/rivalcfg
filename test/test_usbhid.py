@@ -8,6 +8,10 @@ class TestIsDevicePlugged(object):
     def test_a_not_plugged_device(self):
         assert not usbhid.is_device_plugged(0x1038, 0xbaad)
 
+    def test_a_plugged_debug_device(self, monkeypatch):
+        monkeypatch.setenv("RIVALCFG_PROFILE", "1038:1702")
+        assert usbhid.is_device_plugged(0x1038, 0x1702)
+
 
 class TestOpenDevice(object):
 

@@ -134,6 +134,7 @@ Module API
 import types
 
 from . import rival100  # noqa: F401
+from .. import usbhid
 
 
 PROFILES = None
@@ -142,6 +143,27 @@ PROFILES = None
 class UnsupportedDevice(Exception):
     """Exception raised when the requested device is not supported by rivalcfg.
     """
+
+
+def list_plugged_devices():
+    """List all plugged devices that are supported by rivalcfg.
+
+    :rtype: generator
+
+    ::
+
+       [
+           {"vendor_id": ..., "product_id": ..., "name": ...},
+       ]
+    """
+    for profile in PROFILES.values():
+        if usbhid.is_device_plugged(
+                profile["vendor_id"], profile["product_id"]):
+            yield {
+                    "vendor_id": profile["vendor_id"],
+                    "product_id": profile["product_id"],
+                    "name": profile["name"],
+                    }
 
 
 def get_profile(vendor_id=0x1038, product_id=None):
