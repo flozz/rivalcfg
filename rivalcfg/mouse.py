@@ -63,6 +63,21 @@ class Mouse:
         self._hid_device = hid_device
         self._mouse_profile = mouse_profile
 
+    @property
+    def name(self):
+        """The mouse name."""
+        return self._mouse_profile["name"]
+
+    @property
+    def vendor_id(self):
+        """The mouse vendor id."""
+        return self._mouse_profile["vendor_id"]
+
+    @property
+    def product_id(self):
+        """The mouse product id."""
+        return self._mouse_profile["product_id"]
+
     def reset_settings(self):
         """Sets all settings to their factory default values."""
         for name, setting_info in self._mouse_profile["settings"].items():
