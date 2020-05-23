@@ -3,7 +3,6 @@ Command-Line Usage
 
 The basic usage is:
 
-
 .. code-block:: text
 
    usage: rivalcfg [-h] [--no-save]

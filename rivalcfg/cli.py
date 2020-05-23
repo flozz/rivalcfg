@@ -3,7 +3,12 @@ This module generates rivalcfg's CLI.
 """
 
 
+import sys
+import types
+import argparse
+
 from . import handlers
+from . import devices
 
 
 def normalize_cli_option_name(name):
@@ -18,6 +23,26 @@ def normalize_cli_option_name(name):
     return name.lower().replace("_", "-")
 
 
+class PrintSupportedDevicesAction(argparse.Action):
+    """Print supported devices and exit."""
+
+    def __call__(self, parser, namespace, value, option_string=None):
+        for item in [getattr(devices, name) for name in dir(devices)]:
+            if not isinstance(item, types.ModuleType):
+                continue
+            if not hasattr(item, "profile"):
+                continue
+            print("%s:" % item.profile["name"])
+            print()
+            for model in item.profile["models"]:
+                print("  %04x:%04x | %s" % (
+                    model["vendor_id"],
+                    model["product_id"],
+                    model["name"]))
+            print()
+        sys.exit(0)
+
+
 def add_main_cli(cli_parser):
     """Adds the main CLI options.
 
@@ -29,7 +54,13 @@ def add_main_cli(cli_parser):
             dest="SAVE",
             action="store_false",
             default=True)
-    # TODO --list
+
+    cli_parser.add_argument(
+            "--list",
+            help="List supported devices and exit",
+            nargs=0,
+            action=PrintSupportedDevicesAction)
+    # TODO --version
     # TODO --print-info
     pass
 
