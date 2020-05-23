@@ -32,6 +32,7 @@ release = '4.0.0.dev0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'scripts.sphinxext.rivalcfg_device_family',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

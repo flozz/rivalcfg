@@ -4,7 +4,7 @@ import nox
 @nox.session
 def lint(session):
     session.install("flake8")
-    session.run("flake8", "rivalcfg", "test", "noxfile.py")
+    session.run("flake8", "rivalcfg", "test", "noxfile.py", "scripts")
 
 
 @nox.session(python=["2.7", "3.5", "3.6", "3.7", "3.8"])

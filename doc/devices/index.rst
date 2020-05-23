@@ -1,5 +1,8 @@
 Supported Devices
 =================
 
-TODO
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
+   ./rival100.rst
