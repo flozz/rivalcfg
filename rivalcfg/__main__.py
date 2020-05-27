@@ -20,6 +20,10 @@ def main(args):
 
     settings = cli_parser.parse_args(args)
 
+    # Reset
+    if mouse and settings.RESET:
+        mouse.reset_settings()
+
     # Apply settings
     if mouse:
         for setting_name, value in [

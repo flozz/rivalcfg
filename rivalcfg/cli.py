@@ -84,3 +84,9 @@ def add_mouse_cli(cli_parser, mouse_profile):
     for setting_name, setting_info in mouse_profile["settings"].items():
         handler = getattr(handlers, setting_info["value_type"])
         handler.add_cli_option(cli_group, setting_name, setting_info)
+
+    cli_group.add_argument(
+            "-r", "--reset",
+            help="Reset all settings to their factory default",
+            dest="RESET",
+            action="store_true")
