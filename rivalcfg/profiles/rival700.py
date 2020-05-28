@@ -70,6 +70,26 @@ rival700 = {
             "default": "#FF1800"
         },
 
+        "set_logo_trigger": {
+            "description": "Set the wheel backlight color",
+            "cli": ["-t", "--logo-trigger"],
+            "command": [0x05, 0x00, 0x00],
+            "suffix": [0x00, 0x08, 0x00, 0x00, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,  # wValue = 0x0300
+            "value_type": "rgbcolorshift",
+            "default": [["#FF1800", "#FF1800"], 200]
+        },
+
+        "set_wheel_trigger": {
+            "description": "Set the wheel backlight color",
+            "cli": ["-T", "--wheel-trigger"],
+            "command": [0x05, 0x00, 0x01],
+            "suffix": [0x00, 0x08, 0x00, 0x00, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,  # wValue = 0x0300
+            "value_type": "rgbcolorshift",
+            "default": [["#FF1800", "#FF1800"], 200]
+        },
+
         "save": {
             "description": "Save the configuration to the mouse memory",
             "cli": None,
