@@ -297,7 +297,28 @@ SteelSeries Rival 600 Options (Experimental):
                         time(ms),trigger_mask,color1,pos1,...,colorn,posn
     -r, --reset         Reset all options to their factory values
 
-SteelSeries Rival 700 and 710 Options (Experimental):
+SteelSeries Rival 700 Options (Experimental):
+
+    -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
+                        Set sensitivity preset 1 (from 100 to 12000 in
+                        increments of 100, default: 800)
+    -S SENSITIVITY2, --sensitivity2=SENSITIVITY2
+                        Set sensitivity preset 2 (from 100 to 12000 in
+                        increments of 100, default: 1600)
+    -c LOGO_COLOR, --logo-color=LOGO_COLOR
+                        Set the logo backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -C WHEEL_COLOR, --wheel-color=WHEEL_COLOR
+                        Set the wheel backlight color (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+    -t COLOR1 COLOR2 SPEED, --logo-trigger=COLOR1 COLOR2 SPEED
+                        Set the wheel backlight color (e.g. red aqua 200,
+                        ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+    -T COLOR1 COLOR2 SPEED, --wheel-trigger=COLOR1 COLOR2 SPEED
+                        Set the wheel backlight color (e.g. red aqua 200,
+                        ff0000 00ffff 200, default: #FF1800 #FF1800 200)
+
+SteelSeries Rival 710 Options (Experimental):
 
     -s SENSITIVITY1, --sensitivity1=SENSITIVITY1
                         Set sensitivity preset 1 (from 100 to 12000 in
