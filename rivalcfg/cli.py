@@ -9,6 +9,7 @@ import argparse
 
 from . import handlers
 from . import devices
+from . import udev
 from .version import VERSION
 
 
@@ -44,6 +45,17 @@ class PrintSupportedDevicesAction(argparse.Action):
         sys.exit(0)
 
 
+class UpdateUdevRulesAction(argparse.Action):
+    """Print supported devices and exit."""
+
+    def __call__(self, parser, namespace, value, option_string=None):
+        # TODO Check Linux
+        # TODO Check root
+        udev.write_udev_rules_file()
+        udev.trigger_udev()
+        sys.exit(0)
+
+
 def add_main_cli(cli_parser):
     """Adds the main CLI options.
 
@@ -67,6 +79,11 @@ def add_main_cli(cli_parser):
             action="store_false",
             default=True)
 
+    cli_parser.add_argument(
+            "--update-udev",
+            help="Updates udev rules (Linux only, requires to be run as root)",
+            nargs=0,
+            action=UpdateUdevRulesAction)
     # TODO --print-info
     pass
 
