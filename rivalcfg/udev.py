@@ -7,16 +7,17 @@ generate, check and update rules files.
    The functions of this module must only be used with udev-based Linux distro.
 """
 
+import re
 
 from .version import VERSION
 from .devices import PROFILES
 
 
 #: Path to the udev rules file
-UDEV_RULES_FILE_PATH = "/etc/udev/rules.d/99-steelseries-rival.rules"
+RULES_FILE_PATH = "/etc/udev/rules.d/99-steelseries-rival.rules"
 
 
-def generate_udev_rules():
+def generate_rules():
     """Generates the content of the udev rules file.
 
     :rtype: str
@@ -36,7 +37,7 @@ def generate_udev_rules():
     return rules
 
 
-def write_udev_rules_file(path=UDEV_RULES_FILE_PATH):
+def write_rules_file(path=RULES_FILE_PATH):
     """Generates and write the udev rules file at the given place.
 
     :param str path: The path of the output file.
@@ -44,16 +45,39 @@ def write_udev_rules_file(path=UDEV_RULES_FILE_PATH):
     :raise PermissionError: The user has not sufficient permissions to write
                             the file.
     """
-    rules = generate_udev_rules()
-    # TODO
-    print(rules)  # FIXME
+    path = str(path)   # py27 compatibility: coerce PosixPath to string
+    rules = generate_rules()
     with open(path, "w") as rules_file:
         rules_file.write(rules)
 
 
-def trigger_udev():
+def trigger():
+    """Trigger udev to take into account the new rules."""
     pass
 
 
-def check_udev_rules(path=UDEV_RULES_FILE_PATH):
-    pass
+def are_rules_up_to_date(rules, current_version=VERSION):
+    """Check if the given udev rules are up to date.
+
+    :param str rules: The content of an udev rule file to check.
+    :param str current_version: The current rivalcfg version.
+
+    :rtype: bool
+    """
+    version_regexp = re.compile(r".*rivalcfg\s+v([0-9]+\.[0-9]+\.[0-9]+(.+)?)\s*.*")  # noqa
+    rules_version = None
+    if version_regexp.match(rules):
+        rules_version = version_regexp.match(rules).group(1)
+    return rules_version == current_version
+
+
+def is_rules_file_up_to_date(path=RULES_FILE_PATH):
+    """Check if the given udev rules file is up to date.
+
+    :param str path: The path of the udev rules file.
+
+    :rtype: bool
+    """
+    path = str(path)   # py27 compatibility: coerce PosixPath to string
+    with open(path, "r") as rules_file:
+        return are_rules_up_to_date(rules_file.read())

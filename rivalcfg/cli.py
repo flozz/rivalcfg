@@ -51,8 +51,8 @@ class UpdateUdevRulesAction(argparse.Action):
     def __call__(self, parser, namespace, value, option_string=None):
         # TODO Check Linux
         # TODO Check root
-        udev.write_udev_rules_file()
-        udev.trigger_udev()
+        udev.write_rules_file()
+        udev.trigger()
         sys.exit(0)
 
 
