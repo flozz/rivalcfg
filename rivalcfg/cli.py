@@ -3,8 +3,10 @@ This module generates rivalcfg's CLI.
 """
 
 
+import os
 import sys
 import types
+import platform
 import argparse
 
 from . import handlers
@@ -49,8 +51,12 @@ class UpdateUdevRulesAction(argparse.Action):
     """Print supported devices and exit."""
 
     def __call__(self, parser, namespace, value, option_string=None):
-        # TODO Check Linux
-        # TODO Check root
+        if platform.system() != "Linux":
+            print("E: The --update-udev option can only be used on Linux.")
+            sys.exit(2)
+        if os.getuid() != 0:
+            print("E: You must run rivalcfg as root to use the --update-udev option.")  # noqa
+            sys.exit(2)
         udev.write_rules_file()
         udev.trigger()
         sys.exit(0)
