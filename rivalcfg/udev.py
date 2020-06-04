@@ -8,6 +8,7 @@ generate, check and update rules files.
 """
 
 import re
+import subprocess
 
 from .version import VERSION
 from .devices import PROFILES
@@ -53,7 +54,7 @@ def write_rules_file(path=RULES_FILE_PATH):
 
 def trigger():
     """Trigger udev to take into account the new rules."""
-    pass
+    subprocess.check_output(["udevadm", "trigger"])
 
 
 def are_rules_up_to_date(rules, current_version=VERSION):
