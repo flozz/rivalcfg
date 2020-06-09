@@ -57,6 +57,21 @@ FAKE_PROFILE = {
     },
 }
 
+FAKE_PROFILE2 = {
+    "name": "Fake Mouse 2",
+    "vendor_id": 0x1038,
+    "product_id": 0xbad2,
+    "endpoint": 2,
+
+    "settings": {},
+
+    "save_command": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "packet_length": 4,
+        "command": [0x5A, 0x0E],
+    },
+}
+
 
 class TestGetMouse(object):
 
@@ -87,10 +102,21 @@ class TestMouse(object):
     def mouse(self, monkeypatch):
         return mouse.Mouse(usbhid.FakeDevice(), FAKE_PROFILE)
 
+    @pytest.fixture
+    def mouse2(self, monkeypatch):
+        return mouse.Mouse(usbhid.FakeDevice(), FAKE_PROFILE2)
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == b"\x02\x00\x5A\x0E"
+
+    def test_save_fixed_packet_length(self, mouse2):
+        mouse2.save()
+        mouse2._hid_device.bytes.seek(0)
+        data = mouse2._hid_device.bytes.read()
+        assert len(data) == 6
+        assert data == b"\x02\x00\x5A\x0E\x00\x00"
 
     def test_reset_settings(self, mouse):
         mouse.reset_settings()

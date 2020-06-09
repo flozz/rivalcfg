@@ -94,9 +94,15 @@ class Mouse:
         if "save_command" not in self._mouse_profile \
            or not self._mouse_profile["save_command"]:
             raise Exception("This mouse does not provide any save command.")
+
+        packet_length = 0
+        if "packet_length" in self._mouse_profile["save_command"]:
+            packet_length = self._mouse_profile["save_command"]["packet_length"]  # noqa: E501
+
         self._hid_write(
                 report_type=self._mouse_profile["save_command"]["report_type"],
-                data=self._mouse_profile["save_command"]["command"])
+                data=self._mouse_profile["save_command"]["command"],
+                packet_length=packet_length)
 
     def _hid_write(self,
                    report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
