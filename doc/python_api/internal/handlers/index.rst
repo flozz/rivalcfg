@@ -14,4 +14,5 @@ a device profile. Each handler module provides at least two functions:
    :caption: Contents:
 
    ./choice.rst
+   ./range.rst
    ./rgbcolor.rst

@@ -115,7 +115,6 @@ def add_cli_option(cli_parser, setting_name, setting_info):
             choices_to_string(setting_info["choices"]),
             str(setting_info["default"])
             )
-    # FIXME this need to be checked
     cli_parser.add_argument(
             *setting_info["cli"],
             help=description,
