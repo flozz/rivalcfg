@@ -11,8 +11,33 @@ class TestDevice(object):
     def mouse(self):
         return mouse.Mouse(usbhid.FakeDevice(), rival110.profile)
 
-    # TODO Sensitivity 1
-    # TODO Sensitivity 2
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        (200, b"\x02\x00\x03\x01\x04"),
+        (210, b"\x02\x00\x03\x01\x04"),
+        (290, b"\x02\x00\x03\x01\x06"),
+        (4000, b"\x02\x00\x03\x01\x5C"),
+        (7200, b"\x02\x00\x03\x01\xA7"),
+        ])
+    def test_set_sensitivity1(self, mouse, value, expected_hid_report):
+        mouse.set_sensitivity1(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert len(hid_report) == 1 + 1 + 32   # report_type + report_id + data
+        assert hid_report.startswith(expected_hid_report)
+
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        (200, b"\x02\x00\x03\x02\x04"),
+        (210, b"\x02\x00\x03\x02\x04"),
+        (290, b"\x02\x00\x03\x02\x06"),
+        (4000, b"\x02\x00\x03\x02\x5C"),
+        (7200, b"\x02\x00\x03\x02\xA7"),
+        ])
+    def test_set_sensitivity2(self, mouse, value, expected_hid_report):
+        mouse.set_sensitivity2(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert len(hid_report) == 1 + 1 + 32   # report_type + report_id + data
+        assert hid_report.startswith(expected_hid_report)
 
     @pytest.mark.parametrize("value,expected_hid_report", [
         (125, b"\x02\x00\x04\x00\x04"),

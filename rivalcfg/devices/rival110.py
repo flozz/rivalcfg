@@ -19,32 +19,31 @@ profile = {
 
     "settings": {
 
-        # FIXME range not implemented yet
-        # "sensitivity1": {
-        #     "label": "Sensibility preset 1",
-        #     "description": "Set sensitivity preset 1 (DPI)",
-        #     "cli": ["-s", "--sensitivity1"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-        #     "command": [0x03, 0x01],
-        #     "packet_length": _PACKET_LENGTH,
-        #     "value_type": "range",
-        #     "input_range": (200, 7200, 100),
-        #     "output_range": (0x04, 0xA7, 2),
-        #     "default": 1000,
-        # },
+        "sensitivity1": {
+            "label": "Sensibility preset 1",
+            "description": "Set sensitivity preset 1 (DPI)",
+            "cli": ["-s", "--sensitivity1"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x03, 0x01],
+            "packet_length": _PACKET_LENGTH,
+            "value_type": "range",
+            "input_range": [200, 7200, 100],
+            "output_range": [0x04, 0xA7, 2.33],
+            "default": 800,
+        },
 
-        # "sensitivity2": {
-        #     "label": "Sensibility preset 2",
-        #     "description": "Set sensitivity preset 2 (DPI)",
-        #     "cli": ["-S", "--sensitivity2"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-        #     "command": [0x03, 0x02],
-        #     "packet_length": _PACKET_LENGTH,
-        #     "value_type": "range",
-        #     "input_range": (200, 7200, 100),
-        #     "output_range": (0x04, 0xA7, 2),
-        #     "default": 1600,
-        # },
+        "sensitivity2": {
+            "label": "Sensibility preset 2",
+            "description": "Set sensitivity preset 2 (DPI)",
+            "cli": ["-S", "--sensitivity2"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x03, 0x02],
+            "packet_length": _PACKET_LENGTH,
+            "value_type": "range",
+            "input_range": [200, 7200, 100],
+            "output_range": [0x04, 0xA7, 2.33],
+            "default": 1600,
+        },
 
         "polling_rate": {
             "label": "Polling rate",
