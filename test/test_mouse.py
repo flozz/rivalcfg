@@ -40,6 +40,15 @@ FAKE_PROFILE = {
             "command": [0xC0, 0x10, 0x25],
             "value_type": None,
         },
+        "setting4": {
+            "label": "Setting 4",
+            "description": "A setting that use a fixed packet length",
+            "cli": ["-4", "--setting4"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x11, 0x22],
+            "packet_length": 10,
+            "value_type": None,
+        }
     },
 
     "save_command": {
@@ -118,6 +127,13 @@ class TestMouse(object):
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == b"\x02\x42\xDA\x7A"
 
+    def test__hid_write_with_fixed_packet_length(self, mouse):
+        mouse._hid_write(packet_length=4)
+        mouse._hid_device.bytes.seek(0)
+        data = mouse._hid_device.bytes.read()
+        assert len(data) == 6
+        assert data == b"\x02\x00\x00\x00\x00\x00"
+
     # Virtual methods dependent to the loaded profile
 
     def test_set_setting1_is_available(self, mouse):
@@ -147,6 +163,13 @@ class TestMouse(object):
         mouse.set_setting3()
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == b"\x03\x00\xC0\x10\x25"
+
+    def test_set_setting4_packet_length(self, mouse):
+        mouse.set_setting4()
+        mouse._hid_device.bytes.seek(0)
+        data = mouse._hid_device.bytes.read()
+        assert len(data) == 12
+        assert data == b"\x02\x00\x11\x22\x00\x00\x00\x00\x00\x00\x00\x00"
 
     def test_an_unexisting_setting(self, mouse):
         assert not hasattr(mouse, "set_xxx")

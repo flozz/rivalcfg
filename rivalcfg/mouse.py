@@ -101,7 +101,8 @@ class Mouse:
     def _hid_write(self,
                    report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
                    report_id=0x00,
-                   data=[]):
+                   data=[],
+                   packet_length=0):
         """
         Write data to the device.
 
@@ -111,10 +112,20 @@ class Mouse:
                                 :data:`rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE`).
         :param int report_id: The id of the report (always ``0x00``).
         :param list(int) data: The data to send to the mouse.
+        :param int packet_length: The fixed length of the packet that will be
+                                  sent to the device (default: ``0`` (no fixed
+                                  length)).
 
         :raises ValueError: Invalid report type, or HID device not openned.
         """
-        bytes_ = bytearray(helpers.merge_bytes(report_id, data))
+        if packet_length:
+            bytes_ = bytearray(helpers.merge_bytes(
+                report_id,
+                data,
+                [0x00] * (packet_length - len(data))
+                ))
+        else:
+            bytes_ = bytearray(helpers.merge_bytes(report_id, data))
         if report_type == usbhid.HID_REPORT_TYPE_OUTPUT:
             self._hid_device.write(bytes_)
         elif report_type == usbhid.HID_REPORT_TYPE_FEATURE:
@@ -145,6 +156,10 @@ class Mouse:
                     setting_name,
                     self._mouse_profile["name"]))
 
+        packet_length = 0
+        if "packet_length" in setting_info:
+            packet_length = setting_info["packet_length"]
+
         def _exec_command(*args):
             data = []
             if handler_name:
@@ -152,7 +167,8 @@ class Mouse:
                         .process_value(setting_info, *args)
             self._hid_write(
                     report_type=setting_info["report_type"],
-                    data=helpers.merge_bytes(setting_info["command"], data))
+                    data=helpers.merge_bytes(setting_info["command"], data),
+                    packet_length=packet_length)
 
         return _exec_command
 

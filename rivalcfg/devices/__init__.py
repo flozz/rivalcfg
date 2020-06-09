@@ -43,7 +43,7 @@ Here is what a profile file looks like::
             # A setting of the mouse. The key name is important, it will
             # be used to generates the Mouse class API and in the CLI
             "polling_rate": {
-                # A label that will be used in one day to build a GUI
+                # A label that will be used one day to build a GUI
                 "label": "Polling rate",
                 # A short description of the option. Used to generate the CLI
                 # help (rivalcfg --help)
@@ -56,6 +56,9 @@ Here is what a profile file looks like::
                 # The command that should be sent to the USB device to update
                 # this setting.
                 "command": [0x04, 0x00],
+                # A fixed amount of data to send to the mouse (optional).
+                # This is required by some mice like the Rival 110.
+                "packet_length": 32,
                 # The type of value supported by this setting.
                 # See the `rivalcfg.handlers` documentation for more
                 # information.
