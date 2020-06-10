@@ -8,3 +8,4 @@ Supported Devices
    ./rival100.rst
    ./rival100_pc_bang.rst
    ./rival110.rst
+   ./rival300.rst

@@ -1,7 +1,7 @@
 Environment Variables
 =====================
 
-Some environment variables can be used to change the behaviour of Rivalcfg. Here is a list with explanations:
+Some environment variables can be used to change the behaviour of Rivalcfg. Here is a list with explanations.
 
 
 RIVALCFG_DRY
