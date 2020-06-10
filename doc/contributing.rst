@@ -78,7 +78,7 @@ if you just want to fix some typo in the documentation or small errors in the
 code.
 
 Please note that your code must pass tests and follow the coding style defined
-in by the `pep8 <https://pep8.org/>`_.
+by the `pep8 <https://pep8.org/>`_.
 
 
 Running The Tests

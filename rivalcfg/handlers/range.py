@@ -112,7 +112,6 @@ def custom_range(start, stop, step):
     a float as step.
 
     I am not very proud of this but the Rival 110 requires a step of ~2.33...
-    ¬_¬'
 
     :param int start: The start of the range.
     :param int stop: The end of the range.
