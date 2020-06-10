@@ -41,6 +41,11 @@ profile = {
         "product_id": 0x1716,
         "endpoint": 0,
     }, {
+        "name": "SteelSeries Rival 300 Acer Predator Edition",
+        "vendor_id": 0x1038,
+        "product_id": 0x1714,
+        "endpoint": 0,
+    }, {
         "name": "SteelSeries Rival 300 HP OMEN Edition",
         "vendor_id": 0x1038,
         "product_id": 0x1718,
