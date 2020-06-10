@@ -23,6 +23,7 @@ Sensei,...).
    ./requirements.rst
    ./install.rst
    ./cli.rst
+   ./env.rst
    ./python_api/index.rst
    ./devices/index.rst
    ./faq.rst
