@@ -5,7 +5,7 @@ Supported Devices
    :maxdepth: 2
    :caption: Contents:
 
+   ./rival95.rst
    ./rival100.rst
-   ./rival100_pc_bang.rst
    ./rival110.rst
    ./rival300.rst

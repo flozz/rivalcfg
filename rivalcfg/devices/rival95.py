@@ -3,10 +3,25 @@ from .. import usbhid
 
 profile = {
 
-    "name": "SteelSeries Rival 100 PC Bang Edition",
+    "name": "SteelSeries Rival 95 / SteelSeries Rival 100 PC Bang",
 
     "models": [{
-        "name": "SteelSeries Rival 100 PC Bang Edition",
+        "name": "SteelSeries Rival 95",
+        "vendor_id": 0x1038,
+        "product_id": 0x1706,
+        "endpoint": 0,
+    }, {
+        "name": "SteelSeries Rival 95 MSI Edition",
+        "vendor_id": 0x1038,
+        "product_id": 0x1707,
+        "endpoint": 0,
+    }, {
+        "name": "SteelSeries Rival 95 PC Bang",
+        "vendor_id": 0x1038,
+        "product_id": 0x1704,
+        "endpoint": 0,
+    }, {
+        "name": "SteelSeries Rival 100 PC Bang",
         "vendor_id": 0x1038,
         "product_id": 0x1708,
         "endpoint": 0,

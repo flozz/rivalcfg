@@ -137,8 +137,8 @@ Module API
 import os
 import types
 
+from . import rival95  # noqa: F401
 from . import rival100  # noqa: F401
-from . import rival100_pc_bang  # noqa: F401
 from . import rival110  # noqa: F401
 from . import rival300  # noqa: F401
 from .. import usbhid
