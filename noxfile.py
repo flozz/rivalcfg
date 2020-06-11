@@ -20,3 +20,10 @@ def test(session):
         session.run("pytest", "--doctest-modules", "rivalcfg", "test", env={
             "RIVALCFG_DRY": "1",
             })
+
+
+@nox.session
+def gendoc(session):
+    session.install("sphinx", "sphinx-rtd-theme")
+    session.install("-e", ".")
+    session.run("sphinx-build", "-M", "html", "doc", "build")

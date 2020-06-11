@@ -106,3 +106,15 @@ machine)::
     nox --session test-3.7
     nox --session test-3.8
 
+
+Building The Documentation
+--------------------------
+
+You will first have to install `nox <https://nox.thea.codes/>`_::
+
+    pip3 install nox
+
+Then you can run the following command::
+
+    nox --session gendoc
+
