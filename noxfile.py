@@ -27,3 +27,9 @@ def gendoc(session):
     session.install("sphinx", "sphinx-rtd-theme")
     session.install("-e", ".")
     session.run("sphinx-build", "-M", "html", "doc", "build")
+
+
+@nox.session
+def update_ssdb(session):
+    session.install("natsort")
+    session.run("python", "./scripts/sse3_db_update.py", "ssdb/sse3.db.csv")
