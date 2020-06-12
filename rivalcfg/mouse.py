@@ -166,6 +166,10 @@ class Mouse:
         if "packet_length" in setting_info:
             packet_length = setting_info["packet_length"]
 
+        suffix = []
+        if "command_suffix" in setting_info:
+            suffix = setting_info["command_suffix"]
+
         def _exec_command(*args):
             data = []
             if handler_name:
@@ -173,7 +177,11 @@ class Mouse:
                         .process_value(setting_info, *args)
             self._hid_write(
                     report_type=setting_info["report_type"],
-                    data=helpers.merge_bytes(setting_info["command"], data),
+                    data=helpers.merge_bytes(
+                        setting_info["command"],
+                        data,
+                        suffix
+                        ),
                     packet_length=packet_length)
 
         return _exec_command

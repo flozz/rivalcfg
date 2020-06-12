@@ -48,6 +48,19 @@ FAKE_PROFILE = {
             "command": [0x11, 0x22],
             "packet_length": 10,
             "value_type": None,
+        },
+        "setting5": {
+            "label": "Setting 5",
+            "description": "A setting with a command suffix",
+            "cli": ["-5", "--setting5"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x11, 0x22],
+            "command_suffix": [0x33, 0x44],
+            "value_type": "choice",
+            "choices": {
+                42: 0xAA,
+            },
+            "default": 42,
         }
     },
 
@@ -196,6 +209,12 @@ class TestMouse(object):
         data = mouse._hid_device.bytes.read()
         assert len(data) == 12
         assert data == b"\x02\x00\x11\x22\x00\x00\x00\x00\x00\x00\x00\x00"
+
+    def test_set_setting5_command_suffix(self, mouse):
+        mouse.set_setting5(42)
+        mouse._hid_device.bytes.seek(0)
+        data = mouse._hid_device.bytes.read()
+        assert data == b"\x02\x00\x11\x22\xAA\x33\x44"
 
     def test_an_unexisting_setting(self, mouse):
         assert not hasattr(mouse, "set_xxx")
