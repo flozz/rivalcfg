@@ -94,11 +94,13 @@ def process_value(setting_info, choice):
     :param choice: The selected choice.
     :rtype: list[int]
     """
-    if choice not in setting_info["choices"]:
+    choices = {str(k): v for k, v in setting_info["choices"].items()}
+    choice = str(choice)
+    if choice not in choices:
         raise ValueError(
                 "value must be one of [%s]" %
                 choices_to_string(setting_info["choices"]))
-    value = setting_info["choices"][choice]
+    value = choices[choice]
     return [value]
 
 

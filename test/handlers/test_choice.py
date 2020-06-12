@@ -22,6 +22,9 @@ class TestProcessValue(object):
     def test_valid_choice_int(self, setting_info):
         assert choice.process_value(setting_info, 10) == [0xBB]
 
+    def test_valid_choice_str_int(self, setting_info):
+        assert choice.process_value(setting_info, "10") == [0xBB]
+
     def test_valid_choice_str(self, setting_info):
         assert choice.process_value(setting_info, "foo") == [0xDD]
 
