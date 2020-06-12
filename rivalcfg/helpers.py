@@ -3,6 +3,9 @@ This module contains varous helper functions.
 """
 
 
+import re
+
+
 def merge_bytes(*args):
     """Returns a single list of int from given int and list of int.
 
@@ -33,3 +36,66 @@ def module_ls(module):
     :rtype: [str]
     """
     return [e for e in dir(module) if not e.startswith("_")]
+
+
+def parse_param_string(paramstr, value_parsers={}):
+    """Parses a parameter string (used for rgbgrandiant).
+
+    :param str paramstr: The parameter string.
+    :param dict value_parsers: Additional parsers to parse values.
+    :rtype: dict
+
+    Example syntax::
+
+       myparam(foo=1; bar=hello; baz=a, b, c)
+
+    Once parsed, it will return this::
+
+       {
+           "myparam": {
+               "foo": "1",
+               "bar": "hello",
+               "baz": "a, b, c",
+           }
+       }
+
+    Additional parsers can be provided to parse the values, see examples
+    bellow.
+
+    >>> parse_param_string("hello(name=world)")
+    {'hello': {'name': 'world'}}
+    >>> parse_param_string("foo(bar=1; baz=2)")
+    {'foo': {'bar': '1', 'baz': '2'}}
+    >>> parse_param_string("foo(a=42; b=3.14)", value_parsers={
+    ...     "foo": {
+    ...         "a": int,
+    ...         "b": float
+    ...     }
+    ... })
+    {'foo': {'a': 42, 'b': 3.14}}
+    >>> parse_param_string("foobar[a=1]")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid parameter string 'foobar[a=1]'
+    """
+    regexp_fn = re.compile(r"^\s*([a-zA-Z0-9_]+)\s*\(\s*(.+)\s*\)\s*$")
+
+    if not regexp_fn.match(paramstr):
+        raise ValueError("invalid parameter string '%s'" % paramstr)
+
+    name = regexp_fn.match(paramstr).group(1)
+    params = regexp_fn.match(paramstr).group(2)
+
+    result = {
+            name: {
+                k.strip(): v.strip() for k, v in [
+                    p.split("=") for p in params.split(";")]
+                }
+            }
+
+    if value_parsers:
+        for key, value in result[name].items():
+            if name in value_parsers and key in value_parsers[name]:
+                result[name][key] = value_parsers[name][key](value)
+
+    return result

@@ -95,3 +95,44 @@ def parse_color_string(color):
         int(color[2:4], 16),
         int(color[4:], 16)
         )
+
+
+def parse_color_gradient_string(gradient):
+    """Parse a color gradient string.
+
+    :param str gradient: The gradient string.
+    :rtype: list
+
+    >>> parse_color_gradient_string("0%: red, 33%: #00ff00, 66: 00f")
+    [{'pos': 0, 'color': (255, 0, 0)}, {'pos': 33, 'color': (0, 255, 0)}, {'pos': 66, 'color': (0, 0, 255)}]
+    >>> parse_color_gradient_string("-1%: red")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color stop position '-1%'
+    >>> parse_color_gradient_string("150: red")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color stop position '150%'
+    >>> parse_color_gradient_string("42%: hello")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color 'hello'
+    """  # noqa
+    gradient = gradient.replace(" ", "").replace("%", "")
+
+    result = []
+    for pos, color in [s.split(":") for s in gradient.split(",")]:
+        pos = int(pos)
+
+        if not 0 <= pos <= 100:
+            raise ValueError("invalid color stop position '%i%%'" % pos)
+
+        if not is_color(color):
+            raise ValueError("invalid color '%s'" % color)
+
+        result.append({
+            "pos": pos,
+            "color": parse_color_string(color),
+            })
+
+    return result
