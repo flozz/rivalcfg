@@ -99,3 +99,31 @@ def parse_param_string(paramstr, value_parsers={}):
                 result[name][key] = value_parsers[name][key](value)
 
     return result
+
+
+def uint_to_little_endian_bytearray(number, size):
+    """Converts an unsigned interger to a little endian bytearray.
+
+    :param in number: The number to convert.
+    :param in size: The length of the target bytearray.
+    :rtype: [int]
+
+    >>> uint_to_little_endian_bytearray(0x42, 1)
+    [66]
+    >>> uint_to_little_endian_bytearray(0x42, 2)
+    [66, 0]
+    >>> uint_to_little_endian_bytearray(0xFF42, 2)
+    [66, 255]
+    >>> uint_to_little_endian_bytearray(0xFF42, 4)
+    [66, 255, 0, 0]
+    >>> uint_to_little_endian_bytearray(0xFFFFFF, 2)
+    Traceback (most recent call last):
+        ...
+    ValueError: integer overflow
+    """
+    if number > (2 ** (8 * size) - 1):
+        raise ValueError("integer overflow")
+    nle = [0] * size
+    for i in range(size):
+        nle[i] = number >> i*8 & 0xFF
+    return nle
