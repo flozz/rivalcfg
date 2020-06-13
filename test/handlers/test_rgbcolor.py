@@ -21,6 +21,28 @@ class TestProcessValue(object):
         bytes_ = rgbcolor.process_value(setting_info, color)
         assert bytes_ == [0xFF, 0x22, 0x00]
 
+    @pytest.mark.parametrize("color,result", [
+        ("white",   [0xFF, 0xFF, 0xFF]),
+        ("silver",  [0xC0, 0xC0, 0xC0]),
+        ("gray",    [0x80, 0x80, 0x80]),
+        ("black",   [0x00, 0x00, 0x00]),
+        ("red",     [0xFF, 0x00, 0x00]),
+        ("maroon",  [0x80, 0x00, 0x00]),
+        ("yellow",  [0xFF, 0xFF, 0x00]),
+        ("olive",   [0x80, 0x80, 0x00]),
+        ("lime",    [0x00, 0xFF, 0x00]),
+        ("green",   [0x00, 0x80, 0x00]),
+        ("aqua",    [0x00, 0xFF, 0xFF]),
+        ("teal",    [0x00, 0x80, 0x80]),
+        ("blue",    [0x00, 0x00, 0xFF]),
+        ("navy",    [0x00, 0x00, 0x80]),
+        ("fuchsia", [0xFF, 0x00, 0xFF]),
+        ("purple",  [0x80, 0x00, 0x80]),
+        ])
+    def test_named_colors(self, setting_info, color, result):
+        bytes_ = rgbcolor.process_value(setting_info, color)
+        assert bytes_ == result
+
     def test_not_valid_color_string(self, setting_info):
         with pytest.raises(ValueError):
             rgbcolor.process_value(setting_info, "hello")
