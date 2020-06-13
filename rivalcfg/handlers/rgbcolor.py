@@ -15,22 +15,15 @@ RGB tuples or list (only from Python API for this one):
 
 and named colors:
 
-* ``white``
-* ``silver``
-* ``gray``
-* ``black``
-* ``red``
-* ``maroon``
-* ``yellow``
-* ``olive``
-* ``lime``
-* ``green``
-* ``aqua``
-* ``teal``
-* ``blue``
-* ``navy``
-* ``fuchsia``
-* ``purple``
++------------+------------+-----------+-------------+
+| ``white``  | ``red``    | ``lime``  | ``blue``    |
++------------+------------+-----------+-------------+
+| ``silver`` | ``maroon`` | ``green`` | ``navy``    |
++------------+------------+-----------+-------------+
+| ``gray``   | ``yellow`` | ``aqua``  | ``fuchsia`` |
++------------+------------+-----------+-------------+
+| ``black``  | ``olive``  | ``teal``  | ``purple``  |
++------------+------------+-----------+-------------+
 
 
 Device Profile
@@ -104,7 +97,7 @@ def process_value(setting_info, color):
         for channel in color:
             if type(channel) != int or channel < 0 or channel > 255:
                 raise ValueError("Not a valid color %s" % str(color))
-            return list(color)
+        return list(color)
 
     if is_color(color):
         return list(parse_color_string(color))
