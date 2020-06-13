@@ -16,3 +16,4 @@ a device profile. Each handler module provides at least two functions:
    ./choice.rst
    ./range.rst
    ./rgbcolor.rst
+   ./rgbgradient.rst
