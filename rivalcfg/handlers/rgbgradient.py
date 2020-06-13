@@ -94,7 +94,9 @@ Functions
 import argparse
 
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
+from ..helpers import parse_param_string
 from ..color_helpers import is_color, parse_color_string
+from ..color_helpers import parse_color_gradient_string
 
 
 # Compatibility with Python 2.7.
@@ -157,7 +159,14 @@ def _handle_rgbgradient_dict(colors):
 
 
 def _handle_rgbgradient_string(colors):
-    pass
+    gradient_dict = parse_param_string(colors, value_parsers={
+            "rgbgradient": {
+                "duration": int,
+                "colors": parse_color_gradient_string,
+            }
+        })
+
+    return _handle_rgbgradient_dict(gradient_dict["rgbgradient"])
 
 
 def process_value(setting_info, colors):
@@ -200,7 +209,7 @@ def process_value(setting_info, colors):
     # Color gradient as string
     else:
         is_gradient = True
-        pass  # TODO
+        duration, gradient = _handle_rgbgradient_string(colors)
 
     # -- handle repeat flag
 

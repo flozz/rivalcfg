@@ -124,7 +124,6 @@ class TestProcessValue(object):
         "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
         "rgbgradient(colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff; duration=1000)",  # noqa
         ])
-    @pytest.mark.skip("Gradient not implemented yet")
     def test_valid_rgbgradient(self, setting_info1, color):
         bytes_ = rgbgradient.process_value(setting_info1, color)
         assert bytes_ == [
