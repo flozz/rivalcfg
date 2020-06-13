@@ -92,6 +92,28 @@ class TestProcessValue(object):
 
     # RGB Gradient dict
 
+    def test_valid_rgbgradient_dict(self, setting_info1):
+        bytes_ = rgbgradient.process_value(setting_info1, {
+                "duration": 1000,
+                "colors": [
+                    {"pos": 0, "color": "red"},
+                    {"pos": 33, "color": "#00FF00"},
+                    {"pos": 66, "color": (0, 0, 0xFF)},
+                ]
+            })
+        assert bytes_ == [
+            0xe8, 0x03,   0x00, 0x00, 0x00,
+            # duration  |
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            #
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
+            #   | rept|                 | trig|                 | color_count |
+            0xFF, 0x00, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00,
+            # initial_color | color1          | pos1| | color2        |
+            0x54,   0x00, 0x00, 0xFF, 0x54, 0xFF, 0x00, 0x00, 0x57,
+            # pos2| color3          | pos3| color4 (=color1)| pos4|
+        ]
+
     # RGB Gradient String
 
     @pytest.mark.parametrize("color", [

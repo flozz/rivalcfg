@@ -28,8 +28,20 @@ and named colors:
 
 ----
 
-Simple colors can also be used if you want a static color like for the
-:doc:`rgbcolor` handler.
+A Python ``dict`` can also be used (Python API only)::
+
+    {
+        "duration": 1000,  # ms
+        "colors": [
+            {"pos": 0, "color": "red"},
+            {"pos": 33, "color": "#00FF00"},
+            {"pos": 66, "color": (0, 0, 255)},
+        ]
+    }
+
+.. NOTE::
+
+   A maximum of 14 color stops can be defined in a gradient.
 
 
 Device Profile
@@ -85,6 +97,69 @@ from ..helpers import uint_to_little_endian_bytearray, merge_bytes
 from ..color_helpers import is_color, parse_color_string
 
 
+# Compatibility with Python 2.7.
+# On Python 2 the type is 'unicode'
+# On Python 3 the type is 'str'
+_unicode_type = type(u"")
+
+_default_duration = 1000
+
+
+def _handle_color_tuple(color):
+    if len(color) != 3:
+        raise ValueError("Not a valid color %s" % str(color))
+    for channel in color:
+        if type(channel) != int or channel < 0 or channel > 255:
+            raise ValueError("Not a valid color %s" % str(color))
+    return [{
+        "pos": 0,
+        "color": color,
+    }]
+
+
+def _handle_color_string(color):
+    return [{
+        "pos": 0,
+        "color": parse_color_string(color),
+    }]
+
+
+def _handle_rgbgradient_dict(colors):
+    duration = _default_duration
+    gradient = []
+
+    if "duration" in colors:
+        duration = colors["duration"]
+
+    if "colors" in colors:
+        for stop in colors["colors"]:
+            color = stop["color"]
+            if type(color) in [str, _unicode_type]:
+                color = parse_color_string(color)
+            if type(color) not in [tuple, list] or len(color) != 3:
+                raise ValueError("Not a valid color %s" % str(color))
+            for channel in color:
+                if type(channel) != int or channel < 0 or channel > 255:
+                    raise ValueError("Not a valid color %s" % str(color))
+            gradient.append({
+                "pos": stop["pos"] if "pos" in stop else 0,
+                "color": color
+            })
+
+    # Smooth gradient (if possible) by adding a final color
+    if len(gradient) < 14 and gradient[-1]["pos"] != 100:
+        gradient.append({
+            "pos": 100,
+            "color": gradient[0]["color"],
+            })
+
+    return duration, gradient
+
+
+def _handle_rgbgradient_string(colors):
+    pass
+
+
 def process_value(setting_info, colors):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
     "rgbcolor" type setting.
@@ -102,43 +177,32 @@ def process_value(setting_info, colors):
     color_count_offset = setting_info["rgbgradient_header"]["color_count_offset"]  # noqa
 
     is_gradient = False
-    duration = 1000
+    duration = _default_duration
     repeat = 0x00
     triggers = 0x00
     gradient = []
 
     # Color tuple
     if type(colors) in (tuple, list):
-        if len(colors) != 3:
-            raise ValueError("Not a valid color %s" % str(colors))
-        for channel in colors:
-            if type(channel) != int or channel < 0 or channel > 255:
-                raise ValueError("Not a valid color %s" % str(colors))
         is_gradient = False
-        gradient.append({
-            "pos": 0,
-            "color": colors,
-        })
+        gradient = _handle_color_tuple(colors)
 
     # Simple color string
-    elif is_color(colors):
+    elif type(colors) in [str, _unicode_type] and is_color(colors):
         is_gradient = False
-        gradient.append({
-            "pos": 0,
-            "color": parse_color_string(colors),
-        })
+        gradient = _handle_color_string(colors)
 
     # Color gradient as dict
     elif type(colors) is dict:
         is_gradient = True
-        pass  # TODO
+        duration, gradient = _handle_rgbgradient_dict(colors)
 
     # Color gradient as string
     else:
         is_gradient = True
         pass  # TODO
 
-    # --
+    # -- handle repeat flag
 
     if not is_gradient or triggers != 0x00:
         repeat = 0x01
@@ -148,7 +212,10 @@ def process_value(setting_info, colors):
     if len(gradient) == 0:
         raise ValueError("no color: %s" % str(colors))
 
-    # TODO len(gradient) <= 14
+    if len(gradient) > 14:
+        raise ValueError("a maximum of 14 color stops are allowed")
+
+    # TODO check pos orders
 
     # -- Generate header
 
@@ -166,8 +233,11 @@ def process_value(setting_info, colors):
 
     body = list(gradient[0]["color"])
 
+    last_real_pos = 0
     for pos, color in [(item["pos"], item["color"]) for item in gradient]:
-        body = merge_bytes(body, color, pos)
+        real_pos = int(pos * 255 / 100)
+        body = merge_bytes(body, color, real_pos - last_real_pos)
+        last_real_pos = real_pos
 
     # --
 
