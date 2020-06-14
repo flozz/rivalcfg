@@ -17,6 +17,8 @@ Command-Line Usage
 Colors
 ------
 
+This mouse supports colors. Various formats are supported.
+
 .. include:: ./_colors.rst
 
 
