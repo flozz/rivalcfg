@@ -20,6 +20,12 @@ Colors
 .. include:: ./_colors.rst
 
 
+RGB Gradients
+-------------
+
+.. include:: ./_rgbgradient.rst
+
+
 Python API
 ----------
 
