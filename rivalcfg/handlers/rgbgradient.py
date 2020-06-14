@@ -94,7 +94,7 @@ Functions
 import argparse
 
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
-from ..helpers import parse_param_string
+from ..helpers import parse_param_string, REGEXP_PARAM_STRING
 from ..color_helpers import is_color, parse_color_string
 from ..color_helpers import parse_color_gradient_string
 
@@ -207,9 +207,11 @@ def process_value(setting_info, colors):
         duration, gradient = _handle_rgbgradient_dict(colors)
 
     # Color gradient as string
-    else:
+    elif is_rgbgradient(colors)[0]:
         is_gradient = True
         duration, gradient = _handle_rgbgradient_string(colors)
+    else:
+        raise ValueError("Not a valid color or rgbgradient %s" % str(colors))
 
     # -- handle repeat flag
 
@@ -253,14 +255,76 @@ def process_value(setting_info, colors):
     return merge_bytes(header, body)
 
 
+def is_rgbgradient(string):
+    """Check if the regbradient expression is valid.
+
+    :param str string: The string to validate.
+    :rtype: (bool, str)
+
+    >>> is_rgbgradient("foo(colors=0:red)")
+    (False, "... It must looks like 'rgbgradient(<PARAMS>)'...")
+    >>> is_rgbgradient("rgbgradient(duration=1000)")
+    (False, "... You must provide at least one color: ...")
+    >>> is_rgbgradient("rgbgradient(colors=red)")
+    (False, "invalid color gradient...")
+    >>> is_rgbgradient("rgbgradient(colors=0:red; foo=bar)")
+    (False, "unknown parameter 'foo'...")
+    """
+    try:
+        rgbgradient_dict = parse_param_string(string, value_parsers={
+            "rgbgradient": {
+                "duration": int,
+                "colors": parse_color_gradient_string,
+            }
+        })
+    except ValueError as e:
+        return False, str(e)
+
+    if "rgbgradient" not in rgbgradient_dict:
+        reason = ""
+        reason += "invalid rgbgradient expression. "
+        reason += "It must looks like 'rgbgradient(<PARAMS>)'."
+        return False, reason
+
+    if "colors" not in rgbgradient_dict["rgbgradient"] \
+            or len(rgbgradient_dict["rgbgradient"]) == 0:
+        reason = ""
+        reason += "invalid rgbgradient expression. "
+        reason += "You must provide at least one color: "
+        reason += "'rgbgradient(colors=<POS>: <COLOR>)'."
+        return False, reason
+
+    _allowed_params = ["colors", "duration"]
+    for key in rgbgradient_dict["rgbgradient"].keys():
+        if key not in _allowed_params:
+            reason = ""
+            reason += "unknown parameter '%s'. " % key
+            reason += "Allowed parameters are %s." % ", ".join(
+                    ["'%s'" % p for p in _allowed_params])
+            return False, reason
+
+    return True, ""
+
+
 class CheckGradientAction(argparse.Action):
     """Validate colors gradient from CLI"""
 
     def __call__(self, parser, namespace, value, option_string=None):
-        # TODO
-        if not is_color(value):
-            raise argparse.ArgumentError(self, "invalid color: '%s'" %  value)  # noqa
-        setattr(namespace, self.dest.upper(), value)
+        if is_color(value):
+            setattr(namespace, self.dest.upper(), value)
+            return
+
+        if REGEXP_PARAM_STRING.match(value):
+            is_valid, reason = is_rgbgradient(value)
+
+            if is_valid:
+                setattr(namespace, self.dest.upper(), value)
+                return
+
+            raise argparse.ArgumentError(self, "%s" % reason)
+
+        else:
+            raise argparse.ArgumentError(self, "not a valid color or rgbgradient: '%s'" % value)  # noqa
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
@@ -271,9 +335,9 @@ def add_cli_option(cli_parser, setting_name, setting_info):
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     """
-    description = "%s (default: %s)" % (  # FIXME more help
+    description = "%s (default: %s)" % (
             setting_info["description"],
-            str(setting_info["default"])
+            str(setting_info["default"]).replace("%", "%%"),
             )
     cli_parser.add_argument(
             *setting_info["cli"],

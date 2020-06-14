@@ -142,53 +142,67 @@ class TestProcessValue(object):
     # TODO Test different header layouts
 
 
-# class TestAddCliOption(object):
-#
-#     @pytest.fixture
-#     def cli(self):
-#         cli = argparse.ArgumentParser()
-#         rgbgradient.add_cli_option(cli, "color0", {
-#                 "label": "LED color",
-#                 "description": "Set the mouse backlight color",
-#                 "cli": ["-c", "--color", "--foobar"],
-#                 "command": [0x05, 0x00],
-#                 "value_type": "rgbgradient",
-#                 "default": "#FF1800"
-#             })
-#         return cli
-#
-#     def test_cli_options(self, cli):
-#         assert "-c" in cli.format_help()
-#         assert "--color" in cli.format_help()
-#         assert "--foobar" in cli.format_help()
-#
-#     def test_cli_metavar(self, cli):
-#         assert "-c COLOR0" in cli.format_help()
-#
-#     def test_default_value_displayed(self, cli):
-#         assert "#FF1800" in cli.format_help()
-#
-#     @pytest.mark.parametrize("color", [
-#         "#AABBCC",
-#         "#aaBBcc",
-#         "AAbbCC",
-#         "#ABC",
-#         "AbC",
-#         "red",
-#         ])
-#     def test_passing_valid_color_arguments(self, cli, color):
-#         params = cli.parse_args(["--color", color])
-#         assert params.COLOR0 == color
-#
-#     @pytest.mark.parametrize("color", [
-#         "hello",
-#         "#AABBCCFF",
-#         "~AABBCC",
-#         "#HHIIFF",
-#         "fa0b",
-#         ])
-#     def test_passing_invalid_color_arguments(self, cli, color):
-#         with pytest.raises(SystemExit) as pytest_wrapped_e:
-#             cli.parse_args(["--color", color])
-#         assert pytest_wrapped_e.type == SystemExit
-#         assert pytest_wrapped_e.value.code == 2
+class TestAddCliOption(object):
+
+    @pytest.fixture
+    def cli(self):
+        cli = argparse.ArgumentParser()
+        rgbgradient.add_cli_option(cli, "color0", {
+            "label": "Logo LED colors and effects",
+            "description": "Set the colors and the effects of the logo LED",
+            "cli": ["-c", "--logo-color", "--foobar"],
+            "report_type": 0x03,  # FEATURE REPORT
+            "command": [0x5B, 0x00, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": {
+                "header_length": 25,
+                "duration_offset": 0,
+                "duration_length": 2,
+                "repeat_offset": 16,
+                "triggers_offset": 20,
+                "color_count_offset": 24,
+            },
+            "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
+        })
+        return cli
+
+    def test_cli_options(self, cli):
+        assert "-c" in cli.format_help()
+        assert "--logo-color" in cli.format_help()
+        assert "--foobar" in cli.format_help()
+
+    def test_cli_metavar(self, cli):
+        assert "-c COLOR0" in cli.format_help()
+
+    def test_default_value_displayed(self, cli):
+        assert "rgbgradient(" in cli.format_help()
+
+    @pytest.mark.parametrize("color", [
+        "#AABBCC",
+        "#aaBBcc",
+        "AAbbCC",
+        "#ABC",
+        "AbC",
+        "red",
+        "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
+        "rgbgradient(colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff; duration=1000;)",  # noqa
+        "rgbgradient(colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",
+        "rgbgradient(colors=0:red,33:#0f0,66:00f)",
+        ])
+    def test_passing_valid_color_arguments(self, cli, color):
+        params = cli.parse_args(["--logo-color", color])
+        assert params.COLOR0 == color
+
+    @pytest.mark.parametrize("color", [
+        "hello",
+        "#AABBCCFF",
+        "~AABBCC",
+        "#HHIIFF",
+        "fa0b",
+        "rgbgradient()",
+        ])
+    def test_passing_invalid_color_arguments(self, cli, color):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--logo-color", color])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2

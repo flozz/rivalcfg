@@ -6,6 +6,10 @@ This module contains varous helper functions.
 import re
 
 
+#: A regual expression that matches the general form of a param string.
+REGEXP_PARAM_STRING = re.compile(r"^\s*([a-zA-Z0-9_]+)\s*\(\s*(.+?)[\s;]*\)[\s;]*$")  # noqa
+
+
 def merge_bytes(*args):
     """Returns a single list of int from given int and list of int.
 
@@ -64,6 +68,10 @@ def parse_param_string(paramstr, value_parsers={}):
 
     >>> parse_param_string("hello(name=world)")
     {'hello': {'name': 'world'}}
+    >>> parse_param_string("hello(name=world;)")
+    {'hello': {'name': 'world'}}
+    >>> parse_param_string("hello(name=world ) ;;")
+    {'hello': {'name': 'world'}}
     >>> parse_param_string("foo(bar=1; baz=2)")
     {'foo': {'bar': '1', 'baz': '2'}}
     >>> parse_param_string("foo(a=42; b=3.14)", value_parsers={
@@ -78,20 +86,21 @@ def parse_param_string(paramstr, value_parsers={}):
         ...
     ValueError: invalid parameter string 'foobar[a=1]'
     """
-    regexp_fn = re.compile(r"^\s*([a-zA-Z0-9_]+)\s*\(\s*(.+)\s*\)\s*$")
-
-    if not regexp_fn.match(paramstr):
+    if not REGEXP_PARAM_STRING.match(paramstr):
         raise ValueError("invalid parameter string '%s'" % paramstr)
 
-    name = regexp_fn.match(paramstr).group(1)
-    params = regexp_fn.match(paramstr).group(2)
+    name = REGEXP_PARAM_STRING.match(paramstr).group(1)
+    params = REGEXP_PARAM_STRING.match(paramstr).group(2)
 
-    result = {
+    try:
+        result = {
             name: {
                 k.strip(): v.strip() for k, v in [
                     p.split("=") for p in params.split(";")]
                 }
             }
+    except ValueError:
+        raise ValueError("invalid parameter string '%s'" % paramstr)
 
     if value_parsers:
         for key, value in result[name].items():

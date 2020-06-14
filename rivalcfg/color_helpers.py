@@ -117,8 +117,15 @@ def parse_color_gradient_string(gradient):
     Traceback (most recent call last):
         ...
     ValueError: invalid color 'hello'
+    >>> parse_color_gradient_string("hello")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color gradient 'hello'. ...
     """  # noqa
     gradient = gradient.replace(" ", "").replace("%", "")
+
+    if not re.match(r"[0-9-]+:[a-zA-Z0-9#]+(,[0-9]+:[a-zA-Z0-9#]+)*", gradient):  # noqa
+        raise ValueError("invalid color gradient '%s'. It must looks like '<POS1>:<COLOR1>,<POS2>:<COLOR2>,...'" % gradient)  # noqa
 
     result = []
     for pos, color in [s.split(":") for s in gradient.split(",")]:
