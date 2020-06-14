@@ -48,7 +48,7 @@ class PrintSupportedDevicesAction(argparse.Action):
 
 
 class UpdateUdevRulesAction(argparse.Action):
-    """Print supported devices and exit."""
+    """Updates udev rules and exit."""
 
     def __call__(self, parser, namespace, value, option_string=None):
         if platform.system() != "Linux":
