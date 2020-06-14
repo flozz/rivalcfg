@@ -14,6 +14,12 @@ Command-Line Usage
 .. rivalcfg_device_cli:: rival300
 
 
+Colors
+------
+
+.. include:: ./_colors.rst
+
+
 Python API
 ----------
 
