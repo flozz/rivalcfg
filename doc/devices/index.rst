@@ -10,3 +10,4 @@ Supported Devices
    ./rival110.rst
    ./rival300.rst
    ./rival310.rst
+   ./sensei310.rst
