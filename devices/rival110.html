@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SteelSeries Rival 110 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SteelSeries Rival 300 and original Rival" href="rival300.html" />
+    <link rel="prev" title="SteelSeries Rival 100" href="rival100.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Supported Devices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 110</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hexadecimal-notation">Hexadecimal notation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#named-colors">Named Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensei310.html">SteelSeries Sensei 310</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Supported Devices</a> &raquo;</li>
+        
+      <li>SteelSeries Rival 110</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/devices/rival110.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="steelseries-rival-110">
+<h1>SteelSeries Rival 110<a class="headerlink" href="#steelseries-rival-110" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="supported-models">
+<h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SteelSeries Rival 110</p></td>
+<td><p>1038:1729</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="command-line-usage">
+<h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+                [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
+                [-c COLOR] [-e LIGHT_EFFECT] [-b BTN6_MODE] [-r]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --list                List supported devices and exit
+  --version             show program&#39;s version number and exit
+  --no-save             Do not persist settings in the internal device memory
+  --update-udev         Updates udev rules (Linux only, requires to be run as
+                        root)
+
+SteelSeries Rival 110 Options:
+  -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
+                        Set sensitivity preset 1 (DPI) (from 200 to 7200,
+                        default: 800)
+  -S SENSITIVITY2, --sensitivity2 SENSITIVITY2
+                        Set sensitivity preset 2 (DPI) (from 200 to 7200,
+                        default: 1600)
+  -p POLLING_RATE, --polling-rate POLLING_RATE
+                        Set polling rate (Hz) (values: 125, 250, 500, 1000,
+                        default: 1000)
+  -c COLOR, --color COLOR
+                        Set the mouse LED color (e.g. red, #ff0000, ff0000,
+                        #f00, f00, default: #FF1800)
+  -e LIGHT_EFFECT, --light-effect LIGHT_EFFECT
+                        Set the light effect (values: steady, breath, 1, 2, 3,
+                        4, default: steady)
+  -b BTN6_MODE, --btn6-mode BTN6_MODE
+                        Set the mode of the button under the wheel (values:
+                        dpi, os, default: dpi)
+  -r, --reset           Reset all settings to their factory default
+</pre></div>
+</div>
+</div>
+<div class="section" id="colors">
+<h2>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h2>
+<p>This mouse supports colors. Various formats are supported.</p>
+<div class="section" id="hexadecimal-notation">
+<h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this headline">¶</a></h3>
+<p>You can use a 24 bit hexadecimal notation (like in HTML / CSS documents).
+Example of “red” color using hexadecimal notation:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#F00</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">F00</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="named-colors">
+<h3>Named Colors<a class="headerlink" href="#named-colors" title="Permalink to this headline">¶</a></h3>
+<p>The folowing named colors are supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: white;"></span> <code class="docutils literal notranslate"><span class="pre">white</span></code></p></td>
+<td><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">red</span></code></p></td>
+<td><p><span class="color-preview" style="background: lime;"></span> <code class="docutils literal notranslate"><span class="pre">lime</span></code></p></td>
+<td><p><span class="color-preview" style="background: blue;"></span> <code class="docutils literal notranslate"><span class="pre">blue</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: silver;"></span> <code class="docutils literal notranslate"><span class="pre">silver</span></code></p></td>
+<td><p><span class="color-preview" style="background: maroon;"></span> <code class="docutils literal notranslate"><span class="pre">maroon</span></code></p></td>
+<td><p><span class="color-preview" style="background: green;"></span> <code class="docutils literal notranslate"><span class="pre">green</span></code></p></td>
+<td><p><span class="color-preview" style="background: navy;"></span> <code class="docutils literal notranslate"><span class="pre">navy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: gray;"></span> <code class="docutils literal notranslate"><span class="pre">gray</span></code></p></td>
+<td><p><span class="color-preview" style="background: yellow;"></span> <code class="docutils literal notranslate"><span class="pre">yellow</span></code></p></td>
+<td><p><span class="color-preview" style="background: aqua;"></span> <code class="docutils literal notranslate"><span class="pre">aqua</span></code></p></td>
+<td><p><span class="color-preview" style="background: fuchsia;"></span> <code class="docutils literal notranslate"><span class="pre">fuchsia</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: black;"></span> <code class="docutils literal notranslate"><span class="pre">black</span></code></p></td>
+<td><p><span class="color-preview" style="background: olive;"></span> <code class="docutils literal notranslate"><span class="pre">olive</span></code></p></td>
+<td><p><span class="color-preview" style="background: teal;"></span> <code class="docutils literal notranslate"><span class="pre">teal</span></code></p></td>
+<td><p><span class="color-preview" style="background: purple;"></span> <code class="docutils literal notranslate"><span class="pre">purple</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rgb-tuple-python-api-only">
+<h3>RGB Tuple (Python API only)<a class="headerlink" href="#rgb-tuple-python-api-only" title="Permalink to this headline">¶</a></h3>
+<p>If you are using the <strong>Python API</strong> (not the command line interface), you can
+also pass colors as RGB <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></li>
+</ul>
+<style>
+    .color-preview {
+         display: inline-block;
+         width: 16px;
+         height: 16px;
+         border: #444 solid 1px;
+         vertical-align: middle;
+         border-radius: 2px;
+         box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
+    }
+</style></div>
+</div>
+<div class="section" id="python-api">
+<h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rival300.html" class="btn btn-neutral float-right" title="SteelSeries Rival 300 and original Rival" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rival100.html" class="btn btn-neutral float-left" title="SteelSeries Rival 100" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>devices &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="handlers" href="handlers/index.html" />
+    <link rel="prev" title="cli" href="cli.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#profile-spec">Profile spec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-api">Module API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">Internal Python API</a> &raquo;</li>
+        
+      <li>devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/python_api/internal/devices.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.devices">
+<span id="devices"></span><h1>devices<a class="headerlink" href="#module-rivalcfg.devices" title="Permalink to this headline">¶</a></h1>
+<p>This module provides access to the profile of each supported device.</p>
+<div class="section" id="profile-spec">
+<h2>Profile spec<a class="headerlink" href="#profile-spec" title="Permalink to this headline">¶</a></h2>
+<p>A profile is just a <code class="docutils literal notranslate"><span class="pre">dict</span></code> that contains information about one or more mouse.
+There is one profile file in <code class="docutils literal notranslate"><span class="pre">rivalcfg/devices/</span></code> by mouse familly (the “Rival
+100” and the “Rival 100 Dota 2 Edition” are mouse of the same familly).</p>
+<p>Here is what a profile file looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">usbhid</span>
+
+<span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># The name of the mouse familly</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SteelSeries Rival 100&quot;</span><span class="p">,</span>
+
+    <span class="c1"># List of all devices of the familly</span>
+    <span class="s2">&quot;models&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="c1"># The name of a specific device of the familly</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SteelSeries Rival 100&quot;</span><span class="p">,</span>
+        <span class="c1"># The vendor ID of the USB device (should always be 0x1038)</span>
+        <span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="mh">0x1038</span><span class="p">,</span>
+        <span class="c1"># The product ID of the USB device</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mh">0x1702</span><span class="p">,</span>
+        <span class="c1"># The control endpoint of the device (probably 0)</span>
+        <span class="s2">&quot;endpoint&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SteelSeries Rival 100 (Dell China)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="mh">0x1038</span><span class="p">,</span>
+        <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mh">0x170a</span><span class="p">,</span>
+        <span class="s2">&quot;endpoint&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="c1"># A device can override default values defined in settings</span>
+        <span class="s2">&quot;override_defaults&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}],</span>
+
+    <span class="c1"># All available settings for the mice</span>
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+        <span class="c1"># A setting of the mouse. The key name is important, it will</span>
+        <span class="c1"># be used to generates the Mouse class API and in the CLI</span>
+        <span class="s2">&quot;polling_rate&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="c1"># A label that will be used one day to build a GUI</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Polling rate&quot;</span><span class="p">,</span>
+            <span class="c1"># A short description of the option. Used to generate the CLI</span>
+            <span class="c1"># help (rivalcfg --help)</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set polling rate (Hz)&quot;</span><span class="p">,</span>
+            <span class="c1"># The name of the CLI options to change this setting.</span>
+            <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;--polling-rate&quot;</span><span class="p">],</span>
+            <span class="c1"># The repport type (rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT most</span>
+            <span class="c1"># of the time)</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+            <span class="c1"># The command that should be sent to the USB device to update</span>
+            <span class="c1"># this setting.</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+            <span class="c1"># A fixed amount of data to send to the mouse (optional).</span>
+            <span class="c1"># This is required by some mice like the Rival 110.</span>
+            <span class="s2">&quot;packet_length&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="c1"># The type of value supported by this setting.</span>
+            <span class="c1"># See the `rivalcfg.handlers` documentation for more</span>
+            <span class="c1"># information.</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+            <span class="c1"># This parameter is specific to the `choice` handler.</span>
+            <span class="c1"># Look at its documentation for more information.</span>
+            <span class="s2">&quot;choices&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="mi">125</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>
+                <span class="mi">250</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>
+                <span class="mi">500</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span>
+                <span class="mi">1000</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="c1"># The factory default value of this setting.</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;LED color&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the mouse backlight color&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--color&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbcolor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF1800&quot;</span>
+        <span class="p">},</span>
+
+        <span class="c1"># ...</span>
+
+    <span class="p">},</span>
+
+    <span class="c1"># The command that allows to persist data in the internal memory</span>
+    <span class="c1"># of the device</span>
+    <span class="s2">&quot;save_command&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+    <span class="p">},</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>At runtime, a separated profile will be generated for each device of a mouse
+familly. The profiles will then look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SteelSeries Rival 100 (Dell China)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="mh">0x1038</span><span class="p">,</span>
+    <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="mh">0x170a</span><span class="p">,</span>
+    <span class="s2">&quot;endpoint&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1"># ...</span>
+    <span class="p">},</span>
+
+    <span class="s2">&quot;save_command&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">#...</span>
+    <span class="p">},</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-api">
+<h2>Module API<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="rivalcfg.devices.rivalcfg.devices.PROFILES">
+<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">PROFILES</code><a class="headerlink" href="#rivalcfg.devices.rivalcfg.devices.PROFILES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profiles of each supported devices:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="p">(</span><span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">):</span> <span class="p">{</span>
+        <span class="c1"># profile data ...</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="rivalcfg.devices.UnsupportedDevice">
+<em class="property">exception </em><code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">UnsupportedDevice</code><a class="headerlink" href="#rivalcfg.devices.UnsupportedDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception raised when the requested device is not supported by rivalcfg.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.devices.get_profile">
+<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">get_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span><span class="o">=</span><span class="default_value">4152</span></em>, <em class="sig-param"><span class="n">product_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.get_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the profile of the requested device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vendor_id</strong> (<em>int</em>) – The vendor id of the device (optional, by default
+this is set to the SteelSeries vendor id
+(<code class="docutils literal notranslate"><span class="pre">0x1038</span></code>)).</p></li>
+<li><p><strong>product_id</strong> (<em>int</em>) – The product id of one of the supported device (e.g.
+<code class="docutils literal notranslate"><span class="pre">0x1702</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#rivalcfg.devices.UnsupportedDevice" title="rivalcfg.devices.UnsupportedDevice"><strong>UnsupportedDevice</strong></a> – The requested device is not supported by
+rivalcfg.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">devices</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">devices</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="n">vendor_id</span><span class="o">=</span><span class="mh">0x1038</span><span class="p">,</span> <span class="n">product_id</span><span class="o">=</span><span class="mh">0x1702</span><span class="p">)</span>
+<span class="go">{...&#39;name&#39;: &#39;SteelSeries Rival 100&#39;...}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.devices.list_plugged_devices">
+<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">list_plugged_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.list_plugged_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all plugged devices that are supported by rivalcfg.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>generator</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;vendor_id&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>If the <code class="docutils literal notranslate"><span class="pre">RIVALCFG_PROFILE=vendor_id:product_id</span></code> environment varialbe is
+defined, only the corresponding profile will be listed.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="handlers/index.html" class="btn btn-neutral float-right" title="handlers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cli.html" class="btn btn-neutral float-left" title="cli" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

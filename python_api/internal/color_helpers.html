@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>color_helpers &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="cli" href="cli.html" />
+    <link rel="prev" title="Internal Python API" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">Internal Python API</a> &raquo;</li>
+        
+      <li>color_helpers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/python_api/internal/color_helpers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.color_helpers">
+<span id="color-helpers"></span><h1>color_helpers<a class="headerlink" href="#module-rivalcfg.color_helpers" title="Permalink to this headline">¶</a></h1>
+<p>This module contains varous helper functions related to color.</p>
+<dl class="py function">
+<dt id="rivalcfg.color_helpers.is_color">
+<code class="sig-prename descclassname">rivalcfg.color_helpers.</code><code class="sig-name descname">is_color</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.color_helpers.is_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the given string is a valid color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – The string to check.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.color_helpers</span> <span class="kn">import</span> <span class="n">is_color</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;#FF0000&quot;</span><span class="p">)</span> <span class="c1"># hexadecimal colors are supported</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;#F00&quot;</span><span class="p">)</span>  <span class="c1"># short format allowed</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;FF0000&quot;</span><span class="p">)</span>  <span class="c1"># &quot;#&quot; is optionnal</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;#ff0000&quot;</span><span class="p">)</span>  <span class="c1"># case insensitive</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;#FF00&quot;</span><span class="p">)</span>  <span class="c1"># not a valid color</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>  <span class="c1"># named color are supported</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;RED&quot;</span><span class="p">)</span>  <span class="c1"># named color are case insensitive</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">is_color</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>  <span class="c1"># not a valid color name</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.color_helpers.parse_color_gradient_string">
+<code class="sig-prename descclassname">rivalcfg.color_helpers.</code><code class="sig-name descname">parse_color_gradient_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gradient</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.color_helpers.parse_color_gradient_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse a color gradient string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gradient</strong> (<em>str</em>) – The gradient string.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_gradient_string</span><span class="p">(</span><span class="s2">&quot;0%: red, 33%: #00ff00, 66: 00f&quot;</span><span class="p">)</span>
+<span class="go">[{&#39;pos&#39;: 0, &#39;color&#39;: (255, 0, 0)}, {&#39;pos&#39;: 33, &#39;color&#39;: (0, 255, 0)}, {&#39;pos&#39;: 66, &#39;color&#39;: (0, 0, 255)}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_gradient_string</span><span class="p">(</span><span class="s2">&quot;-1%: red&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid color stop position &#39;-1%&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_gradient_string</span><span class="p">(</span><span class="s2">&quot;150: red&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid color stop position &#39;150%&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_gradient_string</span><span class="p">(</span><span class="s2">&quot;42%: hello&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid color &#39;hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_gradient_string</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid color gradient &#39;hello&#39;. ...</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.color_helpers.parse_color_string">
+<code class="sig-prename descclassname">rivalcfg.color_helpers.</code><code class="sig-name descname">parse_color_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.color_helpers.parse_color_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a color string into an RGB tuple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>color</strong> (<em>str</em>) – The string to convert.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(r, g, b)</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.color_helpers</span> <span class="kn">import</span> <span class="n">parse_color_string</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;#FF0000&quot;</span><span class="p">)</span> <span class="c1"># hexadecimal colors are supported</span>
+<span class="go">(255, 0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;#F00&quot;</span><span class="p">)</span>  <span class="c1"># short format allowed</span>
+<span class="go">(255, 0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;FF0000&quot;</span><span class="p">)</span>  <span class="c1"># &quot;#&quot; is optionnal</span>
+<span class="go">(255, 0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;#ff0000&quot;</span><span class="p">)</span>  <span class="c1"># case insensitive</span>
+<span class="go">(255, 0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>  <span class="c1"># named color are supported</span>
+<span class="go">(255, 0, 0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_color_string</span><span class="p">(</span><span class="s2">&quot;RED&quot;</span><span class="p">)</span>  <span class="c1"># named color are case insensitive</span>
+<span class="go">(255, 0, 0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cli.html" class="btn btn-neutral float-right" title="cli" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Internal Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

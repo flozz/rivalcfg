@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>choice &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="range" href="range.html" />
+    <link rel="prev" title="handlers" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devices.html">devices</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">handlers</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="../index.html">Internal Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">handlers</a> &raquo;</li>
+        
+      <li>choice</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/python_api/internal/handlers/choice.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.handlers.choice">
+<span id="choice"></span><h1>choice<a class="headerlink" href="#module-rivalcfg.handlers.choice" title="Permalink to this headline">¶</a></h1>
+<p>The “choice” type alows to pick a value from a list and to match it with a
+corresponding value in a dict.</p>
+<div class="section" id="device-profile">
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline">¶</a></h2>
+<p>Example of a choice value type in a device profile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+        <span class="s2">&quot;light_effect&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Light effect&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the light effect&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--light-effect&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x07</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;choices&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;steady&quot;</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>
+                <span class="s2">&quot;breath&quot;</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>
+                <span class="mi">1</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>
+                <span class="mi">2</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span>
+                <span class="mi">3</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>
+                <span class="mi">4</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;steady&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+
+    <span class="p">},</span>
+
+    <span class="c1"># ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<p>Example of CLI option generated with this handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">e</span> <span class="n">LIGHT_EFFECT</span><span class="p">,</span> <span class="o">--</span><span class="n">light</span><span class="o">-</span><span class="n">effect</span><span class="o">=</span><span class="n">LIGHT_EFFECT</span>
+                    <span class="n">Set</span> <span class="n">the</span> <span class="n">light</span> <span class="n">effect</span> <span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">steady</span><span class="p">,</span> <span class="n">breath</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="mi">4</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">steady</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example of CLI usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">light</span><span class="o">-</span><span class="n">effet</span><span class="o">=</span><span class="n">steady</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="rivalcfg.handlers.choice.add_cli_option">
+<code class="sig-prename descclassname">rivalcfg.handlers.choice.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given “choice” type setting to the given CLI arguments parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cli_parser</strong> (<em>ArgumentParser</em>) – An <code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code> instance.</p></li>
+<li><p><strong>setting_name</strong> (<em>str</em>) – The name of the setting.</p></li>
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.choice.choices_to_list">
+<code class="sig-prename descclassname">rivalcfg.handlers.choice.</code><code class="sig-name descname">choices_to_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">choices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function that transforms choices dict to an ordered string list.
+Numeric values are sorted and placed after string values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>choices</strong> (<em>dict</em>) – The dict containing available choices.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">choices_to_list</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="go">[&#39;foo&#39;, &#39;0&#39;, &#39;1&#39;, &#39;2&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.choice.choices_to_string">
+<code class="sig-prename descclassname">rivalcfg.handlers.choice.</code><code class="sig-name descname">choices_to_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">choices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function that transforms choices dict to a printable string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>choices</strong> (<em>dict</em>) – The dict containing available choices.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">choices_to_string</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="go">&#39;foo, 0, 1, 2&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.choice.process_value">
+<code class="sig-prename descclassname">rivalcfg.handlers.choice.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">choice</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.process_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
+“choice” type setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+<li><p><strong>choice</strong> – The selected choice.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="range.html" class="btn btn-neutral float-right" title="range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="handlers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

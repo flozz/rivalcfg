@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>usbhid &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Supported Devices" href="../../devices/index.html" />
+    <link rel="prev" title="udev" href="udev.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">usbhid</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fake-hid-device">Fake HID device</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">Internal Python API</a> &raquo;</li>
+        
+      <li>usbhid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/python_api/internal/usbhid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.usbhid">
+<span id="usbhid"></span><h1>usbhid<a class="headerlink" href="#module-rivalcfg.usbhid" title="Permalink to this headline">¶</a></h1>
+<p>This module contains low level functions to interact with USB HID devices. The
+<a class="reference external" href="https://pypi.org/project/hidapi/">hidapi</a> module is used to abstract the
+access to the devices across all different operating systems.</p>
+<p>This module can also simulate devices:</p>
+<ul>
+<li><p>if you define the <code class="docutils literal notranslate"><span class="pre">RIVALCFG_DRY</span></code> environment variable, a fake device will
+be returned instead of a real one. This is useful for debugging and testing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RIVALCFG_DRY</span><span class="o">=</span><span class="mi">1</span> <span class="n">rivalcfg</span> <span class="o">-</span><span class="n">c</span> <span class="n">ff0000</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you define the <code class="docutils literal notranslate"><span class="pre">RIVALCFG_PROFILE</span></code> environment variable with a vendor id
+and a product id, this module will report the corresponding device as being
+plugged:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RIVALCFG_PROFILE</span><span class="o">=</span><span class="mi">1038</span><span class="p">:</span><span class="mi">1702</span> <span class="n">rivalcfg</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT">
+<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">HID_REPORT_TYPE_OUTPUT</code><em class="property"> = 2</em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>HID output report</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE">
+<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">HID_REPORT_TYPE_FEATURE</code><em class="property"> = 3</em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE" title="Permalink to this definition">¶</a></dt>
+<dd><p>HID feature report</p>
+</dd></dl>
+
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="rivalcfg.usbhid.is_device_plugged">
+<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">is_device_plugged</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span></em>, <em class="sig-param"><span class="n">product_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.is_device_plugged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the given HID device is plugged to the computer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vendor_id</strong> (<em>int</em>) – The vendor id of the device (e.g. <code class="docutils literal notranslate"><span class="pre">0x1038</span></code>)).</p></li>
+<li><p><strong>product_id</strong> (<em>int</em>) – The product id of the device (e.g. <code class="docutils literal notranslate"><span class="pre">0x1710</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">usbhid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">usbhid</span><span class="o">.</span><span class="n">is_device_plugged</span><span class="p">(</span><span class="mh">0x1038</span><span class="p">,</span> <span class="mh">0xbaad</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.usbhid.open_device">
+<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">open_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span></em>, <em class="sig-param"><span class="n">product_id</span></em>, <em class="sig-param"><span class="n">endpoint</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.open_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens and returns the HID device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vendor_id</strong> (<em>int</em>) – The vendor id of the device (e.g. <code class="docutils literal notranslate"><span class="pre">0x1038</span></code>)).</p></li>
+<li><p><strong>product_id</strong> (<em>int</em>) – The product id of the device (e.g. <code class="docutils literal notranslate"><span class="pre">0x1710</span></code>).</p></li>
+<li><p><strong>endpoint</strong> (<em>int</em>) – The number of the endpoint to open on the device (e.g.
+<code class="docutils literal notranslate"><span class="pre">0</span></code>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#rivalcfg.usbhid.DeviceNotFound" title="rivalcfg.usbhid.DeviceNotFound"><strong>DeviceNotFound</strong></a> – The requested device is not plugged to the computer
+or it does not provide the requested endpoint.</p></li>
+<li><p><strong>IOError</strong> – The device or its interface cannot be opened (permission
+issue, device busy,…).</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>hid.device</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">usbhid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">usbhid</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="mh">0x1038</span><span class="p">,</span> <span class="mh">0x1702</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">&lt;hid.device at 0x...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="rivalcfg.usbhid.DeviceNotFound">
+<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">DeviceNotFound</code><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception raised when the requested device was not found (device not
+plugged to the computer) or when it does not provide the requested
+endpoint.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fake-hid-device">
+<h2>Fake HID device<a class="headerlink" href="#fake-hid-device" title="Permalink to this headline">¶</a></h2>
+<p>When the <code class="docutils literal notranslate"><span class="pre">RIVALCFG_DRY</span></code> environment variable is set, the <a class="reference internal" href="#rivalcfg.usbhid.open_device" title="rivalcfg.usbhid.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">open_device()</span></code></a>
+function of this module returns a fake device instead opening a real one. This
+is useful for debuging and testing purpose.</p>
+<dl class="py class">
+<dt id="rivalcfg.usbhid.FakeDevice">
+<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">FakeDevice</code><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class simulate an HID device as provided by the <a class="reference external" href="https://pypi.org/project/hidapi/">hidapi</a> module.</p>
+<p>Data sent to the fake device can be read-back from the <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>
+attribute of this class.</p>
+<dl class="py attribute">
+<dt id="rivalcfg.usbhid.FakeDevice.bytes">
+<code class="sig-name descname">bytes</code><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A BytesIO instance where every simulated write will be done.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rivalcfg.usbhid.FakeDevice.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes the simulated device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rivalcfg.usbhid.FakeDevice.open_path">
+<code class="sig-name descname">open_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.open_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate opening the device from given path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>bytes</em>) – The device path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rivalcfg.usbhid.FakeDevice.send_feature_report">
+<code class="sig-name descname">send_feature_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.send_feature_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate a feature report write to an HID device.</p>
+<p>Given data will be writen to <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>, prefixed with the
+<a class="reference internal" href="#rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE" title="rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE"><code class="xref py py-data docutils literal notranslate"><span class="pre">HID_REPORT_TYPE_FEATURE</span></code></a> byte.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>bytes</em>) – The data to send to the device.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.usbhid</span> <span class="kn">import</span> <span class="n">FakeDevice</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span> <span class="o">=</span> <span class="n">FakeDevice</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">send_feature_report</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\xAA\xBB\xCC</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">b&#39;\x03\x00\xaa\xbb\xcc&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rivalcfg.usbhid.FakeDevice.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate a write to an HID device.</p>
+<p>Given data will be writen to <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>, prefixed with the
+<a class="reference internal" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">HID_REPORT_TYPE_OUTPUT</span></code></a> byte.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>bytes</em>) – The data to send to the device.</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.usbhid</span> <span class="kn">import</span> <span class="n">FakeDevice</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span> <span class="o">=</span> <span class="n">FakeDevice</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\xAA\xBB\xCC</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">b&#39;\x02\x00\xaa\xbb\xcc&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../devices/index.html" class="btn btn-neutral float-right" title="Supported Devices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="udev.html" class="btn btn-neutral float-left" title="udev" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

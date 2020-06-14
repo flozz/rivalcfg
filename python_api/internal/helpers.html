@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>helpers &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mouse" href="mouse.html" />
+    <link rel="prev" title="rgbgradient" href="handlers/rgbgradient.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">Internal Python API</a> &raquo;</li>
+        
+      <li>helpers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/python_api/internal/helpers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.helpers">
+<span id="helpers"></span><h1>helpers<a class="headerlink" href="#module-rivalcfg.helpers" title="Permalink to this headline">¶</a></h1>
+<p>This module contains varous helper functions.</p>
+<dl class="py data">
+<dt id="rivalcfg.helpers.REGEXP_PARAM_STRING">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">REGEXP_PARAM_STRING</code><em class="property"> = re.compile('^\\s*([a-zA-Z0-9_]+)\\s*\\(\\s*(.+?)[\\s;]*\\)[\\s;]*$')</em><a class="headerlink" href="#rivalcfg.helpers.REGEXP_PARAM_STRING" title="Permalink to this definition">¶</a></dt>
+<dd><p>A regual expression that matches the general form of a param string.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.helpers.merge_bytes">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">merge_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.merge_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single list of int from given int and list of int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>int</em><em>,</em><em>list</em><em>[</em><em>int</em><em>]</em>) – Values to merge</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[int]</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.helpers</span> <span class="kn">import</span> <span class="n">merge_bytes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">merge_bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">[1, 2, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">merge_bytes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">merge_bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.helpers.module_ls">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">module_ls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.module_ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the content of the given Python module, ignoring private elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> – The module to list.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.helpers.parse_param_string">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">parse_param_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">paramstr</span></em>, <em class="sig-param"><span class="n">value_parsers</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.parse_param_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a parameter string (used for rgbgrandiant).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>paramstr</strong> (<em>str</em>) – The parameter string.</p></li>
+<li><p><strong>value_parsers</strong> (<em>dict</em>) – Additional parsers to parse values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p>Example syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myparam</span><span class="p">(</span><span class="n">foo</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">bar</span><span class="o">=</span><span class="n">hello</span><span class="p">;</span> <span class="n">baz</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once parsed, it will return this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;myparam&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;a, b, c&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Additional parsers can be provided to parse the values, see examples
+bellow.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;hello(name=world)&quot;</span><span class="p">)</span>
+<span class="go">{&#39;hello&#39;: {&#39;name&#39;: &#39;world&#39;}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;hello(name=world;)&quot;</span><span class="p">)</span>
+<span class="go">{&#39;hello&#39;: {&#39;name&#39;: &#39;world&#39;}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;hello(name=world ) ;;&quot;</span><span class="p">)</span>
+<span class="go">{&#39;hello&#39;: {&#39;name&#39;: &#39;world&#39;}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foo(bar=1; baz=2)&quot;</span><span class="p">)</span>
+<span class="go">{&#39;foo&#39;: {&#39;bar&#39;: &#39;1&#39;, &#39;baz&#39;: &#39;2&#39;}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foo(a=42; b=3.14)&quot;</span><span class="p">,</span> <span class="n">value_parsers</span><span class="o">=</span><span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">float</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="go">{&#39;foo&#39;: {&#39;a&#39;: 42, &#39;b&#39;: 3.14}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foobar[a=1]&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid parameter string &#39;foobar[a=1]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.helpers.uint_to_little_endian_bytearray">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">uint_to_little_endian_bytearray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.uint_to_little_endian_bytearray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts an unsigned interger to a little endian bytearray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<em>in</em>) – The number to convert.</p></li>
+<li><p><strong>size</strong> (<em>in</em>) – The length of the target bytearray.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[int]</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0x42</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">[66]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0x42</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[66, 0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0xFF42</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">[66, 255]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0xFF42</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">[66, 255, 0, 0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+    <span class="o">...</span>
+<span class="gr">ValueError</span>: <span class="n">integer overflow</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mouse.html" class="btn btn-neutral float-right" title="mouse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="handlers/rgbgradient.html" class="btn btn-neutral float-left" title="rgbgradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

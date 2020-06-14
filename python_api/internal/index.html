@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Internal Python API &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="color_helpers" href="color_helpers.html" />
+    <link rel="prev" title="High Level Python API" href="../high_level/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Internal Python API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Python API</a> &raquo;</li>
+        
+      <li>Internal Python API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/python_api/internal/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="internal-python-api">
+<h1>Internal Python API<a class="headerlink" href="#internal-python-api" title="Permalink to this headline">¶</a></h1>
+<p>Rivalcfg internal API contains documentation for every functions and classes
+implemented in this package. It is only useful to you if you want to hack into
+rivalcfg itself, or if you want to know how it works… If you only want to
+interact with SteelSeries mice from your own scripts, read the
+<a class="reference internal" href="../high_level/index.html"><span class="doc">High Level Python API</span></a> documentation instead.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devices.html">devices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devices.html#profile-spec">Profile spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices.html#module-api">Module API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="handlers/index.html">handlers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="handlers/choice.html">choice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="handlers/range.html">range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="handlers/rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="handlers/rgbgradient.html">rgbgradient</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mouse.html">mouse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html#factory-function">Factory Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mouse.html#mouse-class">Mouse Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usbhid.html">usbhid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usbhid.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usbhid.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usbhid.html#exceptions">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usbhid.html#fake-hid-device">Fake HID device</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="color_helpers.html" class="btn btn-neutral float-right" title="color_helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../high_level/index.html" class="btn btn-neutral float-left" title="High Level Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
