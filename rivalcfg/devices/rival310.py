@@ -1,6 +1,18 @@
 from .. import usbhid
 
 
+_RGBGRADIENT_HEADER = {
+    "header_length": 25,       # Length of the header excuding command / LED ID
+    "duration_offset": 0,      # Offset of the "duration" field
+    "duration_length": 2,      # Length of the "duration" field (in Bytes)
+    "repeat_offset": 16,       # Offset of the "repeat" flag
+    "triggers_offset": 20,     # Offset of the "triggers" field (buttons mask)
+    "color_count_offset": 24,  # Offset of the "color_count" field
+}
+
+_DEFAULT_RGBGRADIENT = "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
+
+
 profile = {
 
     "name": "SteelSeries Rival 310",
@@ -66,27 +78,27 @@ profile = {
             "default": 1000,
         },
 
-        # TODO logo_color
-        # "logo_color": {
-        #     "label": "Logo LED colors and effects",
-        #     "description": "Set the colors and the effects of the logo LED",
-        #     "cli": ["-c", "--logo-color"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-        #     "command": [0x5B, 0x00, 0x00],
-        #     "value_type": "TODO",
-        #     "default": "TODO"
-        # },
+        "logo_color": {
+            "label": "Logo LED colors and effects",
+            "description": "Set the colors and the effects of the logo LED",
+            "cli": ["-c", "--logo-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x5B, 0x00, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
 
-        # TODO wheel_color
-        # "wheel_color": {
-        #     "label": "Wheel LED colors and effects",
-        #     "description": "Set the colors and the effects of the wheel LED",
-        #     "cli": ["-C", "--wheel-color"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-        #     "command": [0x5B, 0x00, 0x01],
-        #     "value_type": "TODO",
-        #     "default": "TODO"
-        # },
+        "wheel_color": {
+            "label": "Wheel LED colors and effects",
+            "description": "Set the colors and the effects of the wheel LED",
+            "cli": ["-C", "--wheel-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x5B, 0x00, 0x01],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
 
     },
 
