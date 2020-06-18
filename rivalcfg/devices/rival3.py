@@ -14,15 +14,18 @@ profile = {
 
     "settings": {
 
-        # "sensitivity": {
-        #     "label": "Sensibility presets",
-        #     "description": "Set sensitivity preset (DPI). You can define up to 5 presets",  # noqa
-        #     "cli": ["-s", "--sensitivity"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-        #     "command": [TODO],
-        #     "value_type": "TODO",
-        #     "default": 800, 1600,
-        # },
+        "sensitivity": {
+            "label": "Sensibility presets",
+            "description": "Set sensitivity preset (DPI)",
+            "cli": ["-s", "--sensitivity"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x0B, 0x00],
+            "value_type": "multidpi_range",
+            "input_range": [200, 8500, 100],
+            "output_range": [4, 0xC5, 2.33],
+            "max_preset_count": 5,
+            "default": "800, 1600",
+        },
 
         "polling_rate": {
             "label": "Polling rate",
