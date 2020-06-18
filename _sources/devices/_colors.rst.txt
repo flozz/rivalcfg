@@ -1,6 +1,3 @@
-This mouse supports colors. Various formats are supported.
-
-
 Hexadecimal notation
 ~~~~~~~~~~~~~~~~~~~~
 

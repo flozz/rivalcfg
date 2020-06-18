@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>multidpi_range &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rgbcolor" href="rgbcolor.html" />
+    <link rel="prev" title="range" href="range.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devices.html">devices</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">handlers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">multidpi_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="../index.html">Internal Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">handlers</a> &raquo;</li>
+        
+      <li>multidpi_range</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/python_api/internal/handlers/multidpi_range.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.handlers.multidpi_range">
+<span id="multidpi-range"></span><h1>multidpi_range<a class="headerlink" href="#module-rivalcfg.handlers.multidpi_range" title="Permalink to this headline">¶</a></h1>
+<p>The “multidpi_range” type alows to pick values in an input range and transforms
+it into values from an output range. If the input values do not correspond to
+one of the input range step, they are rounded to match the nearest step.</p>
+<p>This type is used to support devices where we can configure from <code class="docutils literal notranslate"><span class="pre">1</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code>
+DPI settings in a single command, like the Rival 3.</p>
+<p>For example with an input range like <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1000,</span> <span class="pre">100]</span></code> and an output range
+like <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">10,</span> <span class="pre">1]</span></code>, you can have the following pair:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">100</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">110</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">1</span></code> (<code class="docutils literal notranslate"><span class="pre">110</span></code> rounded to <code class="docutils literal notranslate"><span class="pre">100</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">190</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">2</span></code> (<code class="docutils literal notranslate"><span class="pre">190</span></code> rounded to <code class="docutils literal notranslate"><span class="pre">200</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">300</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">3</span></code></p></li>
+<li><p>…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1000</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">10</span></code></p></li>
+</ul>
+<div class="section" id="device-profile">
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline">¶</a></h2>
+<p>Example of a multidpi_range value type in a device profile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+        <span class="s2">&quot;sensitivity1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Sensibility presets&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set sensitivity presets (DPI)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-s&quot;</span><span class="p">,</span> <span class="s2">&quot;--sensitivity&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x0B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;multidpi_range&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;input_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+            <span class="s2">&quot;output_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0xA7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="s2">&quot;max_preset_count&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;800, 1600&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+
+    <span class="p">},</span>
+
+    <span class="c1"># ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<p>Example of CLI option generated with this handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">s</span> <span class="n">SENSITIVITY</span><span class="p">,</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="n">SENSITIVITY</span>
+                     <span class="n">Set</span> <span class="n">sensitivity</span> <span class="n">preset</span> <span class="p">(</span><span class="n">DPI</span><span class="p">)</span> <span class="p">(</span><span class="n">up</span> <span class="n">to</span> <span class="mi">5</span> <span class="n">settings</span><span class="p">,</span> <span class="kn">from</span> <span class="mi">200</span> <span class="n">dpi</span> <span class="n">to</span> <span class="mi">8500</span>
+                     <span class="n">dpi</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="s1">&#39;800, 1600&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example of CLI usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="mi">1600</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="s2">&quot;800,1600&quot;</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="s2">&quot;200, 400, 800, 1600, 8000&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="rivalcfg.handlers.multidpi_range.CheckMultiDpiRange">
+<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.handlers.multidpi_range.</code><code class="sig-name descname">CheckMultiDpiRange</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">option_strings</span></em>, <em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">nargs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">const</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">choices</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">help</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metavar</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multidpi_range.CheckMultiDpiRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate value from CLI</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.multidpi_range.add_cli_option">
+<code class="sig-prename descclassname">rivalcfg.handlers.multidpi_range.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multidpi_range.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given “range” type setting to the given CLI arguments parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cli_parser</strong> (<em>ArgumentParser</em>) – An <code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code> instance.</p></li>
+<li><p><strong>setting_name</strong> (<em>str</em>) – The name of the setting.</p></li>
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.multidpi_range.process_value">
+<code class="sig-prename descclassname">rivalcfg.handlers.multidpi_range.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">selected_preset</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multidpi_range.process_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
+“range” type setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+<li><p><strong>value</strong> – The input value.</p></li>
+<li><p><strong>selected_preset</strong> (<em>int</em>) – The DPI preset to select.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rgbcolor.html" class="btn btn-neutral float-right" title="rgbcolor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="range.html" class="btn btn-neutral float-left" title="range" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
