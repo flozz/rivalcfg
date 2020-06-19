@@ -49,7 +49,6 @@ profile = {
             "cli": ["-c", "--colors"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x0A, 0x00, 0x0F],
-                                    # ^ zone_mask?
             "value_type": "multi_rgbcolor",
             "color_count": 4,
             "default": "#FF1800"
