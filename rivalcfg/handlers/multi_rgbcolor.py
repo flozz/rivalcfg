@@ -71,7 +71,10 @@ CLI
 
 Example of CLI option generated with this handler::
 
-    TODO
+   -c COLORS, --colors COLORS
+                        Set the color of the mouse LEDs (format: '<COLOR>' or
+                        '<COLOR_TOP>,<COLOR_MIDDLE>,<COLOR_BOTTOM>,<COLOR_LOGO>') (default:
+                        #FF1800)
 
 Example of CLI usage::
 
@@ -123,7 +126,7 @@ def process_value(setting_info, value):
     # Check color count
 
     if len(colors) != setting_info["color_count"]:
-        raise ValueError("you provided %i colors but the mouse requires %i" % (
+        raise ValueError("%i colors provided but the mouse requires %i" % (
             len(colors),
             setting_info["color_count"]))
 
@@ -149,32 +152,43 @@ def process_value(setting_info, value):
     return packet
 
 
-# class CheckColorsAction(argparse.Action):
-#     """Validate colors from CLI"""
-#
-#     def __call__(self, parser, namespace, value, option_string=None):
-#         if not is_color(value):
-#             raise argparse.ArgumentError(self, "invalid color: '%s'" %  value)  # noqa
-#         setattr(namespace, self.dest.upper(), value)
-#
-#
-# def add_cli_option(cli_parser, setting_name, setting_info):
-#     """Add the given "rgbcolor" type setting to the given CLI arguments parser.
-#
-#     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
-#     :param str setting_name: The name of the setting.
-#     :param dict setting_info: The information dict of the setting from the
-#                               device profile.
-#     """
-#     description = "%s (default: %s)" % (
-#             setting_info["description"],
-#             str(setting_info["default"])
-#             )
-#     cli_parser.add_argument(
-#             *setting_info["cli"],
-#             dest=setting_name,
-#             help=description,
-#             type=str,
-#             action=CheckColorsAction,
-#             metavar=setting_name.upper()
-#             )
+def cli_colors_validator(color_count):
+    class CheckColorsAction(argparse.Action):
+        """Validate colors from CLI"""
+
+        def __call__(self, parser, namespace, value, option_string=None):
+            colors = value.replace(" ", "").split(",")
+            if len(colors) not in (1, color_count):
+                raise argparse.ArgumentError(self, "you provided %i colors but the the mouse requires %i" %  (  # noqa
+                    len(colors),
+                    color_count,
+                    ))
+            for color in colors:
+                if not is_color(color):
+                    raise argparse.ArgumentError(self, "invalid color: '%s'" %  color)  # noqa
+            setattr(namespace, self.dest.upper(), value)
+
+    return CheckColorsAction
+
+
+def add_cli_option(cli_parser, setting_name, setting_info):
+    """Add the given "multi_rgbcolor" type setting to the given CLI arguments
+    parser.
+
+    :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
+    :param str setting_name: The name of the setting.
+    :param dict setting_info: The information dict of the setting from the
+                              device profile.
+    """
+    description = "%s (default: %s)" % (
+            setting_info["description"],
+            str(setting_info["default"])
+            )
+    cli_parser.add_argument(
+            *setting_info["cli"],
+            dest=setting_name,
+            help=description,
+            type=str,
+            action=cli_colors_validator(setting_info["color_count"]),
+            metavar=setting_name.upper()
+            )

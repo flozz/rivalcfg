@@ -103,53 +103,55 @@ class TestProcessValue(object):
             multi_rgbcolor.process_value(setting_info, colors)
 
 
-# class TestAddCliOption(object):
-#
-#     @pytest.fixture
-#     def cli(self):
-#         cli = argparse.ArgumentParser()
-#         rgbcolor.add_cli_option(cli, "color0", {
-#                 "label": "LED color",
-#                 "description": "Set the mouse backlight color",
-#                 "cli": ["-c", "--color", "--foobar"],
-#                 "command": [0x05, 0x00],
-#                 "value_type": "rgbcolor",
-#                 "default": "#FF1800"
-#             })
-#         return cli
-#
-#     def test_cli_options(self, cli):
-#         assert "-c" in cli.format_help()
-#         assert "--color" in cli.format_help()
-#         assert "--foobar" in cli.format_help()
-#
-#     def test_cli_metavar(self, cli):
-#         assert "-c COLOR0" in cli.format_help()
-#
-#     def test_default_value_displayed(self, cli):
-#         assert "#FF1800" in cli.format_help()
-#
-#     @pytest.mark.parametrize("color", [
-#         "#AABBCC",
-#         "#aaBBcc",
-#         "AAbbCC",
-#         "#ABC",
-#         "AbC",
-#         "red",
-#         ])
-#     def test_passing_valid_color_arguments(self, cli, color):
-#         params = cli.parse_args(["--color", color])
-#         assert params.COLOR0 == color
-#
-#     @pytest.mark.parametrize("color", [
-#         "hello",
-#         "#AABBCCFF",
-#         "~AABBCC",
-#         "#HHIIFF",
-#         "fa0b",
-#         ])
-#     def test_passing_invalid_color_arguments(self, cli, color):
-#         with pytest.raises(SystemExit) as pytest_wrapped_e:
-#             cli.parse_args(["--color", color])
-#         assert pytest_wrapped_e.type == SystemExit
-#         assert pytest_wrapped_e.value.code == 2
+class TestAddCliOption(object):
+
+    @pytest.fixture
+    def cli(self):
+        cli = argparse.ArgumentParser()
+        multi_rgbcolor.add_cli_option(cli, "color0", {
+                "label": "LED color",
+                "description": "Set the mouse backlight color",
+                "cli": ["-c", "--color", "--foobar"],
+                "command": [0x05, 0x00],
+                "value_type": "multi_rgbcolor",
+                "color_count": 4,
+                "default": "#FF1800"
+            })
+        return cli
+
+    def test_cli_options(self, cli):
+        assert "-c" in cli.format_help()
+        assert "--color" in cli.format_help()
+        assert "--foobar" in cli.format_help()
+
+    def test_cli_metavar(self, cli):
+        assert "-c COLOR0" in cli.format_help()
+
+    def test_default_value_displayed(self, cli):
+        assert "#FF1800" in cli.format_help()
+
+    @pytest.mark.parametrize("color", [
+        "#AABBCC",
+        "#aaBBcc",
+        "AAbbCC",
+        "#ABC",
+        "AbC",
+        "red",
+        ])
+    def test_passing_valid_color_arguments(self, cli, color):
+        params = cli.parse_args(["--color", color])
+        assert params.COLOR0 == color
+
+    @pytest.mark.parametrize("color", [
+        "hello",
+        "#AABBCCFF",
+        "~AABBCC",
+        "#HHIIFF",
+        "fa0b",
+        "red,green",
+        ])
+    def test_passing_invalid_color_arguments(self, cli, color):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--color", color])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2
