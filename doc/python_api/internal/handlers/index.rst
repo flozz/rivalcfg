@@ -17,4 +17,5 @@ a device profile. Each handler module provides at least two functions:
    ./range.rst
    ./multidpi_range.rst
    ./rgbcolor.rst
+   ./multi_rgbcolor.rst
    ./rgbgradient.rst
