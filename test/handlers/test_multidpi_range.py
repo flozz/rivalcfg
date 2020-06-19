@@ -97,3 +97,9 @@ class TestAddCliOption(object):
             cli.parse_args(["--sensitivity", "hello"])
         assert pytest_wrapped_e.type == SystemExit
         assert pytest_wrapped_e.value.code == 2
+
+    def test_passing_too_much_values(self, cli):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--sensitivity", "1,2,3,4,5,6"])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2

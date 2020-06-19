@@ -123,13 +123,16 @@ def process_value(setting_info, value, selected_preset=1):
     return merge_bytes(len(output_values), selected_preset, output_values)
 
 
-class CheckMultiDpiRange(argparse.Action):
-    """Validate value from CLI"""
+def cli_multirange_validator(max_preset_count):
+    class CheckMultiDpiRange(argparse.Action):
+        """Validate value from CLI"""
 
-    def __call__(self, parser, namespace, value, option_string=None):
-        if not re.match(r"^ *[0-9]+( *, *[0-9]+)* *$", value):
-            raise argparse.ArgumentError(self, "invalid DPI list: '%s'" %  value)  # noqa
-        setattr(namespace, self.dest.upper(), value)
+        def __call__(self, parser, namespace, value, option_string=None):
+            if not re.match(r"^ *[0-9]+( *, *[0-9]+){0,%i} *$" % (max_preset_count - 1), value):  # noqa
+                raise argparse.ArgumentError(self, "invalid DPI list: '%s'" %  value)  # noqa
+            setattr(namespace, self.dest.upper(), value)
+
+    return CheckMultiDpiRange
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
@@ -152,5 +155,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
             help=description,
             dest=setting_name.upper(),
             metavar=setting_name.upper(),
-            action=CheckMultiDpiRange,
+            action=cli_multirange_validator(setting_info["max_preset_count"]),
             )
