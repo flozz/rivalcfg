@@ -43,16 +43,17 @@ profile = {
             "default": 1000,
         },
 
-        # "colors": {
-        #     "label": "LED colors",
-        #     "description": "Set the color of the mouse LEDs (format: '<COLOR>' or '<COLOR_TOP>,<COLOR_MIDDLE>,<COLOR_BOTTOM>,<COLOR_LOGO>') ",  # noqa
-        #     "cli": ["-c", "--colors"],
-        #     "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-        #     "command": [0x0A, 0x00, 0x0F],
-        #                             # ^ zone_mask ?
-        #     "value_type": "TODO",
-        #     "default": "#FF1800"
-        # },
+        "colors": {
+            "label": "LED colors",
+            "description": "Set the color of the mouse LEDs (format: '<COLOR>' or '<COLOR_TOP>,<COLOR_MIDDLE>,<COLOR_BOTTOM>,<COLOR_LOGO>') ",  # noqa
+            "cli": ["-c", "--colors"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x0A, 0x00, 0x0F],
+                                    # ^ zone_mask?
+            "value_type": "multi_rgbcolor",
+            "color_count": 4,
+            "default": "#FF1800"
+        },
 
     },
 
