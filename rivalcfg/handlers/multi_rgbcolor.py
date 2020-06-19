@@ -85,7 +85,7 @@ Example of CLI usage::
 
 Functions
 ---------
-"""
+"""  # noqa
 
 
 import argparse
