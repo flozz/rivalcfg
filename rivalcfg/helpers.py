@@ -72,8 +72,6 @@ def parse_param_string(paramstr, value_parsers={}):
     {'hello': {'name': 'world'}}
     >>> parse_param_string("hello(name=world ) ;;")
     {'hello': {'name': 'world'}}
-    >>> parse_param_string("foo(bar=1; baz=2)")
-    {'foo': {'bar': '1', 'baz': '2'}}
     >>> parse_param_string("foo(a=42)", value_parsers={
     ...     "foo": {
     ...         "a": int,
