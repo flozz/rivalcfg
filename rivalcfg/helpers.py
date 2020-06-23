@@ -74,13 +74,12 @@ def parse_param_string(paramstr, value_parsers={}):
     {'hello': {'name': 'world'}}
     >>> parse_param_string("foo(bar=1; baz=2)")
     {'foo': {'bar': '1', 'baz': '2'}}
-    >>> parse_param_string("foo(a=42; b=3.14)", value_parsers={
+    >>> parse_param_string("foo(a=42)", value_parsers={
     ...     "foo": {
     ...         "a": int,
-    ...         "b": float
-    ...     }
+    ...     },
     ... })
-    {'foo': {'a': 42, 'b': 3.14}}
+    {'foo': {'a': 42}}
     >>> parse_param_string("foobar[a=1]")
     Traceback (most recent call last):
         ...
