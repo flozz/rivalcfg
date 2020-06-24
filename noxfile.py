@@ -14,7 +14,9 @@ def test(session):
     # Do not run doctest when using Python 2 as the output of some functions
     # looks deferent from the one of Python 3 and so it cannot be matched
     # properly...
-    if session.python == "2.7":
+    # Do not run doctest on Python < 3.7 because dict are not ordered so
+    # the result is not predictable...
+    if session.python in ["2.7", "3.5", "3.6"]:
         session.run("pytest", "test", env={"RIVALCFG_DRY": "1"})
     else:
         session.run("pytest", "--doctest-modules", "rivalcfg", "test", env={
