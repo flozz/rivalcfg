@@ -6,6 +6,7 @@ Supported Devices
    :caption: Contents:
 
    ./kanav2.rst
+   ./rival3.rst
    ./rival95.rst
    ./rival100.rst
    ./rival110.rst
