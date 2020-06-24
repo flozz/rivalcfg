@@ -70,10 +70,10 @@ profile = {
             "default": 1000,
         },
 
-        "led_intensity1": {
-            "label": "Intensity 1",
-            "description": "Set the intensity of the LEDs while sensitivity preset 1 is selected",  # noqa
-            "cli": ["-i", "--intensity1"],
+        "led_brightness1": {
+            "label": "Brightness 1",
+            "description": "Set the brightness of the LEDs while sensitivity preset 1 is selected",  # noqa
+            "cli": ["-b", "--brightness1"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x05, 0x01],
             "value_type": "choice",
@@ -86,10 +86,10 @@ profile = {
             "default": "off",
         },
 
-        "led_intensity2": {
-            "label": "Intensity 2",
-            "description": "Set the intensity of the LEDs while sensitivity preset 2 is selected",  # noqa
-            "cli": ["-I", "--intensity2"],
+        "led_brightness2": {
+            "label": "Brightness 2",
+            "description": "Set the brightness of the LEDs while sensitivity preset 2 is selected",  # noqa
+            "cli": ["-B", "--brightness2"],
             "command": [0x05, 0x02],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "value_type": "choice",

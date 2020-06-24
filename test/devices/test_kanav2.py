@@ -61,8 +61,8 @@ class TestDevice(object):
         ("low", b"\x02\x00\x05\x01\x02"),
         ("off", b"\x02\x00\x05\x01\x01"),
         ])
-    def test_set_led_intensity1(self, mouse, value, expected_hid_report):
-        mouse.set_led_intensity1(value)
+    def test_set_led_brightness1(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness1(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
@@ -73,8 +73,8 @@ class TestDevice(object):
         ("low", b"\x02\x00\x05\x02\x02"),
         ("off", b"\x02\x00\x05\x02\x01"),
         ])
-    def test_set_led_intensity2(self, mouse, value, expected_hid_report):
-        mouse.set_led_intensity2(value)
+    def test_set_led_brightness2(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness2(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
