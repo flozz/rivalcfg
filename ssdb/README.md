@@ -22,7 +22,7 @@ To update the `sse3.db.csv` database, you will have to install nox:
 
 You will also need 7zip and wget. You can install them with the following command on Dabian and Ubuntu:
 
-    sudp apt install wget p7zip
+    sudo apt install wget p7zip
 
 Then just run the following command to update the db:
 

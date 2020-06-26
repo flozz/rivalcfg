@@ -29,8 +29,8 @@ Changelog
 
 * **3.8.0:**
 
-   * Experimental support of Sensei 310 (thx @tobozo #82, @FFY00 #43)
-   * Improved support of Rival 310 (still experimental)
+  * Experimental support of Sensei 310 (thx @tobozo #82, @FFY00 #43)
+  * Improved support of Rival 310 (still experimental)
 
 * **3.7.0:** Initial support of the Rival 710 (#91, thanks @mobaradev)
 * **3.6.1:** Removes the call of a deprecated function that have been removed from Python 3.8 (#86)
@@ -40,30 +40,30 @@ Changelog
 * **3.3.0:** Support of the Acer Predator Gaming Mouse (a rebranded Rival 300) (#72)
 * **3.2.0:**
 
-   * Support of the Rival 300 Dota 2 Edition (#67, @virrim)
-   * Fixes case issue in udev rule file (#68, @hungarian-notation)
+  * Support of the Rival 300 Dota 2 Edition (#67, @virrim)
+  * Fixes case issue in udev rule file (#68, @hungarian-notation)
 
 * **3.1.0:**
 
-   * Support of sensitivity commands for Rival 500 (#65, @hungarian-notation)
-   * Fix of the reset command on Rival 600 (#66, @ergor)
+  * Support of sensitivity commands for Rival 500 (#65, @hungarian-notation)
+  * Fix of the reset command on Rival 600 (#66, @ergor)
 
 * **3.0.0**:
 
-   * Adds support of the Rival 300 HP Omen Edition (#52, @FadedCoder)
-   * Adds experimental support of the Rival 600 (#60, @ergor)
-   * Varous fixes
+  * Adds support of the Rival 300 HP Omen Edition (#52, @FadedCoder)
+  * Adds experimental support of the Rival 600 (#60, @ergor)
+  * Varous fixes
 
 * **3.0.0-beta1:**
 
-   * Support of the Rival 110
-   * Support of the Heroes of the Storm (Sensei Raw)
-   * Partial support of the Rival 310
-   * Partial support of the Rival 500
-   * Microsoft Windows (and MacOS X?) support
-   * rivalcfg now uses the ``hidapi`` lib instead of manipulating udev directly
-   * Code refactored (almost all API changed)
-   * Various bug fixes
+ * Support of the Rival 110
+ * Support of the Heroes of the Storm (Sensei Raw)
+ * Partial support of the Rival 310
+ * Partial support of the Rival 500
+ * Microsoft Windows (and MacOS X?) support
+ * rivalcfg now uses the ``hidapi`` lib instead of manipulating udev directly
+ * Code refactored (almost all API changed)
+ * Various bug fixes
 
 ----
 
@@ -79,10 +79,10 @@ Changelog
 * **2.4.0:** Python 3 support (#4)
 * **2.3.0:**
 
-   * Rival and Rival 300 support is no more experimental
-   * Improves the device listing (–list)
-   * Fixes bug with color parsing in CLI (#1)
-   * Fixes unrecognized devices path on old kernel (#2)
+  * Rival and Rival 300 support is no more experimental
+  * Improves the device listing (--list)
+  * Fixes bug with color parsing in CLI (#1)
+  * Fixes unrecognized devices path on old kernel (#2)
 
 * **2.2.0:** Experimental Rival 300 support
 * **2.1.1:** Includes udev rules in the package and automatically install the rules (if possible)
