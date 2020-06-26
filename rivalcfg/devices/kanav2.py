@@ -71,9 +71,9 @@ profile = {
         },
 
         "led_brightness1": {
-            "label": "Brightness 1",
+            "label": "LED Brightness 1",
             "description": "Set the brightness of the LEDs while sensitivity preset 1 is selected",  # noqa
-            "cli": ["-b", "--brightness1"],
+            "cli": ["-l", "--led-brightness1"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x05, 0x01],
             "value_type": "choice",
@@ -87,9 +87,9 @@ profile = {
         },
 
         "led_brightness2": {
-            "label": "Brightness 2",
+            "label": "LED Brightness 2",
             "description": "Set the brightness of the LEDs while sensitivity preset 2 is selected",  # noqa
-            "cli": ["-B", "--brightness2"],
+            "cli": ["-L", "--led-brightness2"],
             "command": [0x05, 0x02],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "value_type": "choice",
