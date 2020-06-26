@@ -23,7 +23,25 @@ If you have any trouble running this software, please open an issue on Github:
 Changelog
 ---------
 
-* **4.0.0:** TODO
+* **4.0.0:** ``[WORK IN PROGRESS]``
+
+  * Full rewrite of most part of the software
+  * Generate udev rules for Linux
+  * Command to update udev rules on Linux
+  * Check that udev rules are up to date on Linux
+  * More tests (especially on devices)
+  * Mice are now groupped by familly
+  * Documentation (Sphinx)
+  * Support of the Rival 100 Dota 2 Edition (relail version) (#17)
+  * Support of the Rival 300 Fallout 4 Edition (#44)
+  * Support of the Rival 310 CS:GO Howl Edition (#113)
+  * Support of the Rival 3 (#111)
+  * Support of the Rival 300 Evil Geniuses Edition
+  * Support of the Rival 95 MSI Edition
+  * Support of the Rival 95 PC Bang
+  * Support of the Rival 100 PC Bang
+  * Support of the Rival 100 (Dell China)
+  * Support of the Rival 100 Dota 2 Editon (retail version)
 
 ----
 
@@ -56,14 +74,14 @@ Changelog
 
 * **3.0.0-beta1:**
 
- * Support of the Rival 110
- * Support of the Heroes of the Storm (Sensei Raw)
- * Partial support of the Rival 310
- * Partial support of the Rival 500
- * Microsoft Windows (and MacOS X?) support
- * rivalcfg now uses the ``hidapi`` lib instead of manipulating udev directly
- * Code refactored (almost all API changed)
- * Various bug fixes
+  * Support of the Rival 110
+  * Support of the Heroes of the Storm (Sensei Raw)
+  * Partial support of the Rival 310
+  * Partial support of the Rival 500
+  * Microsoft Windows (and MacOS X?) support
+  * rivalcfg now uses the ``hidapi`` lib instead of manipulating udev directly
+  * Code refactored (almost all API changed)
+  * Various bug fixes
 
 ----
 
