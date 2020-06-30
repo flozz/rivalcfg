@@ -57,14 +57,24 @@ Example of a rgbgradient value type in a device profile:
 
         "settings": {
 
-            "color": {
+            "logo_color": {
                 "label": "Logo LED colors and effects",
                 "description": "Set the colors and the effects of the logo LED",
                 "cli": ["-c", "--logo-color"],
-                "command": [0x5B, 0x00, 0x00],
+                "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+                "command": [0x05, 0x00],
                 "value_type": "rgbgradient",
-                # TODO
-                "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"
+                "rgbgradient_header": {
+                    "header_length": 28,       # Length of the header excuding command / LED ID
+                    "led_id_offsets": [0, 5],  # Offset of the "led_id" fields
+                    "duration_offset": 6,      # Offset of the "duration" field
+                    "duration_length": 2,      # Length of the "duration" field (in Bytes)
+                    "repeat_offset": 22,       # Offset of the "repeat" flag
+                    "triggers_offset": 23,     # Offset of the "triggers" field (buttons mask)
+                    "color_count_offset": 27,  # Offset of the "color_count" field
+                },
+                "led_id": 0x01,
+                "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",
             },
 
         },
@@ -79,11 +89,15 @@ CLI
 
 Example of CLI option generated with this handler::
 
-    TODO
+   -c LOGO_COLOR, --logo-color LOGO_COLOR
+                         Set the colors and the effects of the logo LED (default:
+                         rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
 
 Example of CLI usage::
 
-    TODO
+    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"
+    rivalcfg --logo-color=red
+    rivalcfg --logo-color=FF1800
 
 
 Functions
@@ -179,6 +193,7 @@ def process_value(setting_info, colors):
     :rtype: [int]
     """
     header_length = setting_info["rgbgradient_header"]["header_length"]
+    led_id_offsets =  setting_info["rgbgradient_header"]["led_id_offsets"]
     duration_offset = setting_info["rgbgradient_header"]["duration_offset"]
     duration_length = setting_info["rgbgradient_header"]["duration_length"]
     repeat_offset = setting_info["rgbgradient_header"]["repeat_offset"]
@@ -189,6 +204,7 @@ def process_value(setting_info, colors):
     duration = _default_duration
     repeat = 0x00
     triggers = 0x00
+    led_id = setting_info["led_id"]
     gradient = []
 
     # Color tuple
@@ -234,6 +250,9 @@ def process_value(setting_info, colors):
     header[repeat_offset] = repeat
     header[triggers_offset] = triggers
     header[color_count_offset] = len(gradient)
+
+    for led_id_offset in led_id_offsets:
+        header[led_id_offset] = led_id
 
     offset = 0
     for b in uint_to_little_endian_bytearray(duration, duration_length):
