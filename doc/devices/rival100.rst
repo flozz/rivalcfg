@@ -1,5 +1,5 @@
-SteelSeries Rival 100
-=====================
+SteelSeries Rival 100 and Rival 105
+===================================
 
 
 Supported Models

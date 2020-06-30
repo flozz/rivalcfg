@@ -3,7 +3,7 @@ from .. import usbhid
 
 profile = {
 
-    "name": "SteelSeries Rival 100",
+    "name": "SteelSeries Rival 100 / SteelSeries Rival 105",
 
     "models": [{
         "name": "SteelSeries Rival 100",
@@ -34,6 +34,11 @@ profile = {
         "override_defaults": {
             "color": "#FF0000",
         },
+    }, {
+        "name": "SteelSeries Rival 105",
+        "vendor_id": 0x1038,
+        "product_id": 0x1814,
+        "endpoint": 0,
     }],
 
     "settings": {
