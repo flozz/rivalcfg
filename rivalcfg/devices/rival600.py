@@ -98,6 +98,80 @@ profile = {
             "default": _DEFAULT_RGBGRADIENT,
         },
 
+        "z2_color": {
+            "label": "Left strip, top LED colors and effects",
+            "description": "Set the colors and the effects of the top LED of the left strip",  # noqa
+            "cli": ["--left-strip-top-color", "--z2"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x02,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "z3_color": {
+            "label": "Right strip, top LED colors and effects",
+            "description": "Set the colors and the effects of the top LED of the right strip",  # noqa
+            "cli": ["--right-strip-top-color", "--z3"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x03,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "z4_color": {
+            "label": "Left strip, middle LED colors and effects",
+            "description": "Set the colors and the effects of the middle LED of the left strip",  # noqa
+            "cli": ["--left-strip-middle-color", "--z4"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x04,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "z5_color": {
+            "label": "Right strip, middle LED colors and effects",
+            "description": "Set the colors and the effects of the middle LED of the right strip",  # noqa
+            "cli": ["--right-strip-middle-color", "--z5"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x05,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "z6_color": {
+            "label": "Left strip, bottom LED colors and effects",
+            "description": "Set the colors and the effects of the bottom LED of the left strip",  # noqa
+            "cli": ["--left-strip-bottom-color", "--z6"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x06,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "z7_color": {
+            "label": "Right strip, bottom LED colors and effects",
+            "description": "Set the colors and the effects of the bottom LED of the right strip",  # noqa
+            "cli": ["--right-strip-bottom-color", "--z7"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x07,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+
+
     },
 
     "save_command": {
