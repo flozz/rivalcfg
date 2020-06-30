@@ -1,6 +1,19 @@
 from .. import usbhid
 
 
+_RGBGRADIENT_HEADER = {
+    "header_length": 28,       # Length of the header excuding command / LED ID
+    "led_id_offsets": [0, 5],  # Offset of the "led_id" fields
+    "duration_offset": 6,      # Offset of the "duration" field
+    "duration_length": 2,      # Length of the "duration" field (in Bytes)
+    "repeat_offset": 22,       # Offset of the "repeat" flag
+    "triggers_offset": 23,     # Offset of the "triggers" field (buttons mask)
+    "color_count_offset": 27,  # Offset of the "color_count" field
+}
+
+_DEFAULT_RGBGRADIENT = "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
+
+
 profile = {
 
     "name": "SteelSeries Rival 600",
@@ -59,6 +72,30 @@ profile = {
                 1000: 0x01,
             },
             "default": 1000,
+        },
+
+        "wheel_color": {
+            "label": "Wheel LED colors and effects",
+            "description": "Set the colors and the effects of the wheel LED",
+            "cli": ["-C", "--wheel-color", "--z0"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x00,
+            "default": _DEFAULT_RGBGRADIENT,
+        },
+
+        "logo_color": {
+            "label": "Logo LED colors and effects",
+            "description": "Set the colors and the effects of the logo LED",
+            "cli": ["-c", "--logo-color", "--z1"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "value_type": "rgbgradient",
+            "rgbgradient_header": _RGBGRADIENT_HEADER,
+            "led_id": 0x01,
+            "default": _DEFAULT_RGBGRADIENT,
         },
 
     },

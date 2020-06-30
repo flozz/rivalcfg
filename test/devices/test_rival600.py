@@ -47,6 +47,60 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
+    def test_set_wheel_color(self, mouse):
+        mouse.set_wheel_color("rgbgradient(duration=5000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)")  # noqa
+
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+
+        expected_hid_report = b""
+        expected_hid_report += b"\x03\x00\x05\x00\x00\x00\x00\x00\x00\x00"
+        #                       |wValue  |command|led|               |led|
+        expected_hid_report += b"\x88\x13\x00\x00\x00\x00\x00\x00\x00\x00"
+        #                       |duratio|
+        expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+        #                                                |rpt|trg|
+        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        #                                |init color |
+        expected_hid_report += b"\xFF\x00\x00\x00"
+        #                        |color1     |ps1|
+        expected_hid_report += b"\x00\xFF\x00\x54"
+        #                        |color2     |ps2|
+        expected_hid_report += b"\x00\x00\xFF\x54"
+        #                        |color3     |ps3|
+        expected_hid_report += b"\xFF\x00\x00\x57"
+        #                        |color4     |ps4|
+        # color4 = color1 (added for smoothing)
+
+        assert hid_report == expected_hid_report
+
+    def test_set_logo_color(self, mouse):
+        mouse.set_logo_color("rgbgradient(duration=5000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)")  # noqa
+
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+
+        expected_hid_report = b""
+        expected_hid_report += b"\x03\x00\x05\x00\x01\x00\x00\x00\x00\x01"
+        #                       |wValue  |command|led|               |led|
+        expected_hid_report += b"\x88\x13\x00\x00\x00\x00\x00\x00\x00\x00"
+        #                       |duratio|
+        expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+        #                                                |rpt|trg|
+        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        #                                |init color |
+        expected_hid_report += b"\xFF\x00\x00\x00"
+        #                        |color1     |ps1|
+        expected_hid_report += b"\x00\xFF\x00\x54"
+        #                        |color2     |ps2|
+        expected_hid_report += b"\x00\x00\xFF\x54"
+        #                        |color3     |ps3|
+        expected_hid_report += b"\xFF\x00\x00\x57"
+        #                        |color4     |ps4|
+        # color4 = color1 (added for smoothing)
+
+        assert hid_report == expected_hid_report
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)
