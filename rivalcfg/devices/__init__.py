@@ -144,6 +144,7 @@ from . import rival100  # noqa: F401
 from . import rival110  # noqa: F401
 from . import rival300  # noqa: F401
 from . import rival310  # noqa: F401
+from . import rival600  # noqa: F401
 from . import sensei310  # noqa: F401
 from .. import usbhid
 

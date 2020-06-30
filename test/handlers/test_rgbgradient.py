@@ -12,13 +12,15 @@ class TestProcessValue(object):
         return {
             "value_type": "rgbgradient",
             "rgbgradient_header": {
-                "header_length": 25,
-                "duration_offset": 0,
+                "header_length": 26,
+                "led_id_offsets": [0],
+                "duration_offset": 1,
                 "duration_length": 2,
-                "repeat_offset": 16,
-                "triggers_offset": 20,
-                "color_count_offset": 24,
-            }
+                "repeat_offset": 17,
+                "triggers_offset": 21,
+                "color_count_offset": 25,
+            },
+            "led_id": 2,
         }
 
     # Color string
@@ -30,8 +32,8 @@ class TestProcessValue(object):
     def test_valid_color_hex_string(self, setting_info1, color):
         bytes_ = rgbgradient.process_value(setting_info1, color)
         assert bytes_ == [
-            0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-            # duration|
+            0x02, 0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            # led| duration |
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
             #                                 | rept|
             0x00,   0x00, 0x00, 0x00, 0x01,
@@ -45,8 +47,8 @@ class TestProcessValue(object):
     def test_named_colors(self, setting_info1):
         bytes_ = rgbgradient.process_value(setting_info1, "red")
         assert bytes_ == [
-            0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-            # duration|
+            0x02, 0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            # led| duration |
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
             #                                 | rept|
             0x00,   0x00, 0x00, 0x00, 0x01,
@@ -68,8 +70,8 @@ class TestProcessValue(object):
     def test_valid_color_tuple(self, setting_info1, color):
         bytes_ = rgbgradient.process_value(setting_info1, color)
         assert bytes_ == [
-            0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-            # duration|
+            0x02, 0xe8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            # led| duration |
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00,
             #                                 | rept|
             0x00,   0x00, 0x00, 0x00, 0x01,
@@ -102,8 +104,8 @@ class TestProcessValue(object):
                 ]
             })
         assert bytes_ == [
-            0xe8, 0x03,   0x00, 0x00, 0x00,
-            # duration  |
+            0x02, 0xe8, 0x03, 0x00, 0x00, 0x00,
+            # led| duration |
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
             #
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
@@ -127,8 +129,8 @@ class TestProcessValue(object):
     def test_valid_rgbgradient(self, setting_info1, color):
         bytes_ = rgbgradient.process_value(setting_info1, color)
         assert bytes_ == [
-            0xe8, 0x03,   0x00, 0x00, 0x00,
-            # duration  |
+            0x02, 0xe8, 0x03, 0x00, 0x00, 0x00,
+            # led| duration |
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
             #
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
@@ -155,13 +157,15 @@ class TestAddCliOption(object):
             "command": [0x5B, 0x00, 0x00],
             "value_type": "rgbgradient",
             "rgbgradient_header": {
-                "header_length": 25,
-                "duration_offset": 0,
+                "header_length": 26,
+                "led_id_offsets": [0],
+                "duration_offset": 1,
                 "duration_length": 2,
-                "repeat_offset": 16,
-                "triggers_offset": 20,
-                "color_count_offset": 24,
+                "repeat_offset": 17,
+                "triggers_offset": 21,
+                "color_count_offset": 25,
             },
+            "led_id": 0x02,
             "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
         })
         return cli
