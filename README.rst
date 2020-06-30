@@ -41,7 +41,8 @@ Changelog
   * Support of the Rival 95 PC Bang
   * Support of the Rival 100 PC Bang
   * Support of the Rival 100 (Dell China)
-  * Support of the Rival 100 Dota 2 Editon (retail version)
+  * Support of the Rival 100 Dota 2 Edition (retail version)
+  * Support of the Rival 600 Dota 2 Edition
 
 ----
 
