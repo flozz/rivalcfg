@@ -193,7 +193,7 @@ def process_value(setting_info, colors):
     :rtype: [int]
     """
     header_length = setting_info["rgbgradient_header"]["header_length"]
-    led_id_offsets =  setting_info["rgbgradient_header"]["led_id_offsets"]
+    led_id_offsets = setting_info["rgbgradient_header"]["led_id_offsets"]
     duration_offset = setting_info["rgbgradient_header"]["duration_offset"]
     duration_length = setting_info["rgbgradient_header"]["duration_length"]
     repeat_offset = setting_info["rgbgradient_header"]["repeat_offset"]
