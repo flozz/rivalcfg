@@ -46,24 +46,23 @@ profile = {
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x01],
             "value_type": "range",
-            "input_range": [90, 5400, 90],
-            "output_range": [0x01, 0x3C, 1],
+            "input_range": [90, 5670, 90],
+            "output_range": [0x01, 0x3F, 1],
             "default": 1620,
         },
 
         "sensitivity2": {
             "label": "Sensibility preset 2",
             "description": "Set sensitivity preset 2 (DPI)",
-            "cli": ["-s", "--sensitivity1"],
+            "cli": ["-S", "--sensitivity2"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x02],
             "value_type": "range",
-            "input_range": [90, 5400, 90],
-            "output_range": [0x01, 0x3C, 1],
+            "input_range": [90, 5670, 90],
+            "output_range": [0x01, 0x3F, 1],
             "default": 3240,
         },
 
-        # TODO check this
         "polling_rate": {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
@@ -110,7 +109,7 @@ profile = {
                 2: 0x02,
                 3: 0x03,
                 4: 0x04,
-                # "trigger": 0x05  # TODO
+                "trigger": 0x05,
             },
             "default": "breath",
         },

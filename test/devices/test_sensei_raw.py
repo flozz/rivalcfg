@@ -17,6 +17,7 @@ class TestDevice(object):
         (1530, b"\x02\x00\x03\x01\x11"),
         (2520, b"\x02\x00\x03\x01\x1C"),
         (5400, b"\x02\x00\x03\x01\x3C"),
+        (5670, b"\x02\x00\x03\x01\x3F"),
         ])
     def test_set_sensitivity1(self, mouse, value, expected_hid_report):
         mouse.set_sensitivity1(value)
@@ -30,6 +31,7 @@ class TestDevice(object):
         (1530, b"\x02\x00\x03\x02\x11"),
         (2520, b"\x02\x00\x03\x02\x1C"),
         (5400, b"\x02\x00\x03\x02\x3C"),
+        (5670, b"\x02\x00\x03\x02\x3F"),
         ])
     def test_set_sensitivity2(self, mouse, value, expected_hid_report):
         mouse.set_sensitivity2(value)
@@ -68,6 +70,7 @@ class TestDevice(object):
         (2, b"\x02\x00\x07\x01\x02"),
         (3, b"\x02\x00\x07\x01\x03"),
         (4, b"\x02\x00\x07\x01\x04"),
+        ("trigger", b"\x02\x00\x07\x01\x05"),
         ])
     def test_set_light_effect(self, mouse, value, expected_hid_report):
         mouse.set_light_effect(value)
