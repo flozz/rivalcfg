@@ -1,3 +1,5 @@
+import time
+
 from . import usbhid
 from . import devices
 from . import handlers
@@ -138,6 +140,9 @@ class Mouse:
             self._hid_device.send_feature_report(bytes_)
         else:
             raise ValueError("Invalid HID report type: %2x" % report_type)
+
+        # Avoids sending multiple commands to quickly
+        time.sleep(0.1)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
