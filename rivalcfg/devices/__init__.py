@@ -138,6 +138,7 @@ import os
 import types
 
 from . import kanav2  # noqa: F401
+from . import kinzuv2  # noqa: F401
 from . import rival3  # noqa: F401
 from . import rival95  # noqa: F401
 from . import rival100  # noqa: F401
