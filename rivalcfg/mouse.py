@@ -142,7 +142,7 @@ class Mouse:
             raise ValueError("Invalid HID report type: %2x" % report_type)
 
         # Avoids sending multiple commands to quickly
-        time.sleep(0.1)
+        time.sleep(0.01)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
