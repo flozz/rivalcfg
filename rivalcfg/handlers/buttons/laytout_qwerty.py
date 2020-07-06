@@ -1,3 +1,9 @@
+"""
+This file contains the layout for QWERTY (en_US) keyboards.
+"""
+
+
+#: The layout
 layout = {
 
     # Alphanumeric
@@ -153,6 +159,7 @@ layout = {
 
 }
 
+#: Alias for some keys of the layout
 aliases = {
     "esc": "Escape",
     "bksp": "BackSpace",
