@@ -5,6 +5,57 @@ import pytest
 from rivalcfg.handlers import buttons
 
 
+class TestBuildLayout(object):
+
+    @pytest.fixture
+    def layout(self):
+        class Layout(object):
+            layout = {
+                "A": 0x01,
+                "PlayPause": 0x02,
+                ".": 0x03,
+            }
+            aliases = {
+                "play": "PlayPause",
+                "dot": ".",
+            }
+        return Layout()
+
+    @pytest.fixture
+    def layout_err(self):
+        class Layout(object):
+            layout = {
+                "A": 0x01,
+                "PlayPause": 0x02,
+                ".": 0x03,
+            }
+            aliases = {
+                "play": "Pause",
+                "dot": ".",
+            }
+        return Layout()
+
+    def test_build_layout(self, layout):
+        full_layout = buttons.build_layout(layout)
+
+        assert "a" in full_layout
+        assert full_layout["a"] == 0x01
+
+        assert "playpause" in full_layout
+        assert full_layout["playpause"] == 0x02
+        assert "play" in full_layout
+        assert full_layout["play"] == 0x02
+
+        assert "." in full_layout
+        assert full_layout["."] == 0x03
+        assert "dot" in full_layout
+        assert full_layout["dot"] == 0x03
+
+    def test_build_layout_with_wrong_alias(self, layout_err):
+        with pytest.raises(ValueError):
+            buttons.build_layout(layout_err)
+
+
 class TestProcessValue(object):
 
     @pytest.fixture
