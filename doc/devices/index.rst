@@ -14,5 +14,6 @@ Supported Devices
    ./rival300.rst
    ./rival310.rst
    ./rival600.rst
+   ./rival700.rst
    ./sensei310.rst
    ./sensei_raw.rst
