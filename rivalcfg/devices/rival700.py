@@ -66,7 +66,7 @@ profile = {
             "cli": ["-C", "--wheel-color"],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "command": [0x05, 0x00, 0x00],
-            "suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x00, 0x01],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x00, 0x01],
             "value_type": "rgbcolor",
             "default": "#FF1800"
         },
@@ -77,7 +77,7 @@ profile = {
             "cli": ["-c", "--logo-color"],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "command": [0x05, 0x00, 0x01],
-            "suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x01, 0x01],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x01, 0x01],
             "value_type": "rgbcolor",
             "default": "#FF1800"
         },
