@@ -81,6 +81,28 @@ profile = {
             "value_type": "rgbcolor",
             "default": "#FF1800"
         },
+
+        "set_logo_trigger": {
+            "description": "Set the wheel backlight color",
+            "cli": ["-t", "--logo-trigger"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x00],
+            "command_suffix": [0xc8, 0x00, 0x00, 0x08, 0x00],
+            "value_type": "multi_rgbcolor",
+            "color_count": 2,
+            "default": [["#FF1800", "#FF1800"], 200]
+        },
+
+        "set_wheel_trigger": {
+            "description": "Set the wheel backlight color",
+            "cli": ["-T", "--wheel-trigger"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x01],
+            "command_suffix": [0xc8, 0x00, 0x00, 0x08, 0x00],
+            "value_type": "multi_rgbcolor",
+            "color_count": 2,
+            "default": [["#FF1800", "#FF1800"], 200]
+        },
     },
 
     "save_command": {
