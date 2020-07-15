@@ -1,4 +1,4 @@
-import argparse
+# import argparse
 
 import pytest
 
@@ -99,11 +99,11 @@ class TestProcessValue(object):
     @pytest.mark.parametrize("value,expected", [
         ("buttons(button1=button1)", [0x01, 0x00, 0x00, 0x02, 0x00, 0x00]),
         ("buttons(button1=button2)", [0x02, 0x00, 0x00, 0x02, 0x00, 0x00]),
-        ("buttons(button1=button2; button2=button1)", [0x02, 0x00, 0x00, 0x02, 0x00, 0x00]),  # noqa
+        ("buttons(button1=button2; button2=button1)", [0x02, 0x00, 0x00, 0x01, 0x00, 0x00]),  # noqa
         ("buttons(button1=default)", [0x01, 0x00, 0x00, 0x02, 0x00, 0x00]),
         ])
-    def test_string_values_buttons(self, setting_info2, value, expected):
-        bytes_ = buttons.process_value(setting_info2, value)
+    def test_string_values_buttons(self, setting_info1, value, expected):
+        bytes_ = buttons.process_value(setting_info1, value)
         assert bytes_ == expected
 
     @pytest.mark.parametrize("value,expected", [
@@ -119,8 +119,8 @@ class TestProcessValue(object):
         ("buttons(button1=.)", [0x51, 0x37, 0x00, 0x02, 0x00, 0x00]),
         ("buttons(button1=DOT)", [0x51, 0x37, 0x00, 0x02, 0x00, 0x00]),
         ])
-    def test_string_values_keyboard_qwerty(self, setting_info2, value, expected):  # noqa
-        bytes_ = buttons.process_value(setting_info2, value)
+    def test_string_values_keyboard_qwerty(self, setting_info1, value, expected):  # noqa
+        bytes_ = buttons.process_value(setting_info1, value)
         assert bytes_ == expected
 
     @pytest.mark.parametrize("value,expected", [
@@ -130,11 +130,11 @@ class TestProcessValue(object):
         ("buttons(button1=Previous)", [0x61, 0xB6, 0x00, 0x02, 0x00, 0x00]),
         ("buttons(button1=VolumeUp)", [0x61, 0xE9, 0x00, 0x02, 0x00, 0x00]),
         ("buttons(button1=VolumeDown)", [0x61, 0xEA, 0x00, 0x02, 0x00, 0x00]),
-        ("buttons(button1=Vol+)", [0x61, 0xEA, 0x00, 0x02, 0x00, 0x00]),
-        ("buttons(button1=vol+)", [0x61, 0xEA, 0x00, 0x02, 0x00, 0x00]),
+        ("buttons(button1=Vol+)", [0x61, 0xE9, 0x00, 0x02, 0x00, 0x00]),
+        ("buttons(button1=vol+)", [0x61, 0xE9, 0x00, 0x02, 0x00, 0x00]),
         ])
-    def test_string_values_multimedia(self, setting_info2, value, expected):  # noqa
-        bytes_ = buttons.process_value(setting_info2, value)
+    def test_string_values_multimedia(self, setting_info1, value, expected):  # noqa
+        bytes_ = buttons.process_value(setting_info1, value)
         assert bytes_ == expected
 
     @pytest.mark.parametrize("value,expected", [
@@ -145,8 +145,8 @@ class TestProcessValue(object):
         ("buttons(button1=scrolldwn)", [0x32, 0x00, 0x00, 0x02, 0x00, 0x00]),
         ("buttons(button1=scrollDn)", [0x32, 0x00, 0x00, 0x02, 0x00, 0x00]),
         ])
-    def test_string_values_scroll(self, setting_info2, value, expected):
-        bytes_ = buttons.process_value(setting_info2, value)
+    def test_string_values_scroll(self, setting_info1, value, expected):
+        bytes_ = buttons.process_value(setting_info1, value)
         assert bytes_ == expected
 
     def test_string_value_dpi(self, setting_info1):
