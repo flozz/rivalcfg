@@ -18,8 +18,8 @@ Example of a tactile value type in a device profile:
             "feedback": {
                 "label": "Feedback",
                 "description": "Feedback type",
-                "command": [0x59, 0x01, 0x00],
-                "value_type": "unknown",
+                "command": [0x92, 0x00],
+                "value_type": "tactile_button_map",
             },
         },
 
@@ -102,7 +102,10 @@ def process_value(setting_info, choices):
 
 def add_cli_option(cli_parser, setting_name, setting_info):
 
-    description = "(Button 1-7 are avilable to clear a setting use feeback none, syntax: button1=softpulse,button2=lightbump...)"
+    description = setting_info["description"] + (
+                 ", Buttons 1-7 are avilable for mapping, to clear a"
+                 " setting use feedback type none, "
+                 "syntax: button1=softpulse,button2=lightbump...")
 
     cli_parser.add_argument(
             *setting_info["cli"],
