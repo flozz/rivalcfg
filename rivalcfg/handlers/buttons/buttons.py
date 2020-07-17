@@ -3,7 +3,7 @@ TODO
 """
 
 
-# import argparse
+import argparse
 
 from ...helpers import parse_param_string, REGEXP_PARAM_STRING
 from . import layout_multimedia
@@ -111,7 +111,7 @@ def process_value(setting_info, mapping):
     packet_length = len(buttons) * 3
     packet = [0x00] * packet_length
 
-    for button, value in [(k.lower(), v) for k, v in mapping["buttons"].items()]:  # noqa
+    for button, value in [(k.lower(), v) for k, v in mapping["buttons"].items()]:  # noqa: E501
         if button == "layout":
             continue
         if button not in buttons:
@@ -140,8 +140,60 @@ def process_value(setting_info, mapping):
     return packet
 
 
+def is_buttons(string, setting_info):
+    """Checks if the regbradient expression is valid.
+
+    :param str string: The string to validate.
+    :param dict setting_info: the settings info from the mouse profile.
+    :rtype: (bool, str)
+    """
+    available_buttons = {k.lower(): v for k, v in setting_info["buttons"].items()}  # noqa: E501
+
+    try:
+        buttons_dict = parse_param_string(string)
+    except ValueError as e:
+        return False, str(e)
+
+    if "buttons" not in buttons_dict:
+        return False, "Buttons expression must looks like buttons(<BUTTON>=<VALUE>; <BUTTON_N>=<VALUE_N>)"  # noqa: E501
+
+    for key, value in [(k.lower(), v.lower()) for k, v in buttons_dict["buttons"].items()]:  # noqa: E501
+        if key == "layout":
+            if value not in LAYOUTS:
+                return False, "Unknown layout '%s'" % value
+        else:
+            if key not in available_buttons:
+                return False, "This mouse have no button named '%s'" % key
+
+    return True, ""
+
+
+def cli_buttons_validator(setting_info):
+    class CheckButtonsAction(argparse.Action):
+        """Validate buttons from CLI"""
+
+        def __call__(self, parser, namespace, value, option_string=None):
+            if value.lower() == "default":
+                setattr(namespace, self.dest.upper(), value)
+                return
+
+            if REGEXP_PARAM_STRING.match(value):
+                is_valid, reason = is_buttons(value, setting_info)
+
+                if is_valid:
+                    setattr(namespace, self.dest.upper(), value)
+                    return
+
+                raise argparse.ArgumentError(self, "%s" % reason)
+
+            else:
+                raise argparse.ArgumentError(self, "not a valid buttons mapping param: '%s'" % value)  # noqa: E501
+
+    return CheckButtonsAction
+
+
 def add_cli_option(cli_parser, setting_name, setting_info):
-    """Add the given "rgbgradient" type setting to the given CLI arguments parser.
+    """Add the given "buttons" type setting to the given CLI arguments parser.
 
     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     :param str setting_name: The name of the setting.
@@ -157,6 +209,6 @@ def add_cli_option(cli_parser, setting_name, setting_info):
             dest=setting_name,
             help=description,
             type=str,
-            # action=CheckButtonsAction,
+            action=cli_buttons_validator(setting_info),
             metavar=setting_name.upper()
             )

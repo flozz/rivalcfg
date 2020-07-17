@@ -1,4 +1,4 @@
-# import argparse
+import argparse
 
 import pytest
 
@@ -202,69 +202,64 @@ class TestProcessValue(object):
         ]
 
 
-# class TestAddCliOption(object):
-#
-#     @pytest.fixture
-#     def cli(self):
-#         cli = argparse.ArgumentParser()
-#         rgbgradient.add_cli_option(cli, "color0", {
-#             "label": "Logo LED colors and effects",
-#             "description": "Set the colors and the effects of the logo LED",
-#             "cli": ["-c", "--logo-color", "--foobar"],
-#             "report_type": 0x03,  # FEATURE REPORT
-#             "command": [0x5B, 0x00, 0x00],
-#             "value_type": "rgbgradient",
-#             "rgbgradient_header": {
-#                 "header_length": 26,
-#                 "led_id_offsets": [0],
-#                 "duration_offset": 1,
-#                 "duration_length": 2,
-#                 "repeat_offset": 17,
-#                 "triggers_offset": 21,
-#                 "color_count_offset": 25,
-#             },
-#             "led_id": 0x02,
-#             "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
-#         })
-#         return cli
-#
-#     def test_cli_options(self, cli):
-#         assert "-c" in cli.format_help()
-#         assert "--logo-color" in cli.format_help()
-#         assert "--foobar" in cli.format_help()
-#
-#     def test_cli_metavar(self, cli):
-#         assert "-c COLOR0" in cli.format_help()
-#
-#     def test_default_value_displayed(self, cli):
-#         assert "rgbgradient(" in cli.format_help()
-#
-#     @pytest.mark.parametrize("color", [
-#         "#AABBCC",
-#         "#aaBBcc",
-#         "AAbbCC",
-#         "#ABC",
-#         "AbC",
-#         "red",
-#         "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",  # noqa
-#         "rgbgradient(colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff; duration=1000;)",  # noqa
-#         "rgbgradient(colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",
-#         "rgbgradient(colors=0:red,33:#0f0,66:00f)",
-#         ])
-#     def test_passing_valid_color_arguments(self, cli, color):
-#         params = cli.parse_args(["--logo-color", color])
-#         assert params.COLOR0 == color
-#
-#     @pytest.mark.parametrize("color", [
-#         "hello",
-#         "#AABBCCFF",
-#         "~AABBCC",
-#         "#HHIIFF",
-#         "fa0b",
-#         "rgbgradient()",
-#         ])
-#     def test_passing_invalid_color_arguments(self, cli, color):
-#         with pytest.raises(SystemExit) as pytest_wrapped_e:
-#             cli.parse_args(["--logo-color", color])
-#         assert pytest_wrapped_e.type == SystemExit
-#         assert pytest_wrapped_e.value.code == 2
+class TestAddCliOption(object):
+
+    @pytest.fixture
+    def cli(self):
+        cli = argparse.ArgumentParser()
+        buttons.add_cli_option(cli, "buttons0", {
+            "label": "Buttons mapping",
+            "description": "Set the mapping of the buttons",
+            "cli": ["-b", "--buttons", "--foobar"],
+            "command": [0x31, 0x00],
+            "value_type": "buttons",
+
+            "buttons": {
+                "Button1": {"id": 0x01, "offset": 0x00, "default": "button1"},
+                "Button2": {"id": 0x02, "offset": 0x03, "default": "button2"},
+                "Button3": {"id": 0x03, "offset": 0x06, "default": "button3"},
+                "Button4": {"id": 0x04, "offset": 0x09, "default": "button4"},
+                "Button5": {"id": 0x05, "offset": 0x0C, "default": "button5"},
+                "Button6": {"id": 0x06, "offset": 0x0F, "default": "dpi"},
+            },
+
+            "button_disable":     0x00,
+            "button_keyboard":    0x51,
+            "button_multimedia":  0x61,
+            "button_dpi_switch":  0x30,
+            "button_scroll_up":   0x31,
+            "button_scroll_down": 0x32,
+
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)",  # noqa
+        })
+        return cli
+
+    def test_cli_options(self, cli):
+        assert "-b" in cli.format_help()
+        assert "--buttons" in cli.format_help()
+        assert "--foobar" in cli.format_help()
+
+    def test_cli_metavar(self, cli):
+        assert "-b BUTTONS0" in cli.format_help()
+
+    def test_default_value_displayed(self, cli):
+        assert "buttons(" in cli.format_help()
+
+    @pytest.mark.parametrize("buttons", [
+        "default",
+        "buttons(layout=qwerty; button1=button1)",  # noqa
+        ])
+    def test_passing_valid_color_arguments(self, cli, buttons):
+        params = cli.parse_args(["--buttons", buttons])
+        assert params.BUTTONS0 == buttons
+
+    @pytest.mark.parametrize("buttons", [
+        "hello",
+        "buttons()",
+        "buttons(button15=A)",
+        ])
+    def test_passing_invalid_color_arguments(self, cli, buttons):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--buttons", buttons])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2
