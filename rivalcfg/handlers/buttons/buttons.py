@@ -1,6 +1,119 @@
 """
-TODO
-"""
+The "buttons" type handles buttons mapping on device that supports it.
+
+Buttons syntax example::
+
+    default
+    buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)
+    buttons(Button6=DPI)  # all other buttons will be reset to their default values
+
+
+Buttons values
+--------------
+
+Buttons can be mapped to different kind of values:
+
+* ``default`` (to explicitly set the button to its default value)
+* Special actions,
+* Mouse buttons,
+* Multimedia keys,
+* Keyboard keys.
+
+
+Special actions
+~~~~~~~~~~~~~~~
+
+* ``disabled``: disable this button,
+* ``dpi``: use this button to switch between DPI presets,
+* ``ScrollUp`` (not available on all devices)
+* ``ScrollDown`` (not available on all devices)
+
+Example::
+
+    buttons(button6=dpi; button5=disabled)
+
+
+Mouse buttons
+~~~~~~~~~~~~~
+
+Mouse buttons can be remapped using an other mouse button.
+
+For example, this swap the button 1 and 2 of the mouse::
+
+    buttons(button1=button2; button2=button1)
+
+.. WARNING::
+
+    Be careful to map the ``button1`` somewhere, else you will not be able to
+    click! ;)
+
+
+Multimedia keys
+~~~~~~~~~~~~~~~
+
+Example::
+
+    buttons(button8=PlayPause)
+
+List of the available multimedia keys:
+
+* https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_multimedia.py
+
+
+Keyboard keys
+~~~~~~~~~~~~~
+
+Keyboard keys depends on the selected layout.
+
+Examples::
+
+    buttons(layout=QWERTY; button2=A)
+
+.. NOTE::
+
+    Due to some syntax limitation, some keys cannot be mapped used their own
+    symbols. For example, if you want to bind ``;`` to the third button, you
+    will have to use an alias::
+
+        buttons(layout=QWERTY; button3=semicolon)
+
+    More examples::
+
+        buttons(layout=QWERTY; button3=semi; button4=equal)
+
+
+Layouts
+-------
+
+The layout used for mapping keyboard keys can be specified using the ``layout``
+parameter::
+
+    buttons(layout=QWERTY)
+
+Currently, the following layouts are supported:
+
+* ``QWERTY`` (`see available keys <https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py>`_)
+
+If not specified, the ``QWERTY`` layout is used.
+
+
+CLI
+---
+
+Example of CLI option generated with this handler::
+
+  -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
+                        Set the mapping of the buttons (default: buttons(button1=button1;
+                        button2=button2; button3=button3; button4=button4; button5=button5;
+                        button6=dpi; layout=qwerty))
+
+Example of CLI usage::
+
+    rivalcfg --buttons="buttons(layout=qwerty; button1=button1; button6=DPI)
+
+Functions
+---------
+"""  # noqa: E501
 
 
 import argparse
