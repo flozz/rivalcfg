@@ -109,7 +109,8 @@ Example of CLI option generated with this handler::
 
 Example of CLI usage::
 
-    rivalcfg --buttons="buttons(layout=qwerty; button1=button1; button6=DPI)
+    rivalcfg --buttons="buttons(layout=qwerty; button1=button1; button6=DPI)"
+
 
 Functions
 ---------
@@ -155,6 +156,34 @@ def build_layout(layout):
     return full_layout
 
 
+def is_buttons(string, setting_info):
+    """Checks if the regbradient expression is valid.
+
+    :param str string: The string to validate.
+    :param dict setting_info: the settings info from the mouse profile.
+    :rtype: (bool, str)
+    """
+    available_buttons = {k.lower(): v for k, v in setting_info["buttons"].items()}  # noqa: E501
+
+    try:
+        buttons_dict = parse_param_string(string)
+    except ValueError as e:
+        return False, str(e)
+
+    if "buttons" not in buttons_dict:
+        return False, "Buttons expression must looks like buttons(<BUTTON>=<VALUE>; <BUTTON_N>=<VALUE_N>)"  # noqa: E501
+
+    for key, value in [(k.lower(), v.lower()) for k, v in buttons_dict["buttons"].items()]:  # noqa: E501
+        if key == "layout":
+            if value not in LAYOUTS:
+                return False, "Unknown layout '%s'" % value
+        else:
+            if key not in available_buttons:
+                return False, "This mouse have no button named '%s'" % key
+
+    return True, ""
+
+
 def process_value(setting_info, mapping):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
     "rgbcolor" type setting.
@@ -167,6 +196,9 @@ def process_value(setting_info, mapping):
     # -- Parse input values
 
     if type(mapping) in [str, _unicode_type] and REGEXP_PARAM_STRING.match(mapping):  # noqa
+        is_valid, reason = is_buttons(mapping, setting_info)
+        if not is_valid:
+            raise ValueError(reason)
         mapping = parse_param_string(mapping)
     elif type(mapping) in [str, _unicode_type] and mapping.lower() == "default":  # noqa
         mapping = {"buttons": {}}
@@ -174,8 +206,6 @@ def process_value(setting_info, mapping):
         pass
     else:
         raise ValueError("Invalid input value '%s'" % str(mapping))
-
-    # -- TODO Check input
 
     # -- Initialize mouse buttons
 
@@ -251,34 +281,6 @@ def process_value(setting_info, mapping):
             raise ValueError("Unknown button, key or action '%s'" % value)
 
     return packet
-
-
-def is_buttons(string, setting_info):
-    """Checks if the regbradient expression is valid.
-
-    :param str string: The string to validate.
-    :param dict setting_info: the settings info from the mouse profile.
-    :rtype: (bool, str)
-    """
-    available_buttons = {k.lower(): v for k, v in setting_info["buttons"].items()}  # noqa: E501
-
-    try:
-        buttons_dict = parse_param_string(string)
-    except ValueError as e:
-        return False, str(e)
-
-    if "buttons" not in buttons_dict:
-        return False, "Buttons expression must looks like buttons(<BUTTON>=<VALUE>; <BUTTON_N>=<VALUE_N>)"  # noqa: E501
-
-    for key, value in [(k.lower(), v.lower()) for k, v in buttons_dict["buttons"].items()]:  # noqa: E501
-        if key == "layout":
-            if value not in LAYOUTS:
-                return False, "Unknown layout '%s'" % value
-        else:
-            if key not in available_buttons:
-                return False, "This mouse have no button named '%s'" % key
-
-    return True, ""
 
 
 def cli_buttons_validator(setting_info):
