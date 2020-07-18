@@ -1,9 +1,9 @@
 from .. import usbhid
 
 _RIVAL700_RGBGRADIENT_HEADER = {
-    "color_field_length": 139,         # Index of length of colot field (used for padding) 
-    "duration_length": 2,              # Length of the "duration" field (in Bytes)
-    "maxgradient":14,                  # max numbers of gradients see handler rival700_rgbgradient.py
+    "color_field_length": 139,  # Index of length of colot field (used for padding)                                    # noqa
+    "duration_length": 2,       # Length of the "duration" field (in Bytes)                                            # noqa
+    "maxgradient":14,           # max numbers of gradients see handler rival700_rgbgradient.py                         # noqa
 }
 
 _DEFAULT_RIVAL700_RGBGRADIENT = "rival700_rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
@@ -108,7 +108,6 @@ profile = {
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "command": [0x05, 0x00, 0x01],
             "command_suffix": [0xC8, 0x00, 0x00, 0x08, 0x00],
-            "cli": ["-T", "--wheel-trigger"],
             "value_type": "multi_rgbcolor",
             "color_count": 2,
             "default": [["#FF1800", "#FF1800"], 200]
@@ -116,7 +115,7 @@ profile = {
 
         "set_logo_rgbgradient": {
             "description": "test",
-            "cli": ["-O", "--logo-rgbgradient"],
+            "cli": ["-O", "--logo-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rival700_rgbgradient",
@@ -127,13 +126,21 @@ profile = {
 
         "set_wheel_rgbgradient": {
             "description": "test",
-            "cli": ["-o", "--wheel-rgbgradient"],
+            "cli": ["-o", "--wheel-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rival700_rgbgradient",
             "rival700_rgbgradient_header": _RIVAL700_RGBGRADIENT_HEADER,
             "led_id": 0x1,
             "default": _DEFAULT_RIVAL700_RGBGRADIENT,
+        },
+
+        "set_tactile_settings": {
+            "description": "Set tactile feedback for mouse buttons",
+            "cli": ["-f", "--tactile-settings"],
+            "command": [0x92, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "value_type": "tactile_button_map",
         },
     },
 

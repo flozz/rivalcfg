@@ -105,15 +105,12 @@ Functions
 """  # noqa
 
 
-import argparse
-
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
 from ..helpers import bytes_to_high_low_nibbles, nibbles_to_byte
 from ..color_helpers import is_color
 from .rgbgradient import _handle_color_tuple, _handle_color_string
 from .rgbgradient import _handle_rgbgradient_dict, _handle_rgbgradient_string
 from .rgbgradient import is_rgbgradient, CheckGradientAction
-
 
 
 # Compatibility with Python 2.7.
@@ -134,9 +131,9 @@ def process_value(setting_info, colors):
     :param str,tuple,list,dict colors: The color(s).
     :rtype: [int]
     """
-    color_field_length = setting_info["rival700_rgbgradient_header"]["color_field_length"]
-    duration_length = setting_info["rival700_rgbgradient_header"]["duration_length"]
-    maxgradient = setting_info["rival700_rgbgradient_header"]["maxgradient"]
+    color_field_length = setting_info["rival700_rgbgradient_header"]["color_field_length"] # noqa
+    duration_length = setting_info["rival700_rgbgradient_header"]["duration_length"]       # noqa
+    maxgradient = setting_info["rival700_rgbgradient_header"]["maxgradient"]               # noqa
     duration = _default_duration
     gradient = []
 
@@ -167,7 +164,8 @@ def process_value(setting_info, colors):
     command for up to 16 rgbgradient patterns and it will take 16 arguments.
     """
     if len(gradient) > maxgradient:
-        raise ValueError("a maximum of %i color stops are allowed" % (maxgradient))
+        raise ValueError("a maximum of %i color stops are allowed" %
+                         (maxgradient))
 
     # TODO check pos orders
 
@@ -199,7 +197,7 @@ def process_value(setting_info, colors):
         time = int((duration / 100) * pos)
         last_pos = last_pos + pos
         if time == 0:
-            raise ValueError("Incompatble times set, please set different timings")
+            raise ValueError("Incompatble timings set, please set different timings") # noqa
         index = 0
         for rgb in color:
             diff = rgb - oldcolor[index]
