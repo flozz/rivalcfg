@@ -144,4 +144,3 @@ def bytes_to_high_low_nibbles(byte):
 
 def nibbles_to_byte(nibble1, nibble2):
     return (nibble1 << 4) | (nibble2 >> 4)
-    
