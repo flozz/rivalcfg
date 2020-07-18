@@ -68,6 +68,8 @@ class TestProcessValue(object):
                 "button2": {"id": 0x02, "offset": 0x03, "default": "button2"},
             },
 
+            "button_field_length": 3,
+
             "button_disable":     0x00,
             "button_keyboard":    0x51,
             "button_multimedia":  0x61,
@@ -87,6 +89,8 @@ class TestProcessValue(object):
                 "button3": {"id": 0x03, "offset": 0x06, "default": "next"},
                 "button4": {"id": 0x04, "offset": 0x09, "default": "dpi"},
             },
+
+            "button_field_length": 3,
 
             "button_disable":     0x00,
             "button_keyboard":    0x51,

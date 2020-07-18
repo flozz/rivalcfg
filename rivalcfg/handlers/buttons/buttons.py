@@ -251,7 +251,7 @@ def process_value(setting_info, mapping):
 
     # -- Craft packet
 
-    packet_length = len(buttons) * 3
+    packet_length = len(buttons) * setting_info["button_field_length"]
     packet = [0x00] * packet_length
 
     for button, value in [(k.lower(), v) for k, v in mapping["buttons"].items()]:  # noqa: E501

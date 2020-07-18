@@ -165,12 +165,14 @@ profile = {
 
             "buttons": {
                 "Button1": {"id": 0x01, "offset": 0x00, "default": "button1"},
-                "Button2": {"id": 0x02, "offset": 0x03, "default": "button2"},
-                "Button3": {"id": 0x03, "offset": 0x06, "default": "button3"},
-                "Button4": {"id": 0x04, "offset": 0x09, "default": "button4"},
-                "Button5": {"id": 0x05, "offset": 0x0C, "default": "button5"},
-                "Button6": {"id": 0x06, "offset": 0x0F, "default": "dpi"},
+                "Button2": {"id": 0x02, "offset": 0x05, "default": "button2"},
+                "Button3": {"id": 0x03, "offset": 0x0A, "default": "button3"},
+                "Button4": {"id": 0x04, "offset": 0x0F, "default": "button4"},
+                "Button5": {"id": 0x05, "offset": 0x14, "default": "button5"},
+                "Button6": {"id": 0x06, "offset": 0x19, "default": "dpi"},
             },
+
+            "button_field_length": 5,
 
             "button_disable":     0x00,
             "button_keyboard":    0x51,
