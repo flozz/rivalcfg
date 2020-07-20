@@ -196,7 +196,7 @@ def build_layout(layout):
 
     for alias, ref in layout.aliases.items():
         if ref not in layout.layout:
-            raise ValueError("Wrong alias: '%s' aliases '%' but '%s' is not in the layout" % (  # noqa
+            raise ValueError("Wrong alias: '%s' aliases '%s' but '%s' is not in the layout" % (  # noqa
                 alias, ref, ref))
         full_layout[alias.lower()] = layout.layout[ref]
 
