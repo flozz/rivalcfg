@@ -116,7 +116,6 @@ from .rgbgradient import is_rgbgradient, CheckGradientAction
 # Compatibility with Python 2.7.
 # On Python 2 the type is 'unicode'
 # On Python 3 the type is 'str'
-
 _unicode_type = type(u"")
 
 _default_duration = 1000
@@ -160,61 +159,63 @@ def process_value(setting_info, colors):
     if len(gradient) == 0:
         raise ValueError("no color: %s" % str(colors))
 
-    """ Sse allowes a maximun of 14 rgbgradient patterns but there is room in the
-    command for up to 16 rgbgradient patterns and it will take 16 arguments.
-    """
-    if len(gradient) > maxgradient:
+    # Sse allowes a maximun of 14 rgbgradient patterns but there is room in the
+    # command for up to 16 rgbgradient patterns and it will take 16 arguments.
+    gradient_length = len(gradient)
+    if gradient_length > maxgradient:
         raise ValueError("a maximum of %i color stops are allowed" %
                          (maxgradient))
+    # Sse limits minimum duration depening the the amount of gradient arguments
+    minimum_duration = gradient_length * 33.3
+    if duration <= minimum_duration:
+        raise ValueError("a duration of above %i is need for %i gradient" %
+                         (minimum_duration, gradient_length))
 
     # TODO check pos orders
 
     # -- Generate header
 
     start_header = [0x1d, 0x01, 0x02, 0x31, 0x51, 0xff, 0xc8, 0x00]
-    """            [0xff, 0x3c, 0x00, 0xff, 0x32, 0xc8, 0xc8, 0x00]
-    [WIP] header command
-    """
+    #              [0xff, 0x3c, 0x00, 0xff, 0x32, 0xc8, 0xc8, 0x00]
+    # [WIP] header command
     header = merge_bytes(setting_info["led_id"], start_header)
 
-    """ 7 bytes in a stage, first byte is index, 2nd is padding,
-    3-5 is signed bytes depecting color increase/decrease, 6 bytes
-    is padding, the 7-8 is time since last stage in ms
-    Process colors and positions in shift array, appending each stage
-    to the previous one
-    """
-    stage = []
-    last_pos = gradient[0]["pos"]
-    start_color = gradient[0]["color"]
+    # 8 bytes in a stage, first byte is index, 2nd is padding,
+    # 3-5 is signed bytes depecting color increase/decrease, 6 bytes
+    # is padding, the 7-8 is time since last stage in ms
+    # Process colors and positions in shift array, appending each stage
+    # to the previous one
 
-    oldcolor = list(start_color)
-    num = 0
+    last_real_pos = gradient[0]["pos"]
+    start_color = gradient[0]["color"]
     del gradient[0]
+
+    index = 0
+    stage = []
+    oldcolor = list(start_color)
     for pos, color in [(item["pos"], item["color"]) for item in gradient]:
-        stage.append(num)  # Stage index number
-        stage.append(00)   # Padding
-        pos = pos - last_pos
-        time = int((duration / 100) * pos)
-        last_pos = last_pos + pos
+        stage.append(index)  # Stage index number
+        stage.append(00)  # Padding
+        time = int((duration / 100) * (pos - last_real_pos))
+        last_real_pos = pos
         if time == 0:
             raise ValueError("Incompatble timings set, please set different timings") # noqa
-        index = 0
+        rgb_index = 0
         for rgb in color:
-            diff = rgb - oldcolor[index]
+            diff = rgb - oldcolor[rgb_index]
             ramp = int(diff / time * 16)
-            oldcolor[index] = rgb
+            oldcolor[rgb_index] = rgb
             stage = merge_bytes(stage, ramp & 255)
-            index = index + 1
-            # print("rgb", rgb, diff, ramp, ramp & 255, hex(ramp & 255),num)
+            rgb_index = rgb_index + 1
         stage.append(00)  # Padding
         time = uint_to_little_endian_bytearray(time, 2)
         stage = merge_bytes(stage, time)
-        num = num + 1
+        index = index + 1
 
     header = merge_bytes(header, stage)
-    """ Pad the rest of the command so we can place start color, end suffix and
-    cycle time at the correct location in the command
-    """
+    # Pad the rest of the command so we can place start color, end suffix and
+    # cycle time at the correct offset in the command
+
     padding = [0] * (color_field_length - len(header))
     header = merge_bytes(header, padding)
     duration = uint_to_little_endian_bytearray(duration, duration_length)
