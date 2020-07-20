@@ -165,11 +165,16 @@ def process_value(setting_info, colors):
     if gradient_length > maxgradient:
         raise ValueError("a maximum of %i color stops are allowed" %
                          (maxgradient))
+
     # Sse limits minimum duration depening the the amount of gradient arguments
-    minimum_duration = gradient_length * 33.3
-    if duration <= minimum_duration:
-        raise ValueError("a duration of above %i is need for %i gradient" %
+    minimum_duration = -(-(gradient_length * 33.3) // 1)
+    if duration < minimum_duration:
+        raise ValueError("a duration of %i or above is need for %i gradient" %
                          (minimum_duration, gradient_length))
+
+    # See allows a max duration of 30.00 sec
+    if duration > 30000:
+        raise ValueError("a maximum duration of 30000ms is allowed")
 
     # TODO check pos orders
 
