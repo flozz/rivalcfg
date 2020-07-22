@@ -114,7 +114,7 @@ profile = {
         },
 
         "set_logo_rgbgradient": {
-            "description": "test",
+            "description": "Set the logo colors and effects",
             "cli": ["-O", "--logo-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
@@ -125,7 +125,7 @@ profile = {
         },
 
         "set_wheel_rgbgradient": {
-            "description": "test",
+            "description": "Set the wheel colors and effects",
             "cli": ["-o", "--wheel-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,

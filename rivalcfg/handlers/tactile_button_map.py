@@ -42,6 +42,9 @@ Functions
 ---------
 """
 
+from ..helpers import parse_param_string
+
+
 NAMED_HAPTIC = {
     "none":                 0x00,
     "strongclick":          0x04,
@@ -55,25 +58,64 @@ NAMED_HAPTIC = {
     "pulsing":              0x35,
 }
 
-# Button position in command stream
-BUTTON_POSITION = {
-    "mouse1":           2,
-    "leftclick":        2,
-    "mouse2":           6,
-    "rightclick":       6,
-    "mouse3":           10,
-    "mouse4":           14,
-    "backwards":        14,
-    "mouse5":           18,
-    "forwards":         18,
-    "mouse6":           22,
-    "mouse7":           26,
-    "cpi":              26,
-    "cpitoggle":        26,
+# Button offset in command stream
+BUTTON_OFFSETS = {
+    "button1":              0x01,
+    "leftclick":            0x01,
+    "button2":              0x05,
+    "rightclick":           0x05,
+    "button3":              0x09,
+    "button4":              0x0d,
+    "backwards":            0x0d,
+    "button5":              0x11,
+    "forwards":             0x11,
+    "button6":              0x15,
+    "button7":              0x19,
+    "cpi":                  0x19,
+    "cpitoggle":            0x19,
 }
 
 
-def process_value(setting_info, choices):
+def split_table(table):
+    buttons = []
+    feedback = []
+    tact = []
+    for keys, args in table.items():
+        for bn, fb in args.items():
+            buttons.append(bn)
+            feedback.append(fb)
+            tact = keys
+    return tact, buttons, feedback
+
+
+def is_button(string):
+    if string.lower() in BUTTON_OFFSETS:
+        return True
+
+
+def is_feedback(string):
+    if string.lower() in NAMED_HAPTIC:
+        return True
+
+
+def is_valid_mapping(mapping):
+    tact, buttons, feedbacks = split_table(parse_param_string(mapping))
+    if tact == "tactile":
+        for keys in buttons:
+            if not is_button(keys):
+                raise ValueError("Unable to parse button type %s" % (keys))
+                return False
+        for keys in feedbacks:
+            if not is_feedback(keys):
+                raise ValueError("Unable to parse feedback type %s" % (keys))
+                return False
+        return True
+    else:
+        raise ValueError("Unable to parse key tactile")
+        return False
+
+
+def process_value(setting_info, mapping):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
     "frame" type setting.
 
@@ -82,30 +124,25 @@ def process_value(setting_info, choices):
     """
     """Converts a list of buttons and feeback types to a list of command bytes.
     """
-    result = [0x00] * 28
-    choices = choices.split(",")
-    for x in range(len(choices)):
-        options = choices[x].lower()
-        selection = options.split("=")
-        if selection[0] in BUTTON_POSITION:
-            position = BUTTON_POSITION[selection[0]]-1
-            if selection[1] in NAMED_HAPTIC:
-                haptic = NAMED_HAPTIC[selection[1]]
-                result[position] = haptic
-            else:
-                raise ValueError("Invalid entry set for tactile feedback!")
-        else:
-            raise ValueError("Invalid entry set for mouse button")
-        print("feedback command is", result)
-    return (result)
+    if is_valid_mapping(mapping):
+        command_field = [0x00] * 28
+        tact, buttons, feedbacks = split_table(parse_param_string(mapping))
+        for index in range(len(buttons)):
+            feedback = feedbacks[index]
+            button = buttons[index]
+            offset = BUTTON_OFFSETS[button]
+            haptic = NAMED_HAPTIC[feedback]
+            command_field[offset] = haptic
+        print(command_field)
+        return (command_field)
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
 
     description = setting_info["description"] + (
                  ", Buttons 1-7 are avilable for mapping, to clear a"
-                 " setting use feedback type none, "
-                 "syntax: button1=softpulse,button2=lightbump...")
+                 " setting use feedback type none, syntax: "
+                 "tactile(button1=softpulse; button2=lightbump)")
 
     cli_parser.add_argument(
             *setting_info["cli"],
