@@ -114,9 +114,9 @@ layout = {
     # Navigation
 
     "Home":     0x4A,
-    "PageUp":   0x4E,
+    "PageUp":   0x4B,
     "End":      0x4D,
-    "PageDown": 0x4B,
+    "PageDown": 0x4E,
 
     # Arrows
 

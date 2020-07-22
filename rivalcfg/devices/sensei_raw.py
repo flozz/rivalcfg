@@ -128,8 +128,8 @@ profile = {
                 "Button3": {"id": 0x03, "offset": 0x06, "default": "button3"},
                 "Button4": {"id": 0x04, "offset": 0x09, "default": "button4"},
                 "Button5": {"id": 0x05, "offset": 0x0c, "default": "button5"},
-                "Button6": {"id": 0x06, "offset": 0x0f, "default": "PageDown"},
-                "Button7": {"id": 0x07, "offset": 0x12, "default": "PageUp"},
+                "Button6": {"id": 0x06, "offset": 0x12, "default": "PageDown"},
+                "Button7": {"id": 0x07, "offset": 0x0f, "default": "PageUp"},
                 "Button8": {"id": 0x08, "offset": 0x15, "default": "dpi"},
             },
 
