@@ -176,8 +176,6 @@ def process_value(setting_info, colors):
     if duration > 30000:
         raise ValueError("a maximum duration of 30000ms is allowed")
 
-    # TODO check pos orders
-
     # -- Generate header
 
     start_header = [0x1d, 0x01, 0x02, 0x31, 0x51, 0xff, 0xc8, 0x00]
@@ -199,6 +197,8 @@ def process_value(setting_info, colors):
     stage = []
     oldcolor = list(start_color)
     for pos, color in [(item["pos"], item["color"]) for item in gradient]:
+        if pos <= last_real_pos:
+            raise ValueError("Incorrect order for gradient or duplicate order found please check position order") # noqa
         stage.append(index)  # Stage index number
         stage.append(00)  # Padding
         time = int((duration / 100) * (pos - last_real_pos))
@@ -234,10 +234,14 @@ def process_value(setting_info, colors):
         split_color.append(left_byte)
         split_color.append(right_byte)
 
-    end_suffix = [0xff, 0x00, 0xdc, 0x05, 0x8a, 0x02, 0x00, 0x00, 0x00, 0x00,
-                  0x01, 0x00, 0x03, 0x00]
-    #                         0x0c need to work out what this does
-    suffix = merge_bytes(split_color, end_suffix, duration)
+    end_suffix = [0xff, 0x00]
+    focal_x = uint_to_little_endian_bytearray(1500, 2)
+    focal_y = uint_to_little_endian_bytearray(650, 2)
+    focals = merge_bytes(focal_x, focal_y)
+    end_suffix2 = [0x00, 0x00, 0x00, 0x00, 0x01, 0x00]
+    num_color = uint_to_little_endian_bytearray(gradient_length - 1, 2)
+    suffix = merge_bytes(split_color, end_suffix, focals, end_suffix2,
+                         num_color, duration)
 
     return merge_bytes(header, suffix)
 
