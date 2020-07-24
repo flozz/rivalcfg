@@ -6,8 +6,16 @@ _RIVAL700_RGBGRADIENT_HEADER = {
     "maxgradient":14,           # max numbers of gradients see handler rival700_rgbgradient.py                         # noqa
 }
 
-_DEFAULT_RIVAL700_RGBGRADIENT = "rival700_rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
+_DEFAULT_RIVAL700_RGBGRADIENT = "[8l0rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
 
+_TRIGGER_HEADER = {
+    "header_length": 6,        # Length of the header excuding command / LED ID
+    "led_id_offsets": 3,       # Offset of the "led_id" fields
+    "duration_offset": 8,      # Offset of the "duration" field
+    "duration_length": 2,      # Length of the "duration" field (in Bytes)
+}
+
+_DEFAULT_TRIGGER = "trigger(duration=1000; #ff0000, #00ff00)"  # noqa
 
 profile = {
 
@@ -95,21 +103,21 @@ profile = {
             "description": "Set the wheel backlight color",
             "cli": ["-t", "--logo-trigger"],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "command": [0x05, 0x00, 0x00],
-            "command_suffix": [0xC8, 0x00, 0x00, 0x08, 0x00],
-            "value_type": "multi_rgbcolor",
-            "color_count": 2,
-            "default": [["#FF1800", "#FF1800"], 200]
+            "command": [0x05, 0x00],
+            "command_suffix": [0x00, 0x08, 0x00, 0x00],
+            "value_type": "trigger",
+            "led_id": 0x0,
+            "default": [["#FF3C00", "#FF32C8"], 200]
         },
 
         "set_wheel_trigger": {
             "description": "Set the wheel backlight color",
             "cli": ["-T", "--wheel-trigger"],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "command": [0x05, 0x00, 0x01],
-            "command_suffix": [0xC8, 0x00, 0x00, 0x08, 0x00],
-            "value_type": "multi_rgbcolor",
-            "color_count": 2,
+            "command": [0x05, 0x00],
+            "command_suffix": [0x00, 0x08, 0x00, 0x00],
+            "value_type": "trigger",
+            "led_id": 0x1,
             "default": [["#FF1800", "#FF1800"], 200]
         },
 
@@ -136,8 +144,8 @@ profile = {
         },
 
         "set_tactile_settings": {
-            "description": "Set tactile feedback for mouse buttons",
-            "cli": ["-f", "--tactile-settings"],
+            "description": "Set tactile feedback on click",
+            "cli": ["--ts", "--tactile-settings"],
             "command": [0x92, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "value_type": "tactile_button_map",

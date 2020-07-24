@@ -97,6 +97,50 @@ def parse_color_string(color):
         )
 
 
+def parse_multi_color_string(colors):
+    """Parse a color gradient string.
+
+    :param str gradient: The gradient string.
+    :rtype: list
+
+    >>> parse_color_gradient_string("0%: red, 33%: #00ff00, 66: 00f")
+    [{'pos': 0, 'color': (255, 0, 0)}, {'pos': 33, 'color': (0, 255, 0)}, {'pos': 66, 'color': (0, 0, 255)}]
+    >>> parse_color_gradient_string("-1%: red")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color stop position '-1%'
+    >>> parse_color_gradient_string("150: red")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color stop position '150%'
+    >>> parse_color_gradient_string("42%: hello")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color 'hello'
+    >>> parse_color_gradient_string("hello")
+    Traceback (most recent call last):
+        ...
+    ValueError: invalid color gradient 'hello'. ...
+    """  # noqa
+    colors = colors.replace(" ", "")
+
+    if not re.match(r"[a-zA-Z0-9#]+(,[a-zA-Z0-9#]+)*", colors):  # noqa
+        raise ValueError("invalid multi color argument'%s'. It must looks like <COLOR1>,<COLOR2>,...'" % colors)  # noqa
+
+    result = []
+    colors = colors.split(",")
+    for color in colors:
+
+        if not is_color(color):
+            raise ValueError("invalid color '%s'" % color)
+
+        result.append({
+            "color": parse_color_string(color),
+            })
+
+    return result
+
+
 def parse_color_gradient_string(gradient):
     """Parse a color gradient string.
 
