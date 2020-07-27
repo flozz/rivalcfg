@@ -104,7 +104,8 @@ Example::
 
    Some caracters like ``;`` or ``=`` cannot be used as key identified as they
    interfer with the ``buttons()`` syntax. For those keys, use one of the
-   available aliases, like ``semicolon`` (``;``) or ``equal`` (``=``).
+   available aliases, like ``semicolon`` (instead of ``;``) or ``equal``
+   (instead of ``=``).
 
    Example::
 
