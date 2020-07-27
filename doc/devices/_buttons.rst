@@ -85,4 +85,27 @@ Example::
 Mapping Keyboard Keys
 ~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+Mouse buttons can be mapped to any keyboard keys, using different layouts.
+
+To select the desired layout, just use the ``layout`` parameter. If this
+parameter is not specified, the ``QWERTY`` layout will be used by default.
+
+Available layouts:
+
+* ``QWERTY`` (`see available keys <https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py>`_)
+
+The available keys depends on the selected layout.
+
+Example::
+
+    buttons(layout=QWERTY; button7=PageDown; button8=PageUp)
+
+.. NOTE::
+
+   Some caracters like ``;`` or ``=`` cannot be used as key identified as they
+   interfer with the ``buttons()`` syntax. For those keys, use one of the
+   available aliases, like ``semicolon`` (``;``) or ``equal`` (``=``).
+
+   Example::
+
+       buttons(button4=semicolon; button5=equal)
