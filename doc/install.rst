@@ -2,6 +2,13 @@ Installing
 ==========
 
 
+.. IMPORTANT::
+
+   In this page, both Python 2 and Python 3 commands are provided. Prefer the
+   Python 3 ones if it is available on your system as Python 2 is deprecated
+   and its support will be dropped some day.
+
+
 Prerequisites
 -------------
 
@@ -17,7 +24,8 @@ Installation require a compilation toolchain and python headers to
 compile ``hidapi``. On Debian / Ubuntu, this can be installed with the
 following command (as root)::
 
-   apt install build-essential python-dev libusb-1.0-0-dev libudev-dev
+   apt install build-essential python-pip python-dev libusb-1.0-0-dev libudev-dev    # Python 2
+   apt install build-essential python3-pip python3-dev libusb-1.0-0-dev libudev-dev  # Python 3
 
 
 Windows
@@ -34,7 +42,8 @@ Installing From PYPI
 
 Run the following command (as root)::
 
-   pip install rivalcfg
+   pip install rivalcfg   # Python 2
+   pip3 install rivalcfg  # Python 3
 
 
 Installing From sources
@@ -47,7 +56,8 @@ Clone the repository::
 
 Install rivalcfg (as root)::
 
-   pip install .
+   pip install .   # Python 2
+   pip3 install .  # Python 3
 
 
 Archlinux AUR package

@@ -32,6 +32,7 @@ The following system are not supported (yet?):
 
 * Haiku (the hidapi library cannot be installed on this OS for now, it needs to
   be ported).
+* GNU Hurd
 
 
 Python Versions
