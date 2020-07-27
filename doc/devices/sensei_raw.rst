@@ -17,6 +17,9 @@ Command-Line Usage
 Buttons
 -------
 
+.. figure:: ./images/sensei_raw_buttons.svg
+   :alt: Sensei [RAW] buttons schema
+
 .. include:: ./_buttons.rst
 
 

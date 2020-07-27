@@ -25,6 +25,9 @@ This mouse supports colors. Various formats are supported.
 Buttons
 -------
 
+.. figure:: ./images/rival_300_buttons.svg
+   :alt: Rival 300 and Original buttons schema
+
 .. include:: ./_buttons.rst
 
 
