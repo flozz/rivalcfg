@@ -49,7 +49,7 @@ Example::
 
 .. NOTE::
 
-   **¹** The ``SrollUp`` and ``ScrollDown`` actions are not available on all devices.
+   **¹** The ``ScrollUp`` and ``ScrollDown`` actions are not available on all devices.
 
    * **Rival 300 / Rival:** OK
    * **Sensei [RAW]:** Not supported
@@ -58,13 +58,28 @@ Example::
 Mapping Mouse Buttons
 ~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+Mouse buttons can be mapped to any other mouse button.
+
+For example, this swap the button 1 and 2 of the mouse::
+
+    buttons(button1=button2; button2=button1)
 
 
 Mapping Multimedia Keys
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+Mouse buttons can be mapped to multimedia keys. The following keys are available:
+
+* ``Mute``: turn off the sound
+* ``Next``: play next media
+* ``PlayPause``: toggle play / pause on the currently playing media
+* ``Previous``: play the previous media
+* ``VolumeUp``: increase the volume
+* ``VolumeDown``: decrease the volume
+
+Example::
+
+    buttons(button4=VolumeDown; button5=VolumeUp)
 
 
 Mapping Keyboard Keys
