@@ -19,3 +19,4 @@ a device profile. Each handler module provides at least two functions:
    ./rgbcolor.rst
    ./multi_rgbcolor.rst
    ./rgbgradient.rst
+   ./buttons.rst

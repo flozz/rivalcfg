@@ -114,7 +114,36 @@ profile = {
             "default": "breath",
         },
 
-        # TODO buttons mapping (0x31 0x00)
+        "buttons_mapping": {
+            "label": "Buttons mapping",
+            "description": "Set the mapping of the buttons",
+            "cli": ["-b", "--buttons"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x31, 0x00],
+            "value_type": "buttons",
+
+            "buttons": {
+                "Button1": {"id": 0x01, "offset": 0x00, "default": "button1"},
+                "Button2": {"id": 0x02, "offset": 0x03, "default": "button2"},
+                "Button3": {"id": 0x03, "offset": 0x06, "default": "button3"},
+                "Button4": {"id": 0x04, "offset": 0x09, "default": "button4"},
+                "Button5": {"id": 0x05, "offset": 0x0c, "default": "button5"},
+                "Button6": {"id": 0x06, "offset": 0x12, "default": "PageDown"},
+                "Button7": {"id": 0x07, "offset": 0x0f, "default": "PageUp"},
+                "Button8": {"id": 0x08, "offset": 0x15, "default": "dpi"},
+            },
+
+            "button_field_length": 3,
+
+            "button_disable":     0x00,
+            "button_keyboard":    0x10,
+            "button_multimedia":  0x11,
+            "button_dpi_switch":  0x30,
+            "button_scroll_up":   None,
+            "button_scroll_down": None,
+
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=PageDown; button7=PageUp; button8=dpi; layout=qwerty)",  # noqa
+        },
 
     },
 
