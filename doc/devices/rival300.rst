@@ -22,6 +22,12 @@ This mouse supports colors. Various formats are supported.
 .. include:: ./_colors.rst
 
 
+Buttons
+-------
+
+.. include:: ./_buttons.rst
+
+
 Python API
 ----------
 
