@@ -8,12 +8,17 @@ _PACKET_LENGTH = 32
 
 profile = {
 
-    "name": "SteelSeries Rival 110",
+    "name": "SteelSeries Rival 110 / SteelSeries Rival 106",
 
     "models": [{
         "name": "SteelSeries Rival 110",
         "vendor_id": 0x1038,
         "product_id": 0x1729,
+        "endpoint": 0,
+    }, {
+        "name": "SteelSeries Rival 106",
+        "vendor_id": 0x1038,
+        "product_id": 0x1816,
         "endpoint": 0,
     }],
 

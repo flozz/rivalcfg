@@ -1,5 +1,5 @@
-SteelSeries Rival 110
-=====================
+SteelSeries Rival 110 and Rival 106
+===================================
 
 
 Supported Models

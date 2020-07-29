@@ -61,6 +61,7 @@ Changelog
     * Support of the Rival 100 (Dell China)
     * Support of the Rival 100 Dota 2 Edition (retail version)
     * Support of the Rival 600 Dota 2 Edition
+    * Support of the Rival 106 (#84, @SethDusek)
 
   * Some devices gained a better support:
 
