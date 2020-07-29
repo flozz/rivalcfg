@@ -241,7 +241,7 @@ def process_value(setting_info, colors):
     # Amount of colors in gradient (command still work if value is incorrect)
     num_color = uint_to_little_endian_bytearray(gradient_length - 1, 2)
     duration = uint_to_little_endian_bytearray(duration, duration_length)
-    suffix = merge_bytes(split_color, end_suffix, focal_x, focal_y, 
+    suffix = merge_bytes(split_color, end_suffix, focal_x, focal_y,
                          end_suffix2, num_color, duration)
 
     return merge_bytes(header, suffix)
