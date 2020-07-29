@@ -68,9 +68,9 @@ profile = {
             "default": 1000,
         },
 
-        "set_logo_rgbgradient": {
+        "logo_rgbgradient": {
             "description": "Set the logo colors and effects",
-            "cli": ["-O", "--logo-colorshift"],
+            "cli": ["-o", "--logo-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbgradientv2",
@@ -79,9 +79,9 @@ profile = {
             "default": _DEFAULT_RGBGRADIENTV2,
         },
 
-        "set_wheel_rgbgradient": {
+        "wheel_rgbgradient": {
             "description": "Set the wheel colors and effects",
-            "cli": ["-o", "--wheel-colorshift"],
+            "cli": ["-O", "--wheel-colorshift"],
             "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "value_type": "rgbgradientv2",

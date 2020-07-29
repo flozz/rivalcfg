@@ -32,7 +32,7 @@ def _check_linux():
         print("\n   Run 'rivalcfg --update-udev' as root to update.\n")
 
 
-def main(args):
+def main(args=sys.argv[1:]):
     # On Linux: check udev rules
     _check_linux()
 
@@ -71,4 +71,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
