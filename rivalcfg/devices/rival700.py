@@ -61,6 +61,27 @@ profile = {
             "default": 1000,
         },
 
+        "wheel_color": {
+            "label": "Wheel LED colors and effects",
+            "description": "Set the colors and the effects of the wheel LED",
+            "cli": ["-C", "--wheel-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x00],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x00, 0x01],
+            "value_type": "rgbcolor",
+            "default": "#FF1800"
+        },
+
+        "logo_color": {
+            "label": "Logo LED colors and effects",
+            "description": "Set the colors and the effects of the logo LED",
+            "cli": ["-c", "--logo-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x01],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x01, 0x01],
+            "value_type": "rgbcolor",
+            "default": "#FF1800"
+        },
     },
 
     "save_command": {
