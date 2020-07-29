@@ -3,7 +3,7 @@ from .. import usbhid
 
 profile = {
 
-    "name": "SteelSeries Rival 700",
+    "name": "SteelSeries Rival 700 / SteelSeries Rival 710",
 
     "models": [{
         "name": "SteelSeries Rival 700",
