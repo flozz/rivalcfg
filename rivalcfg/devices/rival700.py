@@ -10,7 +10,7 @@ _DEFAULT_RGBGRADIENTV2 = "[rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #
 
 profile = {
 
-    "name": "SteelSeries Rival 700",
+    "name": "SteelSeries Rival 700 / SteelSeries Rival 710",
 
     "models": [{
         "name": "SteelSeries Rival 700",
