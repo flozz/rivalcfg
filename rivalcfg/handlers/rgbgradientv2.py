@@ -65,16 +65,12 @@ Example of a rgbgradient value type in a device profile:
                 "command": [0x05, 0x00],
                 "value_type": "rgbgradientv2",
                 "rgbgradient_header": {
-                    "header_length": 28,       # Length of the header excuding command / LED ID
-                    "led_id_offsets": [0, 5],  # Offset of the "led_id" fields
-                    "duration_offset": 6,      # Offset of the "duration" field
-                    "duration_length": 2,      # Length of the "duration" field (in Bytes)
-                    "repeat_offset": 22,       # Offset of the "repeat" flag
-                    "triggers_offset": 23,     # Offset of the "triggers" field (buttons mask)
-                    "color_count_offset": 27,  # Offset of the "color_count" field
+                    "color_field_length": 139,  # Index of length of colot field (used for padding)
+                    "duration_length": 2,       # Length of the "duration" field (in bytes)
+                    "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py
                 },
                 "led_id": 0x01,
-                "default": "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)",
+                "default": "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)",
             },
 
         },
@@ -123,7 +119,7 @@ _default_duration = 1000
 
 def process_value(setting_info, colors):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "rgbcolor" type setting.
+    "rgbgradientv2" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
@@ -229,7 +225,7 @@ def process_value(setting_info, colors):
     for i in range(len(start_color)):
         high, low = bytes_to_high_low_nibbles(start_color[i])
         left_byte = nibbles_to_byte(low, 00)
-        right_byte = high & 0x0F
+        right_byte = nibbles_to_byte(00, high)
         split_color.append(left_byte)
         split_color.append(right_byte)
 
@@ -248,7 +244,7 @@ def process_value(setting_info, colors):
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
-    """Add the given "rgbgradient" type setting to the given CLI arguments parser.
+    """Add the given "rgbgradientv2" type setting to the given CLI arguments parser.
 
     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     :param str setting_name: The name of the setting.
