@@ -96,7 +96,7 @@ from ..color_helpers import is_color, parse_color_string
 
 def process_value(setting_info, value):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "rgbcolor" type setting.
+    "multi_rgbcolor" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.

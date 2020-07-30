@@ -233,7 +233,7 @@ def is_buttons(string, setting_info):
 
 def process_value(setting_info, mapping):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "rgbcolor" type setting.
+    "buttons" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
