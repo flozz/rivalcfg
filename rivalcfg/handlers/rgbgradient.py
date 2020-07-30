@@ -185,7 +185,7 @@ def _handle_rgbgradient_string(colors):
 
 def process_value(setting_info, colors):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "rgbcolor" type setting.
+    "rgbgradient" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
