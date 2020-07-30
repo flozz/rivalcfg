@@ -244,7 +244,8 @@ def process_value(setting_info, colors):
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
-    """Add the given "rgbgradientv2" type setting to the given CLI arguments parser.
+    """Add the given "rgbgradientv2" type setting to the given CLI arguments
+    parser.
 
     :param ArgumentParser cli_parser: An :class:`ArgumentParser` instance.
     :param str setting_name: The name of the setting.
