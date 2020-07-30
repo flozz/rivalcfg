@@ -1,9 +1,16 @@
 from .. import usbhid
 
+_RGBGRADIENTV2_HEADER = {
+    "color_field_length": 139,  # Index of length of colot field (used for padding)                                    # noqa
+    "duration_length": 2,       # Length of the "duration" field (in Bytes)                                            # noqa
+    "maxgradient":14,           # max numbers of gradients see handler rival700_rgbgradient.py                         # noqa
+}
+
+_DEFAULT_RGBGRADIENTV2 = "[rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
 
 profile = {
 
-    "name": "SteelSeries Rival 700",
+    "name": "SteelSeries Rival 700 / SteelSeries Rival 710",
 
     "models": [{
         "name": "SteelSeries Rival 700",
@@ -59,6 +66,28 @@ profile = {
                 1000: 0x01,
             },
             "default": 1000,
+        },
+
+        "logo_rgbgradient": {
+            "description": "Set the logo colors and effects",
+            "cli": ["-o", "--logo-colorshift"],
+            "command": [0x05, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x0,
+            "default": _DEFAULT_RGBGRADIENTV2,
+        },
+
+        "wheel_rgbgradient": {
+            "description": "Set the wheel colors and effects",
+            "cli": ["-O", "--wheel-colorshift"],
+            "command": [0x05, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x1,
+            "default": _DEFAULT_RGBGRADIENTV2,
         },
 
     },
