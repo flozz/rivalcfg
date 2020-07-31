@@ -49,3 +49,28 @@ Example with the Sensei [RAW]::
 
 Look at :ref:`the page dedicated to your device <devices>` for more about
 available CLI options.
+
+
+Why Rivalcfg does not support color gradients / color shift / rainbow lighting effect on my mouse whereas the SteelSeries Engine does?
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Rivalcfg only supports hardware features of the devices, so there is two
+possibilities:
+
+* Your device do not support this feature by hardware, so the SteelSeries
+  Engine sends color command to the mouse several times per second. As Rivalcfg
+  is only a library and a CLI tool, not a deamon, it cannot support this
+  feature. But you can implement it yourself with a Bash script or using the
+  Python API.
+
+* Your device has an hardware support of this feature, but this functionnality
+  is not supported yet by Rivalcfg. In that case, please consider
+  :ref:`contributing <contributing>` to this project! 😁️
+
+Here is an **non-exhausting** list of devices that do not support color
+gradients:
+
+* Rival 3
+* Rival 100
+* Rival 110
+* Rival 300
