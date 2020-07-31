@@ -1,5 +1,5 @@
 """
-The "rgbgradient" type handles RGB color gradients. Simple RGB color can also
+The "rgbgradientv2" type handles RGB color gradients. Simple RGB color can also
 be used.
 
 RGB gradient syntax example::
