@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
-    <link rel="prev" title="SteelSeries Sensei 310" href="devices/sensei310.html" /> 
+    <link rel="prev" title="SteelSeries Sensei [RAW]" href="devices/sensei_raw.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,6 +93,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-turn-the-lights-off">How can I turn the lights off?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-dim-the-brightness-of-the-lights">How can I dim the brightness of the lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-rivalcfg-does-not-support-color-gradients-color-shift-rainbow-lighting-effect-on-my-mouse-whereas-the-steelseries-engine-does">Why Rivalcfg does not support color gradients / color shift / rainbow lighting effect on my mouse whereas the SteelSeries Engine does?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -165,7 +166,8 @@
 <h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="how-can-i-turn-the-lights-off">
 <h2>How can I turn the lights off?<a class="headerlink" href="#how-can-i-turn-the-lights-off" title="Permalink to this headline">¶</a></h2>
-<p>You can turn the lights off by setting the black color to the lights.</p>
+<p>On devices that supports RGB colors, you can turn the lights off by setting the
+black color to the LED.</p>
 <p>Example with Rival 100:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">black</span>
 </pre></div>
@@ -174,12 +176,57 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">black</span> <span class="o">--</span><span class="n">wheel</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">black</span>
 </pre></div>
 </div>
+<p>On devices that have monochrome LEDs, you can turn the lights off using the
+LED brightness option.</p>
+<p>Example with the Sensei [RAW]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">led</span><span class="o">-</span><span class="n">brightness</span><span class="o">=</span><span class="n">off</span>
+</pre></div>
+</div>
+<p>Example with the Kana v2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">led</span><span class="o">-</span><span class="n">brightness1</span><span class="o">=</span><span class="n">off</span> <span class="o">--</span><span class="n">led</span><span class="o">-</span><span class="n">brightness2</span><span class="o">=</span><span class="n">off</span>
+</pre></div>
+</div>
+<p>Look at <a class="reference internal" href="devices/index.html#devices"><span class="std std-ref">the page dedicated to your device</span></a> for more about
+available CLI options.</p>
 </div>
 <div class="section" id="how-can-i-dim-the-brightness-of-the-lights">
 <h2>How can I dim the brightness of the lights<a class="headerlink" href="#how-can-i-dim-the-brightness-of-the-lights" title="Permalink to this headline">¶</a></h2>
-<p>Lights are configured via RGB color, so to have a lower brightness, just
-set a darker color (e.g. <code class="docutils literal notranslate"><span class="pre">#880000</span></code> instead of <code class="docutils literal notranslate"><span class="pre">#FF0000</span></code> for a darker
-red).</p>
+<p>On devices that supports RGB colors, just set a darker color (e.g. <code class="docutils literal notranslate"><span class="pre">#880000</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">#FF0000</span></code> for a darker red).</p>
+<p>Example with Rival 100:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="mi">880000</span>
+</pre></div>
+</div>
+<p>On devices that have monochrome LEDs, use the LED brightness option.</p>
+<p>Example with the Sensei [RAW]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">led</span><span class="o">-</span><span class="n">brightness</span><span class="o">=</span><span class="n">low</span>
+</pre></div>
+</div>
+<p>Look at <a class="reference internal" href="devices/index.html#devices"><span class="std std-ref">the page dedicated to your device</span></a> for more about
+available CLI options.</p>
+</div>
+<div class="section" id="why-rivalcfg-does-not-support-color-gradients-color-shift-rainbow-lighting-effect-on-my-mouse-whereas-the-steelseries-engine-does">
+<h2>Why Rivalcfg does not support color gradients / color shift / rainbow lighting effect on my mouse whereas the SteelSeries Engine does?<a class="headerlink" href="#why-rivalcfg-does-not-support-color-gradients-color-shift-rainbow-lighting-effect-on-my-mouse-whereas-the-steelseries-engine-does" title="Permalink to this headline">¶</a></h2>
+<p>Rivalcfg only supports hardware features of the devices, so there is two
+possibilities:</p>
+<ul class="simple">
+<li><p>Your device do not support this feature by hardware, so the SteelSeries
+Engine sends color command to the mouse several times per second. As Rivalcfg
+is only a library and a CLI tool, not a deamon, it cannot support this
+feature. But you can implement it yourself with a Bash script or using the
+Python API.</p></li>
+<li><p>Your device has an hardware support of this feature, but this functionnality
+is not supported yet by Rivalcfg. In that case, please consider
+<a class="reference internal" href="contributing.html#contributing"><span class="std std-ref">contributing</span></a> to this project! 😁️</p></li>
+</ul>
+<p>Here is an <strong>non-exhausting</strong> list of devices that do not support color
+gradients:</p>
+<ul class="simple">
+<li><p>Rival 3</p></li>
+<li><p>Rival 100</p></li>
+<li><p>Rival 110</p></li>
+<li><p>Rival 300</p></li>
+</ul>
 </div>
 </div>
 
@@ -194,7 +241,7 @@ red).</p>
         <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="devices/sensei310.html" class="btn btn-neutral float-left" title="SteelSeries Sensei 310" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="devices/sensei_raw.html" class="btn btn-neutral float-left" title="SteelSeries Sensei [RAW]" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

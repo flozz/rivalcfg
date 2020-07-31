@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rgbcolor &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  <title>multi_rgbcolor &mdash; rivalcfg 4.0.0.dev0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="multi_rgbcolor" href="multi_rgbcolor.html" />
-    <link rel="prev" title="multidpi_range" href="multidpi_range.html" /> 
+    <link rel="next" title="rgbgradient" href="rgbgradient.html" />
+    <link rel="prev" title="rgbcolor" href="rgbcolor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,8 +98,8 @@
 <li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">rgbcolor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="multi_rgbcolor.html">multi_rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">multi_rgbcolor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
 <li class="toctree-l4"><a class="reference internal" href="buttons.html">buttons</a></li>
 </ul>
@@ -167,13 +167,13 @@
         
           <li><a href="index.html">handlers</a> &raquo;</li>
         
-      <li>rgbcolor</li>
+      <li>multi_rgbcolor</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/python_api/internal/handlers/rgbcolor.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/python_api/internal/handlers/multi_rgbcolor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -186,9 +186,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-rivalcfg.handlers.rgbcolor">
-<span id="rgbcolor"></span><h1>rgbcolor<a class="headerlink" href="#module-rivalcfg.handlers.rgbcolor" title="Permalink to this headline">¶</a></h1>
-<p>The “rgbcolor” type handles RGB color values.</p>
+  <div class="section" id="module-rivalcfg.handlers.multi_rgbcolor">
+<span id="multi-rgbcolor"></span><h1>multi_rgbcolor<a class="headerlink" href="#module-rivalcfg.handlers.multi_rgbcolor" title="Permalink to this headline">¶</a></h1>
+<p>The “multi_rgbcolor” type handles multiple RGB color values in one command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">COLOR</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">COLOR1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">COLOR2</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">COLOR</span> <span class="n">N</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 <p>It supports hexadecimal colors:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">#FF0000</span></code></p></li>
@@ -200,6 +206,8 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[[255,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">255,</span> <span class="pre">0],</span> <span class="pre">...]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[(255,</span> <span class="pre">0,</span> <span class="pre">0),</span> <span class="pre">&quot;lime&quot;,</span> <span class="pre">&quot;#0000ff&quot;,</span> <span class="pre">...]</span></code></p></li>
 </ul>
 <p>and named colors:</p>
 <table class="docutils align-default">
@@ -242,11 +250,12 @@
     <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
 
         <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;LED color&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the mouse backlight color&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;LED colors&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the color of the mouse LEDs&quot;</span><span class="p">,</span>
             <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--color&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
-            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbcolor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mh">0x0A</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x0F</span><span class="p">],</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;multi_rgbcolor&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;color_count&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
             <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF1800&quot;</span>
         <span class="p">},</span>
 
@@ -261,30 +270,26 @@
 <div class="section" id="cli">
 <h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
 <p>Example of CLI option generated with this handler:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">COLOR</span><span class="p">,</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR</span>
-                    <span class="n">Set</span> <span class="n">the</span> <span class="n">mouse</span> <span class="n">backlight</span> <span class="n">color</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">red</span><span class="p">,</span> <span class="c1">#ff0000,</span>
-                    <span class="n">ff0000</span><span class="p">,</span> <span class="c1">#f00, f00, default: #FF1800)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">COLORS</span><span class="p">,</span> <span class="o">--</span><span class="n">colors</span> <span class="n">COLORS</span>
+                     <span class="n">Set</span> <span class="n">the</span> <span class="n">color</span> <span class="n">of</span> <span class="n">the</span> <span class="n">mouse</span> <span class="n">LEDs</span> <span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="s1">&#39;&lt;COLOR&gt;&#39;</span> <span class="ow">or</span>
+                     <span class="s1">&#39;&lt;COLOR_TOP&gt;,&lt;COLOR_MIDDLE&gt;,&lt;COLOR_BOTTOM&gt;,&lt;COLOR_LOGO&gt;&#39;</span><span class="p">)</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span>
+                     <span class="c1">#FF1800)</span>
 </pre></div>
 </div>
 <p>Example of CLI usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">red</span>
 <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">ff0000</span>
-<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">f00</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">red</span><span class="p">,</span><span class="n">aqua</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">purple</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="rivalcfg.handlers.rgbcolor.CheckColorAction">
-<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.handlers.rgbcolor.</code><code class="sig-name descname">CheckColorAction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">option_strings</span></em>, <em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">nargs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">const</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">choices</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">help</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metavar</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.CheckColorAction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate colors from CLI</p>
-</dd></dl>
-
 <dl class="py function">
-<dt id="rivalcfg.handlers.rgbcolor.add_cli_option">
-<code class="sig-prename descclassname">rivalcfg.handlers.rgbcolor.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.add_cli_option" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add the given “rgbcolor” type setting to the given CLI arguments parser.</p>
+<dt id="rivalcfg.handlers.multi_rgbcolor.add_cli_option">
+<code class="sig-prename descclassname">rivalcfg.handlers.multi_rgbcolor.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multi_rgbcolor.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given “multi_rgbcolor” type setting to the given CLI arguments
+parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -298,20 +303,20 @@ device profile.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.handlers.rgbcolor.process_value">
-<code class="sig-prename descclassname">rivalcfg.handlers.rgbcolor.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">color</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.process_value" title="Permalink to this definition">¶</a></dt>
+<dt id="rivalcfg.handlers.multi_rgbcolor.process_value">
+<code class="sig-prename descclassname">rivalcfg.handlers.multi_rgbcolor.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multi_rgbcolor.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
-“rgbcolor” type setting.</p>
+“multi_rgbcolor” type setting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
 device profile.</p></li>
-<li><p><strong>color</strong> (<em>str</em><em>,</em><em>tuple</em><em>,</em><em>list</em>) – The color.</p></li>
+<li><p><strong>value</strong> (<em>str</em><em>,</em><em>tuple</em><em>,</em><em>list</em>) – The color.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>[int, int, int]</p>
+<dd class="field-even"><p>[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -327,10 +332,10 @@ device profile.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="multi_rgbcolor.html" class="btn btn-neutral float-right" title="multi_rgbcolor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rgbgradient.html" class="btn btn-neutral float-right" title="rgbgradient" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="multidpi_range.html" class="btn btn-neutral float-left" title="multidpi_range" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rgbcolor.html" class="btn btn-neutral float-left" title="rgbcolor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

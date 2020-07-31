@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="helpers" href="../helpers.html" />
-    <link rel="prev" title="rgbcolor" href="rgbcolor.html" /> 
+    <link rel="next" title="buttons" href="buttons.html" />
+    <link rel="prev" title="multi_rgbcolor" href="multi_rgbcolor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,7 +99,9 @@
 <li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multi_rgbcolor.html">multi_rgbcolor</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">rgbgradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="buttons.html">buttons</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../helpers.html">helpers</a></li>
@@ -256,14 +258,24 @@ be used.</p>
 
     <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
 
-        <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;logo_color&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Logo LED colors and effects&quot;</span><span class="p">,</span>
             <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the colors and the effects of the logo LED&quot;</span><span class="p">,</span>
             <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--logo-color&quot;</span><span class="p">],</span>
-            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x5B</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_FEATURE</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
             <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient&quot;</span><span class="p">,</span>
-            <span class="c1"># TODO</span>
-            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)&quot;</span>
+            <span class="s2">&quot;rgbgradient_header&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;header_length&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>       <span class="c1"># Length of the header excuding command / LED ID</span>
+                <span class="s2">&quot;led_id_offsets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>  <span class="c1"># Offset of the &quot;led_id&quot; fields</span>
+                <span class="s2">&quot;duration_offset&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>      <span class="c1"># Offset of the &quot;duration&quot; field</span>
+                <span class="s2">&quot;duration_length&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>      <span class="c1"># Length of the &quot;duration&quot; field (in Bytes)</span>
+                <span class="s2">&quot;repeat_offset&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>       <span class="c1"># Offset of the &quot;repeat&quot; flag</span>
+                <span class="s2">&quot;triggers_offset&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>     <span class="c1"># Offset of the &quot;triggers&quot; field (buttons mask)</span>
+                <span class="s2">&quot;color_count_offset&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>  <span class="c1"># Offset of the &quot;color_count&quot; field</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;led_id&quot;</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)&quot;</span><span class="p">,</span>
         <span class="p">},</span>
 
     <span class="p">},</span>
@@ -277,11 +289,15 @@ be used.</p>
 <div class="section" id="cli">
 <h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
 <p>Example of CLI option generated with this handler:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">LOGO_COLOR</span><span class="p">,</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span> <span class="n">LOGO_COLOR</span>
+                      <span class="n">Set</span> <span class="n">the</span> <span class="n">colors</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">effects</span> <span class="n">of</span> <span class="n">the</span> <span class="n">logo</span> <span class="n">LED</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span>
+                      <span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span> <span class="n">colors</span><span class="o">=</span><span class="mi">0</span><span class="o">%</span><span class="p">:</span> <span class="c1">#ff0000, 33%: #00ff00, 66%: #0000ff))</span>
 </pre></div>
 </div>
 <p>Example of CLI usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)&quot;</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">red</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">FF1800</span>
 </pre></div>
 </div>
 </div>
@@ -312,7 +328,7 @@ device profile.</p></li>
 <dl class="py function">
 <dt id="rivalcfg.handlers.rgbgradient.is_rgbgradient">
 <code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">is_rgbgradient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.is_rgbgradient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if the regbradient expression is valid.</p>
+<dd><p>Check if the rgbradient expression is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – The string to validate.</p>
@@ -337,7 +353,7 @@ device profile.</p></li>
 <dt id="rivalcfg.handlers.rgbgradient.process_value">
 <code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">colors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
-“rgbcolor” type setting.</p>
+“rgbgradient” type setting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -363,10 +379,10 @@ device profile.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../helpers.html" class="btn btn-neutral float-right" title="helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="buttons.html" class="btn btn-neutral float-right" title="buttons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rgbcolor.html" class="btn btn-neutral float-left" title="rgbcolor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="multi_rgbcolor.html" class="btn btn-neutral float-left" title="multi_rgbcolor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

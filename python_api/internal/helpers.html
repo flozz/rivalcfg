@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="mouse" href="mouse.html" />
-    <link rel="prev" title="rgbgradient" href="handlers/rgbgradient.html" /> 
+    <link rel="prev" title="buttons" href="handlers/buttons.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -258,13 +258,11 @@ bellow.</p>
 <span class="go">{&#39;hello&#39;: {&#39;name&#39;: &#39;world&#39;}}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;hello(name=world ) ;;&quot;</span><span class="p">)</span>
 <span class="go">{&#39;hello&#39;: {&#39;name&#39;: &#39;world&#39;}}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foo(bar=1; baz=2)&quot;</span><span class="p">)</span>
-<span class="go">{&#39;foo&#39;: {&#39;bar&#39;: &#39;1&#39;, &#39;baz&#39;: &#39;2&#39;}}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foo(a=42; b=3.14)&quot;</span><span class="p">,</span> <span class="n">value_parsers</span><span class="o">=</span><span class="p">{</span>
 <span class="gp">... </span>    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span>
 <span class="gp">... </span>        <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span class="gp">... </span>        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">float</span>
-<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span>        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">},</span>
 <span class="gp">... </span><span class="p">})</span>
 <span class="go">{&#39;foo&#39;: {&#39;a&#39;: 42, &#39;b&#39;: 3.14}}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foobar[a=1]&quot;</span><span class="p">)</span>
@@ -319,7 +317,7 @@ bellow.</p>
         <a href="mouse.html" class="btn btn-neutral float-right" title="mouse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="handlers/rgbgradient.html" class="btn btn-neutral float-left" title="rgbgradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="handlers/buttons.html" class="btn btn-neutral float-left" title="buttons" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

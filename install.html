@@ -169,6 +169,12 @@
             
   <div class="section" id="installing">
 <h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In this page, both Python 2 and Python 3 commands are provided. Prefer the
+Python 3 ones if it is available on your system as Python 2 is deprecated
+and its support will be dropped some day.</p>
+</div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -180,7 +186,8 @@
 <p>Installation require a compilation toolchain and python headers to
 compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code>. On Debian / Ubuntu, this can be installed with the
 following command (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>    <span class="c1"># Python 2</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>  <span class="c1"># Python 3</span>
 </pre></div>
 </div>
 </div>
@@ -196,7 +203,8 @@ following command (as root):</p>
 <div class="section" id="installing-from-pypi">
 <h2>Installing From PYPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h2>
 <p>Run the following command (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>   <span class="c1"># Python 2</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">rivalcfg</span>  <span class="c1"># Python 3</span>
 </pre></div>
 </div>
 </div>
@@ -208,7 +216,8 @@ following command (as root):</p>
 </pre></div>
 </div>
 <p>Install rivalcfg (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>   <span class="c1"># Python 2</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">.</span>  <span class="c1"># Python 3</span>
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>buttons &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="helpers" href="../helpers.html" />
+    <link rel="prev" title="rgbgradient" href="rgbgradient.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> rivalcfg
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devices.html">devices</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">handlers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multi_rgbcolor.html">multi_rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">buttons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">rivalcfg</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Python API</a> &raquo;</li>
+        
+          <li><a href="../index.html">Internal Python API</a> &raquo;</li>
+        
+          <li><a href="index.html">handlers</a> &raquo;</li>
+        
+      <li>buttons</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/python_api/internal/handlers/buttons.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rivalcfg.handlers.buttons.buttons">
+<span id="buttons"></span><h1>buttons<a class="headerlink" href="#module-rivalcfg.handlers.buttons.buttons" title="Permalink to this headline">¶</a></h1>
+<p>The “buttons” type handles buttons mapping on device that supports it.</p>
+<p>Buttons syntax example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span>
+<span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button1</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button3</span><span class="o">=</span><span class="n">button3</span><span class="p">;</span> <span class="n">button4</span><span class="o">=</span><span class="n">button4</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">button5</span><span class="p">;</span> <span class="n">button6</span><span class="o">=</span><span class="n">dpi</span><span class="p">;</span> <span class="n">layout</span><span class="o">=</span><span class="n">qwerty</span><span class="p">)</span>
+<span class="n">buttons</span><span class="p">(</span><span class="n">Button6</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>  <span class="c1"># all other buttons will be reset to their default values</span>
+</pre></div>
+</div>
+<div class="section" id="buttons-values">
+<h2>Buttons values<a class="headerlink" href="#buttons-values" title="Permalink to this headline">¶</a></h2>
+<p>Buttons can be mapped to different kind of values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> (to explicitly set the button to its default value)</p></li>
+<li><p>Special actions,</p></li>
+<li><p>Mouse buttons,</p></li>
+<li><p>Multimedia keys,</p></li>
+<li><p>Keyboard keys.</p></li>
+</ul>
+<div class="section" id="special-actions">
+<h3>Special actions<a class="headerlink" href="#special-actions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disabled</span></code>: disable this button,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: use this button to switch between DPI presets,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollUp</span></code> (not available on all devices)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollDown</span></code> (not available on all devices)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button6</span><span class="o">=</span><span class="n">dpi</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">disabled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mouse-buttons">
+<h3>Mouse buttons<a class="headerlink" href="#mouse-buttons" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be remapped using an other mouse button.</p>
+<p>For example, this swap the button 1 and 2 of the mouse:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful to map the <code class="docutils literal notranslate"><span class="pre">button1</span></code> somewhere, else you will not be able to
+click! ;)</p>
+</div>
+</div>
+<div class="section" id="multimedia-keys">
+<h3>Multimedia keys<a class="headerlink" href="#multimedia-keys" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button8</span><span class="o">=</span><span class="n">PlayPause</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>List of the available multimedia keys:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_multimedia.py">https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_multimedia.py</a></p></li>
+</ul>
+</div>
+<div class="section" id="keyboard-keys">
+<h3>Keyboard keys<a class="headerlink" href="#keyboard-keys" title="Permalink to this headline">¶</a></h3>
+<p>Keyboard keys depends on the selected layout.</p>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to some syntax limitation, some keys cannot be mapped used their own
+symbols. For example, if you want to bind <code class="docutils literal notranslate"><span class="pre">;</span></code> to the third button, you
+will have to use an alias:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button3</span><span class="o">=</span><span class="n">semicolon</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>More examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button3</span><span class="o">=</span><span class="n">semi</span><span class="p">;</span> <span class="n">button4</span><span class="o">=</span><span class="n">equal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="layouts">
+<h2>Layouts<a class="headerlink" href="#layouts" title="Permalink to this headline">¶</a></h2>
+<p>The layout used for mapping keyboard keys can be specified using the <code class="docutils literal notranslate"><span class="pre">layout</span></code>
+parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Currently, the following layouts are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> (<a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py">see available keys</a>)</p></li>
+</ul>
+<p>If not specified, the <code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> layout is used.</p>
+</div>
+<div class="section" id="device-profile">
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline">¶</a></h2>
+<p>Example of a buttons value type in a device profile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+    <span class="s2">&quot;buttons_mapping&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Buttons mapping&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Set the mapping of the buttons&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-b&quot;</span><span class="p">,</span> <span class="s2">&quot;--buttons&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x31</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+        <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;buttons&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;buttons&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Button1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;button1&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;Button2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x05</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;button2&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;Button3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x0A</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;button3&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;Button4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x0F</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;button4&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;Button5&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x05</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x14</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;button5&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;Button6&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mh">0x06</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="mh">0x19</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;dpi&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+
+        <span class="s2">&quot;button_field_length&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+
+        <span class="s2">&quot;button_disable&quot;</span><span class="p">:</span>     <span class="mh">0x00</span><span class="p">,</span>
+        <span class="s2">&quot;button_keyboard&quot;</span><span class="p">:</span>    <span class="mh">0x51</span><span class="p">,</span>
+        <span class="s2">&quot;button_multimedia&quot;</span><span class="p">:</span>  <span class="mh">0x61</span><span class="p">,</span>
+        <span class="s2">&quot;button_dpi_switch&quot;</span><span class="p">:</span>  <span class="mh">0x30</span><span class="p">,</span>
+        <span class="s2">&quot;button_scroll_up&quot;</span><span class="p">:</span>   <span class="mh">0x31</span><span class="p">,</span>
+        <span class="s2">&quot;button_scroll_down&quot;</span><span class="p">:</span> <span class="mh">0x32</span><span class="p">,</span>
+
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)&quot;</span><span class="p">,</span>  <span class="c1"># noqa</span>
+    <span class="p">},</span>
+
+    <span class="c1"># ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<p>Example of CLI option generated with this handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">b</span> <span class="n">BUTTONS_MAPPING</span><span class="p">,</span> <span class="o">--</span><span class="n">buttons</span> <span class="n">BUTTONS_MAPPING</span>
+                      <span class="n">Set</span> <span class="n">the</span> <span class="n">mapping</span> <span class="n">of</span> <span class="n">the</span> <span class="n">buttons</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button1</span><span class="p">;</span>
+                      <span class="n">button2</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button3</span><span class="o">=</span><span class="n">button3</span><span class="p">;</span> <span class="n">button4</span><span class="o">=</span><span class="n">button4</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">button5</span><span class="p">;</span>
+                      <span class="n">button6</span><span class="o">=</span><span class="n">dpi</span><span class="p">;</span> <span class="n">layout</span><span class="o">=</span><span class="n">qwerty</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Example of CLI usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">buttons</span><span class="o">=</span><span class="s2">&quot;buttons(layout=qwerty; button1=button1; button6=DPI)&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="rivalcfg.handlers.buttons.buttons.LAYOUTS">
+<code class="sig-prename descclassname">rivalcfg.handlers.buttons.buttons.</code><code class="sig-name descname">LAYOUTS</code><em class="property"> = {'qwerty': &lt;module 'rivalcfg.handlers.buttons.layout_qwerty' from '/home/fabien/devel/public/rivalcfg/rivalcfg/handlers/buttons/layout_qwerty.py'&gt;}</em><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.LAYOUTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available layouts</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.buttons.buttons.add_cli_option">
+<code class="sig-prename descclassname">rivalcfg.handlers.buttons.buttons.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given “buttons” type setting to the given CLI arguments parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cli_parser</strong> (<em>ArgumentParser</em>) – An <code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code> instance.</p></li>
+<li><p><strong>setting_name</strong> (<em>str</em>) – The name of the setting.</p></li>
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.buttons.buttons.build_layout">
+<code class="sig-prename descclassname">rivalcfg.handlers.buttons.buttons.</code><code class="sig-name descname">build_layout</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layout</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.build_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an usable layout from a layout module containing key mapping
+and aliases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>layout</strong> (<em>module</em>) – The layour (e.g.
+<code class="docutils literal notranslate"><span class="pre">rivalcfg.handler.buttons.layout_qwerty</span></code>)</p>
+</dd>
+<dt class="field-even">Rtype dict</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.buttons.buttons.is_buttons">
+<code class="sig-prename descclassname">rivalcfg.handlers.buttons.buttons.</code><code class="sig-name descname">is_buttons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.is_buttons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the regbradient expression is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) – The string to validate.</p></li>
+<li><p><strong>setting_info</strong> (<em>dict</em>) – the settings info from the mouse profile.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(bool, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.handlers.buttons.buttons.process_value">
+<code class="sig-prename descclassname">rivalcfg.handlers.buttons.buttons.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">mapping</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.process_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
+“buttons” type setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+<li><p><strong>mapping</strong> (<em>str</em><em>,</em><em>dict</em>) – The mapping of the mouse buttons.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../helpers.html" class="btn btn-neutral float-right" title="helpers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rgbgradient.html" class="btn btn-neutral float-left" title="rgbgradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Fabien LOISON
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

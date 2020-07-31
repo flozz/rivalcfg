@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Rival 3" href="rival3.html" />
+    <link rel="next" title="SteelSeries Kana v2" href="kanav2.html" />
     <link rel="prev" title="usbhid" href="../python_api/internal/usbhid.html" /> 
 </head>
 
@@ -90,13 +90,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Supported Devices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html">SteelSeries Rival 600</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival700.html">SteelSeries Rival 700 and Rival 710</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html">SteelSeries Sensei 310</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensei_raw.html">SteelSeries Sensei [RAW]</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
@@ -167,10 +172,22 @@
            <div itemprop="articleBody">
             
   <div class="section" id="supported-devices">
-<h1>Supported Devices<a class="headerlink" href="#supported-devices" title="Permalink to this headline">¶</a></h1>
+<span id="devices"></span><h1>Supported Devices<a class="headerlink" href="#supported-devices" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kanav2.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kanav2.html#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kanav2.html#python-api">Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html#python-api">Python API</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html#supported-models">Supported Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html#command-line-usage">Command-Line Usage</a></li>
@@ -185,14 +202,14 @@
 <li class="toctree-l2"><a class="reference internal" href="rival95.html#python-api">Python API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rival100.html">SteelSeries Rival 100</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html#supported-models">Supported Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html#colors">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html#python-api">Python API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rival110.html">SteelSeries Rival 110</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html#supported-models">Supported Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html#colors">Colors</a></li>
@@ -203,6 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rival300.html#supported-models">Supported Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html#colors">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival300.html#buttons">Buttons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html#python-api">Python API</a></li>
 </ul>
 </li>
@@ -214,12 +232,33 @@
 <li class="toctree-l2"><a class="reference internal" href="rival310.html#python-api">Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="rival600.html">SteelSeries Rival 600</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html#colors">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html#rgb-gradients">RGB Gradients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival600.html#python-api">Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rival700.html">SteelSeries Rival 700 and Rival 710</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rival700.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival700.html#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival700.html#python-api">Python API</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sensei310.html">SteelSeries Sensei 310</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html#supported-models">Supported Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html#colors">Colors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html#rgb-gradients">RGB Gradients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html#python-api">Python API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sensei_raw.html">SteelSeries Sensei [RAW]</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sensei_raw.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensei_raw.html#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensei_raw.html#buttons">Buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensei_raw.html#python-api">Python API</a></li>
 </ul>
 </li>
 </ul>
@@ -234,7 +273,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rival3.html" class="btn btn-neutral float-right" title="SteelSeries Rival 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kanav2.html" class="btn btn-neutral float-right" title="SteelSeries Kana v2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../python_api/internal/usbhid.html" class="btn btn-neutral float-left" title="usbhid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

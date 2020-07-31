@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SteelSeries Rival 310 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  <title>SteelSeries Rival 600 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Rival 600" href="rival600.html" />
-    <link rel="prev" title="SteelSeries Rival 300 and original Rival" href="rival300.html" /> 
+    <link rel="next" title="SteelSeries Rival 700 and Rival 710" href="rival700.html" />
+    <link rel="prev" title="SteelSeries Rival 310" href="rival310.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,7 +97,8 @@
 <li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 310</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 600</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
@@ -115,7 +116,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="rival600.html">SteelSeries Rival 600</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival700.html">SteelSeries Rival 700 and Rival 710</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei310.html">SteelSeries Sensei 310</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sensei_raw.html">SteelSeries Sensei [RAW]</a></li>
@@ -171,13 +171,13 @@
         
           <li><a href="index.html">Supported Devices</a> &raquo;</li>
         
-      <li>SteelSeries Rival 310</li>
+      <li>SteelSeries Rival 600</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/devices/rival310.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/devices/rival600.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -190,8 +190,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="steelseries-rival-310">
-<h1>SteelSeries Rival 310<a class="headerlink" href="#steelseries-rival-310" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="steelseries-rival-600">
+<h1>SteelSeries Rival 600<a class="headerlink" href="#steelseries-rival-600" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="supported-models">
 <h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -200,14 +200,11 @@
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>SteelSeries Rival 310</p></td>
-<td><p>1038:1720</p></td>
+<tr class="row-odd"><td><p>SteelSeries Rival 600</p></td>
+<td><p>1038:1724</p></td>
 </tr>
-<tr class="row-even"><td><p>SteelSeries Rival 310 CS:GO Howl Edition</p></td>
-<td><p>1038:171e</p></td>
-</tr>
-<tr class="row-odd"><td><p>SteelSeries Rival 310 PUBG Edition</p></td>
-<td><p>1038:1736</p></td>
+<tr class="row-even"><td><p>SteelSeries Rival 600 Dota 2 Edition</p></td>
+<td><p>1038:172e</p></td>
 </tr>
 </tbody>
 </table>
@@ -216,7 +213,13 @@
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
-                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-r]
+                [-C WHEEL_COLOR] [-c LOGO_COLOR]
+                [--left-strip-top-color Z2_COLOR]
+                [--right-strip-top-color Z3_COLOR]
+                [--left-strip-middle-color Z4_COLOR]
+                [--right-strip-middle-color Z5_COLOR]
+                [--left-strip-bottom-color Z6_COLOR]
+                [--right-strip-bottom-color Z7_COLOR] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -226,7 +229,7 @@ optional arguments:
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
 
-SteelSeries Rival 310 Options:
+SteelSeries Rival 600 Options:
   -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
                         Set sensitivity preset 1 (DPI) (from 100 to 12000,
                         default: 800)
@@ -236,14 +239,38 @@ SteelSeries Rival 310 Options:
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
-  -c LOGO_COLOR, --logo-color LOGO_COLOR
-                        Set the colors and the effects of the logo LED
-                        (default: rgbgradient(duration=1000; colors=0%:
-                        #ff0000, 33%: #00ff00, 66%: #0000ff))
-  -C WHEEL_COLOR, --wheel-color WHEEL_COLOR
+  -C WHEEL_COLOR, --wheel-color WHEEL_COLOR, --z0 WHEEL_COLOR
                         Set the colors and the effects of the wheel LED
                         (default: rgbgradient(duration=1000; colors=0%:
                         #ff0000, 33%: #00ff00, 66%: #0000ff))
+  -c LOGO_COLOR, --logo-color LOGO_COLOR, --z1 LOGO_COLOR
+                        Set the colors and the effects of the logo LED
+                        (default: rgbgradient(duration=1000; colors=0%:
+                        #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --left-strip-top-color Z2_COLOR, --z2 Z2_COLOR
+                        Set the colors and the effects of the top LED of the
+                        left strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --right-strip-top-color Z3_COLOR, --z3 Z3_COLOR
+                        Set the colors and the effects of the top LED of the
+                        right strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --left-strip-middle-color Z4_COLOR, --z4 Z4_COLOR
+                        Set the colors and the effects of the middle LED of
+                        the left strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --right-strip-middle-color Z5_COLOR, --z5 Z5_COLOR
+                        Set the colors and the effects of the middle LED of
+                        the right strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --left-strip-bottom-color Z6_COLOR, --z6 Z6_COLOR
+                        Set the colors and the effects of the bottom LED of
+                        the left strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --right-strip-bottom-color Z7_COLOR, --z7 Z7_COLOR
+                        Set the colors and the effects of the bottom LED of
+                        the right strip (default: rgbgradient(duration=1000;
+                        colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
   -r, --reset           Reset all settings to their factory default
 </pre></div>
 </div>
@@ -397,10 +424,10 @@ colors of the gradient.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rival600.html" class="btn btn-neutral float-right" title="SteelSeries Rival 600" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rival700.html" class="btn btn-neutral float-right" title="SteelSeries Rival 700 and Rival 710" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rival300.html" class="btn btn-neutral float-left" title="SteelSeries Rival 300 and original Rival" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rival310.html" class="btn btn-neutral float-left" title="SteelSeries Rival 310" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
