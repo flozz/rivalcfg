@@ -1,7 +1,7 @@
 from .. import usbhid
 
 _RGBGRADIENTV2_HEADER = {
-    "color_field_length": 139,  # Index of length of colot field (used for padding)                                    # noqa
+    "color_field_length": 139,  # Index of length of color field (used for padding)                                    # noqa
     "duration_length": 2,       # Length of the "duration" field (in bytes)                                            # noqa
     "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py                                # noqa
 }
