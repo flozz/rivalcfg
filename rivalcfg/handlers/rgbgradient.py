@@ -275,7 +275,7 @@ def process_value(setting_info, colors):
 
 
 def is_rgbgradient(string):
-    """Check if the regbradient expression is valid.
+    """Check if the rgbradient expression is valid.
 
     :param str string: The string to validate.
     :rtype: (bool, str)
