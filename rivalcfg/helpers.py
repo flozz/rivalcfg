@@ -134,3 +134,23 @@ def uint_to_little_endian_bytearray(number, size):
     for i in range(size):
         nle[i] = number >> i*8 & 0xFF
     return nle
+
+
+def bytes_to_high_low_nibbles(byte):
+    """Splits bytes into high and low nibbles.
+
+    >>> bytes_to_high_low_nibbles(0xAB)
+    (10, 11)
+    """
+    high = byte >> 4
+    low = byte & 0x0F
+    return high, low
+
+
+def nibbles_to_byte(nibble1, nibble2):
+    """Converts two nibbles into a single byte.
+
+    >>> nibbles_to_byte(0xA, 0xB)
+    171
+    """
+    return (nibble1 << 4) | nibble2
