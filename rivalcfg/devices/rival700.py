@@ -6,7 +6,7 @@ _RGBGRADIENTV2_HEADER = {
     "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py                                # noqa
 }
 
-_DEFAULT_RGBGRADIENTV2 = "[rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
+_DEFAULT_RGBGRADIENTV2 = "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
 
 profile = {
 
@@ -69,6 +69,7 @@ profile = {
         },
 
         "logo_color": {
+            "label": "Logo LED colors and effects",
             "description": "Set the logo colors and effects",
             "cli": ["-c", "--logo-color"],
             "command": [0x05, 0x00],
@@ -80,6 +81,7 @@ profile = {
         },
 
         "wheel_color": {
+            "label": "Wheel LED colors and effects",
             "description": "Set the wheel colors and effects",
             "cli": ["-C", "--wheel-color"],
             "command": [0x05, 0x00],
