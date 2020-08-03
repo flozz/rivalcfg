@@ -67,7 +67,7 @@ Example of a rgbgradient value type in a device profile:
                 "rgbgradient_header": {
                     "color_field_length": 139,  # Index of length of color field (used for padding)
                     "duration_length": 2,       # Length of the "duration" field (in Bytes)
-                    "maxgradient":14,           # Max numbers of color stop (probably 14)
+                    "maxgradient": 14,          # Max numbers of color stop (probably 14)
                 },
                 "led_id": 0x01,
                 "default": "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)",
@@ -155,20 +155,20 @@ def process_value(setting_info, colors):
     if len(gradient) == 0:
         raise ValueError("no color: %s" % str(colors))
 
-    # Sse allowes a maximun of 14 rgbgradient patterns but there is room in the
+    # SSE allowes a maximun of 14 rgbgradient patterns but there is room in the
     # command for up to 16 rgbgradient patterns and it will take 16 arguments.
     gradient_length = len(gradient)
     if gradient_length > maxgradient:
         raise ValueError("a maximum of %i color stops are allowed" %
                          (maxgradient))
 
-    # Sse limits minimum duration depening the the amount of gradient arguments
-    minimum_duration = -(-(gradient_length * 33.3) // 1)
+    # SSE limits minimum duration depening the the amount of gradient arguments
+    minimum_duration = int(gradient_length * 33.3)
     if duration < minimum_duration:
         raise ValueError("a duration of %i or above is need for %i gradient" %
                          (minimum_duration, gradient_length))
 
-    # See allows a max duration of 30.00 sec
+    # SSE allows a max duration of 30.00 sec
     if duration > 30000:
         raise ValueError("a maximum duration of 30000ms is allowed")
 
@@ -196,7 +196,7 @@ def process_value(setting_info, colors):
         if pos <= last_real_pos:
             raise ValueError("Incorrect order for gradient or duplicate order found please check position order") # noqa
         stage.append(index)  # Stage index number
-        stage.append(00)  # Padding
+        stage.append(0)  # Padding
         time = int((duration / 100) * (pos - last_real_pos))
         last_real_pos = pos
         if time == 0:
@@ -208,7 +208,7 @@ def process_value(setting_info, colors):
             oldcolor[rgb_index] = rgb
             stage = merge_bytes(stage, ramp & 255)
             rgb_index = rgb_index + 1
-        stage.append(00)  # Padding
+        stage.append(0)  # Padding
         time = uint_to_little_endian_bytearray(time, 2)
         stage = merge_bytes(stage, time)
         index = index + 1
@@ -224,8 +224,8 @@ def process_value(setting_info, colors):
     split_color = []
     for i in range(len(start_color)):
         high, low = bytes_to_high_low_nibbles(start_color[i])
-        left_byte = nibbles_to_byte(low, 00)
-        right_byte = nibbles_to_byte(00, high)
+        left_byte = nibbles_to_byte(low, 0)
+        right_byte = nibbles_to_byte(0, high)
         split_color.append(left_byte)
         split_color.append(right_byte)
 
