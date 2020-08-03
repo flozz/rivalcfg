@@ -1,9 +1,9 @@
 from .. import usbhid
 
 _RGBGRADIENTV2_HEADER = {
-    "color_field_length": 139,  # Index of length of color field (used for padding)                                    # noqa
-    "duration_length": 2,       # Length of the "duration" field (in bytes)                                            # noqa
-    "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py                                # noqa
+    "color_field_length": 139,  # Index of length of color field (used for padding)   # noqa
+    "duration_length": 2,       # Length of the "duration" field (in bytes)
+    "maxgradient": 14,          # Max numbers of color stop (probably 14)
 }
 
 _DEFAULT_RGBGRADIENTV2 = "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
