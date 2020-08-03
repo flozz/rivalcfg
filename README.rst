@@ -65,7 +65,13 @@ Changelog
 
   * Some devices gained a better support:
 
-    * Rival 300 / Original Rival family (support of buttons mapping)
+    * Rival 300 / Original Rival family
+
+      * Support of buttons mapping
+
+    * Rival 700 / 710
+
+      * Support of gradients / Color shift (#129, @nixtux)
 
   * A generic support of mouse buttons mapping was added (rewriting of what was
     originally done for the Sensei [RAW]). The following devices now support
