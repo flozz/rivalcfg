@@ -204,7 +204,7 @@ def process_value(setting_info, colors):
         rgb_index = 0
         for rgb in color:
             diff = rgb - oldcolor[rgb_index]
-            ramp = int(diff / time * 16)
+            ramp = int(diff / float(time) * 16)
             oldcolor[rgb_index] = rgb
             stage = merge_bytes(stage, ramp & 255)
             rgb_index = rgb_index + 1
