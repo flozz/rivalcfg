@@ -1,5 +1,5 @@
 """
-The "rgbgradient" type handles RGB color gradients. Simple RGB color can also
+The "rgbgradientv2" type handles RGB color gradients. Simple RGB color can also
 be used.
 
 RGB gradient syntax example::
@@ -65,9 +65,9 @@ Example of a rgbgradient value type in a device profile:
                 "command": [0x05, 0x00],
                 "value_type": "rgbgradientv2",
                 "rgbgradient_header": {
-                    "color_field_length": 139,  # Index of length of colot field (used for padding)
-                    "duration_length": 2,       # Length of the "duration" field (in bytes)
-                    "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py
+                    "color_field_length": 139,  # Index of length of color field (used for padding)
+                    "duration_length": 2,       # Length of the "duration" field (in Bytes)
+                    "maxgradient":14,           # Max numbers of color stop (probably 14)
                 },
                 "led_id": 0x01,
                 "default": "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)",
@@ -87,11 +87,11 @@ Example of CLI option generated with this handler::
 
    -c LOGO_COLOR, --logo-color LOGO_COLOR
                          Set the colors and the effects of the logo LED (default:
-                         rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+                         rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff))
 
 Example of CLI usage::
 
-    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"
+    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"
     rivalcfg --logo-color=red
     rivalcfg --logo-color=FF1800
 
