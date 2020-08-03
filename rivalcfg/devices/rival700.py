@@ -1,5 +1,12 @@
 from .. import usbhid
 
+_RGBGRADIENTV2_HEADER = {
+    "color_field_length": 139,  # Index of length of color field (used for padding)                                    # noqa
+    "duration_length": 2,       # Length of the "duration" field (in bytes)                                            # noqa
+    "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py                                # noqa
+}
+
+_DEFAULT_RGBGRADIENTV2 = "[rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
 
 profile = {
 
@@ -59,6 +66,28 @@ profile = {
                 1000: 0x01,
             },
             "default": 1000,
+        },
+
+        "logo_color": {
+            "description": "Set the logo colors and effects",
+            "cli": ["-c", "--logo-color"],
+            "command": [0x05, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x0,
+            "default": _DEFAULT_RGBGRADIENTV2,
+        },
+
+        "wheel_color": {
+            "description": "Set the wheel colors and effects",
+            "cli": ["-C", "--wheel-color"],
+            "command": [0x05, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x1,
+            "default": _DEFAULT_RGBGRADIENTV2,
         },
 
     },
