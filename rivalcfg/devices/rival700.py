@@ -69,6 +69,7 @@ profile = {
         },
 
         "logo_color": {
+            "label": "Logo LED colors and effects",
             "description": "Set the logo colors and effects",
             "cli": ["-c", "--logo-color"],
             "command": [0x05, 0x00],
@@ -80,6 +81,7 @@ profile = {
         },
 
         "wheel_color": {
+            "label": "Wheel LED colors and effects",
             "description": "Set the wheel colors and effects",
             "cli": ["-C", "--wheel-color"],
             "command": [0x05, 0x00],
@@ -88,6 +90,30 @@ profile = {
             "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
             "led_id": 0x1,
             "default": _DEFAULT_RGBGRADIENTV2,
+        },
+
+        "logo_reactive": {
+            "label": "Logo LED reactive illumination",
+            "description": "Set the logo reactive colors",
+            "cli": ["-a", "--logo-reactive"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "command_suffix": [0x00, 0x08, 0x00, 0x00],
+            "value_type": "reactive",
+            "led_id": 0x0,
+            "default": [["#FF3C00", "#FF32C8"], 2000]
+        },
+
+        "wheel_reactive": {
+            "label": "Logo LED reactive illumination",
+            "description": "Set the wheel reactive colors",
+            "cli": ["-A", "--wheel-reactive"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00],
+            "command_suffix": [0x00, 0x08, 0x00, 0x00],
+            "value_type": "reactive",
+            "led_id": 0x1,
+            "default": [["#FF1800", "#FF1800"], 2000]
         },
 
     },
