@@ -9,6 +9,11 @@ from . import devices
 from . import get_first_mouse
 
 
+_EPILOG = """
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
+"""
+
+
 def _check_linux():
     """Run some checks on Linux."""
 
@@ -39,7 +44,9 @@ def main(args=sys.argv[1:]):
     # Try to open a mouse
     mouse = get_first_mouse()
 
-    cli_parser = argparse.ArgumentParser(prog="rivalcfg")
+    cli_parser = argparse.ArgumentParser(
+            prog="rivalcfg",
+            epilog=_EPILOG)
     cli.add_main_cli(cli_parser)
 
     if mouse:
