@@ -183,7 +183,7 @@ def process_value(setting_info, colors):
 
     # Simple color string
     elif type(colors) in [str, _unicode_type] and is_color(colors):
-        reactive = _handle_color_string(colors)
+        color_array = _handle_color_string(colors)
 
     # Color reactive as dict
     elif type(colors) is dict:
