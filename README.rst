@@ -20,6 +20,18 @@ If you have any trouble running this software, please open an issue on Github:
 * https://github.com/flozz/rivalcfg/issues
 
 
+Installing Rivalcfg
+-------------------
+
+* https://flozz.github.io/rivalcfg/install.html
+
+
+Documentation
+-------------
+
+* https://flozz.github.io/rivalcfg/
+
+
 Supported Devices
 -----------------
 
