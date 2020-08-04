@@ -98,9 +98,9 @@ def parse_color_string(color):
 
 
 def parse_multi_color_string(colors):
-    """Parse a color gradient string.
+    """Parse a color string.
 
-    :param str gradient: The gradient string.
+    :param str color: The color string.
     :rtype: list
 
     >>> parse_multi_color_string("red, #00ff00, 00f")
