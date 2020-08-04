@@ -92,6 +92,15 @@ profile = {
             "default": _DEFAULT_RGBGRADIENTV2,
         },
 
+        "tactile_button_mapping": {
+            "label": "Maps feedback to mouse click",
+            "description": "Maps tactile feedback on button click",
+            "cli": ["-t", "--tactile-mapping"],
+            "command": [0x92, 0x00],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "value_type": "tactile_button_map",
+        },
+
     },
 
     "save_command": {
