@@ -87,7 +87,7 @@ Example of CLI option generated with this handler::
 
 Example of CLI usage::
 
-    rivalcfg --logo-reactive="reactive(duration=1000; colors#ff0000, #00ff00, #0000ff)"
+    rivalcfg --logo-reactive="reactive(duration=1000; colors=#ff0000, #00ff00, #0000ff)"
 
 
 Functions
@@ -273,7 +273,7 @@ def is_reactive(string):
     return True, ""
 
 
-class CheckGradientAction(argparse.Action):
+class CheckReactiveAction(argparse.Action):
     """Validate colors reactive from CLI"""
 
     def __call__(self, parser, namespace, value, option_string=None):
@@ -311,6 +311,6 @@ def add_cli_option(cli_parser, setting_name, setting_info):
             dest=setting_name,
             help=description,
             type=str,
-            action=CheckGradientAction,
+            action=CheckReactiveAction,
             metavar=setting_name.upper()
             )
