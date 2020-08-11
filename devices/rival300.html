@@ -236,7 +236,11 @@
 </div>
 <div class="section" id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>W: udev rules are not installed. You may not be able to open the device using a regular user.
+
+   Run &#39;rivalcfg --update-udev&#39; as root to fix.
+
+usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
                 [-c LOGO_COLOR] [-C WHEEL_COLOR] [-e LOGO_LIGHT_EFFECT]
                 [-E WHEEL_LIGHT_EFFECT] [-b BUTTONS_MAPPING] [-r]
@@ -277,6 +281,8 @@ SteelSeries Rival Options:
                         button3=button3; button4=button4; button5=button5;
                         button6=dpi; layout=qwerty))
   -r, --reset           Reset all settings to their factory default
+
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
 </div>
 </div>

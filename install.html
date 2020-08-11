@@ -91,7 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-from-pypi">Installing From PYPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-from-pypi">Installing From PyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-from-sources">Installing From sources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#archlinux-aur-package">Archlinux AUR package</a></li>
 </ul>
@@ -171,23 +171,27 @@
 <h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>In this page, both Python 2 and Python 3 commands are provided. Prefer the
-Python 3 ones if it is available on your system as Python 2 is deprecated
-and its support will be dropped some day.</p>
+<p>In this page, only Python 3 commands are provided. Rivalcfg still work with
+Python 2, but this support will be dropped in future versions… so prefer
+using Python 3 if available.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The prerequistes are only needed if you install from PYPI or form sources.</p>
+<p>The prerequistes are only needed if you install from PyPI or form sources.</p>
 </div>
 <div class="section" id="linux">
 <h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
-<p>Installation require a compilation toolchain and python headers to
-compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code>. On Debian / Ubuntu, this can be installed with the
-following command (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>    <span class="c1"># Python 2</span>
-<span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>  <span class="c1"># Python 3</span>
+<p>Installation require a compilation toolchain and python headers to compile
+<code class="docutils literal notranslate"><span class="pre">hidapi</span></code>.</p>
+<p>On <strong>Debian / Ubuntu</strong>, this can be installed with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>On <strong>Solus</strong>, use the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">eopkg</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">system</span><span class="o">.</span><span class="n">devel</span>
+<span class="n">sudo</span> <span class="n">eopkg</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span> <span class="n">libusb</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
 </div>
@@ -195,16 +199,15 @@ following command (as root):</p>
 <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>On Windows, you have to install first:</p>
 <ul class="simple">
-<li><p>Python 3.5+ or 2.7 (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
+<li><p>Python 3.6+ (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
 <li><p>Visual C++ 2015 Build Tools: <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=48159">https://www.microsoft.com/en-us/download/details.aspx?id=48159</a></p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="installing-from-pypi">
-<h2>Installing From PYPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h2>
-<p>Run the following command (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>   <span class="c1"># Python 2</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="n">rivalcfg</span>  <span class="c1"># Python 3</span>
+<h2>Installing From PyPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>Run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </div>
@@ -215,9 +218,8 @@ following command (as root):</p>
 <span class="n">cd</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
-<p>Install rivalcfg (as root):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>   <span class="c1"># Python 2</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="o">.</span>  <span class="c1"># Python 3</span>
+<p>Install rivalcfg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
 </div>

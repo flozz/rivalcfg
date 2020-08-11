@@ -205,7 +205,11 @@
 </div>
 <div class="section" id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>W: udev rules are not installed. You may not be able to open the device using a regular user.
+
+   Run &#39;rivalcfg --update-udev&#39; as root to fix.
+
+usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
                 [-c COLOR] [-e LIGHT_EFFECT] [-b BTN6_MODE] [-r]
 
@@ -237,6 +241,8 @@ SteelSeries Rival 110 Options:
                         Set the mode of the button under the wheel (values:
                         dpi, os, default: dpi)
   -r, --reset           Reset all settings to their factory default
+
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
 </div>
 </div>

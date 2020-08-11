@@ -203,7 +203,11 @@
 </div>
 <div class="section" id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>W: udev rules are not installed. You may not be able to open the device using a regular user.
+
+   Run &#39;rivalcfg --update-udev&#39; as root to fix.
+
+usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY] [-p POLLING_RATE] [-c COLORS] [-r]
 
 optional arguments:
@@ -226,6 +230,8 @@ SteelSeries Rival 3 Options:
                         &#39;&lt;COLOR_TOP&gt;,&lt;COLOR_MIDDLE&gt;,&lt;COLOR_BOTTOM&gt;,&lt;COLOR_LOGO
                         &gt;&#39;) (default: #FF1800)
   -r, --reset           Reset all settings to their factory default
+
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
 </div>
 </div>

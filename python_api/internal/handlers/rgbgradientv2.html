@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rgbgradient &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  <title>rgbgradientv2 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="rgbgradientv2" href="rgbgradientv2.html" />
-    <link rel="prev" title="multi_rgbcolor" href="multi_rgbcolor.html" /> 
+    <link rel="next" title="buttons" href="buttons.html" />
+    <link rel="prev" title="rgbgradient" href="rgbgradient.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,8 +100,8 @@
 <li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multi_rgbcolor.html">multi_rgbcolor</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">rgbgradient</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rgbgradientv2.html">rgbgradientv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rgbgradientv2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="buttons.html">buttons</a></li>
 </ul>
 </li>
@@ -168,13 +168,13 @@
         
           <li><a href="index.html">handlers</a> &raquo;</li>
         
-      <li>rgbgradient</li>
+      <li>rgbgradientv2</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/python_api/internal/handlers/rgbgradient.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/python_api/internal/handlers/rgbgradientv2.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -187,9 +187,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rgbgradient">
-<span id="id1"></span><h1>rgbgradient<a class="headerlink" href="#rgbgradient" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-rivalcfg.handlers.rgbgradient"></span><p>The “rgbgradientv2” type handles RGB color gradients. Simple RGB color can also
+  <div class="section" id="rgbgradientv2">
+<h1>rgbgradientv2<a class="headerlink" href="#rgbgradientv2" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a variation of the <a class="reference internal" href="rgbgradient.html#rgbgradient"><span class="std std-ref">rgbgradient</span></a> handler that supports devices
+like the Rival 700, 710.</p>
+</div>
+<span class="target" id="module-rivalcfg.handlers.rgbgradientv2"></span><p>The “rgbgradientv2” type handles RGB color gradients. Simple RGB color can also
 be used.</p>
 <p>RGB gradient syntax example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span> <span class="n">colors</span><span class="o">=</span><span class="mi">0</span><span class="o">%</span><span class="p">:</span> <span class="c1">#ff0000, 33%: #00ff00, 66%: #0000ff)</span>
@@ -265,18 +270,14 @@ be used.</p>
             <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--logo-color&quot;</span><span class="p">],</span>
             <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_FEATURE</span><span class="p">,</span>
             <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
-            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradientv2&quot;</span><span class="p">,</span>
             <span class="s2">&quot;rgbgradient_header&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;header_length&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>       <span class="c1"># Length of the header excuding command / LED ID</span>
-                <span class="s2">&quot;led_id_offsets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>  <span class="c1"># Offset of the &quot;led_id&quot; fields</span>
-                <span class="s2">&quot;duration_offset&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>      <span class="c1"># Offset of the &quot;duration&quot; field</span>
-                <span class="s2">&quot;duration_length&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>      <span class="c1"># Length of the &quot;duration&quot; field (in Bytes)</span>
-                <span class="s2">&quot;repeat_offset&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>       <span class="c1"># Offset of the &quot;repeat&quot; flag</span>
-                <span class="s2">&quot;triggers_offset&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>     <span class="c1"># Offset of the &quot;triggers&quot; field (buttons mask)</span>
-                <span class="s2">&quot;color_count_offset&quot;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>  <span class="c1"># Offset of the &quot;color_count&quot; field</span>
+                <span class="s2">&quot;color_field_length&quot;</span><span class="p">:</span> <span class="mi">139</span><span class="p">,</span>  <span class="c1"># Index of length of color field (used for padding)</span>
+                <span class="s2">&quot;duration_length&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>       <span class="c1"># Length of the &quot;duration&quot; field (in Bytes)</span>
+                <span class="s2">&quot;maxgradient&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>          <span class="c1"># Max numbers of color stop (probably 14)</span>
             <span class="p">},</span>
             <span class="s2">&quot;led_id&quot;</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>
-            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)&quot;</span><span class="p">,</span>
         <span class="p">},</span>
 
     <span class="p">},</span>
@@ -292,11 +293,11 @@ be used.</p>
 <p>Example of CLI option generated with this handler:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">LOGO_COLOR</span><span class="p">,</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span> <span class="n">LOGO_COLOR</span>
                       <span class="n">Set</span> <span class="n">the</span> <span class="n">colors</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">effects</span> <span class="n">of</span> <span class="n">the</span> <span class="n">logo</span> <span class="n">LED</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span>
-                      <span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span> <span class="n">colors</span><span class="o">=</span><span class="mi">0</span><span class="o">%</span><span class="p">:</span> <span class="c1">#ff0000, 33%: #00ff00, 66%: #0000ff))</span>
+                      <span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span> <span class="n">colors</span><span class="o">=</span><span class="mi">0</span><span class="o">%</span><span class="p">:</span> <span class="c1">#ff00e1, 33%: #ffea00, 66%: #00ccff))</span>
 </pre></div>
 </div>
 <p>Example of CLI usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)&quot;</span>
 <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">red</span>
 <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span><span class="o">=</span><span class="n">FF1800</span>
 </pre></div>
@@ -304,16 +305,11 @@ be used.</p>
 </div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="rivalcfg.handlers.rgbgradient.CheckGradientAction">
-<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">CheckGradientAction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">option_strings</span></em>, <em class="sig-param"><span class="n">dest</span></em>, <em class="sig-param"><span class="n">nargs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">const</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">type</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">choices</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">required</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">help</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metavar</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.CheckGradientAction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Validate colors gradient from CLI</p>
-</dd></dl>
-
 <dl class="py function">
-<dt id="rivalcfg.handlers.rgbgradient.add_cli_option">
-<code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.add_cli_option" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add the given “rgbgradient” type setting to the given CLI arguments parser.</p>
+<dt id="rivalcfg.handlers.rgbgradientv2.add_cli_option">
+<code class="sig-prename descclassname">rivalcfg.handlers.rgbgradientv2.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradientv2.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given “rgbgradientv2” type setting to the given CLI arguments
+parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -327,34 +323,10 @@ device profile.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.handlers.rgbgradient.is_rgbgradient">
-<code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">is_rgbgradient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.is_rgbgradient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check if the rgbradient expression is valid.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – The string to validate.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>(bool, str)</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">is_rgbgradient</span><span class="p">(</span><span class="s2">&quot;foo(colors=0:red)&quot;</span><span class="p">)</span>
-<span class="go">(False, &quot;... It must looks like &#39;rgbgradient(&lt;PARAMS&gt;)&#39;...&quot;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">is_rgbgradient</span><span class="p">(</span><span class="s2">&quot;rgbgradient(duration=1000)&quot;</span><span class="p">)</span>
-<span class="go">(False, &quot;... You must provide at least one color: ...&quot;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">is_rgbgradient</span><span class="p">(</span><span class="s2">&quot;rgbgradient(colors=red)&quot;</span><span class="p">)</span>
-<span class="go">(False, &quot;invalid color gradient...&quot;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">is_rgbgradient</span><span class="p">(</span><span class="s2">&quot;rgbgradient(colors=0:red; foo=bar)&quot;</span><span class="p">)</span>
-<span class="go">(False, &quot;unknown parameter &#39;foo&#39;...&quot;)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="rivalcfg.handlers.rgbgradient.process_value">
-<code class="sig-prename descclassname">rivalcfg.handlers.rgbgradient.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">colors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradient.process_value" title="Permalink to this definition">¶</a></dt>
+<dt id="rivalcfg.handlers.rgbgradientv2.process_value">
+<code class="sig-prename descclassname">rivalcfg.handlers.rgbgradientv2.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">colors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbgradientv2.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
-“rgbgradient” type setting.</p>
+“rgbgradientv2” type setting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -380,10 +352,10 @@ device profile.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rgbgradientv2.html" class="btn btn-neutral float-right" title="rgbgradientv2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="buttons.html" class="btn btn-neutral float-right" title="buttons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="multi_rgbcolor.html" class="btn btn-neutral float-left" title="multi_rgbcolor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rgbgradient.html" class="btn btn-neutral float-left" title="rgbgradient" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -185,6 +185,16 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="rivalcfg.helpers.bytes_to_high_low_nibbles">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">bytes_to_high_low_nibbles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">byte</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.bytes_to_high_low_nibbles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits bytes into high and low nibbles.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bytes_to_high_low_nibbles</span><span class="p">(</span><span class="mh">0xAB</span><span class="p">)</span>
+<span class="go">(10, 11)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="rivalcfg.helpers.merge_bytes">
 <code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">merge_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.merge_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a single list of int from given int and list of int.</p>
@@ -219,6 +229,16 @@
 <dd class="field-even"><p>[str]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rivalcfg.helpers.nibbles_to_byte">
+<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">nibbles_to_byte</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nibble1</span></em>, <em class="sig-param"><span class="n">nibble2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.nibbles_to_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts two nibbles into a single byte.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nibbles_to_byte</span><span class="p">(</span><span class="mh">0xA</span><span class="p">,</span> <span class="mh">0xB</span><span class="p">)</span>
+<span class="go">171</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">

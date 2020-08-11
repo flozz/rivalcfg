@@ -160,7 +160,11 @@
   <div class="section" id="command-line-usage">
 <h1>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h1>
 <p>The basic usage is:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>W: udev rules are not installed. You may not be able to open the device using a regular user.
+
+   Run &#39;rivalcfg --update-udev&#39; as root to fix.
+
+usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
 
 optional arguments:
   -h, --help     show this help message and exit
@@ -168,6 +172,8 @@ optional arguments:
   --version      show program&#39;s version number and exit
   --no-save      Do not persist settings in the internal device memory
   --update-udev  Updates udev rules (Linux only, requires to be run as root)
+
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
 </div>
 <p>More options are available depending on the plugged mouse. See <a class="reference internal" href="devices/index.html"><span class="doc">Supported Devices</span></a> documentation for device-specific options.</p>
