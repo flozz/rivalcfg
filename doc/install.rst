@@ -4,9 +4,9 @@ Installing
 
 .. IMPORTANT::
 
-   In this page, both Python 2 and Python 3 commands are provided. Prefer the
-   Python 3 ones if it is available on your system as Python 2 is deprecated
-   and its support will be dropped some day.
+   In this page, only Python 3 commands are provided. Rivalcfg still work with
+   Python 2, but this support will be dropped in future versions... so prefer
+   using Python 3 if available.
 
 
 Prerequisites
@@ -14,18 +14,23 @@ Prerequisites
 
 .. NOTE::
 
-   The prerequistes are only needed if you install from PYPI or form sources.
+   The prerequistes are only needed if you install from PyPI or form sources.
 
 
 Linux
 ~~~~~
 
-Installation require a compilation toolchain and python headers to
-compile ``hidapi``. On Debian / Ubuntu, this can be installed with the
-following command (as root)::
+Installation require a compilation toolchain and python headers to compile
+``hidapi``.
 
-   apt install build-essential python-pip python-dev libusb-1.0-0-dev libudev-dev    # Python 2
-   apt install build-essential python3-pip python3-dev libusb-1.0-0-dev libudev-dev  # Python 3
+On **Debian / Ubuntu**, this can be installed with the following command::
+
+   sudo apt install build-essential python3-pip python3-dev libusb-1.0-0-dev libudev-dev
+
+On **Solus**, use the following commands::
+
+   sudo eopkg install -c system.devel
+   sudo eopkg install python3 python3-devel libusb-devel
 
 
 Windows
@@ -33,17 +38,16 @@ Windows
 
 On Windows, you have to install first:
 
-* Python 3.5+ or 2.7 (see https://www.python.org/downloads/windows/)
+* Python 3.6+ (see https://www.python.org/downloads/windows/)
 * Visual C++ 2015 Build Tools: https://www.microsoft.com/en-us/download/details.aspx?id=48159
 
 
-Installing From PYPI
+Installing From PyPI
 --------------------
 
-Run the following command (as root)::
+Run the following command::
 
-   pip install rivalcfg   # Python 2
-   pip3 install rivalcfg  # Python 3
+   sudo pip3 install rivalcfg
 
 
 Installing From sources
@@ -54,10 +58,9 @@ Clone the repository::
    git clone https://github.com/flozz/rivalcfg.git
    cd rivalcfg
 
-Install rivalcfg (as root)::
+Install rivalcfg::
 
-   pip install .   # Python 2
-   pip3 install .  # Python 3
+   sudo pip3 install .
 
 
 Archlinux AUR package
