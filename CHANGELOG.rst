@@ -11,6 +11,20 @@ The changelog of Rivalcfg v4.x is in `the README <./README.rst>`_.
 Rivalcfg v3.x
 -------------
 
+* **3.12.0:**
+
+  * Experimental support of the Rival 310 PUBG Edition (#109)
+  * Experimental support of the Sensei RAW (thx @cbergqvist, #106)
+  * Experimental support of the Sensei Ten (thx @beardstorm, #94)
+
+* **3.11.0:** Adds support of a later version if the Rival 300 CS:GO Fade Edition (thx @platyple, #105)
+* **3.10.0:** Initial experimental support of the Rival 700 (thx @nixtux, #101)
+* **3.9.0:**
+
+  * Experimental support of the Rival 95 (thx @LAKostis, #97)
+  * Experimental support of the Rival 105 (thx @vonsowic, #98)
+  * Fixes an issue with colorshift (rgbuniversal handler) on Python 3 (thx @uglynewt, #96)
+
 * **3.8.0:**
 
   * Experimental support of Sensei 310 (thx @tobozo #82, @FFY00 #43)
