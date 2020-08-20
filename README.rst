@@ -231,6 +231,13 @@ Changelog
     * Rival 300 / Original Rival family
     * Sensei [RAW] family
 
+  * Regressions:
+
+    The following things were removed for this release:
+
+    * Sensei Ten: this mouse needs more work to be added back.
+    * Colorshift of the Rival 500: this feature needs more work to be added back.
+
 Older changelog entries were moved in the `CHANGELOG.rst <./CHANGELOG.rst>`_ file.
 
 
