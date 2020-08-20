@@ -3,7 +3,7 @@ rivalcfg: Configure SteelSeries gaming mice
 
 |Lint and Tests| |PYPI Version| |License| |Gitter|
 
-rivalcfg is a **Python library** and a **CLI utility program** that allows you
+Rivalcfg is a **Python library** and a **CLI utility program** that allows you
 to configure SteelSeries gaming mice on Linux and Windows (probably works on
 BSD and Mac OS too, but not tested).
 
@@ -12,22 +12,29 @@ mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
 Sensei,...).
 
-   **NOTE:** This is an unofficial software. It was made by reverse engineering
-   devices and is not supported nor approved by SteelSeries.
+   **IMPORTANT:** This is an unofficial software. It was made by reverse
+   engineering devices and is not supported nor approved by SteelSeries.
+
+.. figure:: ./doc/images/steelseries_mice.jpg
+   :alt: SteelSeries Gaming Mice
 
 If you have any trouble running this software, please open an issue on Github:
 
 * https://github.com/flozz/rivalcfg/issues
 
 
-Installing Rivalcfg
--------------------
-
-* https://flozz.github.io/rivalcfg/install.html
-
-
 Documentation
 -------------
+
+Main topics:
+
+* `Requirements <https://flozz.github.io/rivalcfg/requirements.html>`_
+* `Installing Rivalcfg <https://flozz.github.io/rivalcfg/install.html>`_
+* `Documentation of supported devices <https://flozz.github.io/rivalcfg/devices/index.html>`_
+* `FAQ <https://flozz.github.io/rivalcfg/faq.html>`_
+* `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`_ (please read before opening issue and PR 😀️)
+
+... and more at:
 
 * https://flozz.github.io/rivalcfg/
 
