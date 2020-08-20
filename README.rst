@@ -32,7 +32,7 @@ Main topics:
 * `Installing Rivalcfg <https://flozz.github.io/rivalcfg/install.html>`_
 * `Documentation of supported devices <https://flozz.github.io/rivalcfg/devices/index.html>`_
 * `FAQ <https://flozz.github.io/rivalcfg/faq.html>`_
-* `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`_ (please read before opening issue and PR 😀️)
+* `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`_ (please read before opening issues and PRs 😀️)
 
 ... and more at:
 
