@@ -14,6 +14,14 @@ Command-Line Usage
 .. rivalcfg_device_cli:: rival500
 
 
+Colors
+------
+
+This mouse supports colors. Various formats are supported.
+
+.. include:: ./_colors.rst
+
+
 Python API
 ----------
 

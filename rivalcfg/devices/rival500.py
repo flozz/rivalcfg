@@ -56,6 +56,30 @@ profile = {
             "default": 1000,
         },
 
+        # TODO Implement colorshift (rgbgradientv2?)
+        "logo_color": {
+            "label": "Logo LED color",
+            "description": "Set the color of the logo LED",
+            "cli": ["-c", "--logo-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x00],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x00, 0x01],
+            "value_type": "rgbcolor",
+            "default": "#FF1800"
+        },
+
+        # TODO Implement colorshift (rgbgradientv2?)
+        "wheel_color": {
+            "label": "Wheel LED color",
+            "description": "Set the color of the wheel LED",
+            "cli": ["-C", "--wheel-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x05, 0x00, 0x01],
+            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x01, 0x01],
+            "value_type": "rgbcolor",
+            "default": "#FF1800"
+        },
+
     },
 
     "save_command": {

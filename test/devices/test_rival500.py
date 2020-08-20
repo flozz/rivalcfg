@@ -47,6 +47,26 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        ("#ABCDEF", b"\x03\x00\x05\x00\x00\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
+        ("red", b"\x03\x00\x05\x00\x00\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
+        ])
+    def test_set_logo_color(self, mouse, value, expected_hid_report):
+        mouse.set_logo_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        ("#ABCDEF", b"\x03\x00\x05\x00\x01\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
+        ("red", b"\x03\x00\x05\x00\x01\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
+        ])
+    def test_set_wheel_color(self, mouse, value, expected_hid_report):
+        mouse.set_wheel_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)
