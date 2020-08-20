@@ -95,12 +95,18 @@
 <li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 500</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hexadecimal-notation">Hexadecimal notation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#named-colors">Named Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
@@ -197,8 +203,13 @@
 </div>
 <div class="section" id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE] [-r]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>W: udev rules are not installed. You may not be able to open the device using a regular user.
+
+   Run &#39;rivalcfg --update-udev&#39; as root to fix.
+
+usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+                [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
+                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -218,9 +229,85 @@ SteelSeries Rival 500 Options:
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
+  -c LOGO_COLOR, --logo-color LOGO_COLOR
+                        Set the color of the logo LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
+  -C WHEEL_COLOR, --wheel-color WHEEL_COLOR
+                        Set the color of the wheel LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #FF1800)
   -r, --reset           Reset all settings to their factory default
+
+Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
 </div>
+</div>
+<div class="section" id="colors">
+<h2>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h2>
+<p>This mouse supports colors. Various formats are supported.</p>
+<div class="section" id="hexadecimal-notation">
+<h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this headline">¶</a></h3>
+<p>You can use a 24 bit hexadecimal notation (like in HTML / CSS documents).
+Example of “red” color using hexadecimal notation:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#F00</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">F00</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="named-colors">
+<h3>Named Colors<a class="headerlink" href="#named-colors" title="Permalink to this headline">¶</a></h3>
+<p>The folowing named colors are supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: white;"></span> <code class="docutils literal notranslate"><span class="pre">white</span></code></p></td>
+<td><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">red</span></code></p></td>
+<td><p><span class="color-preview" style="background: lime;"></span> <code class="docutils literal notranslate"><span class="pre">lime</span></code></p></td>
+<td><p><span class="color-preview" style="background: blue;"></span> <code class="docutils literal notranslate"><span class="pre">blue</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: silver;"></span> <code class="docutils literal notranslate"><span class="pre">silver</span></code></p></td>
+<td><p><span class="color-preview" style="background: maroon;"></span> <code class="docutils literal notranslate"><span class="pre">maroon</span></code></p></td>
+<td><p><span class="color-preview" style="background: green;"></span> <code class="docutils literal notranslate"><span class="pre">green</span></code></p></td>
+<td><p><span class="color-preview" style="background: navy;"></span> <code class="docutils literal notranslate"><span class="pre">navy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: gray;"></span> <code class="docutils literal notranslate"><span class="pre">gray</span></code></p></td>
+<td><p><span class="color-preview" style="background: yellow;"></span> <code class="docutils literal notranslate"><span class="pre">yellow</span></code></p></td>
+<td><p><span class="color-preview" style="background: aqua;"></span> <code class="docutils literal notranslate"><span class="pre">aqua</span></code></p></td>
+<td><p><span class="color-preview" style="background: fuchsia;"></span> <code class="docutils literal notranslate"><span class="pre">fuchsia</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: black;"></span> <code class="docutils literal notranslate"><span class="pre">black</span></code></p></td>
+<td><p><span class="color-preview" style="background: olive;"></span> <code class="docutils literal notranslate"><span class="pre">olive</span></code></p></td>
+<td><p><span class="color-preview" style="background: teal;"></span> <code class="docutils literal notranslate"><span class="pre">teal</span></code></p></td>
+<td><p><span class="color-preview" style="background: purple;"></span> <code class="docutils literal notranslate"><span class="pre">purple</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rgb-tuple-python-api-only">
+<h3>RGB Tuple (Python API only)<a class="headerlink" href="#rgb-tuple-python-api-only" title="Permalink to this headline">¶</a></h3>
+<p>If you are using the <strong>Python API</strong> (not the command line interface), you can
+also pass colors as RGB <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></li>
+</ul>
+<style>
+    .color-preview {
+         display: inline-block;
+         width: 16px;
+         height: 16px;
+         border: #444 solid 1px;
+         vertical-align: middle;
+         border-radius: 2px;
+         box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
+    }
+</style></div>
 </div>
 <div class="section" id="python-api">
 <h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
