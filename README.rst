@@ -1,7 +1,7 @@
 rivalcfg: Configure SteelSeries gaming mice
 ===========================================
 
-|Lint and Tests| |PYPI Version| |License| |Gitter|
+|Github| |Gitter| |PYPI Version| |Github Actions| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
 to configure SteelSeries gaming mice on Linux and Windows (probably works on
@@ -248,11 +248,17 @@ Changelog
 Older changelog entries were moved in the `CHANGELOG.rst <./CHANGELOG.rst>`_ file.
 
 
-.. |Lint and Tests| image:: https://github.com/flozz/rivalcfg/workflows/Lint%20and%20Tests/badge.svg?branch=master
-   :target: https://github.com/flozz/rivalcfg/actions
-.. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg.svg
-   :target: https://pypi.python.org/pypi/rivalcfg
-.. |License| image:: https://img.shields.io/pypi/l/rivalcfg.svg
-   :target: https://github.com/flozz/rivalcfg/blob/master/LICENSE
-.. |Gitter| image:: https://badges.gitter.im/gitter.svg
+.. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
+   :target: https://github.com/flozz/rivalcfg
+
+.. |Gitter| image:: https://img.shields.io/gitter/room/flozz/rivalcfg?color=%2347b192&logo=gitter
    :target: https://gitter.im/rivalcfg/Lobby
+
+.. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
+   :target: https://pypi.org/project/rivalcfg/
+
+.. |Github Actions| image:: https://img.shields.io/github/workflow/status/flozz/rivalcfg/Lint%20and%20Tests/master
+   :target: https://github.com/flozz/rivalcfg/actions
+
+.. |License| image:: https://img.shields.io/github/license/flozz/rivalcfg
+   :target: https://github.com/flozz/rivalcfg/blob/master/LICENSE
