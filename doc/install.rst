@@ -9,16 +9,20 @@ Installing
    using Python 3 if available.
 
 
+Archlinux AUR Package
+---------------------
+
+Use package `rivalcfg-git <https://aur.archlinux.org/packages/rivalcfg-git>`_
+
+
+From Sources (Git / PyPI)
+-------------------------
+
 Prerequisites
--------------
-
-.. NOTE::
-
-   The prerequistes are only needed if you install from PyPI or form sources.
-
+~~~~~~~~~~~~~
 
 Linux
-~~~~~
+^^^^^
 
 Installation require a compilation toolchain and python headers to compile
 ``hidapi``.
@@ -34,7 +38,7 @@ On **Solus**, use the following commands::
 
 
 Windows
-~~~~~~~
+^^^^^^^
 
 On Windows, you have to install first:
 
@@ -43,15 +47,15 @@ On Windows, you have to install first:
 
 
 Installing From PyPI
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 Run the following command::
 
    sudo pip3 install rivalcfg
 
 
-Installing From sources
------------------------
+Installing From Github
+~~~~~~~~~~~~~~~~~~~~~~
 
 Clone the repository::
 
@@ -63,7 +67,10 @@ Install rivalcfg::
    sudo pip3 install .
 
 
-Archlinux AUR package
----------------------
+After the installation
+~~~~~~~~~~~~~~~~~~~~~~
 
-Use package `rivalcfg-git <https://aur.archlinux.org/packages/rivalcfg-git>`_
+Once Rivalcfg installed from sources (Git or PyPI), you will have to run the
+following command on udev-based Linux distro (Debian / Ubuntu / Fedora / ...)::
+
+    sudo rivalcfg --update-udev
