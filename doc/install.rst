@@ -1,14 +1,6 @@
 Installing
 ==========
 
-
-.. IMPORTANT::
-
-   In this page, only Python 3 commands are provided. Rivalcfg still work with
-   Python 2, but this support will be dropped in future versions... so prefer
-   using Python 3 if available.
-
-
 Archlinux AUR Package
 ---------------------
 
@@ -20,6 +12,13 @@ From Sources (Git / PyPI)
 
 Prerequisites
 ~~~~~~~~~~~~~
+
+.. IMPORTANT::
+
+   In this page, only Python 3 commands are provided. Rivalcfg still work with
+   Python 2, but this support will be dropped in future versions... so prefer
+   using Python 3 if available.
+
 
 Linux
 ^^^^^

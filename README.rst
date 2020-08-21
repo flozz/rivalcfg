@@ -182,7 +182,7 @@ SteelSeries Sensei [RAW]:
 Changelog
 ---------
 
-* **4.0.0:** ``[WORK IN PROGRESS]``
+* **4.0.0:**
 
   * Full rewrite of most parts of the software
   * Mice are now grouped by family to reduce code duplication
