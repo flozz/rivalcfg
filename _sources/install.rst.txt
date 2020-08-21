@@ -4,7 +4,7 @@ Installing
 Archlinux AUR Package
 ---------------------
 
-Use package `rivalcfg-git <https://aur.archlinux.org/packages/rivalcfg-git>`_
+Use package `rivalcfg <https://aur.archlinux.org/packages/rivalcfg/>`_
 
 
 From Sources (Git / PyPI)
