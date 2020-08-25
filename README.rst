@@ -15,7 +15,7 @@ Sensei,...).
    **IMPORTANT:** This is an unofficial software. It was made by reverse
    engineering devices and is not supported nor approved by SteelSeries.
 
-.. figure:: ./doc/images/steelseries_mice.jpg
+.. figure:: https://flozz.github.io/rivalcfg/_images/steelseries_mice.jpg
    :alt: SteelSeries Gaming Mice
 
 If you have any trouble running this software, please open an issue on Github:
@@ -108,6 +108,12 @@ SteelSeries Rival 300 / SteelSeries Rival:
 | SteelSeries Rival 300 Acer Predator Edition                  | 1038:1714 |
 +--------------------------------------------------------------+-----------+
 | SteelSeries Rival 300 HP OMEN Edition                        | 1038:1718 |
++--------------------------------------------------------------+-----------+
+
+SteelSeries Rival 300S:
+
++--------------------------------------------------------------+-----------+
+| SteelSeries Rival 300S                                       | 1038:1810 |
 +--------------------------------------------------------------+-----------+
 
 SteelSeries Rival 310:
@@ -245,7 +251,8 @@ Changelog
     * Sensei Ten: this mouse needs more work to be added back.
     * Colorshift of the Rival 500: this feature needs more work to be added back.
 
-Older changelog entries were moved in the `CHANGELOG.rst <./CHANGELOG.rst>`_ file.
+Older changelog entries were moved in the `CHANGELOG.rst
+<https://github.com/flozz/rivalcfg/blob/master/CHANGELOG.rst>`_ file.
 
 
 .. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
