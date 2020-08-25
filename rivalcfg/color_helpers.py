@@ -97,36 +97,6 @@ def parse_color_string(color):
         )
 
 
-def parse_multi_color_string(colors):
-    """Parse a color string.
-
-    :param str color: The color string.
-    :rtype: list
-
-    >>> parse_multi_color_string("red, #00ff00, 00f")
-    [{'color': (255, 0, 0)}, {'color': (0, 255, 0)}, {'color': (0, 0, 255)}]
-    >>> parse_multi_color_string("red")
-    [{'color': (255, 0, 0)}]
-    """  # noqa
-    colors = colors.replace(" ", "")
-
-    if not re.match(r"[a-zA-Z0-9#]+(,[a-zA-Z0-9#]+)*", colors):  # noqa
-        raise ValueError("invalid multi color argument'%s'. It must looks like <COLOR1>,<COLOR2>,...'" % colors)  # noqa
-
-    result = []
-    colors = colors.split(",")
-    for color in colors:
-
-        if not is_color(color):
-            raise ValueError("invalid color '%s'" % color)
-
-        result.append({
-            "color": parse_color_string(color),
-            })
-
-    return result
-
-
 def parse_color_gradient_string(gradient):
     """Parse a color gradient string.
 
