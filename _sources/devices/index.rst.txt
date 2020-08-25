@@ -14,6 +14,7 @@ Supported Devices
    ./rival100.rst
    ./rival110.rst
    ./rival300.rst
+   ./rival300s.rst
    ./rival310.rst
    ./rival500.rst
    ./rival600.rst

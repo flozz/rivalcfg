@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SteelSeries Rival 310 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  <title>SteelSeries Rival 300S &mdash; rivalcfg 4.0.0.dev0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Rival 500" href="rival500.html" />
-    <link rel="prev" title="SteelSeries Rival 300S" href="rival300s.html" /> 
+    <link rel="next" title="SteelSeries Rival 310" href="rival310.html" />
+    <link rel="prev" title="SteelSeries Rival 300 and original Rival" href="rival300.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,8 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival300s.html">SteelSeries Rival 300S</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 310</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 300S</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
@@ -107,15 +106,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#rgb-gradients">RGB Gradients</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rgb-gradient-expression">RGB Gradient expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-gradients">Example Gradients</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rgb-gradient-dict-python-api-only">RGB Gradient Dict (Python API only)</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival500.html">SteelSeries Rival 500</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival600.html">SteelSeries Rival 600</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival700.html">SteelSeries Rival 700 and Rival 710</a></li>
@@ -173,13 +167,13 @@
         
           <li><a href="index.html">Supported Devices</a> &raquo;</li>
         
-      <li>SteelSeries Rival 310</li>
+      <li>SteelSeries Rival 300S</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/devices/rival310.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/devices/rival300s.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -192,8 +186,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="steelseries-rival-310">
-<h1>SteelSeries Rival 310<a class="headerlink" href="#steelseries-rival-310" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="steelseries-rival-300s">
+<h1>SteelSeries Rival 300S<a class="headerlink" href="#steelseries-rival-300s" title="Permalink to this headline">¶</a></h1>
+<p>This device looks like a Rival 300 but works like a Rival 110.</p>
 <div class="section" id="supported-models">
 <h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -202,14 +197,8 @@
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>SteelSeries Rival 310</p></td>
-<td><p>1038:1720</p></td>
-</tr>
-<tr class="row-even"><td><p>SteelSeries Rival 310 CS:GO Howl Edition</p></td>
-<td><p>1038:171e</p></td>
-</tr>
-<tr class="row-odd"><td><p>SteelSeries Rival 310 PUBG Edition</p></td>
-<td><p>1038:1736</p></td>
+<tr class="row-odd"><td><p>SteelSeries Rival 300S</p></td>
+<td><p>1038:1810</p></td>
 </tr>
 </tbody>
 </table>
@@ -222,7 +211,7 @@
 
 usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
-                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-r]
+                [-c COLOR] [-e LIGHT_EFFECT] [-b BTN6_MODE] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -232,24 +221,25 @@ optional arguments:
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
 
-SteelSeries Rival 310 Options:
+SteelSeries Rival 300S Options:
   -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
-                        Set sensitivity preset 1 (DPI) (from 100 to 12000,
+                        Set sensitivity preset 1 (DPI) (from 200 to 7200,
                         default: 800)
   -S SENSITIVITY2, --sensitivity2 SENSITIVITY2
-                        Set sensitivity preset 2 (DPI) (from 100 to 12000,
+                        Set sensitivity preset 2 (DPI) (from 200 to 7200,
                         default: 1600)
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
-  -c LOGO_COLOR, --logo-color LOGO_COLOR
-                        Set the colors and the effects of the logo LED
-                        (default: rgbgradient(duration=1000; colors=0%:
-                        #ff0000, 33%: #00ff00, 66%: #0000ff))
-  -C WHEEL_COLOR, --wheel-color WHEEL_COLOR
-                        Set the colors and the effects of the wheel LED
-                        (default: rgbgradient(duration=1000; colors=0%:
-                        #ff0000, 33%: #00ff00, 66%: #0000ff))
+  -c COLOR, --color COLOR
+                        Set the mouse LED color (e.g. red, #ff0000, ff0000,
+                        #f00, f00, default: #FF1800)
+  -e LIGHT_EFFECT, --light-effect LIGHT_EFFECT
+                        Set the light effect (values: steady, breath, 1, 2, 3,
+                        4, default: steady)
+  -b BTN6_MODE, --btn6-mode BTN6_MODE
+                        Set the mode of the button under the wheel (values:
+                        dpi, os, default: dpi)
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
@@ -324,73 +314,6 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
     }
 </style></div>
 </div>
-<div class="section" id="rgb-gradients">
-<h2>RGB Gradients<a class="headerlink" href="#rgb-gradients" title="Permalink to this headline">¶</a></h2>
-<p>This mouse supports RGB Gradient. In addition of static colors, you can
-configure a gradient. The color of the mouse will change according to the
-colors of the gradient.</p>
-<div class="section" id="rgb-gradient-expression">
-<h3>RGB Gradient expression<a class="headerlink" href="#rgb-gradient-expression" title="Permalink to this headline">¶</a></h3>
-<p>The RGB Gradient follows this format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=&lt;</span><span class="n">DURATION</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">colors</span><span class="o">=&lt;</span><span class="n">POS1</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">COLOR1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">POSN</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">COLORN</span><span class="o">&gt;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: the time in miliseconds of the color loop. This parameter is optional. Default value: <code class="docutils literal notranslate"><span class="pre">1000</span></code> (1 second).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">colors</span></code>: the colors of the gradient.</p>
-<ul>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">&lt;POS&gt;</span></code> parameters are the position of the color stops (e.g. <code class="docutils literal notranslate"><span class="pre">0%</span></code>, <code class="docutils literal notranslate"><span class="pre">50%</span></code>,…).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">&lt;COLOR&gt;</span></code> parameters are the colors in any suported format (se above).</p></li>
-</ul>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A maximum of 14 color are supported in a RGB Gradient.</p>
-</div>
-</div>
-<div class="section" id="example-gradients">
-<h3>Example Gradients<a class="headerlink" href="#example-gradients" title="Permalink to this headline">¶</a></h3>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=5000; colors=0%: red, 33%: lime, 66%: blue)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #e90cce 0%, #ffe701 33%, #01cafe 66%, #e90cce 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=5000; colors=0%: #e90cce, 33%: #ffe701, 66%: #01cafe)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff1800 0%, #fde700 50%, #ff1800 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=1000; colors=0%: #ff1800, 50%: #fde700)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #3acbe8 0%, #8706fe 50%, #3acbe8 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=1000; colors=0%: #3acbe8, 50%: #8706fe)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, black 0%, red 8%, black 16%, yellow 24%, black 32%, lime 40%, black 48%, aqua 56%, black 64%, blue 72%, black 80%, fuchsia 88%, black 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=15000; colors=0%: black, 8%: red, 16%: black, 24%: yellow, 32%: black, 40%: lime, 48%: black, 56%: aqua, 64%: black, 72%: blue, 80%: black, 88%: fuchsia)
-</pre></div>
-</div>
-</div>
-<div class="section" id="rgb-gradient-dict-python-api-only">
-<h3>RGB Gradient Dict (Python API only)<a class="headerlink" href="#rgb-gradient-dict-python-api-only" title="Permalink to this headline">¶</a></h3>
-<p>If you are using the <strong>Python API</strong> (not the command line interface), you can also pass a Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> to define a gradient.</p>
-<p>Example:</p>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>  <span class="c1"># ms</span>
-    <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)},</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<style>
-    .gradient-preview {
-         height: 24px;
-         border: #444 solid 1px;
-         vertical-align: middle;
-         border-radius: 2px;
-         box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
-    }
-</style></div>
-</div>
 <div class="section" id="python-api">
 <h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
 <p>TODO</p>
@@ -405,10 +328,10 @@ colors of the gradient.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rival500.html" class="btn btn-neutral float-right" title="SteelSeries Rival 500" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rival310.html" class="btn btn-neutral float-right" title="SteelSeries Rival 310" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rival300s.html" class="btn btn-neutral float-left" title="SteelSeries Rival 300S" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rival300.html" class="btn btn-neutral float-left" title="SteelSeries Rival 300 and original Rival" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
