@@ -178,10 +178,10 @@ def process_value(setting_info, colors):
     initialcolor = []
     activecolor = []
 
-    if "rgbgradient" in colors:
-        is_gradient = True
-    else:
+    if "reactive" in colors:
         is_gradient = False
+    else:
+        is_gradient = True
 
     # Color tuple
     if type(colors) in (tuple, list):
@@ -210,6 +210,7 @@ def process_value(setting_info, colors):
         else:
             raise ValueError("Not a valid color or reactive %s" % str(colors))
 
+    print(is_gradient, gradient)
     if is_gradient:
 
         if len(gradient) == 0:
@@ -345,7 +346,7 @@ def is_command(string):
     (False, "... You must provide at least one color: ...")
     >>> is_command("reactive(colors=red, foo=bar)")
     (False, "invalid parameter string 'reactive(colors=red, foo=bar)'")
-    """
+    """ # noqa
 
     if "rgbgradient" in string:
         try:
