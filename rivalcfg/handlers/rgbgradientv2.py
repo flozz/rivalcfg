@@ -1,5 +1,5 @@
 """
-The "rgbgradient" type handles RGB color gradients. Simple RGB color can also
+The "rgbgradientV2" type handles RGB color gradients. Simple RGB color can also
 be used.
 
 RGB gradient syntax example::
@@ -65,9 +65,9 @@ Example of a rgbgradient value type in a device profile:
                 "command": [0x05, 0x00],
                 "value_type": "rgbgradientv2",
                 "rgbgradient_header": {
-                    "color_field_length": 139,  # Index of length of colot field (used for padding)
-                    "duration_length": 2,       # Length of the "duration" field (in bytes)
-                    "maxgradient":14,           # max numbers of gradients see handler rgbgradientv2.py
+                    "color_field_length": 139,  # Index of length of coloR field (used for padding)
+                    "duration_length": 2,       # Length of the "duration" field (in Bytes)
+                    "maxgradient": 14,          # Max numbers of color stop (probably 14)
                 },
                 "led_id": 0x01,
                 "default": "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)",
@@ -87,11 +87,11 @@ Example of CLI option generated with this handler::
 
    -c LOGO_COLOR, --logo-color LOGO_COLOR
                          Set the colors and the effects of the logo LED (default:
-                         rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff))
+                         rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff))
 
 Example of CLI usage::
 
-    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"
+    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"
     rivalcfg --logo-color=red
     rivalcfg --logo-color=FF1800
 
@@ -258,7 +258,7 @@ def process_value(setting_info, colors):
             if pos <= last_real_pos:
                 raise ValueError("Incorrect order for gradient or duplicate order found please check position order") # noqa
             stage.append(index)  # Stage index number
-            stage.append(00)  # Padding
+            stage.append(0)  # Padding
             time = int((duration / 100) * (pos - last_real_pos))
             last_real_pos = pos
             if time == 0:
@@ -266,11 +266,11 @@ def process_value(setting_info, colors):
             rgb_index = 0
             for rgb in color:
                 diff = rgb - oldcolor[rgb_index]
-                ramp = int(diff / time * 16)
+                ramp = int(diff / float(time) * 16)
                 oldcolor[rgb_index] = rgb
                 stage = merge_bytes(stage, ramp & 255)
                 rgb_index = rgb_index + 1
-            stage.append(00)  # Padding
+            stage.append(0)  # Padding
             time = uint_to_little_endian_bytearray(time, 2)
             stage = merge_bytes(stage, time)
             index = index + 1
@@ -286,8 +286,8 @@ def process_value(setting_info, colors):
         split_color = []
         for i in range(len(start_color)):
             high, low = bytes_to_high_low_nibbles(start_color[i])
-            left_byte = nibbles_to_byte(low, 00)
-            right_byte = nibbles_to_byte(00, high)
+            left_byte = nibbles_to_byte(low, 0)
+            right_byte = nibbles_to_byte(0, high)
             split_color.append(left_byte)
             split_color.append(right_byte)
 
