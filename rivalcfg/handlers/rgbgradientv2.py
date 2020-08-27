@@ -210,7 +210,6 @@ def process_value(setting_info, colors):
         else:
             raise ValueError("Not a valid color or reactive %s" % str(colors))
 
-    print(is_gradient, gradient)
     if is_gradient:
 
         if len(gradient) == 0:
