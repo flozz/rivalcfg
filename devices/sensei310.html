@@ -117,6 +117,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#rgb-gradient-dict-python-api-only">RGB Gradient Dict (Python API only)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-special-actions">Mapping Special Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-mouse-buttons">Mapping Mouse Buttons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-multimedia-keys">Mapping Multimedia Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-keyboard-keys">Mapping Keyboard Keys</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
@@ -216,7 +223,7 @@
 
 usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
-                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-r]
+                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-b BUTTONS_MAPPING] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -244,6 +251,12 @@ SteelSeries Sensei 310 Options:
                         Set the colors and the effects of the wheel LED
                         (default: rgbgradient(duration=1000; colors=0%:
                         #ff0000, 33%: #00ff00, 66%: #0000ff))
+  -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
+                        Set the mapping of the buttons (default:
+                        buttons(button1=button1; button2=button2;
+                        button3=button3; button4=button4; button5=button5;
+                        button6=PageDown; button7=PageUp; button8=dpi;
+                        layout=qwerty))
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
@@ -384,6 +397,117 @@ colors of the gradient.</p>
          box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
     }
 </style></div>
+</div>
+<div class="section" id="buttons">
+<h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<img alt="Sensei 310 buttons schema" src="../_images/sensei_310_buttons.svg" /></div>
+<p>This mouse supports buttons mapping. Buttons can be mapped with:</p>
+<ul class="simple">
+<li><p>some special actions,</p></li>
+<li><p>mouse buttons,</p></li>
+<li><p>multimedia keys,</p></li>
+<li><p>and keyboard keys.</p></li>
+</ul>
+<p>The general syntax for buttons mapping is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=&lt;</span><span class="n">LAYOUT</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">button1</span><span class="o">=&lt;</span><span class="n">mapping1</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">buttonN</span><span class="o">=&lt;</span><span class="n">mappingN</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">buttons</span> <span class="s2">&quot;buttons(layout=QWERTY; button1=button1; button2=PlayPause; button3=disabled; button5=A; button6=DPI)&quot;</span>
+</pre></div>
+</div>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: The keyboard layout to use when papping the keys (see the “Mapping Keyboard Keys” section bellow).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button1</span></code>: The first button of the mouse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button2</span></code>: The second button of the mouse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buttonN</span></code>: The Nth button of the mouse (The number of available buttons depends of the mouse model).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All parameters are optional. If you do not define a mapping for a specific button, it will be reset to its default value.</p>
+</div>
+<p>You can also reset all buttons to their factory default by passing <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">buttons</span> <span class="n">default</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to map the mouse button <code class="docutils literal notranslate"><span class="pre">button1</span></code> on some button, else you will not be able to click with the mouse!</p>
+</div>
+<div class="section" id="mapping-special-actions">
+<h3>Mapping Special Actions<a class="headerlink" href="#mapping-special-actions" title="Permalink to this headline">¶</a></h3>
+<p>The following special actions are available¹:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disabled</span></code>: disable the button,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: use this button to switch between DPI presets,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollUp</span></code>: simulate a scroll up (not available on all devices¹)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollDown</span></code>: simulate a scroll down (not available on all devices¹)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">disabled</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">disabled</span><span class="p">;</span> <span class="n">button6</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>¹</strong> The <code class="docutils literal notranslate"><span class="pre">ScrollUp</span></code> and <code class="docutils literal notranslate"><span class="pre">ScrollDown</span></code> actions are not available on all devices.</p>
+<ul class="simple">
+<li><p><strong>Rival 300 / Rival:</strong> OK</p></li>
+<li><p><strong>Sensei [RAW]:</strong> Not supported</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mapping-mouse-buttons">
+<h3>Mapping Mouse Buttons<a class="headerlink" href="#mapping-mouse-buttons" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to any other mouse button.</p>
+<p>For example, this swap the button 1 and 2 of the mouse:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapping-multimedia-keys">
+<h3>Mapping Multimedia Keys<a class="headerlink" href="#mapping-multimedia-keys" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to multimedia keys. The following keys are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Mute</span></code>: turn off the sound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Next</span></code>: play next media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlayPause</span></code>: toggle play / pause on the currently playing media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Previous</span></code>: play the previous media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VolumeUp</span></code>: increase the volume</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VolumeDown</span></code>: decrease the volume</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">VolumeDown</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">VolumeUp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapping-keyboard-keys">
+<h3>Mapping Keyboard Keys<a class="headerlink" href="#mapping-keyboard-keys" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to any keyboard keys, using different layouts.</p>
+<p>To select the desired layout, just use the <code class="docutils literal notranslate"><span class="pre">layout</span></code> parameter. If this
+parameter is not specified, the <code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> layout will be used by default.</p>
+<p>Available layouts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> (<a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py">see available keys</a>)</p></li>
+</ul>
+<p>The available keys depends on the selected layout.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button7</span><span class="o">=</span><span class="n">PageDown</span><span class="p">;</span> <span class="n">button8</span><span class="o">=</span><span class="n">PageUp</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some caracters like <code class="docutils literal notranslate"><span class="pre">;</span></code> or <code class="docutils literal notranslate"><span class="pre">=</span></code> cannot be used as key identified as they
+interfer with the <code class="docutils literal notranslate"><span class="pre">buttons()</span></code> syntax. For those keys, use one of the
+available aliases, like <code class="docutils literal notranslate"><span class="pre">semicolon</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">;</span></code>) or <code class="docutils literal notranslate"><span class="pre">equal</span></code>
+(instead of <code class="docutils literal notranslate"><span class="pre">=</span></code>).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">semicolon</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">equal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="python-api">
 <h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
