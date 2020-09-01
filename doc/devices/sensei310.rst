@@ -28,6 +28,15 @@ RGB Gradients
 .. include:: ./_rgbgradient.rst
 
 
+Buttons
+-------
+
+.. figure:: ./images/sensei_310_buttons.svg
+   :alt: Sensei 310 buttons schema
+
+.. include:: ./_buttons.rst
+
+
 Python API
 ----------
 
