@@ -195,6 +195,14 @@ Changelog
 
   * Support of the Rival 300S
 
+  * Rival 310 support improved:
+
+    * Support of button mapping
+
+  * Sensei 310 support improved:
+
+    * Support of button mapping
+
 * **4.0.0:**
 
   * Full rewrite of most parts of the software
