@@ -7,6 +7,11 @@ RGB gradient syntax example::
     rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)
     rgbgradient(colors=0%: red, 33%: lime, 66%: blue)
 
+Reactive syntax example::
+
+    reactive(duration=1500; initialcolor=#00ff00; activecolor=#ff0000)
+    reactive(duration=1500; initialcolor=green; activecolor=red)
+
 It supports both hexadecimal colors:
 
 * ``#FF0000``
@@ -30,9 +35,17 @@ and named colors:
 
 A Python ``dict`` can also be used (Python API only)::
 
+reactive dict
     {
         "duration": 1000,  # ms
-        "colors": [
+        "initialcolor": green,
+        "activecolor": #FF0000,
+    }
+
+rgbgradient dict
+    {
+        "duration": 1000,  # ms
+        "initialcolor": [
             {"pos": 0, "color": "red"},
             {"pos": 33, "color": "#00FF00"},
             {"pos": 66, "color": (0, 0, 255)},
@@ -59,13 +72,13 @@ Example of a rgbgradient value type in a device profile:
 
             "logo_color": {
                 "label": "Logo LED colors and effects",
-                "description": "Set the colors and the effects of the logo LED",
+                "description": "Set the colors andthe effects of the logo LED",
                 "cli": ["-c", "--logo-color"],
                 "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
                 "command": [0x05, 0x00],
                 "value_type": "rgbgradientv2",
                 "rgbgradient_header": {
-                    "color_field_length": 139,  # Index of length of coloR field (used for padding)
+                    "color_field_length": 139,  # Index of length of color field (used for padding)
                     "duration_length": 2,       # Length of the "duration" field (in Bytes)
                     "maxgradient": 14,          # Max numbers of color stop (probably 14)
                 },
@@ -92,6 +105,9 @@ Example of CLI option generated with this handler::
 Example of CLI usage::
 
     rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"
+    rivalcfg --logo-color="rgbgradient(duration=1000; colors=0%: red, 33%: lime, 66%: blue)""
+    rivalcfg --logo-color="reactive(duration=1500; initialcolor=#00ff00; activecolor=#ff0000)"
+    rivalcfg --logo-color="reactive(initialcolor=green; activecolor=red)"
     rivalcfg --logo-color=red
     rivalcfg --logo-color=FF1800
 
@@ -334,7 +350,7 @@ def process_value(setting_info, colors):
 
 
 def is_command(string):
-    """Check if the reactive expression is valid.
+    """Check if the rgbradient expression is valid.
 
     :param str string: The string to validate.
     :rtype: (bool, str)
@@ -408,7 +424,7 @@ def is_command(string):
 
 
 class CheckCommandAction(argparse.Action):
-    """Validate colors reactive from CLI"""
+    """Validate colors from CLI"""
 
     def __call__(self, parser, namespace, value, option_string=None):
         if is_color(value):
