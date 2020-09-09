@@ -102,6 +102,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#light-effect">Light Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-special-actions">Mapping Special Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-mouse-buttons">Mapping Mouse Buttons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-multimedia-keys">Mapping Multimedia Keys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mapping-keyboard-keys">Mapping Keyboard Keys</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
@@ -210,7 +218,10 @@
    Run &#39;rivalcfg --update-udev&#39; as root to fix.
 
 usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [-s SENSITIVITY] [-p POLLING_RATE] [-c COLORS] [-r]
+                [-s SENSITIVITY] [-p POLLING_RATE]
+                [--strip-top-color Z1_COLOR] [--strip-middle-color Z2_COLOR]
+                [--strip-bottom-color Z3_COLOR] [-c LOGO_COLOR]
+                [-e LIGHT_EFFECT] [-b BUTTONS_MAPPING] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -227,10 +238,28 @@ SteelSeries Rival 3 Options:
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
-  -c COLORS, --colors COLORS
-                        Set the color of the mouse LEDs (format: &#39;&lt;COLOR&gt;&#39; or 
-                        &#39;&lt;COLOR_TOP&gt;,&lt;COLOR_MIDDLE&gt;,&lt;COLOR_BOTTOM&gt;,&lt;COLOR_LOGO
-                        &gt;&#39;) (default: #FF1800)
+  --strip-top-color Z1_COLOR, --z1 Z1_COLOR
+                        Set the color of the top LED of the strip (e.g. red,
+                        #ff0000, ff0000, #f00, f00, default: red)
+  --strip-middle-color Z2_COLOR, --z2 Z2_COLOR
+                        Set the color of the middle LED of the strip (e.g.
+                        red, #ff0000, ff0000, #f00, f00, default: lime)
+  --strip-bottom-color Z3_COLOR, --z3 Z3_COLOR
+                        Set the color of the bottom LED of the strip (e.g.
+                        red, #ff0000, ff0000, #f00, f00, default: blue)
+  -c LOGO_COLOR, --logo-color LOGO_COLOR, --z4 LOGO_COLOR
+                        Set the color of the logo LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: purple)
+  -e LIGHT_EFFECT, --light-effect LIGHT_EFFECT
+                        Set the light effect (values: rainbow-shift, breath-
+                        fast, breath, breath-slow, steady, rainbow-breath,
+                        disco, default: steady)
+  -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
+                        Set the mapping of the buttons (default:
+                        buttons(button1=button1; button2=button2;
+                        button3=button3; button4=button4; button5=button5;
+                        button6=dpi; scrollup=scrollup; scrolldown=scrolldown;
+                        layout=qwerty))
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
@@ -265,20 +294,7 @@ as parameter. You are also able to change the currently selected preset:</p>
 </div>
 <div class="section" id="colors">
 <h2>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h2>
-<p>This mouse supports 4 color zone.</p>
-<p>You can pass 1 color if you want all zones to be set to the same color:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;COLOR&gt;&quot;</span>
-</pre></div>
-</div>
-<p>Or 4 colors if you want to set a different color for each zone:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;COLOR_TOP&gt;, &lt;COLOR_MIDDLE&gt;, &lt;COLOR_BOTTOM&gt;, &lt;COLOR_LOGO&gt;&quot;</span>
-</pre></div>
-</div>
-<p>Examples:</p>
-<ul class="simple">
-<li><p><span class="color-preview" style="background: #ff4400;"></span> <code class="docutils literal notranslate"><span class="pre">&quot;#ff1800&quot;</span></code></p></li>
-<li><p><span class="color-preview" style="background: red;"></span> <span class="color-preview" style="background: aqua;"></span> <span class="color-preview" style="background: blue;"></span> <span class="color-preview" style="background: purple;"></span> <code class="docutils literal notranslate"><span class="pre">&quot;#ff0000,</span> <span class="pre">#00ffff,</span> <span class="pre">#0000ff,</span> <span class="pre">purple&quot;</span></code></p></li>
-</ul>
+<p>This mouse supports colors. Various formats are supported.</p>
 <div class="section" id="hexadecimal-notation">
 <h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this headline">¶</a></h3>
 <p>You can use a 24 bit hexadecimal notation (like in HTML / CSS documents).
@@ -342,24 +358,127 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
          border-radius: 2px;
          box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
     }
-</style><p>If you pass only one <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, all zones will be set to the same color. You
-can also provide 4 colors, one for each zone:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># Zone 1 (top)</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>  <span class="c1"># Zone 2 (middle)</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>    <span class="c1"># Zone 3 (bottom)</span>
-    <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>  <span class="c1"># Logo</span>
-<span class="p">]</span>
+</style></div>
+</div>
+<div class="section" id="light-effect">
+<h2>Light Effect<a class="headerlink" href="#light-effect" title="Permalink to this headline">¶</a></h2>
+<p>The Rival 3 offers some onboard light effects.</p>
+<p>Please note that the effects are reset if you changes colors. So if you want
+specific colors with the breath effect, you have to set colors first and the
+effect after:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">z1</span> <span class="n">red</span> <span class="o">--</span><span class="n">z2</span> <span class="n">lime</span> <span class="o">--</span><span class="n">z3</span> <span class="n">blue</span> <span class="o">--</span><span class="n">logo</span><span class="o">-</span><span class="n">color</span> <span class="n">purple</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">light</span><span class="o">-</span><span class="n">effect</span> <span class="n">breath</span>
 </pre></div>
 </div>
-<p>Mixes with color strings are also allowed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># Zone 1 (top)</span>
-    <span class="s2">&quot;#00FFFF&quot;</span><span class="p">,</span>      <span class="c1"># Zone 2 (middle)</span>
-    <span class="s2">&quot;0ff&quot;</span><span class="p">,</span>          <span class="c1"># Zone 3 (bottom)</span>
-    <span class="s2">&quot;purple&quot;</span><span class="p">,</span>       <span class="c1"># Logo</span>
-<span class="p">]</span>
+</div>
+<div class="section" id="buttons">
+<h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<img alt="Rival 3 buttons schema" src="../_images/rival_3_buttons.svg" /></div>
+<p>This mouse supports buttons mapping. Buttons can be mapped with:</p>
+<ul class="simple">
+<li><p>some special actions,</p></li>
+<li><p>mouse buttons,</p></li>
+<li><p>multimedia keys,</p></li>
+<li><p>and keyboard keys.</p></li>
+</ul>
+<p>The general syntax for buttons mapping is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=&lt;</span><span class="n">LAYOUT</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">button1</span><span class="o">=&lt;</span><span class="n">mapping1</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">buttonN</span><span class="o">=&lt;</span><span class="n">mappingN</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">buttons</span> <span class="s2">&quot;buttons(layout=QWERTY; button1=button1; button2=PlayPause; button3=disabled; button5=A; button6=DPI)&quot;</span>
+</pre></div>
+</div>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: The keyboard layout to use when papping the keys (see the “Mapping Keyboard Keys” section bellow).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button1</span></code>: The first button of the mouse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">button2</span></code>: The second button of the mouse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buttonN</span></code>: The Nth button of the mouse (The number of available buttons depends of the mouse model).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All parameters are optional. If you do not define a mapping for a specific button, it will be reset to its default value.</p>
+</div>
+<p>You can also reset all buttons to their factory default by passing <code class="docutils literal notranslate"><span class="pre">&quot;default&quot;</span></code> as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">buttons</span> <span class="n">default</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to map the mouse button <code class="docutils literal notranslate"><span class="pre">button1</span></code> on some button, else you will not be able to click with the mouse!</p>
+</div>
+<div class="section" id="mapping-special-actions">
+<h3>Mapping Special Actions<a class="headerlink" href="#mapping-special-actions" title="Permalink to this headline">¶</a></h3>
+<p>The following special actions are available¹:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disabled</span></code>: disable the button,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: use this button to switch between DPI presets,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollUp</span></code>: simulate a scroll up (not available on all devices¹)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ScrollDown</span></code>: simulate a scroll down (not available on all devices¹)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">disabled</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">disabled</span><span class="p">;</span> <span class="n">button6</span><span class="o">=</span><span class="n">DPI</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>¹</strong> The <code class="docutils literal notranslate"><span class="pre">ScrollUp</span></code> and <code class="docutils literal notranslate"><span class="pre">ScrollDown</span></code> actions are not available on all devices.</p>
+<ul class="simple">
+<li><p><strong>Rival 300 / Rival:</strong> OK</p></li>
+<li><p><strong>Sensei [RAW]:</strong> Not supported</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mapping-mouse-buttons">
+<h3>Mapping Mouse Buttons<a class="headerlink" href="#mapping-mouse-buttons" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to any other mouse button.</p>
+<p>For example, this swap the button 1 and 2 of the mouse:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapping-multimedia-keys">
+<h3>Mapping Multimedia Keys<a class="headerlink" href="#mapping-multimedia-keys" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to multimedia keys. The following keys are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Mute</span></code>: turn off the sound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Next</span></code>: play next media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlayPause</span></code>: toggle play / pause on the currently playing media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Previous</span></code>: play the previous media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VolumeUp</span></code>: increase the volume</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VolumeDown</span></code>: decrease the volume</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">VolumeDown</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">VolumeUp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mapping-keyboard-keys">
+<h3>Mapping Keyboard Keys<a class="headerlink" href="#mapping-keyboard-keys" title="Permalink to this headline">¶</a></h3>
+<p>Mouse buttons can be mapped to any keyboard keys, using different layouts.</p>
+<p>To select the desired layout, just use the <code class="docutils literal notranslate"><span class="pre">layout</span></code> parameter. If this
+parameter is not specified, the <code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> layout will be used by default.</p>
+<p>Available layouts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> (<a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py">see available keys</a>)</p></li>
+</ul>
+<p>The available keys depends on the selected layout.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button7</span><span class="o">=</span><span class="n">PageDown</span><span class="p">;</span> <span class="n">button8</span><span class="o">=</span><span class="n">PageUp</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some caracters like <code class="docutils literal notranslate"><span class="pre">;</span></code> or <code class="docutils literal notranslate"><span class="pre">=</span></code> cannot be used as key identified as they
+interfer with the <code class="docutils literal notranslate"><span class="pre">buttons()</span></code> syntax. For those keys, use one of the
+available aliases, like <code class="docutils literal notranslate"><span class="pre">semicolon</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">;</span></code>) or <code class="docutils literal notranslate"><span class="pre">equal</span></code>
+(instead of <code class="docutils literal notranslate"><span class="pre">=</span></code>).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button4</span><span class="o">=</span><span class="n">semicolon</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">equal</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
