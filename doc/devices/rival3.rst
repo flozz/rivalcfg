@@ -45,51 +45,31 @@ You can switch preset using the button under the mouse wheel.
 Colors
 ------
 
-This mouse supports 4 color zone.
-
-You can pass 1 color if you want all zones to be set to the same color::
-
-    "<COLOR>"
-
-Or 4 colors if you want to set a different color for each zone::
-
-    "<COLOR_TOP>, <COLOR_MIDDLE>, <COLOR_BOTTOM>, <COLOR_LOGO>"
-
-Examples:
-
-* |clr-ss-orange| ``"#ff1800"``
-* |clr-red| |clr-aqua| |clr-blue| |clr-purple| ``"#ff0000, #00ffff, #0000ff, purple"``
-
-.. |clr-ss-orange| raw:: html
-
-   <span class="color-preview" style="background: #ff4400;"></span>
+This mouse supports colors. Various formats are supported.
 
 .. include:: ./_colors.rst
 
-If you pass only one ``tuple``, all zones will be set to the same color. You
-can also provide 4 colors, one for each zone:
 
-::
+Light Effect
+------------
 
-    [
-        (255, 0, 0),    # Zone 1 (top)
-        (0, 255, 255),  # Zone 2 (middle)
-        (0, 0, 255),    # Zone 3 (bottom)
-        (128, 0, 128),  # Logo
-    ]
+The Rival 3 offers some onboard light effects.
 
+Please note that the effects are reset if you changes colors. So if you want
+specific colors with the breath effect, you have to set colors first and the
+effect after::
 
-Mixes with color strings are also allowed:
-
-::
+    rivalcfg --z1 red --z2 lime --z3 blue --logo-color purple
+    rivalcfg --light-effect breath
 
 
-    [
-        (255, 0, 0),    # Zone 1 (top)
-        "#00FFFF",      # Zone 2 (middle)
-        "0ff",          # Zone 3 (bottom)
-        "purple",       # Logo
-    ]
+Buttons
+-------
+
+.. figure:: ./images/rival_3_buttons.svg
+   :alt: Rival 3 buttons schema
+
+.. include:: ./_buttons.rst
 
 
 Python API
