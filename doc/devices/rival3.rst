@@ -50,6 +50,19 @@ This mouse supports colors. Various formats are supported.
 .. include:: ./_colors.rst
 
 
+Light Effect
+------------
+
+The Rival 3 offers some onboard light effects.
+
+Please note that the effects are reset if you changes colors. So if you want
+specific colors with the breath effect, you have to set colors first and the
+effect after::
+
+    rivalcfg --z1 red --z2 lime --z3 blue --logo-color purple
+    rivalcfg --light-effect breath
+
+
 Buttons
 -------
 

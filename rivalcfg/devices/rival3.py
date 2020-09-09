@@ -94,6 +94,25 @@ profile = {
             "default": "purple"
         },
 
+        "light_effect": {
+            "label": "Light effect",
+            "description": "Set the light effect",
+            "cli": ["-e", "--light-effect"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x06, 0x00],
+            "value_type": "choice",
+            "choices": {
+                "rainbow-shift": 0x00,
+                "breath-fast": 0x01,
+                "breath": 0x02,
+                "breath-slow": 0x03,
+                "steady": 0x04,
+                "rainbow-breath": 0x05,
+                "disco": 0x06,
+            },
+            "default": "steady",
+        },
+
         "buttons_mapping": {
             "label": "Buttons mapping",
             "description": "Set the mapping of the buttons",
