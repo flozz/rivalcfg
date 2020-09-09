@@ -203,6 +203,12 @@ Changelog
 
     * Support of button mapping
 
+  * Rival 3 support improved:
+
+    * Colors can now be defined separatly
+    * Button mapping support implemented
+    * Light effects support implemented
+
 * **4.0.0:**
 
   * Full rewrite of most parts of the software

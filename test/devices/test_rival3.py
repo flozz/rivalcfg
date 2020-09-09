@@ -90,7 +90,6 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-
     @pytest.mark.parametrize("value,expected_hid_report", [
         ("default", b"\x02\x00\x07\x00\x01\x00\x02\x00\x03\x00\x04\x00\x05\x00\x30\x00\x31\x00\x32\x00"),  # noqa
         ("buttons(button2=button6)", b"\x02\x00\x07\x00\x01\x00\x06\x00\x03\x00\x04\x00\x05\x00\x30\x00\x31\x00\x32\x00"),  # noqa
