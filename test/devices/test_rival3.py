@@ -36,11 +36,41 @@ class TestDevice(object):
         assert hid_report == expected_hid_report
 
     @pytest.mark.parametrize("value,expected_hid_report", [
-        ("#FF1800", b"\x02\x00\x0A\x00\x0F\xFF\x18\x00\xFF\x18\x00\xFF\x18\x00\xFF\x18\x00"),  # noqa
-        ("123,456,789,red", b"\x02\x00\x0A\x00\x0F\x11\x22\x33\x44\x55\x66\x77\x88\x99\xFF\x00\x00"),  # noqa
+        ("#ABCDEF", b"\x02\x00\x05\x00\x01\xAB\xCD\xEF\x64"),
+        ("red", b"\x02\x00\x05\x00\x01\xFF\x00\x00\x64"),
         ])
-    def test_set_colors(self, mouse, value, expected_hid_report):
-        mouse.set_colors(value)
+    def test_set_z1_color(self, mouse, value, expected_hid_report):
+        mouse.set_z1_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        ("#ABCDEF", b"\x02\x00\x05\x00\x02\xAB\xCD\xEF\x64"),
+        ("red", b"\x02\x00\x05\x00\x02\xFF\x00\x00\x64"),
+        ])
+    def test_set_z2_color(self, mouse, value, expected_hid_report):
+        mouse.set_z2_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        ("#ABCDEF", b"\x02\x00\x05\x00\x03\xAB\xCD\xEF\x64"),
+        ("red", b"\x02\x00\x05\x00\x03\xFF\x00\x00\x64"),
+        ])
+    def test_set_z3_color(self, mouse, value, expected_hid_report):
+        mouse.set_z3_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize("value,expected_hid_report", [
+        ("#ABCDEF", b"\x02\x00\x05\x00\x04\xAB\xCD\xEF\x64"),
+        ("red", b"\x02\x00\x05\x00\x04\xFF\x00\x00\x64"),
+        ])
+    def test_set_logo_color(self, mouse, value, expected_hid_report):
+        mouse.set_logo_color(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
