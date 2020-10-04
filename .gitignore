@@ -8,3 +8,4 @@ build
 .vscode/*
 .nox
 .pytest_cache
+TODO.md

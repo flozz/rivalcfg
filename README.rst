@@ -188,10 +188,14 @@ SteelSeries Sensei [RAW]:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.1.0]
+* **Rivalcfg NEXT:** [4.2.0]
 
   Features that are implemented on ``master`` and that will be released in the
-  next Rivalcfg version (more details on `the board <https://github.com/flozz/rivalcfg/projects/1>`_):
+  next Rivalcfg version:
+
+  * Nothing yet ;)
+
+* **4.1.0:**
 
   * Support of the Rival 300S
 
