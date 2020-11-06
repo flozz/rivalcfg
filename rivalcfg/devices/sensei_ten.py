@@ -24,11 +24,12 @@ profile = {
             "description": "Set sensitivity preset (DPI)",
             "cli": ["-s", "--sensitivity"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x55, 0x00, 0x1F],  # <SELECTED> <S1> <S2> ... <S5>
+            "command": [0x55, 0x00],  # <COUNT> <SELECTED> <S1> <S2> ... <S5>
             "value_type": "multidpi_range",
-            # "input_range": [200, 8500, 100],
-            # "output_range": [4, 0xC5, 2.33],
+            "input_range": [50, 18000, 50],
+            "output_range": [1, 0x0168, 1],
             "dpi_length_byte": 2,
+            "count_mode": "flag",
             "max_preset_count": 5,
             "default": "800, 1600",
         },
