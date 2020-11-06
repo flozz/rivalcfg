@@ -21,3 +21,4 @@ Supported Devices
    ./rival700.rst
    ./sensei310.rst
    ./sensei_raw.rst
+   ./sensei_ten.rst
