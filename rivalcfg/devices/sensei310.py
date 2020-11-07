@@ -124,7 +124,6 @@ profile = {
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=PageDown; button7=PageUp; button8=dpi; layout=qwerty)",  # noqa
         },
 
-
     },
 
     "save_command": {
