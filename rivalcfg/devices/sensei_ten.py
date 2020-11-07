@@ -16,41 +16,35 @@ _DEFAULT_RGBGRADIENT = "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00f
 
 profile = {
 
-    "name": "SteelSeries Sensei 310",
+    "name": "SteelSeries Sensei TEN",
 
     "models": [{
-        "name": "SteelSeries Sensei 310",
+        "name": "SteelSeries Sensei TEN",
         "vendor_id": 0x1038,
-        "product_id": 0x1722,
+        "product_id": 0x1832,
+        "endpoint": 0,
+    }, {
+        "name": "SteelSeries Sensei TEN CS:GO Neon Rider Editon",
+        "vendor_id": 0x1038,
+        "product_id": 0x1834,
         "endpoint": 0,
     }],
 
     "settings": {
 
-        "sensitivity1": {
-            "label": "Sensibility preset 1",
-            "description": "Set sensitivity preset 1 (DPI)",
-            "cli": ["-s", "--sensitivity1"],
+        "sensitivity": {
+            "label": "Sensibility presets",
+            "description": "Set sensitivity preset (DPI)",
+            "cli": ["-s", "--sensitivity"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x53, 0x00, 0x01],
-            "command_suffix": [0x00, 0x42],
-            "value_type": "range",
-            "input_range": [100, 12000, 100],
-            "output_range": [0x00, 0x77, 1],
-            "default": 800,
-        },
-
-        "sensitivity2": {
-            "label": "Sensibility preset 2",
-            "description": "Set sensitivity preset 2 (DPI)",
-            "cli": ["-S", "--sensitivity2"],
-            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x53, 0x00, 0x02],
-            "command_suffix": [0x00, 0x42],
-            "value_type": "range",
-            "input_range": [100, 12000, 100],
-            "output_range": [0x00, 0x77, 1],
-            "default": 1600,
+            "command": [0x55, 0x00],  # <COUNT> <SELECTED> <S1> <S2> ... <S5>
+            "value_type": "multidpi_range",
+            "input_range": [50, 18000, 50],
+            "output_range": [1, 0x0168, 1],
+            "dpi_length_byte": 2,
+            "count_mode": "flag",
+            "max_preset_count": 5,
+            "default": "800, 1600",
         },
 
         "polling_rate": {

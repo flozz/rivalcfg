@@ -41,6 +41,8 @@ Example of a multidpi_range value type in a device profile:
                 "value_type": "multidpi_range",
                 "input_range": [200, 7200, 100],
                 "output_range": [0x04, 0xA7, 2],
+                "dpi_length_byte": 1,     # Little endian
+                "count_mode": "number",   # number, flag
                 "max_preset_count": 5,
                 "default": "800, 1600",
             },
@@ -76,7 +78,7 @@ Functions
 import re
 import argparse
 
-from ..helpers import merge_bytes
+from ..helpers import merge_bytes, uint_to_little_endian_bytearray
 from .range import process_value as range_process_value
 
 
@@ -111,16 +113,39 @@ def process_value(setting_info, value, selected_preset=1):
     if selected_preset < 1 or selected_preset > len(dpis):
         raise ValueError("the selected preset is out of range")
 
-    #
+    if "dpi_length_byte" not in setting_info:
+        raise ValueError("Missing 'dpi_length_byte' parameter for 'multidpi_range' handler")  # noqa
+
+    if "count_mode" not in setting_info:
+        raise ValueError("Missing 'count_mode' parameter for 'multidpi_range' handler")  # noqa
+
+    if setting_info["count_mode"] not in ("number", "flag"):
+        raise ValueError("Invalid 'count_mode' parameter '%s'" % setting_info["count_mode"])  # noqa
+
+    dpi_length = setting_info["dpi_length_byte"]
+    count_mode = setting_info["count_mode"]
+
+    # DPIs
 
     output_values = []
 
     for dpi in dpis:
+        value = range_process_value(setting_info, dpi)
+        value = uint_to_little_endian_bytearray(value[0], dpi_length)
         output_values = merge_bytes(
                 output_values,
-                range_process_value(setting_info, dpi))
+                value)
 
-    return merge_bytes(len(output_values), selected_preset, output_values)
+    # Count
+
+    dpi_count = len(dpis)
+
+    if count_mode == "flag":
+        dpi_count = 0b11111111 >> (8 - dpi_count)
+
+    #
+
+    return merge_bytes(dpi_count, selected_preset, output_values)
 
 
 def cli_multirange_validator(max_preset_count):

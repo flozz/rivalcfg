@@ -14,6 +14,19 @@ class TestProcessValue(object):
             "input_range": [100, 2000, 100],
             "output_range": [1, 20, 1],
             "max_preset_count": 5,
+            "dpi_length_byte": 1,
+            "count_mode": "number",
+            }
+
+    @pytest.fixture
+    def setting_info2(self):
+        return {
+            "value_type": "multidpi_range",
+            "input_range": [100, 2000, 100],
+            "output_range": [1, 20, 1],
+            "max_preset_count": 5,
+            "dpi_length_byte": 2,
+            "count_mode": "flag",
             }
 
     @pytest.mark.parametrize("input_,expected_output", [
@@ -55,6 +68,13 @@ class TestProcessValue(object):
                     setting_info,
                     "100,200",
                     selected_preset=3)
+
+    def test_count_format_flag(self, setting_info2):
+        assert multidpi_range.process_value(
+                setting_info2,
+                "100,200",
+                ) == [0b00000011, 0x01, 0x01, 0x00, 0x02, 0x00]
+        #             COUNT,      SEL,  PRESSET1,   PRESSET2
 
 
 class TestAddCliOption(object):
