@@ -10,6 +10,11 @@ profile = {
         "vendor_id": 0x1038,
         "product_id": 0x1824,
         "endpoint": 3,
+    }, {
+        "name": "SteelSeries Rival 3 (firmware v0.37.0.0)",
+        "vendor_id": 0x1038,
+        "product_id": 0x184c,
+        "endpoint": 3,
     }],
 
     "settings": {

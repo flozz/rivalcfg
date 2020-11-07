@@ -193,7 +193,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet ;)
+  * Rival 3: support of firmware v0.37.0.0 (#147)
 
 * **4.1.0:**
 
