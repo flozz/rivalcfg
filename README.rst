@@ -85,6 +85,8 @@ SteelSeries Rival 3:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Rival 3                                          | 1038:1824 |
 +--------------------------------------------------------------+-----------+
+| SteelSeries Rival 3 (firmware v0.37.0.0)                     | 1038:184c |
++--------------------------------------------------------------+-----------+
 
 SteelSeries Rival 300 / SteelSeries Rival:
 
@@ -182,6 +184,14 @@ SteelSeries Sensei [RAW]:
 | SteelSeries Sensei [RAW] Heroes of the Storm Edition         | 1038:1390 |
 +--------------------------------------------------------------+-----------+
 
+SteelSeries Sensei TEN:
+
++--------------------------------------------------------------+-----------+
+| SteelSeries Sensei TEN                                       | 1038:1832 |
++--------------------------------------------------------------+-----------+
+| SteelSeries Sensei TEN CS:GO Neon Rider Editon               | 1038:1834 |
++--------------------------------------------------------------+-----------+
+
 .. devices-list-end
 
 
@@ -194,6 +204,8 @@ Changelog
   next Rivalcfg version:
 
   * Rival 3: support of firmware v0.37.0.0 (#147)
+  * Support of the Sensei TEN (1038:1832)
+  * Support of the Sensei TEN CS:GO Neon Rider Edition(1038:1832)
 
 * **4.1.0:**
 
