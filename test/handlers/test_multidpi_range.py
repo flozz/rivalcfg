@@ -74,7 +74,7 @@ class TestProcessValue(object):
                 setting_info2,
                 "100,200",
                 ) == [0b00000011, 0x01, 0x01, 0x00, 0x02, 0x00]
-                #     COUNT,      SEL,  PRESSET1,   PRESSET2
+        #             COUNT,      SEL,  PRESSET1,   PRESSET2
 
 
 class TestAddCliOption(object):
