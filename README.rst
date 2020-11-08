@@ -205,7 +205,7 @@ Changelog
 
   * Rival 3: support of firmware v0.37.0.0 (#147)
   * Support of the Sensei TEN (1038:1832)
-  * Support of the Sensei TEN CS:GO Neon Rider Edition(1038:1832)
+  * Support of the Sensei TEN CS:GO Neon Rider Edition(1038:1834)
 
 * **4.1.0:**
 
