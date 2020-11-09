@@ -1,6 +1,16 @@
 from .. import usbhid
 
 
+_RGBGRADIENTV2_HEADER = {
+    "color_field_length": 139,  # Index of length of color field (used for padding)   # noqa
+    "duration_length": 2,       # Length of the "duration" field (in bytes)
+    "maxgradient": 14,          # Max numbers of color stop (probably 14)
+}
+
+_DEFAULT_RGBGRADIENTV2 = "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
+
+
+
 profile = {
 
     "name": "SteelSeries Rival 500",
@@ -56,28 +66,28 @@ profile = {
             "default": 1000,
         },
 
-        # TODO Implement colorshift (rgbgradientv2?)
         "logo_color": {
-            "label": "Logo LED color",
-            "description": "Set the color of the logo LED",
+            "label": "Logo LED colors and effects",
+            "description": "Set the logo colors and effects",
             "cli": ["-c", "--logo-color"],
+            "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "command": [0x05, 0x00, 0x00],
-            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x00, 0x01],
-            "value_type": "rgbcolor",
-            "default": "#FF1800"
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x0,
+            "default": _DEFAULT_RGBGRADIENTV2,
         },
 
-        # TODO Implement colorshift (rgbgradientv2?)
         "wheel_color": {
-            "label": "Wheel LED color",
-            "description": "Set the color of the wheel LED",
+            "label": "Wheel LED colors and effects",
+            "description": "Set the wheel colors and effects",
             "cli": ["-C", "--wheel-color"],
+            "command": [0x05, 0x00],
             "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
-            "command": [0x05, 0x00, 0x01],
-            "command_suffix": [0xFF, 0x32, 0xC8, 0xC8, 0x00, 0x01, 0x01],
-            "value_type": "rgbcolor",
-            "default": "#FF1800"
+            "value_type": "rgbgradientv2",
+            "rgbgradientv2_header": _RGBGRADIENTV2_HEADER,
+            "led_id": 0x1,
+            "default": _DEFAULT_RGBGRADIENTV2,
         },
 
     },
