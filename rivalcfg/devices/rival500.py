@@ -10,7 +10,6 @@ _RGBGRADIENTV2_HEADER = {
 _DEFAULT_RGBGRADIENTV2 = "rgbgradient(duration=1000; colors=0%: #ff00e1, 33%: #ffea00, 66%: #00ccff)"  # noqa
 
 
-
 profile = {
 
     "name": "SteelSeries Rival 500",
