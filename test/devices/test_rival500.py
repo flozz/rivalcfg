@@ -47,22 +47,32 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    @pytest.mark.parametrize("value,expected_hid_report", [
-        ("#ABCDEF", b"\x03\x00\x05\x00\x00\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
-        ("red", b"\x03\x00\x05\x00\x00\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
-        ])
-    def test_set_logo_color(self, mouse, value, expected_hid_report):
-        mouse.set_logo_color(value)
-        mouse._hid_device.bytes.seek(0)
-        hid_report = mouse._hid_device.bytes.read()
-        assert hid_report == expected_hid_report
+    # @pytest.mark.parametrize("value,expected_hid_report", [
+        # ("#ABCDEF", b"\x03\x00\x05\x00\x00\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
+        # ("red", b"\x03\x00\x05\x00\x00\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x00\x01"),  # noqa
+        # ])
+    # def test_set_logo_color(self, mouse, value, expected_hid_report):
+        # mouse.set_logo_color(value)
+        # mouse._hid_device.bytes.seek(0)
+        # hid_report = mouse._hid_device.bytes.read()
+        # assert hid_report == expected_hid_report
+
+    # @pytest.mark.parametrize("value,expected_hid_report", [
+        # ("#ABCDEF", b"\x03\x00\x05\x00\x01\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
+        # ("red", b"\x03\x00\x05\x00\x01\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
+        # ])
+    # def test_set_wheel_color(self, mouse, value, expected_hid_report):
+        # mouse.set_wheel_color(value)
+        # mouse._hid_device.bytes.seek(0)
+        # hid_report = mouse._hid_device.bytes.read()
+        # assert hid_report == expected_hid_report
 
     @pytest.mark.parametrize("value,expected_hid_report", [
-        ("#ABCDEF", b"\x03\x00\x05\x00\x01\xAB\xCD\xEF\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
-        ("red", b"\x03\x00\x05\x00\x01\xFF\x00\x00\xFF\x32\xC8\xC8\x00\x01\x01"),  # noqa
+        ("default", b"\x02\x00\x31\x00\x01\x00\x00\x00\x00\x02\x00\x00\x00\x00\x03\x00\x00\x00\x00\x04\x00\x00\x00\x00\x05\x00\x00\x00\x00\x06\x00\x00\x00\x00\x07\x00\x00\x00\x00\x00\x00\x00\x00\x00\x30\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x33\x00\x00\x00\x00\x34\x00\x00\x00\x00\x00\x00\x00\x00\x00\x08\x00\x00\x00\x00"),  # noqa
+        ("buttons(button2=button6)", b"\x02\x00\x31\x00\x01\x00\x00\x00\x00\x06\x00\x00\x00\x00\x03\x00\x00\x00\x00\x04\x00\x00\x00\x00\x05\x00\x00\x00\x00\x06\x00\x00\x00\x00\x07\x00\x00\x00\x00\x00\x00\x00\x00\x00\x30\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x33\x00\x00\x00\x00\x34\x00\x00\x00\x00\x00\x00\x00\x00\x00\x08\x00\x00\x00\x00"),  # noqa
         ])
-    def test_set_wheel_color(self, mouse, value, expected_hid_report):
-        mouse.set_wheel_color(value)
+    def test_set_buttons_mapping(self, mouse, value, expected_hid_report):
+        mouse.set_buttons_mapping(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
