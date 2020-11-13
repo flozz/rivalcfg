@@ -93,7 +93,7 @@ profile = {
             "label": "Buttons mapping",
             "description": "Set the mapping of the buttons",
             "cli": ["-b", "--buttons"],
-            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
             "command": [0x31, 0x00],
             "value_type": "buttons",
 
