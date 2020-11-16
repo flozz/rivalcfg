@@ -198,7 +198,11 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.2.0]
+* **Rivalcfg NEXT:** [4.3.0]
+
+  * Nothing yet :)
+
+* **4.2.0:**
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
@@ -206,6 +210,10 @@ Changelog
   * Rival 3: support of firmware v0.37.0.0 (#147)
   * Support of the Sensei TEN (1038:1832)
   * Support of the Sensei TEN CS:GO Neon Rider Edition(1038:1834)
+  * Rival 500:
+
+    * Handles color shift
+    * Handles buttun mapping
 
 * **4.1.0:**
 
