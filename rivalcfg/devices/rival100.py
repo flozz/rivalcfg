@@ -15,25 +15,16 @@ profile = {
         "vendor_id": 0x1038,
         "product_id": 0x170a,
         "endpoint": 0,
-        "override_defaults": {
-            "color": "#FF0000",
-        },
     }, {
         "name": "SteelSeries Rival 100 Dota 2 Edition (retail)",
         "vendor_id": 0x1038,
         "product_id": 0x170b,
         "endpoint": 0,
-        "override_defaults": {
-            "color": "#FF0000",
-        },
     }, {
         "name": "SteelSeries Rival 100 Dota 2 Edition (Lenovo)",
         "vendor_id": 0x1038,
         "product_id": 0x170c,
         "endpoint": 0,
-        "override_defaults": {
-            "color": "#FF0000",
-        },
     }, {
         "name": "SteelSeries Rival 105",
         "vendor_id": 0x1038,
