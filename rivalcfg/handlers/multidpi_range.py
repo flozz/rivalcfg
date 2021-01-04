@@ -33,7 +33,7 @@ Example of a multidpi_range value type in a device profile:
         "settings": {
 
             "sensitivity1": {
-                "label": "Sensibility presets",
+                "label": "Sensitivity presets",
                 "description": "Set sensitivity presets (DPI)",
                 "cli": ["-s", "--sensitivity"],
                 "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
