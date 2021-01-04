@@ -11,7 +11,7 @@ _RGBGRADIENT_HEADER = {
     "color_count_offset": 25,  # Offset of the "color_count" field
 }
 
-_DEFAULT_RGBGRADIENT = "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
+_DEFAULT_RGBGRADIENT = "rgbgradient(duration=10000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"  # noqa
 
 
 profile = {
@@ -44,7 +44,7 @@ profile = {
             "dpi_length_byte": 2,
             "count_mode": "flag",
             "max_preset_count": 5,
-            "default": "800, 1600",
+            "default": "400, 800, 1200, 2400, 3200",
         },
 
         "polling_rate": {
