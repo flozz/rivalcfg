@@ -227,8 +227,9 @@
    Run &#39;rivalcfg --update-udev&#39; as root to fix.
 
 usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
-                [-c LOGO_COLOR] [-C WHEEL_COLOR] [-b BUTTONS_MAPPING] [-r]
+                [--print-udev] [-s SENSITIVITY1] [-S SENSITIVITY2]
+                [-p POLLING_RATE] [-c LOGO_COLOR] [-C WHEEL_COLOR]
+                [-b BUTTONS_MAPPING] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -237,6 +238,7 @@ optional arguments:
   --no-save             Do not persist settings in the internal device memory
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
+  --print-udev          Prints udev rules and exit
 
 SteelSeries Sensei 310 Options:
   -s SENSITIVITY1, --sensitivity1 SENSITIVITY1

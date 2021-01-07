@@ -223,8 +223,8 @@
    Run &#39;rivalcfg --update-udev&#39; as root to fix.
 
 usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE]
-                [-C WHEEL_COLOR] [-c LOGO_COLOR]
+                [--print-udev] [-s SENSITIVITY1] [-S SENSITIVITY2]
+                [-p POLLING_RATE] [-C WHEEL_COLOR] [-c LOGO_COLOR]
                 [--left-strip-top-color Z2_COLOR]
                 [--right-strip-top-color Z3_COLOR]
                 [--left-strip-middle-color Z4_COLOR]
@@ -239,6 +239,7 @@ optional arguments:
   --no-save             Do not persist settings in the internal device memory
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
+  --print-udev          Prints udev rules and exit
 
 SteelSeries Rival 600 Options:
   -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
