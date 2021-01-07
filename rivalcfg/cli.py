@@ -62,6 +62,14 @@ class UpdateUdevRulesAction(argparse.Action):
         sys.exit(0)
 
 
+class PrintUdevRulesAction(argparse.Action):
+    """Prints udev rules and exit."""
+
+    def __call__(self, parser, namespace, value, option_string=None):
+        print(udev.generate_rules())
+        sys.exit(0)
+
+
 def add_main_cli(cli_parser):
     """Adds the main CLI options.
 
@@ -90,8 +98,14 @@ def add_main_cli(cli_parser):
             help="Updates udev rules (Linux only, requires to be run as root)",
             nargs=0,
             action=UpdateUdevRulesAction)
+
+    cli_parser.add_argument(
+            "--print-udev",
+            help="Prints udev rules and exit",
+            nargs=0,
+            action=PrintUdevRulesAction)
+
     # TODO --print-info
-    pass
 
 
 def add_mouse_cli(cli_parser, mouse_profile):
