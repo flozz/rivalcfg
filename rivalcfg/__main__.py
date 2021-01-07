@@ -38,6 +38,11 @@ def _check_linux():
 
 
 def main(args=sys.argv[1:]):
+    # Display a message when no argument given
+    if len(sys.argv) == 1:
+        print("USAGE:\n  rivalcfg --help")
+        sys.exit(1)
+
     # On Linux: check udev rules
     _check_linux()
 
