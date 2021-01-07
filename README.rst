@@ -203,7 +203,10 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet :)
+  * Fixes Sensei TEN default config (#158)
+  * Adds the ``--print-udev`` to generate udev rules and print them to ``stdout`` (#157)
+  * CLI: Displays an usage message when no argument was given (#152)
+  * CLI: Write udev warning message to ``stderr`` instead of ``stdout``
 
 * **4.2.0:**
 
