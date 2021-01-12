@@ -119,6 +119,18 @@ class TestMouse(object):
     def mouse2(self, monkeypatch):
         return mouse.Mouse(usbhid.FakeDevice(), FAKE_PROFILE2)
 
+    def test_name(self, mouse):
+        assert mouse.name == "Fake Mouse"
+
+    def test_product_id(self, mouse):
+        assert mouse.product_id == 0xbaad
+
+    def test_firmware_version_tuple(self, mouse):
+        assert mouse.firmware_version_tuple == (0, 0)
+
+    def test_firmware_version(self, mouse):
+        assert mouse.firmware_version == "0.0"
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)

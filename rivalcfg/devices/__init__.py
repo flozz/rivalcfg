@@ -96,6 +96,14 @@ Here is what a profile file looks like::
             "command": [0x09, 0x00],
         },
 
+        # (optional) The command to get the firmware version from the device
+        "firmware_version": {
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x90, 0x00],
+            # The length of the response (bytes)
+            "response_length": 2,
+        },
+
     }
 
 At runtime, a separated profile will be generated for each device of a mouse

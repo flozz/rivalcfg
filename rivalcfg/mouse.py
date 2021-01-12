@@ -80,6 +80,24 @@ class Mouse:
         """The mouse product id."""
         return self._mouse_profile["product_id"]
 
+    @property
+    def firmware_version_tuple(self):
+        """The firmware version of the device as a tuple ``(major, minor)``
+        (``(0, 0)`` if not available).
+        """
+        if "firmware_version" not in self._mouse_profile:
+            return (0, 0)
+        self._hid_write(usbhid.HID_REPORT_TYPE_OUTPUT, data=[0x90, 0x00])
+        minor, major = self._hid_device.read(2, 0)
+        return (major, minor)
+
+    @property
+    def firmware_version(self):
+        """The firmware version as an human readable string (e.g. ``"1.33"``,
+        ``"0.0"`` if not available).
+        """
+        return "%i.%i" % self.firmware_version_tuple
+
     def reset_settings(self):
         """Sets all settings to their factory default values."""
         for name, setting_info in self._mouse_profile["settings"].items():
