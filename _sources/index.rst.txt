@@ -1,7 +1,7 @@
 Welcome to rivalcfg's documentation!
 ====================================
 
-|Github| |Gitter| |PYPI Version| |Github Actions| |License|
+|Github| |Discord| |PYPI Version| |Github Actions| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
 to configure SteelSeries gaming mice on Linux and Windows (probably works on
@@ -46,8 +46,8 @@ Indices and tables
 .. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
    :target: https://github.com/flozz/rivalcfg
 
-.. |Gitter| image:: https://img.shields.io/gitter/room/flozz/rivalcfg?color=%2347b192&logo=gitter
-   :target: https://gitter.im/rivalcfg/Lobby
+.. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
+   :target: https://discord.gg/P77sWhuSs4
 
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
