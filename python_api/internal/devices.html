@@ -279,6 +279,14 @@ There is one profile file in <code class="docutils literal notranslate"><span cl
         <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x09</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
     <span class="p">},</span>
 
+    <span class="c1"># (optional) The command to get the firmware version from the device</span>
+    <span class="s2">&quot;firmware_version&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+        <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x90</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">],</span>
+        <span class="c1"># The length of the response (bytes)</span>
+        <span class="s2">&quot;response_length&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">},</span>
+
 <span class="p">}</span>
 </pre></div>
 </div>
