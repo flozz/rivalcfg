@@ -1,7 +1,7 @@
 rivalcfg: Configure SteelSeries gaming mice
 ===========================================
 
-|Github| |Gitter| |PYPI Version| |Github Actions| |License|
+|Github| |Discord| |PYPI Version| |Github Actions| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
 to configure SteelSeries gaming mice on Linux and Windows (probably works on
@@ -205,7 +205,7 @@ Changelog
 
   * Fixes Sensei TEN default config (#158)
   * Adds the ``--print-udev`` to generate udev rules and print them to ``stdout`` (#157)
-  * CLI: Displays an usage message when no argument was given (#152)
+  * CLI: Displays a usage message when no argument was given (#152)
   * CLI: Write udev warning message to ``stderr`` instead of ``stdout``
 
 * **4.2.0:**
@@ -232,14 +232,14 @@ Changelog
 
   * Rival 3 support improved:
 
-    * Colors can now be defined separatly
+    * Colors can now be defined separately
     * Button mapping support implemented
     * Light effects support implemented
 
 * **4.0.0:**
 
   * Full rewrite of most parts of the software
-  * Mice are now grouped by family to reduce code duplication
+  * Mice are now grouped by families to reduce code duplication
   * Improved udev support on Linux:
 
     * Dynamically generate udev rules instead of maintaining a static file
@@ -258,7 +258,7 @@ Changelog
     * Each device family now have its own documentation page to make it easier
       to understand
     * Python APIs are now documented
-    * A document was added to help contributing
+    * A document was added to help contribute
     * Installation instructions were updated to recommend using Python 3
 
   * New devices support was added:
@@ -299,15 +299,15 @@ Changelog
     * Sensei Ten: this mouse needs more work to be added back.
     * Colorshift of the Rival 500: this feature needs more work to be added back.
 
-Older changelog entries were moved in the `CHANGELOG.rst
+Older changelog entries were moved to the `CHANGELOG.rst
 <https://github.com/flozz/rivalcfg/blob/master/CHANGELOG.rst>`_ file.
 
 
 .. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
    :target: https://github.com/flozz/rivalcfg
 
-.. |Gitter| image:: https://img.shields.io/gitter/room/flozz/rivalcfg?color=%2347b192&logo=gitter
-   :target: https://gitter.im/rivalcfg/Lobby
+.. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
+   :target: https://discord.gg/P77sWhuSs4
 
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
