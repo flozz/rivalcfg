@@ -2,6 +2,7 @@ import sys
 import os.path
 import platform
 
+import hid
 from pkg_resources import get_distribution
 from .version import VERSION
 from . import udev
@@ -55,9 +56,21 @@ def _get_python_info():
     return result
 
 
+def _get_plugged_device_list():
+    result = _make_title("Plugged SteelSeries devices' endpoints")
+    for device in hid.enumerate(0x1038):
+        result += "%04x:%04x | %02x | %s\n" % (
+                device["vendor_id"],
+                device["product_id"],
+                device["interface_number"],
+                device["product_string"])
+    return result
+
+
 def get_debug_info():
     result = ""
     result += _get_rivalcfg_info()
     result += _get_os_info()
     result += _get_python_info()
+    result += _get_plugged_device_list()
     return result
