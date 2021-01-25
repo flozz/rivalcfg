@@ -3,7 +3,7 @@
 Contributing
 ============
 
-Thank you for your interest about rivalcfg. You will find here all useful
+Thank you for your interest about Rivalcfg. You will find here all useful
 information to contribute.
 
 
@@ -13,7 +13,7 @@ Questions
 If you have any question, you can:
 
 * `open an issue <https://github.com/flozz/rivalcfg/issues>`_ on Github,
-* or `ask on Gitter <https://gitter.im/rivalcfg/Lobby>`_ (I am not always
+* or `ask on Discord <https://discord.gg/P77sWhuSs4>`_ (I am not always
   available for chatting but I try to answer to everyone).
 
 
@@ -63,10 +63,10 @@ Rivalcfg does not work? Please `open an issue
 <https://github.com/flozz/rivalcfg/issues>`_ on Github with as much information
 as possible:
 
-* How you installed rivalcfg,
+* How you installed Rivalcfg,
 * What is your operating system / Linux distribution (and its version),
 * Which SteelSeries mouse you have trouble with,
-* All the error messages outputted by rivalcfg,
+* All the error messages outputted by Rivalcfg,
 * ...
 
 
