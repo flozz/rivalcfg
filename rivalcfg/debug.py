@@ -1,6 +1,8 @@
+import sys
 import os.path
 import platform
 
+from pkg_resources import get_distribution
 from .version import VERSION
 from . import udev
 
@@ -46,8 +48,16 @@ def _get_rivalcfg_info():
     return result
 
 
+def _get_python_info():
+    result = _make_title("Python")
+    result += "Python version: %d.%d.%d\n" % sys.version_info[:3]
+    result += "HIDAPI version: %s\n" % get_distribution("hidapi").version
+    return result
+
+
 def get_debug_info():
     result = ""
     result += _get_rivalcfg_info()
     result += _get_os_info()
+    result += _get_python_info()
     return result
