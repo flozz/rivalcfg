@@ -6,6 +6,7 @@ import hid
 from pkg_resources import get_distribution
 from .version import VERSION
 from . import udev
+from .mouse import get_mouse
 
 
 def _make_title(text):
@@ -57,13 +58,20 @@ def _get_python_info():
 
 
 def _get_plugged_device_list():
-    result = _make_title("Plugged SteelSeries devices' endpoints")
+    result = _make_title("Plugged SteelSeries devices endpoints")
     for device in hid.enumerate(0x1038):
-        result += "%04x:%04x | %02x | %s\n" % (
+        firmware_version = "0.0"
+        try:
+            mouse = get_mouse(device["vendor_id"], device["product_id"])
+            firmware_version = mouse.firmware_version
+        except Exception:
+            pass
+        result += "%04x:%04x | %02x | %s (firmware v%s)\n" % (
                 device["vendor_id"],
                 device["product_id"],
                 device["interface_number"],
-                device["product_string"])
+                device["product_string"],
+                firmware_version)
     return result
 
 
