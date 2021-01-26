@@ -28,7 +28,7 @@ Installation require a compilation toolchain and python headers to compile
 
 On **Debian / Ubuntu**, this can be installed with the following command::
 
-   sudo apt install build-essential python3-pip python3-dev libusb-1.0-0-dev libudev-dev
+   sudo apt install build-essential python3-pip python3-dev python3-setuptools libusb-1.0-0-dev libudev-dev
 
 On **Solus**, use the following commands::
 
