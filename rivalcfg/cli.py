@@ -12,6 +12,7 @@ import argparse
 from . import handlers
 from . import devices
 from . import udev
+from . import debug
 from .version import VERSION
 
 
@@ -70,6 +71,14 @@ class PrintUdevRulesAction(argparse.Action):
         sys.exit(0)
 
 
+class PrintDebugAction(argparse.Action):
+    """Prints debug informations and exit."""
+
+    def __call__(self, parser, namespace, value, option_string=None):
+        print(debug.get_debug_info())
+        sys.exit(0)
+
+
 def add_main_cli(cli_parser):
     """Adds the main CLI options.
 
@@ -105,7 +114,11 @@ def add_main_cli(cli_parser):
             nargs=0,
             action=PrintUdevRulesAction)
 
-    # TODO --print-info
+    cli_parser.add_argument(
+            "--print-debug",
+            help="Prints debug informations and exit",
+            nargs=0,
+            action=PrintDebugAction)
 
 
 def add_mouse_cli(cli_parser, mouse_profile):
