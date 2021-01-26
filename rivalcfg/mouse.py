@@ -124,6 +124,16 @@ class Mouse:
                 data=self._mouse_profile["save_command"]["command"],
                 packet_length=packet_length)
 
+    def close(self):
+        """Close the device.
+
+        .. WARNING::
+
+           Once called, any access of the Mouse class properties or function
+           may raise an error.
+        """
+        self._hid_device.close()
+
     def _hid_write(self,
                    report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
                    report_id=0x00,
@@ -215,3 +225,12 @@ class Mouse:
                 self._mouse_profile["vendor_id"],
                 self._mouse_profile["product_id"],
                 self._mouse_profile["endpoint"])
+
+    def __del__(self):
+        self.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type_, value, traceback):
+        self.close()
