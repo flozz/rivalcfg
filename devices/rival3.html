@@ -222,8 +222,9 @@
 <div class="section" id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [--print-udev] [-s SENSITIVITY] [-p POLLING_RATE]
-                [--strip-top-color Z1_COLOR] [--strip-middle-color Z2_COLOR]
+                [--print-udev] [--print-debug] [-s SENSITIVITY]
+                [-p POLLING_RATE] [--strip-top-color Z1_COLOR]
+                [--strip-middle-color Z2_COLOR]
                 [--strip-bottom-color Z3_COLOR] [-c LOGO_COLOR]
                 [-e LIGHT_EFFECT] [-b BUTTONS_MAPPING] [-r]
 
@@ -235,6 +236,7 @@ optional arguments:
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
   --print-udev          Prints udev rules and exit
+  --print-debug         Prints debug informations and exit
 
 SteelSeries Rival 3 Options:
   -s SENSITIVITY, --sensitivity SENSITIVITY
