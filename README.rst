@@ -208,6 +208,7 @@ Changelog
   * CLI: Displays a usage message when no argument was given (#152)
   * CLI: Write udev warning message to ``stderr`` instead of ``stdout``
   * Adds a ``--print-debug`` option to display various information
+  * Adds a ``--firmware-version`` option to display the firmware version of some devices
 
 * **4.2.0:**
 

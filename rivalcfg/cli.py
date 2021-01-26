@@ -140,3 +140,10 @@ def add_mouse_cli(cli_parser, mouse_profile):
             help="Reset all settings to their factory default",
             dest="RESET",
             action="store_true")
+
+    if "firmware_version" in mouse_profile:
+        cli_group.add_argument(
+                "--firmware-version",
+                help="Print the firmware version of the mouse and exit",
+                dest="FIRMWARE_VERSION",
+                action="store_true")

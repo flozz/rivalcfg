@@ -62,6 +62,11 @@ def main(args=sys.argv[1:]):
 
     settings = cli_parser.parse_args(args)
 
+    # Print firmware and exit
+    if hasattr(settings, "FIRMWARE_VERSION") and settings.FIRMWARE_VERSION:
+        print("%s (firmware v%s)" % (mouse.name, mouse.firmware_version))
+        sys.exit(0)
+
     # Reset
     if mouse and settings.RESET:
         mouse.reset_settings()
