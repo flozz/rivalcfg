@@ -87,7 +87,9 @@ class Mouse:
         """
         if "firmware_version" not in self._mouse_profile:
             return (0, 0)
-        self._hid_write(usbhid.HID_REPORT_TYPE_OUTPUT, data=[0x90, 0x00])
+        self._hid_write(
+                usbhid.HID_REPORT_TYPE_OUTPUT,
+                data=self._mouse_profile["firmware_version"]["command"])
         minor, major = self._hid_device.read(2, 0)
         return (major, minor)
 
