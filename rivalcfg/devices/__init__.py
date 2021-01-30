@@ -226,7 +226,7 @@ def get_profile(vendor_id=0x1038, product_id=None):
     profile_name = (vendor_id, product_id)
     if profile_name not in PROFILES:
         raise UnsupportedDevice(
-                "The requested device is not supported (%s)" % profile_name)
+                "The requested device is not supported (%x:%x)" % profile_name)
     return PROFILES[profile_name]
 
 
