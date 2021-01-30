@@ -47,7 +47,9 @@ def main(args=sys.argv[1:]):
     _check_linux()
 
     # Try to open a mouse
-    mouse = get_first_mouse()
+    mouse = None
+    if "--print-debug" not in sys.argv:
+        mouse = get_first_mouse()
 
     cli_parser = argparse.ArgumentParser(
             prog="rivalcfg",
