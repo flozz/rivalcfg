@@ -91,7 +91,8 @@ class Mouse:
                 usbhid.HID_REPORT_TYPE_OUTPUT,
                 data=self._mouse_profile["firmware_version"]["command"])
         version = self._hid_device.read(
-                self._mouse_profile["firmware_version"]["response_length"], 0)
+                self._mouse_profile["firmware_version"]["response_length"],
+                timeout_ms=200)
         return tuple(version[::-1])
 
     @property
