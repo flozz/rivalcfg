@@ -209,6 +209,15 @@ Changelog
   * CLI: Write udev warning message to ``stderr`` instead of ``stdout``
   * Adds a ``--print-debug`` option to display various information
   * Adds a ``--firmware-version`` option to display the firmware version of some devices
+  * Rivalcfg can now read the firmware version of the following devices:
+
+    * Rival 3
+    * Rival 300
+    * Rival 310
+    * Rival 500
+    * Rival 700 / 710
+    * Sensei 310
+    * Sensei TEN
 
 * **4.2.0:**
 
