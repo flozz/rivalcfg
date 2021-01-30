@@ -62,8 +62,8 @@ def _get_plugged_device_list():
     for device in hid.enumerate(0x1038):
         firmware_version = "0"
         try:
-            mouse = get_mouse(device["vendor_id"], device["product_id"])
-            firmware_version = mouse.firmware_version
+            with get_mouse(device["vendor_id"], device["product_id"]) as mouse:
+                firmware_version = mouse.firmware_version
         except Exception:
             pass
         result += "%04x:%04x | %02x | %s (firmware v%s)\n" % (
