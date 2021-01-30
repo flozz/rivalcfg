@@ -126,10 +126,10 @@ class TestMouse(object):
         assert mouse.product_id == 0xbaad
 
     def test_firmware_version_tuple(self, mouse):
-        assert mouse.firmware_version_tuple == (0, 0)
+        assert mouse.firmware_version_tuple == (0,)
 
     def test_firmware_version(self, mouse):
-        assert mouse.firmware_version == "0.0"
+        assert mouse.firmware_version == "0"
 
     def test_save(self, mouse):
         mouse.save()

@@ -60,7 +60,7 @@ def _get_python_info():
 def _get_plugged_device_list():
     result = _make_title("Plugged SteelSeries devices endpoints")
     for device in hid.enumerate(0x1038):
-        firmware_version = "0.0"
+        firmware_version = "0"
         try:
             mouse = get_mouse(device["vendor_id"], device["product_id"])
             firmware_version = mouse.firmware_version
