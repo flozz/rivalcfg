@@ -30,9 +30,9 @@ def _get_os_linux_info():
     result += "Version: %s\n" % platform.version()
     if os.path.isfile("/etc/issue"):
         try:
-            # TODO use context (sinon HS pas content è_é)
-            distro = open("/etc/issue", "r").read().strip()
-            result += "Distribution issue: %s\n" % distro
+            with open("/etc/issue", "r") as distro_file:
+                distro = distro_file.read().strip()
+                result += "Distribution issue: %s\n" % distro
         except Exception:
             pass
     return result
