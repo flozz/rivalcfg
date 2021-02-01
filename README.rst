@@ -198,10 +198,14 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.3.0]
+* **Rivalcfg NEXT:** [4.4.0]
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
+
+  * Nothing yet
+
+* **4.3.0:**
 
   * Fixes Sensei TEN default config (#158)
   * Adds the ``--print-udev`` to generate udev rules and print them to ``stdout`` (#157)
