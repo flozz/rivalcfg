@@ -187,8 +187,8 @@ class FakeDevice:
     def open(self):
         raise NotImplementedError()
 
-    def read(self):
-        raise NotImplementedError()
+    def read(self, max_length, timeout_ms=0):
+        return [0] * max_length
 
     def set_nonblocking(self):
         raise NotImplementedError()
