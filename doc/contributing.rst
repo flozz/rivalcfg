@@ -61,13 +61,21 @@ Bugs
 
 Rivalcfg does not work? Please `open an issue
 <https://github.com/flozz/rivalcfg/issues>`_ on Github with as much information
-as possible:
+as possible.
 
-* How you installed Rivalcfg,
+When possible:
+
+* Run the ``rivalcfg --print-debug`` command and include its output to your
+  report (note that you may need to run this command as root to get all
+  information).
+
+If this command cannot be run, include at least the following information:
+
 * What is your operating system / Linux distribution (and its version),
 * Which SteelSeries mouse you have trouble with,
-* All the error messages outputted by Rivalcfg,
-* ...
+* How you installed Rivalcfg.
+
+And always provide all error messages outputted by Rivalcfg.
 
 
 Pull Requests
