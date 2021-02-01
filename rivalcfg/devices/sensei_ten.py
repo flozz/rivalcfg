@@ -24,7 +24,7 @@ profile = {
         "product_id": 0x1832,
         "endpoint": 0,
     }, {
-        "name": "SteelSeries Sensei TEN CS:GO Neon Rider Editon",
+        "name": "SteelSeries Sensei TEN CS:GO Neon Rider Edition",
         "vendor_id": 0x1038,
         "product_id": 0x1834,
         "endpoint": 0,

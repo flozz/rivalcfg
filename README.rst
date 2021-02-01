@@ -189,7 +189,7 @@ SteelSeries Sensei TEN:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Sensei TEN                                       | 1038:1832 |
 +--------------------------------------------------------------+-----------+
-| SteelSeries Sensei TEN CS:GO Neon Rider Editon               | 1038:1834 |
+| SteelSeries Sensei TEN CS:GO Neon Rider Edition              | 1038:1834 |
 +--------------------------------------------------------------+-----------+
 
 .. devices-list-end
