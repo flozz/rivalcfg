@@ -92,6 +92,38 @@ profile = {
             "default": _DEFAULT_RGBGRADIENTV2,
         },
 
+        "buttons_mapping": {
+            "label": "Buttons mapping",
+            "description": "Set the mapping of the buttons",
+            "cli": ["-b", "--buttons"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x31, 0x00],
+            "value_type": "buttons",
+            "rival700": True,
+
+            "buttons": {
+                "Button1": {"id": 0x01, "offset": 0x00, "default": "button1"},
+                "Button2": {"id": 0x02, "offset": 0x05, "default": "button2"},
+                "Button3": {"id": 0x03, "offset": 0x0a, "default": "button3"},
+                "Button4": {"id": 0x04, "offset": 0x0f, "default": "button4"},
+                "Button5": {"id": 0x05, "offset": 0x14, "default": "button5"},
+                "Button6": {"id": 0x06, "offset": 0x19, "default": "disable"},
+                "Button7": {"id": 0x07, "offset": 0x1e, "default": "dpi"},
+
+            },
+
+            "button_field_length": 5,
+
+            "button_disable":     0x00,
+            "button_keyboard":    0x51,
+            "button_multimedia":  0x61,
+            "button_dpi_switch":  0x30,
+            "button_scroll_up":   0x31,
+            "button_scroll_down": 0x32,
+
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=disable; button7=dpi; layout=qwerty)",  # noqa
+        },
+
     },
 
     "save_command": {
