@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
@@ -252,8 +255,8 @@ like <code class="docutils literal notranslate"><span class="pre">[0,</span> <sp
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="rivalcfg.handlers.range.add_cli_option">
-<code class="sig-prename descclassname">rivalcfg.handlers.range.</code><code class="sig-name descname">add_cli_option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cli_parser</span></em>, <em class="sig-param"><span class="n">setting_name</span></em>, <em class="sig-param"><span class="n">setting_info</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.handlers.range.add_cli_option">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.add_cli_option" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add the given “range” type setting to the given CLI arguments parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -268,8 +271,8 @@ device profile.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.handlers.range.custom_range">
-<code class="sig-prename descclassname">rivalcfg.handlers.range.</code><code class="sig-name descname">custom_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em>, <em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.custom_range" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.handlers.range.custom_range">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">custom_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.custom_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper function that generates a range of integers but allowing to have
 a float as step.</p>
 <p>I am not very proud of this but the Rival 110 requires a step of ~2.33…</p>
@@ -292,8 +295,8 @@ a float as step.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.handlers.range.matches_value_in_range">
-<code class="sig-prename descclassname">rivalcfg.handlers.range.</code><code class="sig-name descname">matches_value_in_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">range_start</span></em>, <em class="sig-param"><span class="n">range_stop</span></em>, <em class="sig-param"><span class="n">range_step</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.matches_value_in_range" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.handlers.range.matches_value_in_range">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">matches_value_in_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.matches_value_in_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Helper function that matches the value with the nearest value in the
 given range.</p>
 <dl class="field-list simple">
@@ -326,8 +329,8 @@ given range.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.handlers.range.process_value">
-<code class="sig-prename descclassname">rivalcfg.handlers.range.</code><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">setting_info</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.process_value" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.handlers.range.process_value">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “range” type setting.</p>
 <dl class="field-list simple">

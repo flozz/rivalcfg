@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -314,8 +317,8 @@ familly. The profiles will then look like this:</p>
 <div class="section" id="module-api">
 <h2>Module API<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h2>
 <dl class="py data">
-<dt id="rivalcfg.devices.rivalcfg.devices.PROFILES">
-<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">PROFILES</code><a class="headerlink" href="#rivalcfg.devices.rivalcfg.devices.PROFILES" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.devices.rivalcfg.devices.PROFILES">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">PROFILES</span></span><a class="headerlink" href="#rivalcfg.devices.rivalcfg.devices.PROFILES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Profiles of each supported devices:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="p">(</span><span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">):</span> <span class="p">{</span>
@@ -327,14 +330,14 @@ familly. The profiles will then look like this:</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt id="rivalcfg.devices.UnsupportedDevice">
-<em class="property">exception </em><code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">UnsupportedDevice</code><a class="headerlink" href="#rivalcfg.devices.UnsupportedDevice" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.devices.UnsupportedDevice">
+<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">UnsupportedDevice</span></span><a class="headerlink" href="#rivalcfg.devices.UnsupportedDevice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when the requested device is not supported by rivalcfg.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.devices.get_profile">
-<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">get_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span><span class="o">=</span><span class="default_value">4152</span></em>, <em class="sig-param"><span class="n">product_id</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.get_profile" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.devices.get_profile">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">get_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4152</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.get_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the profile of the requested device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -362,8 +365,8 @@ rivalcfg.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.devices.list_plugged_devices">
-<code class="sig-prename descclassname">rivalcfg.devices.</code><code class="sig-name descname">list_plugged_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.list_plugged_devices" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.devices.list_plugged_devices">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">list_plugged_devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.list_plugged_devices" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all plugged devices that are supported by rivalcfg.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

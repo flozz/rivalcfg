@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -183,14 +186,14 @@
 <span id="helpers"></span><h1>helpers<a class="headerlink" href="#module-rivalcfg.helpers" title="Permalink to this headline">¶</a></h1>
 <p>This module contains varous helper functions.</p>
 <dl class="py data">
-<dt id="rivalcfg.helpers.REGEXP_PARAM_STRING">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">REGEXP_PARAM_STRING</code><em class="property"> = re.compile('^\\s*([a-zA-Z0-9_]+)\\s*\\(\\s*(.+?)[\\s;]*\\)[\\s;]*$')</em><a class="headerlink" href="#rivalcfg.helpers.REGEXP_PARAM_STRING" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.REGEXP_PARAM_STRING">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">REGEXP_PARAM_STRING</span></span><em class="property"> <span class="pre">=</span> <span class="pre">re.compile('^\\s*([a-zA-Z0-9_]+)\\s*\\(\\s*(.+?)[\\s;]*\\)[\\s;]*$')</span></em><a class="headerlink" href="#rivalcfg.helpers.REGEXP_PARAM_STRING" title="Permalink to this definition">¶</a></dt>
 <dd><p>A regual expression that matches the general form of a param string.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.bytes_to_high_low_nibbles">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">bytes_to_high_low_nibbles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">byte</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.bytes_to_high_low_nibbles" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.bytes_to_high_low_nibbles">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">bytes_to_high_low_nibbles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">byte</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.bytes_to_high_low_nibbles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Splits bytes into high and low nibbles.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bytes_to_high_low_nibbles</span><span class="p">(</span><span class="mh">0xAB</span><span class="p">)</span>
 <span class="go">(10, 11)</span>
@@ -199,8 +202,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.merge_bytes">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">merge_bytes</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.merge_bytes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.merge_bytes">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">merge_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.merge_bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a single list of int from given int and list of int.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -222,8 +225,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.module_ls">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">module_ls</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">module</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.module_ls" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.module_ls">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">module_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.module_ls" title="Permalink to this definition">¶</a></dt>
 <dd><p>List the content of the given Python module, ignoring private elements.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,8 +239,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.nibbles_to_byte">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">nibbles_to_byte</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nibble1</span></em>, <em class="sig-param"><span class="n">nibble2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.nibbles_to_byte" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.nibbles_to_byte">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">nibbles_to_byte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nibble1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nibble2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.nibbles_to_byte" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts two nibbles into a single byte.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nibbles_to_byte</span><span class="p">(</span><span class="mh">0xA</span><span class="p">,</span> <span class="mh">0xB</span><span class="p">)</span>
 <span class="go">171</span>
@@ -246,8 +249,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.parse_param_string">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">parse_param_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">paramstr</span></em>, <em class="sig-param"><span class="n">value_parsers</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.parse_param_string" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.parse_param_string">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">parse_param_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_parsers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.parse_param_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parses a parameter string (used for rgbgrandiant).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -298,8 +301,8 @@ bellow.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.helpers.uint_to_little_endian_bytearray">
-<code class="sig-prename descclassname">rivalcfg.helpers.</code><code class="sig-name descname">uint_to_little_endian_bytearray</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.uint_to_little_endian_bytearray" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.helpers.uint_to_little_endian_bytearray">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">uint_to_little_endian_bytearray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.uint_to_little_endian_bytearray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an unsigned interger to a little endian bytearray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

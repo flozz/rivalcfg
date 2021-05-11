@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -209,14 +212,14 @@ plugged:</p>
 <div class="section" id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <dl class="py data">
-<dt id="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT">
-<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">HID_REPORT_TYPE_OUTPUT</code><em class="property"> = 2</em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">HID_REPORT_TYPE_OUTPUT</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>HID output report</p>
 </dd></dl>
 
 <dl class="py data">
-<dt id="rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE">
-<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">HID_REPORT_TYPE_FEATURE</code><em class="property"> = 3</em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">HID_REPORT_TYPE_FEATURE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE" title="Permalink to this definition">¶</a></dt>
 <dd><p>HID feature report</p>
 </dd></dl>
 
@@ -224,8 +227,8 @@ plugged:</p>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="rivalcfg.usbhid.is_device_plugged">
-<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">is_device_plugged</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span></em>, <em class="sig-param"><span class="n">product_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.is_device_plugged" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.is_device_plugged">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">is_device_plugged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.is_device_plugged" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the given HID device is plugged to the computer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -246,8 +249,8 @@ plugged:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="rivalcfg.usbhid.open_device">
-<code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">open_device</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vendor_id</span></em>, <em class="sig-param"><span class="n">product_id</span></em>, <em class="sig-param"><span class="n">endpoint</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.open_device" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.open_device">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">open_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.open_device" title="Permalink to this definition">¶</a></dt>
 <dd><p>Opens and returns the HID device</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -281,8 +284,8 @@ issue, device busy,…).</p></li>
 <div class="section" id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="rivalcfg.usbhid.DeviceNotFound">
-<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">DeviceNotFound</code><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.DeviceNotFound">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">DeviceNotFound</span></span><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception raised when the requested device was not found (device not
 plugged to the computer) or when it does not provide the requested
 endpoint.</p>
@@ -295,26 +298,26 @@ endpoint.</p>
 function of this module returns a fake device instead opening a real one. This
 is useful for debuging and testing purpose.</p>
 <dl class="py class">
-<dt id="rivalcfg.usbhid.FakeDevice">
-<em class="property">class </em><code class="sig-prename descclassname">rivalcfg.usbhid.</code><code class="sig-name descname">FakeDevice</code><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">FakeDevice</span></span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class simulate an HID device as provided by the <a class="reference external" href="https://pypi.org/project/hidapi/">hidapi</a> module.</p>
 <p>Data sent to the fake device can be read-back from the <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>
 attribute of this class.</p>
 <dl class="py attribute">
-<dt id="rivalcfg.usbhid.FakeDevice.bytes">
-<code class="sig-name descname">bytes</code><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.bytes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice.bytes">
+<span class="sig-name descname"><span class="pre">bytes</span></span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.bytes" title="Permalink to this definition">¶</a></dt>
 <dd><p>A BytesIO instance where every simulated write will be done.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rivalcfg.usbhid.FakeDevice.close">
-<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.close" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Closes the simulated device.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rivalcfg.usbhid.FakeDevice.open_path">
-<code class="sig-name descname">open_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.open_path" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice.open_path">
+<span class="sig-name descname"><span class="pre">open_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.open_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate opening the device from given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -324,8 +327,8 @@ attribute of this class.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rivalcfg.usbhid.FakeDevice.send_feature_report">
-<code class="sig-name descname">send_feature_report</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.send_feature_report" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice.send_feature_report">
+<span class="sig-name descname"><span class="pre">send_feature_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.send_feature_report" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate a feature report write to an HID device.</p>
 <p>Given data will be writen to <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>, prefixed with the
 <a class="reference internal" href="#rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE" title="rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE"><code class="xref py py-data docutils literal notranslate"><span class="pre">HID_REPORT_TYPE_FEATURE</span></code></a> byte.</p>
@@ -346,8 +349,8 @@ attribute of this class.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="rivalcfg.usbhid.FakeDevice.write">
-<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.write" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simulate a write to an HID device.</p>
 <p>Given data will be writen to <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>, prefixed with the
 <a class="reference internal" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">HID_REPORT_TYPE_OUTPUT</span></code></a> byte.</p>
