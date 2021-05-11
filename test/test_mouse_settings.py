@@ -16,6 +16,6 @@ class Test_get_settings_path(object):
     def test_settings_file_path(self, monkeypatch):
         monkeypatch.setenv("XDG_CONFIG_HOME", "/tmp/foo/bar")
         assert (
-            mouse_settings.get_settings_path("1038_1729")
-            == "/tmp/foo/bar/rivalcfg/1038_1729.device.json"
+            mouse_settings.get_settings_path(0x1038, 0xbaad)
+            == "/tmp/foo/bar/rivalcfg/1038_baad.device.json"
         )

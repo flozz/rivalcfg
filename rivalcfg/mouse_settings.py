@@ -7,9 +7,12 @@ def get_xdg_config_home():
     return os.path.join(os.path.expanduser("~"), ".config")
 
 
-def get_settings_path(mouse_id):
+def get_settings_path(vendor_id, product_id):
     return os.path.join(
-        get_xdg_config_home(), "rivalcfg", "%s.device.json" % mouse_id
+        get_xdg_config_home(), "rivalcfg", "%04x_%04x.device.json" % (
+            vendor_id,
+            product_id,
+        )
     )
 
 
