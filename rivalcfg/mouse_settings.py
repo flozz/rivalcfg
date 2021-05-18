@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def get_xdg_config_home():
@@ -144,10 +145,34 @@ class MouseSettings(object):
         return self._settings[self._current_profile_name][setting_name]
 
     def save(self):
-        raise NotImplementedError()
+        """Save settings in a file.
+
+        .. NOTE::
+
+            Settings are located in
+            ``$XDG_CONFIG_HOME/rivalcfg/<vendor_id>_<product_id>.device.json``.
+        """
+        settings_dir = os.path.dirname(self._settings_path)
+        if not os.path.isdir(settings_dir):
+            os.makedirs(settings_dir)
+        with open(self._settings_path, "w") as file_:
+            json.dump(self._settings, file_)
 
     def _load(self):
-        raise NotImplementedError()
+        """Load settings from a file.
+
+        .. NOTE::
+
+            Settings are located in
+            ``$XDG_CONFIG_HOME/rivalcfg/<vendor_id>_<product_id>.device.json``.
+        """
+        if os.path.isfile(self._settings_path):
+            with open(self._settings_path, "r") as file_:
+                self._settings = json.load(file_)
+        else:
+            self._settings = {
+                "default": self.get_default_values(),
+            }
 
 
 class FakeMouseSettings(MouseSettings):
