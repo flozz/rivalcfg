@@ -35,9 +35,10 @@ class Test_get_settings_path(object):
         )
 
 
-class Test_MouseSettings(object):
+class Test_FakeMouseSettings(object):
     @pytest.fixture
-    def mouse_settings(self):
+    def mouse_settings(self, monkeypatch):
+        monkeypatch.setenv("DEBUG_DRY", "1")
         return mouse_settings.get_mouse_settings(0x1038, 0xBAAD, FAKE_PROFILE)
 
     def test_get_default_values(self, mouse_settings):
@@ -45,3 +46,16 @@ class Test_MouseSettings(object):
             "setting1": "foo",
             "setting2": "bar",
         }
+
+    def test_get_set_with_existing_setting(self, mouse_settings):
+        assert mouse_settings.get("setting1") == "foo"
+        mouse_settings.set("setting1", "test")
+        assert mouse_settings.get("setting1") == "test"
+
+    def test_get_with_non_existing_setting(self, mouse_settings):
+        with pytest.raises(KeyError):
+            mouse_settings.get("foobar")
+
+    def test_set_with_non_existing_setting(self, mouse_settings):
+        with pytest.raises(KeyError):
+            mouse_settings.set("foobar", "test")
