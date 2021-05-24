@@ -224,7 +224,7 @@ supported by rivalcfg.</p>
 <h2>Mouse Class<a class="headerlink" href="#mouse-class" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.mouse.Mouse">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse.</span></span><span class="sig-name descname"><span class="pre">Mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hid_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_profile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.Mouse" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse.</span></span><span class="sig-name descname"><span class="pre">Mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hid_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.Mouse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generic class to handle any supported mouse.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -249,9 +249,14 @@ profile. Read device specific documentation for more information.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">usbhid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">devices</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.mouse</span> <span class="kn">import</span> <span class="n">Mouse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.mouse_settings</span> <span class="kn">import</span> <span class="n">get_mouse_settings</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">profile</span> <span class="o">=</span> <span class="n">devices</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="n">vendor_id</span><span class="o">=</span><span class="mh">0x1038</span><span class="p">,</span> <span class="n">product_id</span><span class="o">=</span><span class="mh">0x1702</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span> <span class="o">=</span> <span class="n">get_mouse_settings</span><span class="p">(</span><span class="mh">0x1038</span><span class="p">,</span> <span class="mh">0x1702</span><span class="p">,</span> <span class="n">profile</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Mouse</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">usbhid</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">vendor_id</span><span class="o">=</span><span class="mh">0x1038</span><span class="p">,</span> <span class="n">product_id</span><span class="o">=</span><span class="mh">0x1702</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">devices</span><span class="o">.</span><span class="n">get_profile</span><span class="p">(</span><span class="n">vendor_id</span><span class="o">=</span><span class="mh">0x1038</span><span class="p">,</span> <span class="n">product_id</span><span class="o">=</span><span class="mh">0x1702</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="n">profile</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">settings</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
 <span class="go">&lt;Mouse SteelSeries Rival 100 (1038:1702:00)&gt;</span>
 </pre></div>
 </div>
