@@ -203,7 +203,10 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet
+  * Save devices settings on disk
+  * Add Black (code formatter)
+  * Drop Python 3.5 support
+  * **WARNING:** This version will be the last one to support Python 2.7
 
 * **4.3.0:**
 
