@@ -13,15 +13,16 @@ class RivalcfgDeviceFamily(ListTable, Directive):
         table_data = []
 
         for model in profile["models"]:
-            table_data.append([
-                nodes.paragraph(text=model["name"]),
-                nodes.paragraph(text="%04x:%04x" % (
-                    model["vendor_id"],
-                    model["product_id"])),
-            ])
+            table_data.append(
+                [
+                    nodes.paragraph(text=model["name"]),
+                    nodes.paragraph(
+                        text="%04x:%04x" % (model["vendor_id"], model["product_id"])
+                    ),
+                ]
+            )
 
-        return self.build_table_from_list(
-            table_data, [1] * 2, 0, 0)
+        return self.build_table_from_list(table_data, [1] * 2, 0, 0)
 
     def run(self):
         device_family = self.arguments[0]

@@ -46,8 +46,7 @@ def is_device_plugged(vendor_id, product_id):
     """
     if "RIVALCFG_PROFILE" in os.environ:
         debug_vendor_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[0], 16)
-        debug_product_id = int(
-                os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
+        debug_product_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
         if debug_vendor_id == vendor_id and debug_product_id == product_id:
             return True
     return len(hid.enumerate(vendor_id, product_id)) > 0
@@ -94,8 +93,10 @@ def open_device(vendor_id, product_id, endpoint):
         return device
 
     # No matching device found
-    raise DeviceNotFound("Requested device or endpoint not found: %04x:%04x:%02x" % (  # noqa
-        vendor_id, product_id, endpoint))
+    raise DeviceNotFound(
+        "Requested device or endpoint not found: %04x:%04x:%02x"
+        % (vendor_id, product_id, endpoint)
+    )
 
 
 class DeviceNotFound(Exception):

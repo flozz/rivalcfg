@@ -6,6 +6,7 @@ This module contains varous helper functions related to color.
 import re
 
 
+# fmt: off
 NAMED_COLORS = {
     "white":   (0xFF, 0xFF, 0xFF),
     "silver":  (0xC0, 0xC0, 0xC0),
@@ -24,6 +25,7 @@ NAMED_COLORS = {
     "fuchsia": (0xFF, 0x00, 0xFF),
     "purple":  (0x80, 0x00, 0x80),
 }
+# fmt: on
 
 
 def is_color(string):
@@ -87,14 +89,14 @@ def parse_color_string(color):
 
     # f00 -> ff0000
     if len(color) == 3:
-        color = color[0] * 2 + color[1] * 2 + color[2] * 2  # noqa
+        color = color[0] * 2 + color[1] * 2 + color[2] * 2
 
     # ff0000 -> (255, 0, 0)
     return (
         int(color[0:2], 16),
         int(color[2:4], 16),
-        int(color[4:], 16)
-        )
+        int(color[4:], 16),
+    )
 
 
 def parse_color_gradient_string(gradient):
@@ -121,11 +123,14 @@ def parse_color_gradient_string(gradient):
     Traceback (most recent call last):
         ...
     ValueError: invalid color gradient 'hello'. ...
-    """  # noqa
+    """
     gradient = gradient.replace(" ", "").replace("%", "")
 
-    if not re.match(r"[0-9-]+:[a-zA-Z0-9#]+(,[0-9]+:[a-zA-Z0-9#]+)*", gradient):  # noqa
-        raise ValueError("invalid color gradient '%s'. It must looks like '<POS1>:<COLOR1>,<POS2>:<COLOR2>,...'" % gradient)  # noqa
+    if not re.match(r"[0-9-]+:[a-zA-Z0-9#]+(,[0-9]+:[a-zA-Z0-9#]+)*", gradient):
+        raise ValueError(
+            "invalid color gradient '%s'. It must looks like '<POS1>:<COLOR1>,<POS2>:<COLOR2>,...'"
+            % gradient
+        )
 
     result = []
     for pos, color in [s.split(":") for s in gradient.split(",")]:
@@ -137,9 +142,11 @@ def parse_color_gradient_string(gradient):
         if not is_color(color):
             raise ValueError("invalid color '%s'" % color)
 
-        result.append({
-            "pos": pos,
-            "color": parse_color_string(color),
-            })
+        result.append(
+            {
+                "pos": pos,
+                "color": parse_color_string(color),
+            }
+        )
 
     return result

@@ -4,7 +4,6 @@ from rivalcfg.__main__ import main
 
 
 class TestMainCLI(object):
-
     def test_print_help(self):
         with pytest.raises(SystemExit) as pytest_wrapped_e:
             main(["--help"])

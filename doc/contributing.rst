@@ -88,7 +88,9 @@ if you just want to fix some typo in the documentation or small errors in the
 code.
 
 Please note that your code must pass tests and follow the coding style defined
-by the `pep8 <https://pep8.org/>`_.
+by the `pep8 <https://pep8.org/>`_. The code of this project is automatically
+checked by `Flake8 <https://flake8.pycqa.org/en/latest/>`_ and the coding style
+is enforced using `Black <https://black.readthedocs.io/en/stable/>`_.
 
 
 Running The Tests
@@ -102,7 +104,12 @@ Then you can check for lint error::
 
     nox --session lint
 
-or run the tests::
+If Black reports you coding style errors, you can automatically fix them with
+this command::
+
+    nox -s black_fix
+
+To run the tests use::
 
     nox --session test
 

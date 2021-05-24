@@ -8,9 +8,8 @@ from rivalcfg import mouse_settings
 FAKE_PROFILE = {
     "name": "Fake Mouse",
     "vendor_id": 0x1038,
-    "product_id": 0xbaad,
+    "product_id": 0xBAAD,
     "endpoint": 2,
-
     "settings": {
         "setting1": {
             "label": "Setting 1",
@@ -62,9 +61,8 @@ FAKE_PROFILE = {
                 42: 0xAA,
             },
             "default": 42,
-        }
+        },
     },
-
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "command": [0x5A, 0x0E],
@@ -74,11 +72,9 @@ FAKE_PROFILE = {
 FAKE_PROFILE2 = {
     "name": "Fake Mouse 2",
     "vendor_id": 0x1038,
-    "product_id": 0xbad2,
+    "product_id": 0xBAD2,
     "endpoint": 2,
-
     "settings": {},
-
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "packet_length": 4,
@@ -88,8 +84,7 @@ FAKE_PROFILE2 = {
 
 
 class TestGetMouse(object):
-
-    def test_get_mouse_returns_mouse_instance_with_desired_profil(self, monkeypatch):  # noqa
+    def test_get_mouse_returns_mouse_instance_with_desired_profil(self, monkeypatch):
         monkeypatch.setenv("RIVALCFG_DRY", "1")
         rival100 = mouse.get_mouse(vendor_id=0x1038, product_id=0x1702)
         assert rival100._mouse_profile["vendor_id"] == 0x1038
@@ -111,17 +106,12 @@ class TestGetMouse(object):
 
 
 class TestMouse(object):
-
     @pytest.fixture
     def mouse(self, monkeypatch):
         return mouse.Mouse(
             usbhid.FakeDevice(),
             FAKE_PROFILE,
-            mouse_settings.FakeMouseSettings(
-                0x1038,
-                0xbaad,
-                FAKE_PROFILE,
-            ),
+            mouse_settings.FakeMouseSettings(0x1038, 0xBAAD, FAKE_PROFILE),
         )
 
     @pytest.fixture
@@ -129,18 +119,14 @@ class TestMouse(object):
         return mouse.Mouse(
             usbhid.FakeDevice(),
             FAKE_PROFILE2,
-            mouse_settings.FakeMouseSettings(
-                0x1038,
-                0xbaad,
-                FAKE_PROFILE2
-            ),
+            mouse_settings.FakeMouseSettings(0x1038, 0xBAD2, FAKE_PROFILE2),
         )
 
     def test_name(self, mouse):
         assert mouse.name == "Fake Mouse"
 
     def test_product_id(self, mouse):
-        assert mouse.product_id == 0xbaad
+        assert mouse.product_id == 0xBAAD
 
     def test_firmware_version_tuple(self, mouse):
         assert mouse.firmware_version_tuple == (0,)
@@ -173,12 +159,16 @@ class TestMouse(object):
         assert str(mouse) == "<Mouse Fake Mouse (1038:baad:02)>"
         assert repr(mouse) == "<Mouse Fake Mouse (1038:baad:02)>"
 
-    @pytest.mark.parametrize("report_type,expected_hid_report", [
-        (usbhid.HID_REPORT_TYPE_OUTPUT, b"\x02\x00"),
-        (usbhid.HID_REPORT_TYPE_FEATURE, b"\x03\x00"),
-        ])
-    def test__hid_write_with_a_valid_report_type(self, mouse, report_type,
-                                                 expected_hid_report):
+    @pytest.mark.parametrize(
+        "report_type,expected_hid_report",
+        [
+            (usbhid.HID_REPORT_TYPE_OUTPUT, b"\x02\x00"),
+            (usbhid.HID_REPORT_TYPE_FEATURE, b"\x03\x00"),
+        ],
+    )
+    def test__hid_write_with_a_valid_report_type(
+        self, mouse, report_type, expected_hid_report
+    ):
         mouse._hid_write(report_type=report_type)
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == expected_hid_report
@@ -189,9 +179,10 @@ class TestMouse(object):
 
     def test__hid_write_with_data(self, mouse):
         mouse._hid_write(
-                report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
-                report_id=0x42,
-                data=[0xDA, 0x7A])
+            report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
+            report_id=0x42,
+            data=[0xDA, 0x7A],
+        )
         mouse._hid_device.bytes.seek(0)
         assert mouse._hid_device.bytes.read() == b"\x02\x42\xDA\x7A"
 
@@ -215,10 +206,13 @@ class TestMouse(object):
     def test_set_setting2_is_available(self, mouse):
         assert hasattr(mouse, "set_setting2")
 
-    @pytest.mark.parametrize("value,expected_hid_report", [
-        ("foo",  b"\x02\x00\xCC\x01"),
-        ("bar",  b"\x02\x00\xCC\x02"),
-        ])
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("foo", b"\x02\x00\xCC\x01"),
+            ("bar", b"\x02\x00\xCC\x02"),
+        ],
+    )
     def test_setting2(self, mouse, value, expected_hid_report):
         mouse.set_setting2(value)
         mouse._hid_device.bytes.seek(0)

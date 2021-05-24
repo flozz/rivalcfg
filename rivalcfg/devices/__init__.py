@@ -167,8 +167,7 @@ PROFILES = None
 
 
 class UnsupportedDevice(Exception):
-    """Exception raised when the requested device is not supported by rivalcfg.
-    """
+    """Exception raised when the requested device is not supported by rivalcfg."""
 
 
 def list_plugged_devices():
@@ -187,22 +186,20 @@ def list_plugged_devices():
     """
     if "RIVALCFG_PROFILE" in os.environ:
         debug_vendor_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[0], 16)
-        debug_product_id = int(
-                os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
+        debug_product_id = int(os.environ["RIVALCFG_PROFILE"].split(":")[1], 16)
         profile = PROFILES[(debug_vendor_id, debug_product_id)]
         yield {
             "vendor_id": profile["vendor_id"],
             "product_id": profile["product_id"],
             "name": profile["name"],
-            }
+        }
     for profile in PROFILES.values():
-        if usbhid.is_device_plugged(
-                profile["vendor_id"], profile["product_id"]):
+        if usbhid.is_device_plugged(profile["vendor_id"], profile["product_id"]):
             yield {
-                    "vendor_id": profile["vendor_id"],
-                    "product_id": profile["product_id"],
-                    "name": profile["name"],
-                    }
+                "vendor_id": profile["vendor_id"],
+                "product_id": profile["product_id"],
+                "name": profile["name"],
+            }
 
 
 def get_profile(vendor_id=0x1038, product_id=None):
@@ -226,7 +223,8 @@ def get_profile(vendor_id=0x1038, product_id=None):
     profile_name = (vendor_id, product_id)
     if profile_name not in PROFILES:
         raise UnsupportedDevice(
-                "The requested device is not supported (%x:%x)" % profile_name)
+            "The requested device is not supported (%x:%x)" % profile_name
+        )
     return PROFILES[profile_name]
 
 
@@ -244,9 +242,7 @@ def _generate_profiles():
             continue
         for model in item.profile["models"]:
             profile = item.profile.copy()
-            profile_name = (
-                    model["vendor_id"],
-                    model["product_id"])
+            profile_name = (model["vendor_id"], model["product_id"])
             del profile["models"]
             for k, v in model.items():
                 if k == "override_defaults":

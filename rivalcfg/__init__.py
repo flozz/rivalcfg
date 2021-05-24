@@ -18,12 +18,15 @@ def get_first_mouse():
     >>> rivalcfg.get_first_mouse()  # doctest: +SKIP
     <Mouse ...>
     """
-    if "RIVALCFG_PROFILE" in os.environ \
-            and os.environ["RIVALCFG_PROFILE"] == "0000:0000":
+    if (
+        "RIVALCFG_PROFILE" in os.environ
+        and os.environ["RIVALCFG_PROFILE"] == "0000:0000"
+    ):
         return None
     plugged_devices = list(devices.list_plugged_devices())
     if not plugged_devices:
         return None
     return mouse.get_mouse(
-            vendor_id=plugged_devices[0]["vendor_id"],
-            product_id=plugged_devices[0]["product_id"])
+        vendor_id=plugged_devices[0]["vendor_id"],
+        product_id=plugged_devices[0]["product_id"],
+    )

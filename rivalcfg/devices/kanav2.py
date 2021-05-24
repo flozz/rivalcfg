@@ -2,18 +2,16 @@ from .. import usbhid
 
 
 profile = {
-
     "name": "SteelSeries Kana v2",
-
-    "models": [{
-        "name": "SteelSeries Kana v2",
-        "vendor_id": 0x1038,
-        "product_id": 0x137a,
-        "endpoint": 0,
-    }],
-
+    "models": [
+        {
+            "name": "SteelSeries Kana v2",
+            "vendor_id": 0x1038,
+            "product_id": 0x137A,
+            "endpoint": 0,
+        }
+    ],
     "settings": {
-
         "sensitivity1": {
             "label": "Sensibility preset 1",
             "description": "Set sensitivity preset 1 (DPI)",
@@ -33,7 +31,6 @@ profile = {
             },
             "default": 800,
         },
-
         "sensitivity2": {
             "label": "Sensibility preset 2",
             "description": "Set sensitivity preset 2 (DPI)",
@@ -53,7 +50,6 @@ profile = {
             },
             "default": 1600,
         },
-
         "polling_rate": {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
@@ -69,10 +65,9 @@ profile = {
             },
             "default": 1000,
         },
-
         "led_brightness1": {
             "label": "LED Brightness 1",
-            "description": "Set the brightness of the LEDs while sensitivity preset 1 is selected",  # noqa
+            "description": "Set the brightness of the LEDs while sensitivity preset 1 is selected",
             "cli": ["-l", "--led-brightness1"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x05, 0x01],
@@ -85,10 +80,9 @@ profile = {
             },
             "default": "off",
         },
-
         "led_brightness2": {
             "label": "LED Brightness 2",
-            "description": "Set the brightness of the LEDs while sensitivity preset 2 is selected",  # noqa
+            "description": "Set the brightness of the LEDs while sensitivity preset 2 is selected",
             "cli": ["-L", "--led-brightness2"],
             "command": [0x05, 0x02],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
@@ -101,12 +95,9 @@ profile = {
             },
             "default": "high",
         },
-
     },
-
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "command": [0x09, 0x00],
     },
-
 }

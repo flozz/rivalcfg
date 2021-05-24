@@ -110,7 +110,7 @@ class CheckColorAction(argparse.Action):
 
     def __call__(self, parser, namespace, value, option_string=None):
         if not is_color(value):
-            raise argparse.ArgumentError(self, "invalid color: '%s'" %  value)  # noqa
+            raise argparse.ArgumentError(self, "invalid color: '%s'" % value)
         setattr(namespace, self.dest.upper(), value)
 
 
@@ -123,14 +123,14 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (e.g. red, #ff0000, ff0000, #f00, f00, default: %s)" % (
-            setting_info["description"],
-            str(setting_info["default"])
-            )
+        setting_info["description"],
+        str(setting_info["default"]),
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            dest=setting_name,
-            help=description,
-            type=str,
-            action=CheckColorAction,
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        dest=setting_name,
+        help=description,
+        type=str,
+        action=CheckColorAction,
+        metavar=setting_name.upper()
+    )

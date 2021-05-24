@@ -15,20 +15,27 @@ def list_devices():
         result += "\n%s:\n\n" % item.profile["name"]
         result += "+%s+%s+\n" % (
             "-" * 62,
-            "-" * 11)
+            "-" * 11,
+        )
         for model in item.profile["models"]:
             result += "| %-60s | %04x:%04x |\n" % (
                 model["name"],
                 model["vendor_id"],
                 model["product_id"],
-                )
+            )
             result += "+%s+%s+\n" % (
                 "-" * 62,
-                "-" * 11)
+                "-" * 11,
+            )
     return result
 
 
-def patch_readme(text="", readme="README.rst", start="devices-list-start", end="devices-list-end"):  # noqa: E501
+def patch_readme(
+    text="",
+    readme="README.rst",
+    start="devices-list-start",
+    end="devices-list-end",
+):
     result = ""
     in_marker = False
 

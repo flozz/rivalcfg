@@ -7,7 +7,7 @@ import re
 
 
 #: A regual expression that matches the general form of a param string.
-REGEXP_PARAM_STRING = re.compile(r"^\s*([a-zA-Z0-9_]+)\s*\(\s*(.+?)[\s;]*\)[\s;]*$")  # noqa
+REGEXP_PARAM_STRING = re.compile(r"^\s*([a-zA-Z0-9_]+)\s*\(\s*(.+?)[\s;]*\)[\s;]*$")
 
 
 def merge_bytes(*args):
@@ -93,10 +93,10 @@ def parse_param_string(paramstr, value_parsers={}):
     try:
         result = {
             name: {
-                k.strip(): v.strip() for k, v in [
-                    p.split("=") for p in params.split(";")]
-                }
+                k.strip(): v.strip()
+                for k, v in [p.split("=") for p in params.split(";")]
             }
+        }
     except ValueError:
         raise ValueError("invalid parameter string '%s'" % paramstr)
 
@@ -132,7 +132,7 @@ def uint_to_little_endian_bytearray(number, size):
         raise ValueError("integer overflow")
     nle = [0] * size
     for i in range(size):
-        nle[i] = number >> i*8 & 0xFF
+        nle[i] = number >> i * 8 & 0xFF
     return nle
 
 

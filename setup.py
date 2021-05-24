@@ -41,6 +41,7 @@ setup(
             "Sphinx",
             "sphinx-rtd-theme",
             "nox",
+            "black",
         ],
     },
 

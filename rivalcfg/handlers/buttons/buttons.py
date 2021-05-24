@@ -136,7 +136,7 @@ Example of a buttons value type in a device profile:
             "button_scroll_up":   0x31,
             "button_scroll_down": 0x32,
 
-            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)",  # noqa
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)",
         },
 
         # ...
@@ -161,7 +161,7 @@ Example of CLI usage::
 
 Functions
 ---------
-"""  # noqa: E501
+"""
 
 
 import argparse
@@ -196,8 +196,10 @@ def build_layout(layout):
 
     for alias, ref in layout.aliases.items():
         if ref not in layout.layout:
-            raise ValueError("Wrong alias: '%s' aliases '%s' but '%s' is not in the layout" % (  # noqa
-                alias, ref, ref))
+            raise ValueError(
+                "Wrong alias: '%s' aliases '%s' but '%s' is not in the layout"
+                % (alias, ref, ref)
+            )
         full_layout[alias.lower()] = layout.layout[ref]
 
     return full_layout
@@ -210,7 +212,7 @@ def is_buttons(string, setting_info):
     :param dict setting_info: the settings info from the mouse profile.
     :rtype: (bool, str)
     """
-    available_buttons = {k.lower(): v for k, v in setting_info["buttons"].items()}  # noqa: E501
+    available_buttons = {k.lower(): v for k, v in setting_info["buttons"].items()}
 
     try:
         buttons_dict = parse_param_string(string)
@@ -218,9 +220,14 @@ def is_buttons(string, setting_info):
         return False, str(e)
 
     if "buttons" not in buttons_dict:
-        return False, "Buttons expression must looks like buttons(<BUTTON>=<VALUE>; <BUTTON_N>=<VALUE_N>)"  # noqa: E501
+        return (
+            False,
+            "Buttons expression must looks like buttons(<BUTTON>=<VALUE>; <BUTTON_N>=<VALUE_N>)",
+        )
 
-    for key, value in [(k.lower(), v.lower()) for k, v in buttons_dict["buttons"].items()]:  # noqa: E501
+    for key, value in [
+        (k.lower(), v.lower()) for k, v in buttons_dict["buttons"].items()
+    ]:
         if key == "layout":
             if value not in LAYOUTS:
                 return False, "Unknown layout '%s'" % value
@@ -242,12 +249,12 @@ def process_value(setting_info, mapping):
     """
     # -- Parse input values
 
-    if type(mapping) in [str, _unicode_type] and REGEXP_PARAM_STRING.match(mapping):  # noqa
+    if type(mapping) in [str, _unicode_type] and REGEXP_PARAM_STRING.match(mapping):
         is_valid, reason = is_buttons(mapping, setting_info)
         if not is_valid:
             raise ValueError(reason)
         mapping = parse_param_string(mapping)
-    elif type(mapping) in [str, _unicode_type] and mapping.lower() == "default":  # noqa
+    elif type(mapping) in [str, _unicode_type] and mapping.lower() == "default":
         mapping = {"buttons": {}}
     elif type(mapping) is dict:
         pass
@@ -301,7 +308,7 @@ def process_value(setting_info, mapping):
     packet_length = len(buttons) * setting_info["button_field_length"]
     packet = [0x00] * packet_length
 
-    for button, value in [(k.lower(), v) for k, v in mapping["buttons"].items()]:  # noqa: E501
+    for button, value in [(k.lower(), v) for k, v in mapping["buttons"].items()]:
         if button == "layout":
             continue
         if button not in buttons:
@@ -349,7 +356,9 @@ def cli_buttons_validator(setting_info):
                 raise argparse.ArgumentError(self, "%s" % reason)
 
             else:
-                raise argparse.ArgumentError(self, "not a valid buttons mapping param: '%s'" % value)  # noqa: E501
+                raise argparse.ArgumentError(
+                    self, "not a valid buttons mapping param: '%s'" % value
+                )
 
     return CheckButtonsAction
 
@@ -363,14 +372,14 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (default: %s)" % (
-            setting_info["description"],
-            str(setting_info["default"]).replace("%", "%%"),
-            )
+        setting_info["description"],
+        str(setting_info["default"]).replace("%", "%%"),
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            dest=setting_name,
-            help=description,
-            type=str,
-            action=cli_buttons_validator(setting_info),
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        dest=setting_name,
+        help=description,
+        type=str,
+        action=cli_buttons_validator(setting_info),
+        metavar=setting_name.upper()
+    )

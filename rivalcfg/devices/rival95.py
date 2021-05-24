@@ -2,33 +2,34 @@ from .. import usbhid
 
 
 profile = {
-
     "name": "SteelSeries Rival 95 / SteelSeries Rival 100 PC Bang",
-
-    "models": [{
-        "name": "SteelSeries Rival 95",
-        "vendor_id": 0x1038,
-        "product_id": 0x1706,
-        "endpoint": 0,
-    }, {
-        "name": "SteelSeries Rival 95 MSI Edition",
-        "vendor_id": 0x1038,
-        "product_id": 0x1707,
-        "endpoint": 0,
-    }, {
-        "name": "SteelSeries Rival 95 PC Bang",
-        "vendor_id": 0x1038,
-        "product_id": 0x1704,
-        "endpoint": 0,
-    }, {
-        "name": "SteelSeries Rival 100 PC Bang",
-        "vendor_id": 0x1038,
-        "product_id": 0x1708,
-        "endpoint": 0,
-    }],
-
+    "models": [
+        {
+            "name": "SteelSeries Rival 95",
+            "vendor_id": 0x1038,
+            "product_id": 0x1706,
+            "endpoint": 0,
+        },
+        {
+            "name": "SteelSeries Rival 95 MSI Edition",
+            "vendor_id": 0x1038,
+            "product_id": 0x1707,
+            "endpoint": 0,
+        },
+        {
+            "name": "SteelSeries Rival 95 PC Bang",
+            "vendor_id": 0x1038,
+            "product_id": 0x1704,
+            "endpoint": 0,
+        },
+        {
+            "name": "SteelSeries Rival 100 PC Bang",
+            "vendor_id": 0x1038,
+            "product_id": 0x1708,
+            "endpoint": 0,
+        },
+    ],
     "settings": {
-
         "sensitivity1": {
             "label": "Sensibility preset 1",
             "description": "Set sensitivity preset 1 (DPI)",
@@ -48,7 +49,6 @@ profile = {
             },
             "default": 1000,
         },
-
         "sensitivity2": {
             "label": "Sensibility preset 2",
             "description": "Set sensitivity preset 2 (DPI)",
@@ -68,7 +68,6 @@ profile = {
             },
             "default": 2000,
         },
-
         "polling_rate": {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
@@ -84,7 +83,6 @@ profile = {
             },
             "default": 1000,
         },
-
         "btn6_mode": {
             "label": "Button 6 mode",
             "description": "Set the mode of the button under the wheel",
@@ -98,12 +96,9 @@ profile = {
             },
             "default": "dpi",
         },
-
     },
-
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "command": [0x09, 0x00],
     },
-
 }

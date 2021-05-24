@@ -110,7 +110,9 @@ class MouseSettings(object):
         :rtype: dict
         """
         return {
-            k: v["default"] for k, v in self._mouse_profile["settings"].items() if "default" in self._mouse_profile["settings"][k]  # noqa
+            k: v["default"]
+            for k, v in self._mouse_profile["settings"].items()
+            if "default" in self._mouse_profile["settings"][k]
         }
 
     def set(self, setting_name, value):
@@ -217,8 +219,14 @@ def get_mouse_settings(
     """
     if "RIVALCFG_DRY" in os.environ:
         return FakeMouseSettings(
-            vendor_id, product_id, mouse_profile, current_profile_name
+            vendor_id,
+            product_id,
+            mouse_profile,
+            current_profile_name,
         )
     return MouseSettings(
-        vendor_id, product_id, mouse_profile, current_profile_name
+        vendor_id,
+        product_id,
+        mouse_profile,
+        current_profile_name,
     )

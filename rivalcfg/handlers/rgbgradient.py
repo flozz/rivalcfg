@@ -102,7 +102,7 @@ Example of CLI usage::
 
 Functions
 ---------
-"""  # noqa
+"""
 
 
 import argparse
@@ -127,17 +127,21 @@ def _handle_color_tuple(color):
     for channel in color:
         if type(channel) != int or channel < 0 or channel > 255:
             raise ValueError("Not a valid color %s" % str(color))
-    return [{
-        "pos": 0,
-        "color": color,
-    }]
+    return [
+        {
+            "pos": 0,
+            "color": color,
+        }
+    ]
 
 
 def _handle_color_string(color):
-    return [{
-        "pos": 0,
-        "color": parse_color_string(color),
-    }]
+    return [
+        {
+            "pos": 0,
+            "color": parse_color_string(color),
+        }
+    ]
 
 
 def _handle_rgbgradient_dict(colors):
@@ -157,28 +161,35 @@ def _handle_rgbgradient_dict(colors):
             for channel in color:
                 if type(channel) != int or channel < 0 or channel > 255:
                     raise ValueError("Not a valid color %s" % str(color))
-            gradient.append({
-                "pos": stop["pos"] if "pos" in stop else 0,
-                "color": color
-            })
+            gradient.append(
+                {
+                    "pos": stop["pos"] if "pos" in stop else 0,
+                    "color": color,
+                }
+            )
 
     # Smooth gradient (if possible) by adding a final color
     if len(gradient) < 14 and gradient[-1]["pos"] != 100:
-        gradient.append({
-            "pos": 100,
-            "color": gradient[0]["color"],
-            })
+        gradient.append(
+            {
+                "pos": 100,
+                "color": gradient[0]["color"],
+            }
+        )
 
     return duration, gradient
 
 
 def _handle_rgbgradient_string(colors):
-    gradient_dict = parse_param_string(colors, value_parsers={
+    gradient_dict = parse_param_string(
+        colors,
+        value_parsers={
             "rgbgradient": {
                 "duration": int,
                 "colors": parse_color_gradient_string,
             }
-        })
+        },
+    )
 
     return _handle_rgbgradient_dict(gradient_dict["rgbgradient"])
 
@@ -198,7 +209,7 @@ def process_value(setting_info, colors):
     duration_length = setting_info["rgbgradient_header"]["duration_length"]
     repeat_offset = setting_info["rgbgradient_header"]["repeat_offset"]
     triggers_offset = setting_info["rgbgradient_header"]["triggers_offset"]
-    color_count_offset = setting_info["rgbgradient_header"]["color_count_offset"]  # noqa
+    color_count_offset = setting_info["rgbgradient_header"]["color_count_offset"]
 
     is_gradient = False
     duration = _default_duration
@@ -290,12 +301,15 @@ def is_rgbgradient(string):
     (False, "unknown parameter 'foo'...")
     """
     try:
-        rgbgradient_dict = parse_param_string(string, value_parsers={
-            "rgbgradient": {
-                "duration": int,
-                "colors": parse_color_gradient_string,
-            }
-        })
+        rgbgradient_dict = parse_param_string(
+            string,
+            value_parsers={
+                "rgbgradient": {
+                    "duration": int,
+                    "colors": parse_color_gradient_string,
+                }
+            },
+        )
     except ValueError as e:
         return False, str(e)
 
@@ -305,8 +319,10 @@ def is_rgbgradient(string):
         reason += "It must looks like 'rgbgradient(<PARAMS>)'."
         return False, reason
 
-    if "colors" not in rgbgradient_dict["rgbgradient"] \
-            or len(rgbgradient_dict["rgbgradient"]) == 0:
+    if (
+        "colors" not in rgbgradient_dict["rgbgradient"]
+        or len(rgbgradient_dict["rgbgradient"]) == 0
+    ):
         reason = ""
         reason += "invalid rgbgradient expression. "
         reason += "You must provide at least one color: "
@@ -319,7 +335,8 @@ def is_rgbgradient(string):
             reason = ""
             reason += "unknown parameter '%s'. " % key
             reason += "Allowed parameters are %s." % ", ".join(
-                    ["'%s'" % p for p in _allowed_params])
+                ["'%s'" % p for p in _allowed_params]
+            )
             return False, reason
 
     return True, ""
@@ -343,7 +360,9 @@ class CheckGradientAction(argparse.Action):
             raise argparse.ArgumentError(self, "%s" % reason)
 
         else:
-            raise argparse.ArgumentError(self, "not a valid color or rgbgradient: '%s'" % value)  # noqa
+            raise argparse.ArgumentError(
+                self, "not a valid color or rgbgradient: '%s'" % value
+            )
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
@@ -355,14 +374,14 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (default: %s)" % (
-            setting_info["description"],
-            str(setting_info["default"]).replace("%", "%%"),
-            )
+        setting_info["description"],
+        str(setting_info["default"]).replace("%", "%%"),
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            dest=setting_name,
-            help=description,
-            type=str,
-            action=CheckGradientAction,
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        dest=setting_name,
+        help=description,
+        type=str,
+        action=CheckGradientAction,
+        metavar=setting_name.upper()
+    )

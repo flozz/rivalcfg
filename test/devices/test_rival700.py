@@ -7,12 +7,11 @@ from rivalcfg import mouse_settings
 
 
 class TestDevice(object):
-
     @pytest.fixture
     def mouse(self):
         settings = mouse_settings.FakeMouseSettings(
             0x1038,
-            0xbaad,
+            0xBAAD,
             rival700.profile,
         )
         return mouse.Mouse(
@@ -21,36 +20,45 @@ class TestDevice(object):
             settings,
         )
 
-    @pytest.mark.parametrize("value,expected_hid_report", [
-        (100, b"\x02\x00\x03\x00\x01\x00\x00\x42"),
-        (200, b"\x02\x00\x03\x00\x01\x01\x00\x42"),
-        (1000, b"\x02\x00\x03\x00\x01\x09\x00\x42"),
-        (12000, b"\x02\x00\x03\x00\x01\x77\x00\x42"),
-        ])
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (100, b"\x02\x00\x03\x00\x01\x00\x00\x42"),
+            (200, b"\x02\x00\x03\x00\x01\x01\x00\x42"),
+            (1000, b"\x02\x00\x03\x00\x01\x09\x00\x42"),
+            (12000, b"\x02\x00\x03\x00\x01\x77\x00\x42"),
+        ],
+    )
     def test_set_sensitivity1(self, mouse, value, expected_hid_report):
         mouse.set_sensitivity1(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    @pytest.mark.parametrize("value,expected_hid_report", [
-        (100, b"\x02\x00\x03\x00\x02\x00\x00\x42"),
-        (200, b"\x02\x00\x03\x00\x02\x01\x00\x42"),
-        (1000, b"\x02\x00\x03\x00\x02\x09\x00\x42"),
-        (12000, b"\x02\x00\x03\x00\x02\x77\x00\x42"),
-        ])
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (100, b"\x02\x00\x03\x00\x02\x00\x00\x42"),
+            (200, b"\x02\x00\x03\x00\x02\x01\x00\x42"),
+            (1000, b"\x02\x00\x03\x00\x02\x09\x00\x42"),
+            (12000, b"\x02\x00\x03\x00\x02\x77\x00\x42"),
+        ],
+    )
     def test_set_sensitivity2(self, mouse, value, expected_hid_report):
         mouse.set_sensitivity2(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    @pytest.mark.parametrize("value,expected_hid_report", [
-        (125, b"\x02\x00\x04\x00\x04"),
-        (250, b"\x02\x00\x04\x00\x03"),
-        (500, b"\x02\x00\x04\x00\x02"),
-        (1000, b"\x02\x00\x04\x00\x01"),
-        ])
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (125, b"\x02\x00\x04\x00\x04"),
+            (250, b"\x02\x00\x04\x00\x03"),
+            (500, b"\x02\x00\x04\x00\x02"),
+            (1000, b"\x02\x00\x04\x00\x01"),
+        ],
+    )
     def test_set_polling_rate(self, mouse, value, expected_hid_report):
         mouse.set_polling_rate(value)
         mouse._hid_device.bytes.seek(0)
@@ -58,7 +66,9 @@ class TestDevice(object):
         assert hid_report == expected_hid_report
 
     def test_set_logo_color(self, mouse):
-        mouse.set_logo_color("rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)")  # noqa
+        mouse.set_logo_color(
+            "rgbgradient(duration=1000; colors=0%: #ff0000, 33%: #00ff00, 66%: #0000ff)"
+        )
 
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
@@ -86,7 +96,9 @@ class TestDevice(object):
         assert hid_report == expected_hid_report
 
     def test_set_wheel_color(self, mouse):
-        mouse.set_wheel_color("rgbgradient(duration=5000; colors=0%: #112233, 25%: #445566, 50%: #778899, 75%: #AABBCC)")  # noqa
+        mouse.set_wheel_color(
+            "rgbgradient(duration=5000; colors=0%: #112233, 25%: #445566, 50%: #778899, 75%: #AABBCC)"
+        )
 
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()

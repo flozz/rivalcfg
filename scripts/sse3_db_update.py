@@ -87,21 +87,25 @@ def write_csv(data, filename):
     print("\n* Writingg output CSV: %s..." % filename)
     with open(filename, "w") as f:
         csvfile = csv.writer(f)
-        csvfile.writerow([
-            "vendor_id",
-            "product_id",
-            "name",
-            "full_name",
-            "default_settings",
-            ])
+        csvfile.writerow(
+            [
+                "vendor_id",
+                "product_id",
+                "name",
+                "full_name",
+                "default_settings",
+            ]
+        )
         for pid, vid, name, full_name, settings in data:
-            csvfile.writerow([
-                pid,
-                vid,
-                name,
-                full_name,
-                json.dumps(json.loads(settings)),
-                ])
+            csvfile.writerow(
+                [
+                    pid,
+                    vid,
+                    name,
+                    full_name,
+                    json.dumps(json.loads(settings)),
+                ]
+            )
     print("  -> Done.")
 
 

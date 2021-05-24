@@ -70,7 +70,12 @@ def choices_to_list(choices):
     >>> choices_to_list({0: 0, 1: 1, 2: 2, "foo": 2})
     ['foo', '0', '1', '2']
     """
-    return list(map(str, sorted(choices.keys(), key=lambda v: v if type(v) == int else -1)))  # noqa
+    return list(
+        map(
+            str,
+            sorted(choices.keys(), key=lambda v: v if type(v) == int else -1),
+        )
+    )
 
 
 def choices_to_string(choices):
@@ -98,8 +103,8 @@ def process_value(setting_info, choice):
     choice = str(choice)
     if choice not in choices:
         raise ValueError(
-                "value must be one of [%s]" %
-                choices_to_string(setting_info["choices"]))
+            "value must be one of [%s]" % choices_to_string(setting_info["choices"])
+        )
     value = choices[choice]
     return [value]
 
@@ -113,14 +118,14 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (values: %s, default: %s)" % (
-            setting_info["description"],
-            choices_to_string(setting_info["choices"]),
-            str(setting_info["default"])
-            )
+        setting_info["description"],
+        choices_to_string(setting_info["choices"]),
+        str(setting_info["default"]),
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            help=description,
-            dest=setting_name.upper(),
-            choices=choices_to_list(setting_info["choices"]),
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        help=description,
+        dest=setting_name.upper(),
+        choices=choices_to_list(setting_info["choices"]),
+        metavar=setting_name.upper()
+    )

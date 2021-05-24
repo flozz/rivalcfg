@@ -98,7 +98,7 @@ Example of CLI usage::
 
 Functions
 ---------
-"""  # noqa
+"""
 
 
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
@@ -126,9 +126,9 @@ def process_value(setting_info, colors):
     :param str,tuple,list,dict colors: The color(s).
     :rtype: [int]
     """
-    color_field_length = setting_info["rgbgradientv2_header"]["color_field_length"] # noqa
-    duration_length = setting_info["rgbgradientv2_header"]["duration_length"]       # noqa
-    maxgradient = setting_info["rgbgradientv2_header"]["maxgradient"]               # noqa
+    color_field_length = setting_info["rgbgradientv2_header"]["color_field_length"]
+    duration_length = setting_info["rgbgradientv2_header"]["duration_length"]
+    maxgradient = setting_info["rgbgradientv2_header"]["maxgradient"]
     duration = _default_duration
     gradient = []
 
@@ -159,14 +159,15 @@ def process_value(setting_info, colors):
     # command for up to 16 rgbgradient patterns and it will take 16 arguments.
     gradient_length = len(gradient)
     if gradient_length > maxgradient:
-        raise ValueError("a maximum of %i color stops are allowed" %
-                         (maxgradient))
+        raise ValueError("a maximum of %i color stops are allowed" % (maxgradient))
 
     # SSE limits minimum duration depening the the amount of gradient arguments
     minimum_duration = int(gradient_length * 33.3)
     if duration < minimum_duration:
-        raise ValueError("a duration of %i or above is need for %i gradient" %
-                         (minimum_duration, gradient_length))
+        raise ValueError(
+            "a duration of %i or above is need for %i gradient"
+            % (minimum_duration, gradient_length)
+        )
 
     # SSE allows a max duration of 30.00 sec
     if duration > 30000:
@@ -174,7 +175,7 @@ def process_value(setting_info, colors):
 
     # -- Generate header
 
-    start_header = [0x1d, 0x01, 0x02, 0x31, 0x51, 0xff, 0xc8, 0x00]
+    start_header = [0x1D, 0x01, 0x02, 0x31, 0x51, 0xFF, 0xC8, 0x00]
     #              [0xff, 0x3c, 0x00, 0xff, 0x32, 0xc8, 0xc8, 0x00]
     # [WIP] header command
     header = merge_bytes(setting_info["led_id"], start_header)
@@ -194,13 +195,15 @@ def process_value(setting_info, colors):
     oldcolor = list(start_color)
     for pos, color in [(item["pos"], item["color"]) for item in gradient]:
         if pos <= last_real_pos:
-            raise ValueError("Incorrect order for gradient or duplicate order found please check position order") # noqa
+            raise ValueError(
+                "Incorrect order for gradient or duplicate order found please check position order"
+            )
         stage.append(index)  # Stage index number
         stage.append(0)  # Padding
         time = int((duration / 100) * (pos - last_real_pos))
         last_real_pos = pos
         if time == 0:
-            raise ValueError("Incompatble timings set, please set different timings") # noqa
+            raise ValueError("Incompatble timings set, please set different timings")
         rgb_index = 0
         for rgb in color:
             diff = rgb - oldcolor[rgb_index]
@@ -229,7 +232,7 @@ def process_value(setting_info, colors):
         split_color.append(left_byte)
         split_color.append(right_byte)
 
-    end_suffix = [0xff, 0x00]
+    end_suffix = [0xFF, 0x00]
     # Need to fully test these values
     focal_x = uint_to_little_endian_bytearray(1500, 2)
     focal_y = uint_to_little_endian_bytearray(650, 2)
@@ -237,8 +240,15 @@ def process_value(setting_info, colors):
     # Amount of colors in gradient (command still work if value is incorrect)
     num_color = uint_to_little_endian_bytearray(gradient_length - 1, 2)
     duration = uint_to_little_endian_bytearray(duration, duration_length)
-    suffix = merge_bytes(split_color, end_suffix, focal_x, focal_y,
-                         end_suffix2, num_color, duration)
+    suffix = merge_bytes(
+        split_color,
+        end_suffix,
+        focal_x,
+        focal_y,
+        end_suffix2,
+        num_color,
+        duration,
+    )
 
     return merge_bytes(header, suffix)
 
@@ -253,14 +263,14 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (default: %s)" % (
-            setting_info["description"],
-            str(setting_info["default"]).replace("%", "%%"),
-            )
+        setting_info["description"],
+        str(setting_info["default"]).replace("%", "%%"),
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            dest=setting_name,
-            help=description,
-            type=str,
-            action=CheckGradientAction,
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        dest=setting_name,
+        help=description,
+        type=str,
+        action=CheckGradientAction,
+        metavar=setting_name.upper()
+    )

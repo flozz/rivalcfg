@@ -2,6 +2,7 @@
 This file contains the layout for QWERTY (en_US) keyboards.
 """
 
+# fmt: off
 
 #: The layout
 layout = {
@@ -238,3 +239,5 @@ aliases = {
     "rightcommand": "RightSuper",
     "rcmd": "RightSuper",
 }
+
+# fmt: on

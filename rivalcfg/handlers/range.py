@@ -137,23 +137,30 @@ def process_value(setting_info, value):
     :param value: The input value.
     :rtype: list[int]
     """
-    input_range = list(range(
+    input_range = list(
+        range(
             setting_info["input_range"][0],
             setting_info["input_range"][1] + 1,
-            setting_info["input_range"][2]))
-    output_range = list(custom_range(
+            setting_info["input_range"][2],
+        )
+    )
+    output_range = list(
+        custom_range(
             setting_info["output_range"][0],
             setting_info["output_range"][1] + 1,
-            setting_info["output_range"][2]))
+            setting_info["output_range"][2],
+        )
+    )
 
     if len(input_range) != len(output_range):
-        raise ValueError("Input range and output range must have the same length")  # noqa: E501
+        raise ValueError("Input range and output range must have the same length")
 
     matched_value = matches_value_in_range(
-            setting_info["input_range"][0],
-            setting_info["input_range"][1],
-            setting_info["input_range"][2],
-            int(value))
+        setting_info["input_range"][0],
+        setting_info["input_range"][1],
+        setting_info["input_range"][2],
+        int(value),
+    )
     return [output_range[input_range.index(matched_value)]]
 
 
@@ -166,15 +173,15 @@ def add_cli_option(cli_parser, setting_name, setting_info):
                               device profile.
     """
     description = "%s (from %i to %i, default: %i)" % (
-            setting_info["description"],
-            setting_info["input_range"][0],
-            setting_info["input_range"][1],
-            setting_info["default"],
-            )
+        setting_info["description"],
+        setting_info["input_range"][0],
+        setting_info["input_range"][1],
+        setting_info["default"],
+    )
     cli_parser.add_argument(
-            *setting_info["cli"],
-            help=description,
-            dest=setting_name.upper(),
-            type=int,
-            metavar=setting_name.upper()
-            )
+        *setting_info["cli"],
+        help=description,
+        dest=setting_name.upper(),
+        type=int,
+        metavar=setting_name.upper()
+    )

@@ -2,23 +2,22 @@ from .. import usbhid
 
 
 profile = {
-
     "name": "SteelSeries Kinzu v2",
-
-    "models": [{
-        "name": "SteelSeries Kinzu v2",
-        "vendor_id": 0x1038,
-        "product_id": 0x1366,
-        "endpoint": 0,
-    }, {
-        "name": "SteelSeries Kinzu v2",
-        "vendor_id": 0x1038,
-        "product_id": 0x1378,
-        "endpoint": 0,
-    }],
-
+    "models": [
+        {
+            "name": "SteelSeries Kinzu v2",
+            "vendor_id": 0x1038,
+            "product_id": 0x1366,
+            "endpoint": 0,
+        },
+        {
+            "name": "SteelSeries Kinzu v2",
+            "vendor_id": 0x1038,
+            "product_id": 0x1378,
+            "endpoint": 0,
+        },
+    ],
     "settings": {
-
         "sensitivity1": {
             "label": "Sensibility preset 1",
             "description": "Set sensitivity preset 1 (DPI)",
@@ -34,7 +33,6 @@ profile = {
             },
             "default": 800,
         },
-
         "sensitivity2": {
             "label": "Sensibility preset 2",
             "description": "Set sensitivity preset 2 (DPI)",
@@ -50,7 +48,6 @@ profile = {
             },
             "default": 3200,
         },
-
         "polling_rate": {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
@@ -66,12 +63,9 @@ profile = {
             },
             "default": 1000,
         },
-
     },
-
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "command": [0x09, 0x00],
     },
-
 }
