@@ -1,13 +1,13 @@
 import nox
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def lint(session):
     session.install("flake8")
     session.run("flake8", "rivalcfg", "test", "noxfile.py", "scripts")
 
 
-@nox.session(python=["2.7", "3.6", "3.7", "3.8", "3.9"])
+@nox.session(python=["2.7", "3.6", "3.7", "3.8", "3.9"], reuse_venv=True)
 def test(session):
     session.install("pytest")
     session.install(".")
@@ -24,14 +24,14 @@ def test(session):
             })
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def gendoc(session):
     session.install("sphinx", "sphinx-rtd-theme")
     session.install("-e", ".")
     session.run("sphinx-build", "-M", "html", "doc", "build")
 
 
-@nox.session
+@nox.session(reuse_venv=True)
 def update_ssdb(session):
     session.install("natsort")
     session.run("python", "./scripts/sse3_db_update.py", "ssdb/sse3.db.csv")

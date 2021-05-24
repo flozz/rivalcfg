@@ -2,6 +2,7 @@ import pytest
 
 from rivalcfg import mouse
 from rivalcfg import usbhid
+from rivalcfg import mouse_settings
 
 
 FAKE_PROFILE = {
@@ -113,11 +114,27 @@ class TestMouse(object):
 
     @pytest.fixture
     def mouse(self, monkeypatch):
-        return mouse.Mouse(usbhid.FakeDevice(), FAKE_PROFILE)
+        return mouse.Mouse(
+            usbhid.FakeDevice(),
+            FAKE_PROFILE,
+            mouse_settings.FakeMouseSettings(
+                0x1038,
+                0xbaad,
+                FAKE_PROFILE,
+            ),
+        )
 
     @pytest.fixture
     def mouse2(self, monkeypatch):
-        return mouse.Mouse(usbhid.FakeDevice(), FAKE_PROFILE2)
+        return mouse.Mouse(
+            usbhid.FakeDevice(),
+            FAKE_PROFILE2,
+            mouse_settings.FakeMouseSettings(
+                0x1038,
+                0xbaad,
+                FAKE_PROFILE2
+            ),
+        )
 
     def test_name(self, mouse):
         assert mouse.name == "Fake Mouse"
