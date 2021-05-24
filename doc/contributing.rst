@@ -118,10 +118,10 @@ commands (the corresponding Python interpreter must be installed on your
 machine)::
 
     nox --session test-2.7
-    nox --session test-3.5
     nox --session test-3.6
     nox --session test-3.7
     nox --session test-3.8
+    nox --session test-3.9
 
 
 Building The Documentation
