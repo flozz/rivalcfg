@@ -156,7 +156,7 @@ class MouseSettings(object):
         if not os.path.isdir(settings_dir):
             os.makedirs(settings_dir)
         with open(self._settings_path, "w") as file_:
-            json.dump(self._settings, file_)
+            json.dump(self._settings, file_, indent=2)
 
     def _load(self):
         """Load settings from a file.

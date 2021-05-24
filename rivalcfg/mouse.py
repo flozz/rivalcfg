@@ -140,6 +140,8 @@ class Mouse:
                 data=self._mouse_profile["save_command"]["command"],
                 packet_length=packet_length)
 
+        self._mouse_settings.save()
+
     def close(self):
         """Close the device.
 
@@ -232,6 +234,10 @@ class Mouse:
                         suffix
                         ),
                     packet_length=packet_length)
+            if len(args) == 1:
+                self._mouse_settings.set(setting_name, args[0])
+            else:
+                self._mouse_settings.set(setting_name, args)
 
         return _exec_command
 
