@@ -245,7 +245,9 @@ will allow us to discuss the best way to do it. This is of course not necessary
 if you just want to fix some typo in the documentation or small errors in the
 code.</p>
 <p>Please note that your code must pass tests and follow the coding style defined
-by the <a class="reference external" href="https://pep8.org/">pep8</a>.</p>
+by the <a class="reference external" href="https://pep8.org/">pep8</a>. The code of this project is automatically
+checked by <a class="reference external" href="https://flake8.pycqa.org/en/latest/">Flake8</a> and the coding style
+is enforced using <a class="reference external" href="https://black.readthedocs.io/en/stable/">Black</a>.</p>
 </div>
 <div class="section" id="running-the-tests">
 <h2>Running The Tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h2>
@@ -257,7 +259,12 @@ by the <a class="reference external" href="https://pep8.org/">pep8</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">lint</span>
 </pre></div>
 </div>
-<p>or run the tests:</p>
+<p>If Black reports you coding style errors, you can automatically fix them with
+this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">black_fix</span>
+</pre></div>
+</div>
+<p>To run the tests use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span>
 </pre></div>
 </div>
@@ -265,10 +272,10 @@ by the <a class="reference external" href="https://pep8.org/">pep8</a>.</p>
 commands (the corresponding Python interpreter must be installed on your
 machine):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">2.7</span>
-<span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.5</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.6</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.7</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.8</span>
+<span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.9</span>
 </pre></div>
 </div>
 </div>
