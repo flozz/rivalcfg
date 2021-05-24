@@ -110,7 +110,7 @@ class MouseSettings(object):
         :rtype: dict
         """
         return {
-            k: v["default"] for k, v in self._mouse_profile["settings"].items()
+            k: v["default"] for k, v in self._mouse_profile["settings"].items() if "default" in self._mouse_profile["settings"][k]  # noqa
         }
 
     def set(self, setting_name, value):

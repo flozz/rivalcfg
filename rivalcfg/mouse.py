@@ -4,6 +4,7 @@ from . import usbhid
 from . import devices
 from . import handlers
 from . import helpers
+from . import mouse_settings
 
 
 def get_mouse(vendor_id=0x1038, product_id=None):
@@ -26,10 +27,15 @@ def get_mouse(vendor_id=0x1038, product_id=None):
         raise ValueError("You must define the 'product_id' parameter")
 
     profile = devices.get_profile(vendor_id, product_id)
+    settings = mouse_settings.get_mouse_settings(
+        vendor_id,
+        product_id,
+        profile,
+    )
 
     hid_device = usbhid.open_device(vendor_id, product_id, profile["endpoint"])
 
-    return Mouse(hid_device, profile)
+    return Mouse(hid_device, profile, settings)
 
 
 class Mouse:
@@ -54,16 +60,22 @@ class Mouse:
     >>> from rivalcfg import usbhid
     >>> from rivalcfg import devices
     >>> from rivalcfg.mouse import Mouse
+    >>> from rivalcfg.mouse_settings import get_mouse_settings
+    >>> profile = devices.get_profile(vendor_id=0x1038, product_id=0x1702)
+    >>> settings = get_mouse_settings(0x1038, 0x1702, profile)
     >>> Mouse(
     ...     usbhid.open_device(vendor_id=0x1038, product_id=0x1702, endpoint=0),
-    ...     devices.get_profile(vendor_id=0x1038, product_id=0x1702))
+    ...     profile,
+    ...     settings,
+    ... )
     <Mouse SteelSeries Rival 100 (1038:1702:00)>
     """  # noqa
 
-    def __init__(self, hid_device, mouse_profile):
+    def __init__(self, hid_device, mouse_profile, mouse_settings):
         """Constructor."""
         self._hid_device = hid_device
         self._mouse_profile = mouse_profile
+        self._mouse_settings = mouse_settings
 
     @property
     def name(self):
