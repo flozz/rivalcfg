@@ -87,14 +87,14 @@ class TestGetMouse(object):
     def test_get_mouse_returns_mouse_instance_with_desired_profil(self, monkeypatch):
         monkeypatch.setenv("RIVALCFG_DRY", "1")
         rival100 = mouse.get_mouse(vendor_id=0x1038, product_id=0x1702)
-        assert rival100._mouse_profile["vendor_id"] == 0x1038
-        assert rival100._mouse_profile["product_id"] == 0x1702
+        assert rival100.mouse_profile["vendor_id"] == 0x1038
+        assert rival100.mouse_profile["product_id"] == 0x1702
 
     def test_get_mouse_vendor_id_param_optional(self, monkeypatch):
         monkeypatch.setenv("RIVALCFG_DRY", "1")
         rival100 = mouse.get_mouse(product_id=0x1702)
-        assert rival100._mouse_profile["vendor_id"] == 0x1038
-        assert rival100._mouse_profile["product_id"] == 0x1702
+        assert rival100.mouse_profile["vendor_id"] == 0x1038
+        assert rival100.mouse_profile["product_id"] == 0x1702
 
     def test_get_mouse_raise_error_if_no_product_id(self):
         with pytest.raises(ValueError):

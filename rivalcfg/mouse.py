@@ -71,40 +71,46 @@ class Mouse:
     <Mouse SteelSeries Rival 100 (1038:1702:00)>
     """
 
+    #: The mouse settings (``rivalcfg.devices.*``)
+    mouse_profile = None
+
+    #: The mouse settings (:class:`rivalcfg.mouse_settings.MouseSettings`)
+    mouse_settings = None
+
     def __init__(self, hid_device, mouse_profile, mouse_settings):
         """Constructor."""
         self._hid_device = hid_device
-        self._mouse_profile = mouse_profile
-        self._mouse_settings = mouse_settings
+        self.mouse_profile = mouse_profile
+        self.mouse_settings = mouse_settings
 
     @property
     def name(self):
         """The mouse name."""
-        return self._mouse_profile["name"]
+        return self.mouse_profile["name"]
 
     @property
     def vendor_id(self):
         """The mouse vendor id."""
-        return self._mouse_profile["vendor_id"]
+        return self.mouse_profile["vendor_id"]
 
     @property
     def product_id(self):
         """The mouse product id."""
-        return self._mouse_profile["product_id"]
+        return self.mouse_profile["product_id"]
 
     @property
     def firmware_version_tuple(self):
         """The firmware version of the device as a tuple (e.g.``(1, 33)``,
         ``(0,)`` if not available).
         """
-        if "firmware_version" not in self._mouse_profile:
+        if "firmware_version" not in self.mouse_profile:
             return (0,)
         self._hid_write(
             usbhid.HID_REPORT_TYPE_OUTPUT,
-            data=self._mouse_profile["firmware_version"]["command"],
+            data=self.mouse_profile["firmware_version"]["command"],
         )
         version = self._hid_device.read(
-            self._mouse_profile["firmware_version"]["response_length"],
+            self.mouse_profile["firmware_version"]["response_length"],
             timeout_ms=200,
         )
         return tuple(version[::-1])
@@ -118,7 +124,7 @@ class Mouse:
 
     def reset_settings(self):
         """Sets all settings to their factory default values."""
-        for name, setting_info in self._mouse_profile["settings"].items():
+        for name, setting_info in self.mouse_profile["settings"].items():
             method_name = "set_%s" % name
             method = getattr(self, method_name)
             if "value_type" in setting_info and setting_info["value_type"]:
@@ -130,22 +136,22 @@ class Mouse:
         """Save current config to the mouse internal memory."""
         # This should never apand... But who knows...
         if (
-            "save_command" not in self._mouse_profile
-            or not self._mouse_profile["save_command"]
+            "save_command" not in self.mouse_profile
+            or not self.mouse_profile["save_command"]
         ):
             raise Exception("This mouse does not provide any save command.")
 
         packet_length = 0
-        if "packet_length" in self._mouse_profile["save_command"]:
-            packet_length = self._mouse_profile["save_command"]["packet_length"]
+        if "packet_length" in self.mouse_profile["save_command"]:
+            packet_length = self.mouse_profile["save_command"]["packet_length"]
 
         self._hid_write(
-            report_type=self._mouse_profile["save_command"]["report_type"],
-            data=self._mouse_profile["save_command"]["command"],
+            report_type=self.mouse_profile["save_command"]["report_type"],
+            data=self.mouse_profile["save_command"]["command"],
             packet_length=packet_length,
         )
 
-        self._mouse_settings.save()
+        self.mouse_settings.save()
 
     def close(self):
         """Close the device.
@@ -205,10 +211,10 @@ class Mouse:
 
         setting_name = name[4:]
 
-        if setting_name not in self._mouse_profile["settings"]:
+        if setting_name not in self.mouse_profile["settings"]:
             raise AttributeError("Mouse instance has no attribute '%s'" % name)
 
-        setting_info = self._mouse_profile["settings"][setting_name]
+        setting_info = self.mouse_profile["settings"][setting_name]
 
         handler_name = None
 
@@ -220,7 +226,7 @@ class Mouse:
                     % (
                         handler_name,
                         setting_name,
-                        self._mouse_profile["name"],
+                        self.mouse_profile["name"],
                     )
                 )
 
@@ -244,18 +250,18 @@ class Mouse:
                 packet_length=packet_length,
             )
             if len(args) == 1:
-                self._mouse_settings.set(setting_name, args[0])
+                self.mouse_settings.set(setting_name, args[0])
             else:
-                self._mouse_settings.set(setting_name, args)
+                self.mouse_settings.set(setting_name, args)
 
         return _exec_command
 
     def __repr__(self):
         return "<Mouse %s (%04x:%04x:%02x)>" % (
-            self._mouse_profile["name"],
-            self._mouse_profile["vendor_id"],
-            self._mouse_profile["product_id"],
-            self._mouse_profile["endpoint"],
+            self.mouse_profile["name"],
+            self.mouse_profile["vendor_id"],
+            self.mouse_profile["product_id"],
+            self.mouse_profile["endpoint"],
         )
 
     def __del__(self):

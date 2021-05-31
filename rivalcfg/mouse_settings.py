@@ -17,7 +17,7 @@ def get_settings_path(vendor_id, product_id):
     """Returns the path of a specific mouse settings file.
 
     :param int vendor_id: The device's vendor id (e.g. ``0x1038``).
-    :param int product_id: The device's product id (e.g. ````0xbaad``).
+    :param int product_id: The device's product id (e.g. ``0xbaad``).
 
     :rtype: str
     """
@@ -178,7 +178,7 @@ class MouseSettings(object):
 
 
 class FakeMouseSettings(MouseSettings):
-    """An implementation of the :py:`MouseSettings` that does not make any I/O.
+    """An implementation of the :class:`MouseSettings` that does not make any I/O.
 
     :param int vendor_id: The device's vendor id (e.g. ``0x1038``).
     :param int product_id: The device's product id (e.g. ````0xbaad``).
@@ -202,11 +202,11 @@ def get_mouse_settings(
     mouse_profile,
     current_profile_name="default",
 ):
-    """Returns a :py:`MouseSetting` instance.
+    """Returns a :class:`MouseSetting` instance.
 
     .. NOTE::
 
-       A :py:`FakeMouseSettings` instance is returned when ``DEBUG_DRY``
+       A :class:`FakeMouseSettings` instance is returned when ``DEBUG_DRY``
        environment variable is set.
 
     :param int vendor_id: The device's vendor id (e.g. ``0x1038``).

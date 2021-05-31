@@ -17,5 +17,6 @@ interact with SteelSeries mice from your own scripts, read the
    ./handlers/index.rst
    ./helpers.rst
    ./mouse.rst
+   ./mouse_settings.rst
    ./udev.rst
    ./usbhid.rst
