@@ -52,7 +52,9 @@ def extract_sse3(filename):
 
 def find_sql_migration_scripts():
     print("\n* Searching SQL micration scripts...")
-    sql_files = sorted(glob.glob("**/*.sql", recursive=True), key=lambda path: os.path.basename(path))
+    sql_files = sorted(
+        glob.glob("**/*.sql", recursive=True), key=lambda path: os.path.basename(path)
+    )
     if len(sql_files) == 0:
         print("  -> No SQL file found. Abort.")
         sys.exit(1)
