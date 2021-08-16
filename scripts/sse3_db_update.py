@@ -21,10 +21,8 @@ import sqlite3
 import tempfile
 import subprocess
 
-import natsort
 
-
-URL_LATEST_SSE3 = "https://steelseries.com/engine/latest/windows"
+URL_LATEST_SSGG = "https://fr.steelseries.com/gg/downloads/gg/latest/windows"
 
 SQL_LIST_MICE = """
 SELECT "1038" AS vendor_id,
@@ -54,7 +52,7 @@ def extract_sse3(filename):
 
 def find_sql_migration_scripts():
     print("\n* Searching SQL micration scripts...")
-    sql_files = natsort.natsorted(glob.glob("**/*.sql", recursive=True))
+    sql_files = sorted(glob.glob("**/*.sql", recursive=True), key=lambda path: os.path.basename(path))
     if len(sql_files) == 0:
         print("  -> No SQL file found. Abort.")
         sys.exit(1)
@@ -67,10 +65,17 @@ def build_database(sql_files):
     db_conn = sqlite3.connect(":memory:")
     cur = db_conn.cursor()
     for sql_file in sql_files:
+        if "migratedTables" in sql_file:
+            print("  * Skipping %s..." % sql_file)
+            continue
         print("  * Running %s..." % sql_file)
         with open(sql_file, "r") as f:
             sql = f.read()
-        cur.executescript(sql)
+            for sql_part in sql.split("\n\n"):
+                try:
+                    cur.executescript(sql_part)
+                except sqlite3.OperationalError as e:
+                    print("    -> Error: %s" % str(e))
     print("  -> Done.")
     return db_conn
 
@@ -133,7 +138,7 @@ def main():
     tmpdir = tempfile.TemporaryDirectory()
     os.chdir(tmpdir.name)
 
-    download_sse3(URL_LATEST_SSE3, "./sse3.exe")
+    download_sse3(URL_LATEST_SSGG, "./sse3.exe")
     extract_sse3("./sse3.exe")
     sql_files = find_sql_migration_scripts()
     db_conn = build_database(sql_files)

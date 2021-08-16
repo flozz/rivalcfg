@@ -54,5 +54,4 @@ def gendoc(session):
 
 @nox.session(reuse_venv=True)
 def update_ssdb(session):
-    session.install("natsort")
     session.run("python", "./scripts/sse3_db_update.py", "ssdb/sse3.db.csv")
