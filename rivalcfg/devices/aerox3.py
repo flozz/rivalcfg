@@ -82,7 +82,7 @@ profile = {
             "description": "Set the brightness of the LEDs",
             "cli": ["-l", "--led-brightness"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x23, 0x01],
+            "command": [0x23],
             "value_type": "range",
             "input_range": [0, 100, 1],
             "output_range": [0x00, 0x64, 1],
