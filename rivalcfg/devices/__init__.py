@@ -145,7 +145,7 @@ Module API
 import os
 import types
 
-from . import aerox3
+from . import aerox3  # noqa: F401
 from . import kanav2  # noqa: F401
 from . import kinzuv2  # noqa: F401
 from . import rival3  # noqa: F401
