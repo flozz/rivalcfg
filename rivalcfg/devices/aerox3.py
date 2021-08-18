@@ -13,7 +13,7 @@ profile = {
         {
             "name": "SteelSeries Aerox 3 Wireless (wired mode)",
             "vendor_id": 0x1038,
-            "product_id": 0x183a,
+            "product_id": 0x183A,
             "endpoint": 0,
         },
     ],
@@ -23,7 +23,7 @@ profile = {
             "description": "Set sensitivity preset (DPI)",
             "cli": ["-s", "--sensitivity"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x2d],
+            "command": [0x2D],
             "value_type": "multidpi_range",
             "input_range": [200, 8500, 100],
             "output_range": [0x04, 0xC5, 2.33],
@@ -37,7 +37,7 @@ profile = {
             "description": "Set polling rate (Hz)",
             "cli": ["-p", "--polling-rate"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x2b],
+            "command": [0x2B],
             "value_type": "choice",
             "choices": {
                 125: 0x04,
