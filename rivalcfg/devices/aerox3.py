@@ -89,9 +89,8 @@ profile = {
             "default": 100,
         },
     },
-    # TODO We must check that later
-    # "save_command": {
-    #     "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-    #     "command": [0x11, 0x00],
-    # },
+    "save_command": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x11, 0x00],
+    },
 }
