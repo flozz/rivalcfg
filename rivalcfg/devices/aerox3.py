@@ -8,7 +8,7 @@ profile = {
             "name": "SteelSeries Aerox 3",
             "vendor_id": 0x1038,
             "product_id": 0x1836,
-            "endpoint": 0,
+            "endpoint": 3,
         },
         {
             "name": "SteelSeries Aerox 3 Wireless (wired mode)",
