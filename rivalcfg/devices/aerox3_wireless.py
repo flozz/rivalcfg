@@ -77,8 +77,8 @@ profile = {
             "command_suffix": [0x01, 0x01, 0x00, 0x30, 0x75],
             "value_type": "range",
             "input_range": [0, 16, 1],
-            "output_range": [0x00, 0x0f, 1],
-            "default": 100,
+            "output_range": [0x00, 0x0F, 1],
+            "default": 16,
         },
     },
     "save_command": {
