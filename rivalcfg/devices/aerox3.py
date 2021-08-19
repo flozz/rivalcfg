@@ -79,6 +79,19 @@ profile = {
             "output_range": [0x00, 0x64, 1],
             "default": 100,
         },
+        # XXX this is a test
+        "light_effect": {
+            "label": "Light effect",
+            "description": "Set the light effect",
+            "cli": ["-e", "--light-effect"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x22],
+            "value_type": "choice",
+            "choices": {
+                "rainbow-shift": 0xFF,
+            },
+            "default": "rainbow-shift",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
