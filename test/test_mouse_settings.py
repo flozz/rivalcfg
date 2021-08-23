@@ -1,3 +1,5 @@
+import json
+
 import pytest
 
 from rivalcfg import mouse_settings
@@ -10,6 +12,9 @@ FAKE_PROFILE = {
         },
         "setting2": {
             "default": "bar",
+        },
+        "setting3": {
+            "value_type": "none",
         },
     },
 }
@@ -76,3 +81,20 @@ class Test_MouseSettings(object):
         ms.save()
         ms2 = mouse_settings.MouseSettings(0x1038, 0xBAAD, FAKE_PROFILE)
         assert ms2.get("setting1") == "test1"
+
+    def test_none_value_type_settings_return_none(self, monkeypatch, tmpdir):
+        monkeypatch.delenv("DEBUG_DRY", raising=False)
+        monkeypatch.setenv("XDG_CONFIG_HOME", str(tmpdir))
+        ms = mouse_settings.MouseSettings(0x1038, 0xBAAD, FAKE_PROFILE)
+        ms.set("setting3", "foo")
+        assert ms.get("setting3") is None
+
+    def test_none_value_type_settings_not_saved(self, monkeypatch, tmpdir):
+        monkeypatch.delenv("DEBUG_DRY", raising=False)
+        monkeypatch.setenv("XDG_CONFIG_HOME", str(tmpdir))
+        ms = mouse_settings.MouseSettings(0x1038, 0xBAAD, FAKE_PROFILE)
+        ms.set("setting3", "foo")
+        ms.save()
+        with open(mouse_settings.get_settings_path(0x1038, 0xBAAD), "r") as file_:
+            saved_data = json.load(file_)
+        assert "setting3" not in saved_data["default"]
