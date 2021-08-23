@@ -108,6 +108,14 @@ profile = {
             # fmt: on
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
         },
+        "rainbow_effect": {
+            "label": "rainbow effect",
+            "description": "Enable the rainbow effect (can be disabled by setting a color)",
+            "cli": ["-e", "--rainbow-effect"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x22, 0xFF],
+            "value_type": "none",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
