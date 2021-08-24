@@ -68,6 +68,15 @@ profile = {
             "value_type": "rgbcolor",
             "default": "blue",
         },
+        "reactive_color": {
+            "label": "Reactive color",
+            "description": "Set the color of the LEDs in reaction to a button click",
+            "cli": ["-a", "--reactive-color"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x26],
+            "value_type": "reactive_rgbcolor",
+            "default": "off",
+        },
         "led_brightness": {
             "label": "LED Brightness",
             "description": "Set the brightness of the LEDs",
