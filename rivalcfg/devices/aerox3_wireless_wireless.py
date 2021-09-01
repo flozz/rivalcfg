@@ -28,5 +28,6 @@ profile = {
         name: _patch_command(info)
         for name, info in aerox3_wireless_wired.profile["settings"].items()
     },
+    "battery_level": _patch_command(aerox3_wireless_wired.profile["battery_level"]),
     "save_command": _patch_command(aerox3_wireless_wired.profile["save_command"]),
 }

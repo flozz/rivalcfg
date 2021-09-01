@@ -106,7 +106,7 @@ class Mouse:
         if "firmware_version" not in self.mouse_profile:
             return (0,)
         self._hid_write(
-            usbhid.HID_REPORT_TYPE_OUTPUT,
+            self.mouse_profile["firmware_version"]["report_type"],
             data=self.mouse_profile["firmware_version"]["command"],
         )
         version = self._hid_device.read(
@@ -121,6 +121,43 @@ class Mouse:
         ``"0"`` if not available).
         """
         return ".".join([str(i) for i in self.firmware_version_tuple])
+
+    @property
+    def battery(self):
+        """Information about the device battery.
+
+        :rtype: dict
+        :return: ``{"is_charging": True|False|None, "level": int(0-100)|None}``.
+
+        .. NOTE::
+
+           A value of ``None`` means the featue is not supported.
+        """
+        result = {
+            "is_charging": None,
+            "level": None,
+        }
+        if "battery_level" not in self.mouse_profile:
+            return result
+
+        self._hid_write(
+            self.mouse_profile["battery_level"]["report_type"],
+            data=self.mouse_profile["battery_level"]["command"],
+        )
+        data = self._hid_device.read(
+            self.mouse_profile["battery_level"]["response_length"],
+            timeout_ms=200,
+        )
+
+        if "is_charging" in self.mouse_profile["battery_level"]:
+            result["is_charging"] = self.mouse_profile["battery_level"]["is_charging"](
+                data
+            )
+
+        if "level" in self.mouse_profile["battery_level"]:
+            result["level"] = self.mouse_profile["battery_level"]["level"](data)
+
+        return result
 
     def reset_settings(self):
         """Sets all settings to their factory default values."""

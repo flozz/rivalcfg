@@ -1,6 +1,9 @@
 from .. import usbhid
 
 
+_BATTERY_CHARGING_FLAG = 0b10000000
+
+
 profile = {
     "name": "SteelSeries Aerox 3 Wireless",
     "models": [
@@ -125,6 +128,13 @@ profile = {
             "command": [0x22, 0xFF],
             "value_type": "none",
         },
+    },
+    "battery_level": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x92],
+        "response_length": 2,
+        "is_charging": lambda data: bool(data[1] & _BATTERY_CHARGING_FLAG),
+        "level": lambda data: ((data[1] & ~_BATTERY_CHARGING_FLAG) - 1) * 5,
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,

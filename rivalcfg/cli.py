@@ -159,3 +159,11 @@ def add_mouse_cli(cli_parser, mouse_profile):
             dest="FIRMWARE_VERSION",
             action="store_true",
         )
+
+    if "battery_level" in mouse_profile:
+        cli_group.add_argument(
+            "--battery-level",
+            help="Print the battery level of the mouse and exit",
+            dest="BATTERY_LEVEL",
+            action="store_true",
+        )
