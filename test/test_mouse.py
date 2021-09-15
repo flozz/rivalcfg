@@ -62,6 +62,14 @@ FAKE_PROFILE = {
             },
             "default": 42,
         },
+        "setting6": {
+            "label": "Setting 6",
+            "description": "A setting with no value",
+            "cli": ["-6", "--setting6"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x20, 0x2E],
+            "value_type": "none",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,

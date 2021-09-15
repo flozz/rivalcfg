@@ -164,7 +164,11 @@ class Mouse:
         for name, setting_info in self.mouse_profile["settings"].items():
             method_name = "set_%s" % name
             method = getattr(self, method_name)
-            if "value_type" in setting_info and setting_info["value_type"]:
+            if (
+                "value_type" in setting_info
+                and setting_info["value_type"]
+                and setting_info["value_type"] != "none"
+            ):
                 method(setting_info["default"])
             else:
                 method()
