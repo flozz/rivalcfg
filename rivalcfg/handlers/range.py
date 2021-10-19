@@ -67,6 +67,9 @@ Functions
 """
 
 
+from ..helpers import uint_to_little_endian_bytearray
+
+
 def matches_value_in_range(range_start, range_stop, range_step, value):
     """Helper function that matches the value with the nearest value in the
     given range.
@@ -173,7 +176,12 @@ def process_value(setting_info, value):
     :param value: The input value.
     :rtype: list[int]
     """
-    return [process_range(setting_info, value)]
+    range_length = 1
+    if "range_length_byte" in setting_info:
+        range_length = setting_info["range_length_byte"]
+    return uint_to_little_endian_bytearray(
+        process_range(setting_info, value), range_length
+    )
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):
