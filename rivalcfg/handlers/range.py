@@ -128,14 +128,14 @@ def custom_range(start, stop, step):
         i += step
 
 
-def process_value(setting_info, value):
-    """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "range" type setting.
+def process_range(setting_info, value):
+    """Called by the "range" functions to process 'value' with the specified
+    range settings in 'setting_info'.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     :param value: The input value.
-    :rtype: list[int]
+    :rtype: int
     """
     input_range = list(
         range(
@@ -161,7 +161,19 @@ def process_value(setting_info, value):
         setting_info["input_range"][2],
         int(value),
     )
-    return [output_range[input_range.index(matched_value)]]
+    return output_range[input_range.index(matched_value)]
+
+
+def process_value(setting_info, value):
+    """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
+    "range" type setting.
+
+    :param dict setting_info: The information dict of the setting from the
+                              device profile.
+    :param value: The input value.
+    :rtype: list[int]
+    """
+    return [process_range(setting_info, value)]
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):

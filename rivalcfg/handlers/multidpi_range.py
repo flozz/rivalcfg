@@ -80,7 +80,7 @@ import re
 import argparse
 
 from ..helpers import merge_bytes, uint_to_little_endian_bytearray
-from .range import process_value as range_process_value
+from .range import process_range
 
 
 def process_value(setting_info, value, selected_preset=None):
@@ -154,8 +154,8 @@ def process_value(setting_info, value, selected_preset=None):
     output_values = []
 
     for dpi in dpis:
-        value = range_process_value(setting_info, dpi)
-        value = uint_to_little_endian_bytearray(value[0], dpi_length)
+        value = process_range(setting_info, dpi)
+        value = uint_to_little_endian_bytearray(value, dpi_length)
         output_values = merge_bytes(output_values, value)
 
     # Count
