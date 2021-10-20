@@ -14,6 +14,15 @@ class TestProcessValue(object):
             "output_range": [2, 40, 2],
         }
 
+    @pytest.fixture
+    def setting_info2(self):
+        return {
+            "value_type": "range",
+            "input_range": [1, 20, 1],
+            "output_range": [1000, 40000, 2000],
+            "range_length_byte": 2,
+        }
+
     @pytest.mark.parametrize(
         "input_,expected_output",
         [
@@ -27,6 +36,18 @@ class TestProcessValue(object):
     )
     def test_range_values(self, setting_info, input_, expected_output):
         assert range_.process_value(setting_info, input_) == [expected_output]
+
+    @pytest.mark.parametrize(
+        "input_,expected_output",
+        [
+            (1, [0xE8, 0x03]),
+            (2, [0xB8, 0x0B]),
+            (20, [0x58, 0x98]),
+            (14, [0x78, 0x69]),
+        ],
+    )
+    def test_range_values2(self, setting_info2, input_, expected_output):
+        assert range_.process_value(setting_info2, input_) == expected_output
 
 
 class TestAddCliOption(object):
