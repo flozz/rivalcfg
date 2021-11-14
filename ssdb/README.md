@@ -9,7 +9,7 @@ There is 3 databases:
 
 * `other.db.csv` lists old SteelSeries mice that are not supported by the SteelSeries Engine 2/3.
 * `sse2.db.csv` was extracted from the SteelSeries Engine 2 and lists mice supported by it.
-* `sse3.db.csv` is extracted from the SteelSeries Engine 3 and lists mice supported by it. This database can be updated with a script, see below.
+* `sse3.db.csv` is extracted from the SteelSeries Engine 3 / GG Engine and lists mice supported by it. This database can be updated with a script, see below.
 
 **NOTE:** some device can be listed in both sse2 and sse3 databases.
 
