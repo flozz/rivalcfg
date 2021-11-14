@@ -7,6 +7,7 @@ Supported Devices
    :maxdepth: 2
    :caption: Contents:
 
+   ./aerox3.rst
    ./kanav2.rst
    ./kinzuv2.rst
    ./rival3.rst

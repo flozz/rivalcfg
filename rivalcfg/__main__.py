@@ -41,6 +41,18 @@ def _check_linux():
         sys.stderr.write("   Run 'rivalcfg --update-udev' as root to update.\n\n")
 
 
+def _render_battery_level(level=None, is_charging=None):
+    result = []
+
+    if is_charging is not None:
+        result.append("Charging" if is_charging else "Discharging")
+
+    if level is not None:
+        result.append("[%-10s] %i %%" % ("=" * int(level / 10), level))
+
+    return " ".join(result)
+
+
 def main(args=sys.argv[1:]):
     # Display a message when no argument given
     if len(sys.argv) == 1:
@@ -70,6 +82,17 @@ def main(args=sys.argv[1:]):
     # Print firmware and exit
     if hasattr(settings, "FIRMWARE_VERSION") and settings.FIRMWARE_VERSION:
         print("%s (firmware v%s)" % (mouse.name, mouse.firmware_version))
+        sys.exit(0)
+
+    # Print battery level and exit
+    if hasattr(settings, "BATTERY_LEVEL") and settings.BATTERY_LEVEL:
+        battery_info = mouse.battery
+        print(
+            _render_battery_level(
+                battery_info["level"],
+                battery_info["is_charging"],
+            )
+        )
         sys.exit(0)
 
     # Reset
