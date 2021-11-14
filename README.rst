@@ -44,6 +44,12 @@ Supported Devices
 
 .. devices-list-start
 
+SteelSeries Aerox 3:
+
++--------------------------------------------------------------+-----------+
+| SteelSeries Aerox 3                                          | 1038:1836 |
++--------------------------------------------------------------+-----------+
+
 SteelSeries Kana v2:
 
 +--------------------------------------------------------------+-----------+
@@ -203,6 +209,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Add Aerox 3 (non wireless version) support (#156)
   * Save devices settings on disk
   * Add Black (code formatter)
   * Drop Python 3.5 support
