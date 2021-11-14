@@ -1,73 +1,34 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>rgbcolor &mdash; rivalcfg 4.0.0.dev0 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="rgbgradient" href="rgbgradient.html" />
+    <link rel="next" title="reactive_rgbcolor" href="reactive_rgbcolor.html" />
     <link rel="prev" title="multidpi_range" href="multidpi_range.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../index.html" class="icon icon-home"> rivalcfg
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +36,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">Requirements</a></li>
@@ -100,10 +50,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../cli.html">cli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../devices.html">devices</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">handlers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="none.html">none</a></li>
 <li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reactive_rgbcolor.html">reactive_rgbcolor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbgradientv2.html">rgbgradientv2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="buttons.html">buttons</a></li>
@@ -123,79 +75,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">rivalcfg</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../../index.html">Python API</a> &raquo;</li>
-        
           <li><a href="../index.html">Internal Python API</a> &raquo;</li>
-        
           <li><a href="index.html">handlers</a> &raquo;</li>
-        
       <li>rgbcolor</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../../_sources/python_api/internal/handlers/rgbcolor.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-rivalcfg.handlers.rgbcolor">
-<span id="rgbcolor"></span><h1>rgbcolor<a class="headerlink" href="#module-rivalcfg.handlers.rgbcolor" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-rivalcfg.handlers.rgbcolor">
+<span id="rgbcolor"></span><h1>rgbcolor<a class="headerlink" href="#module-rivalcfg.handlers.rgbcolor" title="Permalink to this headline"></a></h1>
 <p>The “rgbcolor” type handles RGB color values.</p>
 <p>It supports hexadecimal colors:</p>
 <ul class="simple">
@@ -240,8 +148,8 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="device-profile">
-<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline">¶</a></h2>
+<section id="device-profile">
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline"></a></h2>
 <p>Example of a rgbcolor value type in a device profile:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -265,9 +173,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="cli">
-<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline"></a></h2>
 <p>Example of CLI option generated with this handler:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">c</span> <span class="n">COLOR</span><span class="p">,</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">COLOR</span>
                     <span class="n">Set</span> <span class="n">the</span> <span class="n">mouse</span> <span class="n">backlight</span> <span class="n">color</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">red</span><span class="p">,</span> <span class="c1">#ff0000,</span>
@@ -280,18 +188,18 @@
 <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">color</span><span class="o">=</span><span class="n">f00</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.handlers.rgbcolor.CheckColorAction">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">CheckColorAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option_strings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metavar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.CheckColorAction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">CheckColorAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option_strings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metavar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.CheckColorAction" title="Permalink to this definition"></a></dt>
 <dd><p>Validate colors from CLI</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.rgbcolor.add_cli_option">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.add_cli_option" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.add_cli_option" title="Permalink to this definition"></a></dt>
 <dd><p>Add the given “rgbcolor” type setting to the given CLI arguments parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -307,7 +215,7 @@ device profile.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.rgbcolor.process_value">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.process_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.rgbcolor.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.rgbcolor.process_value" title="Permalink to this definition"></a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “rgbcolor” type setting.</p>
 <dl class="field-list simple">
@@ -324,55 +232,38 @@ device profile.</p></li>
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="rgbgradient.html" class="btn btn-neutral float-right" title="rgbgradient" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="multidpi_range.html" class="btn btn-neutral float-left" title="multidpi_range" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reactive_rgbcolor.html" class="btn btn-neutral float-right" title="reactive_rgbcolor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2016-2020, Fabien LOISON.
-
-    </p>
+    <p>&#169; Copyright 2016-2020, Fabien LOISON.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

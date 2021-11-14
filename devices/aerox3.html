@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Rival 310 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+  <title>SteelSeries Aerox 3 &mdash; rivalcfg 4.0.0.dev0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Rival 500" href="rival500.html" />
-    <link rel="prev" title="SteelSeries Rival 300S" href="rival300s.html" /> 
+    <link rel="next" title="SteelSeries Kana v2" href="kanav2.html" />
+    <link rel="prev" title="Supported Devices" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,30 +45,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supported Devices</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="aerox3.html">SteelSeries Aerox 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival300s.html">SteelSeries Rival 300S</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 310</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Aerox 3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensitivity-dpi">Sensitivity (DPI)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#hexadecimal-notation">Hexadecimal notation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#named-colors">Named Colors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#rgb-gradients">RGB Gradients</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#rgb-gradient-expression">RGB Gradient expression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-gradients">Example Gradients</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rgb-gradient-dict-python-api-only">RGB Gradient Dict (Python API only)</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#rainbow-effect">Rainbow Effect</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-special-actions">Mapping Special Actions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-mouse-buttons">Mapping Mouse Buttons</a></li>
@@ -79,6 +66,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival300.html">SteelSeries Rival 300 and original Rival</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival300s.html">SteelSeries Rival 300S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival310.html">SteelSeries Rival 310</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival500.html">SteelSeries Rival 500</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival600.html">SteelSeries Rival 600</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival700.html">SteelSeries Rival 700 and Rival 710</a></li>
@@ -106,9 +102,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Supported Devices</a> &raquo;</li>
-      <li>SteelSeries Rival 310</li>
+      <li>SteelSeries Aerox 3</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/devices/rival310.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/devices/aerox3.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -116,8 +112,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="steelseries-rival-310">
-<h1>SteelSeries Rival 310<a class="headerlink" href="#steelseries-rival-310" title="Permalink to this headline"></a></h1>
+  <section id="steelseries-aerox-3">
+<h1>SteelSeries Aerox 3<a class="headerlink" href="#steelseries-aerox-3" title="Permalink to this headline"></a></h1>
 <section id="supported-models">
 <h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline"></a></h2>
 <table class="docutils align-default">
@@ -126,14 +122,8 @@
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>SteelSeries Rival 310</p></td>
-<td><p>1038:1720</p></td>
-</tr>
-<tr class="row-even"><td><p>SteelSeries Rival 310 CS:GO Howl Edition</p></td>
-<td><p>1038:171e</p></td>
-</tr>
-<tr class="row-odd"><td><p>SteelSeries Rival 310 PUBG Edition</p></td>
-<td><p>1038:1736</p></td>
+<tr class="row-odd"><td><p>SteelSeries Aerox 3</p></td>
+<td><p>1038:1836</p></td>
 </tr>
 </tbody>
 </table>
@@ -141,10 +131,11 @@
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [--print-udev] [--print-debug] [-s SENSITIVITY1]
-                [-S SENSITIVITY2] [-p POLLING_RATE] [-c LOGO_COLOR]
-                [-C WHEEL_COLOR] [-b BUTTONS_MAPPING] [-r]
-                [--firmware-version]
+                [--print-udev] [--print-debug] [-s SENSITIVITY]
+                [-p POLLING_RATE] [--top-color Z1_COLOR]
+                [--middle-color Z2_COLOR] [--bottom-color Z3_COLOR]
+                [-a REACTIVE_COLOR] [-l LED_BRIGHTNESS] [-e RAINBOW_EFFECT]
+                [-b BUTTONS_MAPPING] [-r]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -156,34 +147,69 @@ optional arguments:
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug informations and exit
 
-SteelSeries Rival 310 Options:
-  -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
-                        Set sensitivity preset 1 (DPI) (from 100 to 12000,
-                        default: 800)
-  -S SENSITIVITY2, --sensitivity2 SENSITIVITY2
-                        Set sensitivity preset 2 (DPI) (from 100 to 12000,
-                        default: 1600)
+SteelSeries Aerox 3 Options:
+  -s SENSITIVITY, --sensitivity SENSITIVITY
+                        Set sensitivity preset (DPI) (up to 5 settings, from
+                        200 dpi to 8500 dpi, default: &#39;800, 1600&#39;)
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
-  -c LOGO_COLOR, --logo-color LOGO_COLOR
-                        Set the colors and the effects of the logo LED
-                        (default: rgbgradient(duration=1000; colors=0%:
-                        #ff0000, 33%: #00ff00, 66%: #0000ff))
-  -C WHEEL_COLOR, --wheel-color WHEEL_COLOR
-                        Set the colors and the effects of the wheel LED
-                        (default: rgbgradient(duration=1000; colors=0%:
-                        #ff0000, 33%: #00ff00, 66%: #0000ff))
+  --top-color Z1_COLOR, --z1 Z1_COLOR
+                        Set the color of the top LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: red)
+  --middle-color Z2_COLOR, --z2 Z2_COLOR
+                        Set the color of the middle LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: lime)
+  --bottom-color Z3_COLOR, --z3 Z3_COLOR
+                        Set the color of the bottom LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: blue)
+  -a REACTIVE_COLOR, --reactive-color REACTIVE_COLOR
+                        Set the color of the LEDs in reaction to a button
+                        click (e.g. off, disable, red, #ff0000, ff0000, #f00,
+                        f00, default: off)
+  -l LED_BRIGHTNESS, --led-brightness LED_BRIGHTNESS
+                        Set the brightness of the LEDs (from 0 to 100,
+                        default: 100)
+  -e RAINBOW_EFFECT, --rainbow-effect RAINBOW_EFFECT
+                        Set the rainbow effect (can be cleared by setting a
+                        color) (values: all, bottom, middle, top, bottom-
+                        middle, middle-top, bottom-top, default: all)
   -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
                         Set the mapping of the buttons (default:
                         buttons(button1=button1; button2=button2;
                         button3=button3; button4=button4; button5=button5;
-                        button6=dpi; layout=qwerty))
+                        button6=dpi; scrollup=scrollup; scrolldown=scrolldown;
+                        layout=qwerty))
   -r, --reset           Reset all settings to their factory default
-  --firmware-version    Print the firmware version of the mouse and exit
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </pre></div>
+</div>
+</section>
+<section id="sensitivity-dpi">
+<h2>Sensitivity (DPI)<a class="headerlink" href="#sensitivity-dpi" title="Permalink to this headline"></a></h2>
+<p>This mouse supports up to 5 sensitivity presets. You can define them like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="mi">800</span>       <span class="c1"># one preset</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">sensitivity</span> <span class="mi">800</span><span class="p">,</span><span class="mi">1600</span>  <span class="c1"># two presets</span>
+</pre></div>
+</div>
+<p>You can switch preset using the button under the mouse wheel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you set the sensitivity through the CLI, the selected preset always
+back to the first one.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From Python API, you can pass an <code class="docutils literal notranslate"><span class="pre">int</span></code>, a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or a <code class="docutils literal notranslate"><span class="pre">list</span></code>
+as parameter. You are also able to change the currently selected preset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">(</span><span class="mi">800</span><span class="p">)</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">(</span><span class="s2">&quot;800, 1600&quot;</span><span class="p">)</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">([</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1600</span><span class="p">])</span>
+<span class="c1"># select the second preset (1600 dpi)</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">sensitivity</span><span class="p">([</span><span class="mi">800</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">],</span> <span class="n">selected_preset</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </section>
 <section id="colors">
@@ -254,77 +280,15 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
     }
 </style></section>
 </section>
-<section id="rgb-gradients">
-<h2>RGB Gradients<a class="headerlink" href="#rgb-gradients" title="Permalink to this headline"></a></h2>
-<p>This mouse supports RGB Gradient. In addition of static colors, you can
-configure a gradient. The color of the mouse will change according to the
-colors of the gradient.</p>
-<section id="rgb-gradient-expression">
-<h3>RGB Gradient expression<a class="headerlink" href="#rgb-gradient-expression" title="Permalink to this headline"></a></h3>
-<p>The RGB Gradient follows this format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=&lt;</span><span class="n">DURATION</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">colors</span><span class="o">=&lt;</span><span class="n">POS1</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">COLOR1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">POSN</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">COLORN</span><span class="o">&gt;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">duration</span></code>: the time in miliseconds of the color loop. This parameter is optional. Default value: <code class="docutils literal notranslate"><span class="pre">1000</span></code> (1 second).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">colors</span></code>: the colors of the gradient.</p>
-<ul>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">&lt;POS&gt;</span></code> parameters are the position of the color stops (e.g. <code class="docutils literal notranslate"><span class="pre">0%</span></code>, <code class="docutils literal notranslate"><span class="pre">50%</span></code>,…).</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">&lt;COLOR&gt;</span></code> parameters are the colors in any suported format (se above).</p></li>
-</ul>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A maximum of 14 color are supported in a RGB Gradient.</p>
-</div>
-</section>
-<section id="example-gradients">
-<h3>Example Gradients<a class="headerlink" href="#example-gradients" title="Permalink to this headline"></a></h3>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=5000; colors=0%: red, 33%: lime, 66%: blue)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #e90cce 0%, #ffe701 33%, #01cafe 66%, #e90cce 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=5000; colors=0%: #e90cce, 33%: #ffe701, 66%: #01cafe)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff1800 0%, #fde700 50%, #ff1800 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=1000; colors=0%: #ff1800, 50%: #fde700)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #3acbe8 0%, #8706fe 50%, #3acbe8 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=1000; colors=0%: #3acbe8, 50%: #8706fe)
-</pre></div>
-</div>
-<div class="gradient-preview" style="background: linear-gradient(90deg, black 0%, red 8%, black 16%, yellow 24%, black 32%, lime 40%, black 48%, aqua 56%, black 64%, blue 72%, black 80%, fuchsia 88%, black 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=15000; colors=0%: black, 8%: red, 16%: black, 24%: yellow, 32%: black, 40%: lime, 48%: black, 56%: aqua, 64%: black, 72%: blue, 80%: black, 88%: fuchsia)
-</pre></div>
-</div>
-</section>
-<section id="rgb-gradient-dict-python-api-only">
-<h3>RGB Gradient Dict (Python API only)<a class="headerlink" href="#rgb-gradient-dict-python-api-only" title="Permalink to this headline"></a></h3>
-<p>If you are using the <strong>Python API</strong> (not the command line interface), you can also pass a Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> to define a gradient.</p>
-<p>Example:</p>
-<div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>  <span class="c1"># ms</span>
-    <span class="s2">&quot;colors&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;pos&quot;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)},</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<style>
-    .gradient-preview {
-         height: 24px;
-         border: #444 solid 1px;
-         vertical-align: middle;
-         border-radius: 2px;
-         box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
-    }
-</style></section>
+<section id="rainbow-effect">
+<h2>Rainbow Effect<a class="headerlink" href="#rainbow-effect" title="Permalink to this headline"></a></h2>
+<p>The Aerox 3 offers an onboard rainbow light effect. Please note that the effect
+is reset if you change colors.</p>
 </section>
 <section id="buttons">
 <h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this headline"></a></h2>
 <figure class="align-default">
-<img alt="Rival 310 buttons schema" src="../_images/rival_310_buttons.svg" /></figure>
+<img alt="Aerox 3 buttons schema" src="../_images/aerox_3_buttons.svg" /></figure>
 <p>This mouse supports buttons mapping. Buttons can be mapped with:</p>
 <ul class="simple">
 <li><p>some special actions,</p></li>
@@ -442,8 +406,8 @@ available aliases, like <code class="docutils literal notranslate"><span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rival300s.html" class="btn btn-neutral float-left" title="SteelSeries Rival 300S" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rival500.html" class="btn btn-neutral float-right" title="SteelSeries Rival 500" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Supported Devices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kanav2.html" class="btn btn-neutral float-right" title="SteelSeries Kana v2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

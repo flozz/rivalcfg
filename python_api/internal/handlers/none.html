@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>none &mdash; rivalcfg 4.0.0.dev0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="choice" href="choice.html" />
+    <link rel="prev" title="handlers" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> rivalcfg
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../env.html">Environment Variables</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Internal Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../color_helpers.html">color_helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cli.html">cli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devices.html">devices</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">handlers</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">none</a></li>
+<li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range.html">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reactive_rgbcolor.html">reactive_rgbcolor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rgbgradientv2.html">rgbgradientv2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="buttons.html">buttons</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../helpers.html">helpers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mouse.html">mouse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mouse_settings.html">mouse_settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../udev.html">udev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhid.html">usbhid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">rivalcfg</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Python API</a> &raquo;</li>
+          <li><a href="../index.html">Internal Python API</a> &raquo;</li>
+          <li><a href="index.html">handlers</a> &raquo;</li>
+      <li>none</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/python_api/internal/handlers/none.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-rivalcfg.handlers.none">
+<span id="none"></span><h1>none<a class="headerlink" href="#module-rivalcfg.handlers.none" title="Permalink to this headline"></a></h1>
+<p>The “none” type is used for command with no arguments.</p>
+<section id="device-profile">
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this headline"></a></h2>
+<p>Example of a “none” value type in a device profile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+
+        <span class="s2">&quot;rainbow_effect&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;rainbow effect&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Enable the rainbow effect (can be disabled by setting a color)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cli&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--rainbow-effect&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;report_type&quot;</span><span class="p">:</span> <span class="n">usbhid</span><span class="o">.</span><span class="n">HID_REPORT_TYPE_OUTPUT</span><span class="p">,</span>
+            <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x22</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">],</span>
+            <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+
+    <span class="p">},</span>
+
+    <span class="c1"># ...</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline"></a></h2>
+<p>Example of CLI option generated with this handler:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="o">--</span><span class="n">rainbow</span><span class="o">-</span><span class="n">effect</span>  <span class="n">Enable</span> <span class="n">the</span> <span class="n">rainbow</span> <span class="n">effect</span> <span class="p">(</span><span class="n">can</span> <span class="n">be</span> <span class="n">disabled</span> <span class="n">by</span> <span class="n">setting</span>
+                      <span class="n">a</span> <span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example of CLI usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">rainbow</span><span class="o">-</span><span class="n">effect</span>
+</pre></div>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rivalcfg.handlers.none.add_cli_option">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.none.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.none.add_cli_option" title="Permalink to this definition"></a></dt>
+<dd><p>Add the given “none” type setting to the given CLI arguments parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cli_parser</strong> (<em>ArgumentParser</em>) – An <code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code> instance.</p></li>
+<li><p><strong>setting_name</strong> (<em>str</em>) – The name of the setting.</p></li>
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rivalcfg.handlers.none.process_value">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.none.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.none.process_value" title="Permalink to this definition"></a></dt>
+<dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
+“none” type setting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="handlers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="choice.html" class="btn btn-neutral float-right" title="choice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2020, Fabien LOISON.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

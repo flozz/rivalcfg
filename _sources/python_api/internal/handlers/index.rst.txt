@@ -13,10 +13,12 @@ a device profile. Each handler module provides at least two functions:
    :maxdepth: 1
    :caption: Contents:
 
+   ./none.rst
    ./choice.rst
    ./range.rst
    ./multidpi_range.rst
    ./rgbcolor.rst
+   ./reactive_rgbcolor.rst
    ./rgbgradient.rst
    ./rgbgradientv2.rst
    ./buttons.rst
