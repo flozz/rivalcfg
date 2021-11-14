@@ -8,7 +8,6 @@ Supported Devices
    :caption: Contents:
 
    ./aerox3.rst
-   ./aerox3_wireless.rst
    ./kanav2.rst
    ./kinzuv2.rst
    ./rival3.rst
