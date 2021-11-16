@@ -22,6 +22,7 @@ profile = {
             "input_range": [200, 8500, 100],
             "output_range": [0x04, 0xC5, 2.33],
             "dpi_length_byte": 1,
+            "first_preset": 1,
             "count_mode": "number",
             "max_preset_count": 5,
             "default": "800, 1600",

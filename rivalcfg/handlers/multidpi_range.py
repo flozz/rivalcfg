@@ -42,6 +42,7 @@ Example of a multidpi_range value type in a device profile:
                 "input_range": [200, 7200, 100],
                 "output_range": [0x04, 0xA7, 2],
                 "dpi_length_byte": 1,     # Little endian
+                "first_preset": 1,
                 "count_mode": "number",   # number, flag
                 "max_preset_count": 5,
                 "default": "800, 1600",
@@ -82,14 +83,15 @@ from ..helpers import merge_bytes, uint_to_little_endian_bytearray
 from .range import process_value as range_process_value
 
 
-def process_value(setting_info, value, selected_preset=1):
+def process_value(setting_info, value, selected_preset=None):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
     "range" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     :param value: The input value.
-    :param int selected_preset: The DPI preset to select.
+    :param int selected_preset: The DPI preset to select (0 is always the
+                                first preset).
     :rtype: list[int]
     """
     dpis = []
@@ -100,6 +102,13 @@ def process_value(setting_info, value, selected_preset=1):
         dpis = [int(dpi) for dpi in value]
     else:
         dpis = [int(dpi) for dpi in value.replace(" ", "").split(",")]
+
+    # Selected preset
+
+    if selected_preset is None:
+        selected_preset = setting_info["first_preset"]
+    else:
+        selected_preset += setting_info["first_preset"]
 
     # checks
 
@@ -112,7 +121,16 @@ def process_value(setting_info, value, selected_preset=1):
             % (len(dpis), setting_info["max_preset_count"])
         )
 
-    if selected_preset < 1 or selected_preset > len(dpis):
+    if "first_preset" not in setting_info:
+        raise ValueError(
+            "Missing 'first_preset' parameter for 'multidpi_range' handler"
+        )
+
+    if (
+        not setting_info["first_preset"]
+        <= selected_preset
+        < len(dpis) + setting_info["first_preset"]
+    ):
         raise ValueError("the selected preset is out of range")
 
     if "dpi_length_byte" not in setting_info:
