@@ -290,6 +290,11 @@ class Mouse:
                 data=helpers.merge_bytes(setting_info["command"], data, suffix),
                 packet_length=packet_length,
             )
+            # XXX Try to read-back 64 Bytes from the device
+            data = self._hid_device.read(64, timeout_ms=200)
+            print("Data:")
+            print(data)
+            # XXX
             if len(args) == 1:
                 self.mouse_settings.set(setting_name, args[0])
             else:
