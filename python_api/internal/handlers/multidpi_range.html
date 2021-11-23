@@ -140,6 +140,7 @@ like <code class="docutils literal notranslate"><span class="pre">[0,</span> <sp
             <span class="s2">&quot;input_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
             <span class="s2">&quot;output_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0xA7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
             <span class="s2">&quot;dpi_length_byte&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>     <span class="c1"># Little endian</span>
+            <span class="s2">&quot;first_preset&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
             <span class="s2">&quot;count_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>   <span class="c1"># number, flag</span>
             <span class="s2">&quot;max_preset_count&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
             <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;800, 1600&quot;</span><span class="p">,</span>
@@ -188,7 +189,7 @@ device profile.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.multidpi_range.process_value">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.multidpi_range.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_preset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multidpi_range.process_value" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.multidpi_range.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selected_preset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.multidpi_range.process_value" title="Permalink to this definition"></a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “range” type setting.</p>
 <dl class="field-list simple">
@@ -197,7 +198,8 @@ device profile.</p></li>
 <li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
 device profile.</p></li>
 <li><p><strong>value</strong> – The input value.</p></li>
-<li><p><strong>selected_preset</strong> (<em>int</em>) – The DPI preset to select.</p></li>
+<li><p><strong>selected_preset</strong> (<em>int</em>) – The DPI preset to select (0 is always the
+first preset).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
