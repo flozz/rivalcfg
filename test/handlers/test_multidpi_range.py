@@ -14,6 +14,7 @@ class TestProcessValue(object):
             "output_range": [1, 20, 1],
             "max_preset_count": 5,
             "dpi_length_byte": 1,
+            "first_preset": 1,
             "count_mode": "number",
         }
 
@@ -25,7 +26,20 @@ class TestProcessValue(object):
             "output_range": [1, 20, 1],
             "max_preset_count": 5,
             "dpi_length_byte": 2,
+            "first_preset": 1,
             "count_mode": "flag",
+        }
+
+    @pytest.fixture
+    def setting_info3(self):
+        return {
+            "value_type": "multidpi_range",
+            "input_range": [100, 2000, 100],
+            "output_range": [1, 20, 1],
+            "max_preset_count": 5,
+            "dpi_length_byte": 1,
+            "first_preset": 0,
+            "count_mode": "number",
         }
 
     @pytest.mark.parametrize(
@@ -59,7 +73,7 @@ class TestProcessValue(object):
 
     @pytest.mark.parametrize(
         "selected",
-        [1, 2, 3, 4, 5],
+        [0, 1, 2, 3, 4],
     )
     def test_selected_preset(self, setting_info, selected):
         assert (
@@ -68,7 +82,7 @@ class TestProcessValue(object):
                 "100,200,300,400,500",
                 selected_preset=selected,
             )
-            == [0x05, selected, 0x01, 0x02, 0x03, 0x04, 0x05]
+            == [0x05, selected + 1, 0x01, 0x02, 0x03, 0x04, 0x05]
         )
 
     def test_selected_preset_out_of_range(self, setting_info):
@@ -76,7 +90,7 @@ class TestProcessValue(object):
             multidpi_range.process_value(
                 setting_info,
                 "100,200",
-                selected_preset=3,
+                selected_preset=2,
             )
 
     def test_count_format_flag(self, setting_info2):
@@ -85,6 +99,15 @@ class TestProcessValue(object):
             multidpi_range.process_value(setting_info2, "100,200")
             == [0b00000011, 0x01, 0x01, 0x00, 0x02, 0x00]
             # . COUNT,      SEL,  PRESSET1,   PRESSET2
+        )
+        # fmt: on
+
+    def test_first_preset(self, setting_info3):
+        # fmt: off
+        assert (
+            multidpi_range.process_value(setting_info3, "100,200")
+            == [0x02, 0x00, 0x01, 0x02]
+            # . CNT,  SEL,  PST1, PST2
         )
         # fmt: on
 

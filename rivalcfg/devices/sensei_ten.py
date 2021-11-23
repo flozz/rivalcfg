@@ -45,6 +45,7 @@ profile = {
             "input_range": [50, 18000, 50],
             "output_range": [1, 0x0168, 1],
             "dpi_length_byte": 2,
+            "first_preset": 1,
             "count_mode": "flag",
             "max_preset_count": 5,
             "default": "400, 800, 1200, 2400, 3200",
