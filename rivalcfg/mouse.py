@@ -285,20 +285,26 @@ class Mouse:
                 data = getattr(handlers, handler_name).process_value(
                     setting_info, *args
                 )
+            # Write data to the device
             self._hid_write(
                 report_type=setting_info["report_type"],
                 data=helpers.merge_bytes(setting_info["command"], data, suffix),
                 packet_length=packet_length,
             )
-            # XXX Try to read-back 64 Bytes from the device
-            data = self._hid_device.read(64, timeout_ms=200)
-            print("Data:")
-            print(data)
-            # XXX
+            # Readback when required
+            response = None
+            if "readback_length" in setting_info and setting_info["readback_length"]:
+                response = self._hid_device.read(
+                    setting_info["readback_length"],
+                    timeout_ms=200,
+                )
+            # Save settings
             if len(args) == 1:
                 self.mouse_settings.set(setting_name, args[0])
             else:
                 self.mouse_settings.set(setting_name, args)
+            #
+            return response
 
         return _exec_command
 

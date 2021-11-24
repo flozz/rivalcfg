@@ -59,6 +59,10 @@ Here is what a profile file looks like::
                 # A fixed amount of data to send to the mouse (optional).
                 # This is required by some mice like the Rival 110.
                 "packet_length": 32,
+                # If greater that 0, the number of bytes to read from the
+                # device after the command. This is required by some wireless
+                # mice like the Aerox 3 Wireless in wireless mode.
+                "readback_length": 0,
                 # The type of value supported by this setting.
                 # See the `rivalcfg.handlers` documentation for more
                 # information.
