@@ -2,6 +2,7 @@ from . import aerox3_wireless_wired
 
 
 _WIRELESS_FLAG = 0b01000000
+_READBACK_LENGTH = 64
 
 
 def _patch_command(info):
@@ -11,6 +12,8 @@ def _patch_command(info):
     result["command"] = list(result["command"])
     # Patch the command
     result["command"][0] = result["command"][0] | _WIRELESS_FLAG
+    # Add readback
+    result["readback_length"] = _READBACK_LENGTH
     return result
 
 
