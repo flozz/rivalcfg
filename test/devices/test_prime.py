@@ -80,8 +80,8 @@ class TestDevice(object):
             (111, b"\x02\x00\x5F\x6F\x00"),
         ],
     )
-    def test_set_wheel_brightness(self, mouse, value, expected_hid_report):
-        mouse.set_wheel_brightness(value)
+    def test_set_led_brightness(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
