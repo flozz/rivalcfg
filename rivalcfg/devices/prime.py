@@ -69,7 +69,7 @@ profile = {
             "value_type": "rgbcolor",
             "default": "#FF5200",
         },
-        "wheel_brightness": {
+        "led_brightness": {
             "label": "Wheel LED brightness",
             "description": "Set the brightness of the wheel LED",
             "cli": ["-l", "--led-brightness"],
