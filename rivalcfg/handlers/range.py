@@ -38,6 +38,7 @@ Example of a range value type in a device profile:
                 "value_type": "range",
                 "input_range": [200, 7200, 100],
                 "output_range": [0x04, 0xA7, 2],
+                "range_length_byte": 1,  # optional
                 "default": 1000,
             },
 
@@ -65,6 +66,9 @@ Example of CLI usage::
 Functions
 ---------
 """
+
+
+from ..helpers import uint_to_little_endian_bytearray
 
 
 def matches_value_in_range(range_start, range_stop, range_step, value):
@@ -128,14 +132,14 @@ def custom_range(start, stop, step):
         i += step
 
 
-def process_value(setting_info, value):
-    """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "range" type setting.
+def process_range(setting_info, value):
+    """Called by the "range" functions to process 'value' with the specified
+    range settings in 'setting_info'.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     :param value: The input value.
-    :rtype: list[int]
+    :rtype: int
     """
     input_range = list(
         range(
@@ -161,7 +165,24 @@ def process_value(setting_info, value):
         setting_info["input_range"][2],
         int(value),
     )
-    return [output_range[input_range.index(matched_value)]]
+    return output_range[input_range.index(matched_value)]
+
+
+def process_value(setting_info, value):
+    """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
+    "range" type setting.
+
+    :param dict setting_info: The information dict of the setting from the
+                              device profile.
+    :param value: The input value.
+    :rtype: list[int]
+    """
+    range_length = 1
+    if "range_length_byte" in setting_info:
+        range_length = setting_info["range_length_byte"]
+    return uint_to_little_endian_bytearray(
+        process_range(setting_info, value), range_length
+    )
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):

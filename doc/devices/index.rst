@@ -10,6 +10,7 @@ Supported Devices
    ./aerox3.rst
    ./kanav2.rst
    ./kinzuv2.rst
+   ./prime.rst
    ./rival3.rst
    ./rival95.rst
    ./rival100.rst
