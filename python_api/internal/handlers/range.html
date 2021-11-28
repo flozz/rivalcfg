@@ -137,6 +137,7 @@ like <code class="docutils literal notranslate"><span class="pre">[0,</span> <sp
             <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
             <span class="s2">&quot;input_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
             <span class="s2">&quot;output_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0xA7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="s2">&quot;range_length_byte&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># optional</span>
             <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
         <span class="p">},</span>
 
@@ -235,6 +236,25 @@ given range.</p>
 <span class="go">1000</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rivalcfg.handlers.range.process_range">
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">process_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.process_range" title="Permalink to this definition"></a></dt>
+<dd><p>Called by the “range” functions to process ‘value’ with the specified
+range settings in ‘setting_info’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
+device profile.</p></li>
+<li><p><strong>value</strong> – The input value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
