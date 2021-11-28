@@ -38,6 +38,7 @@ Example of a range value type in a device profile:
                 "value_type": "range",
                 "input_range": [200, 7200, 100],
                 "output_range": [0x04, 0xA7, 2],
+                "range_length_byte": 1,  # optional
                 "default": 1000,
             },
 
