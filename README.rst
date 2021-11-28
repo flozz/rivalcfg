@@ -209,6 +209,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Add Prime support (#169, @sephiroth99)
   * Add Aerox 3 (non wireless version) support (#156)
   * Save devices settings on disk
   * Add Black (code formatter)
