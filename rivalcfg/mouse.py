@@ -175,7 +175,7 @@ class Mouse:
 
     def save(self):
         """Save current config to the mouse internal memory."""
-        # This should never apand... But who knows...
+        # This should never happen... But who knows...
         if (
             "save_command" not in self.mouse_profile
             or not self.mouse_profile["save_command"]
@@ -192,7 +192,19 @@ class Mouse:
             packet_length=packet_length,
         )
 
+        response = None
+        if (
+            "readback_length" in self.mouse_profile["save_command"]
+            and self.mouse_profile["save_command"]["readback_length"]
+        ):
+            response = self._hid_device.read(
+                self.mouse_profile["save_command"]["readback_length"],
+                timeout_ms=200,
+            )
+
         self.mouse_settings.save()
+
+        return response
 
     def close(self):
         """Close the device.
@@ -285,15 +297,26 @@ class Mouse:
                 data = getattr(handlers, handler_name).process_value(
                     setting_info, *args
                 )
+            # Write data to the device
             self._hid_write(
                 report_type=setting_info["report_type"],
                 data=helpers.merge_bytes(setting_info["command"], data, suffix),
                 packet_length=packet_length,
             )
+            # Readback when required
+            response = None
+            if "readback_length" in setting_info and setting_info["readback_length"]:
+                response = self._hid_device.read(
+                    setting_info["readback_length"],
+                    timeout_ms=200,
+                )
+            # Save settings
             if len(args) == 1:
                 self.mouse_settings.set(setting_name, args[0])
             else:
                 self.mouse_settings.set(setting_name, args)
+            #
+            return response
 
         return _exec_command
 

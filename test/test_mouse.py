@@ -70,6 +70,24 @@ FAKE_PROFILE = {
             "command": [0x20, 0x2E],
             "value_type": "none",
         },
+        "setting_readback": {
+            "label": "Setting with readback",
+            "description": "A setting with no value",
+            "cli": ["-7", "--setting7"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x20, 0x2F],
+            "value_type": "none",
+            "readback_length": 42,
+        },
+        "setting_no_readback": {
+            "label": "Setting without readback",
+            "description": "A setting with no value",
+            "cli": ["-8", "--setting8"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x20, 0x2F],
+            "value_type": "none",
+            "readback_length": 0,
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
@@ -251,3 +269,13 @@ class TestMouse(object):
         assert not hasattr(mouse, "set_xxx")
         with pytest.raises(AttributeError):
             mouse.set_xxx()
+
+    def test_readback(self, mouse):
+        response = mouse.set_setting_readback()
+        assert len(response) == 42
+
+    def test_no_readback(self, mouse):
+        response = mouse.set_setting_no_readback()
+        assert response is None
+        response = mouse.set_setting6()
+        assert response is None
