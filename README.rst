@@ -50,6 +50,18 @@ SteelSeries Aerox 3:
 | SteelSeries Aerox 3                                          | 1038:1836 |
 +--------------------------------------------------------------+-----------+
 
+SteelSeries Aerox 3 Wireless:
+
++--------------------------------------------------------------+-----------+
+| SteelSeries Aerox 3 Wireless (wired mode)                    | 1038:183a |
++--------------------------------------------------------------+-----------+
+
+SteelSeries Aerox 3 Wireless:
+
++--------------------------------------------------------------+-----------+
+| SteelSeries Aerox 3 Wireless (2.4 GHz wireless mode)         | 1038:1838 |
++--------------------------------------------------------------+-----------+
+
 SteelSeries Kana v2:
 
 +--------------------------------------------------------------+-----------+
@@ -217,6 +229,7 @@ Changelog
 
   * Add Prime support (#169, @sephiroth99)
   * Add Aerox 3 (non wireless version) support (#156)
+  * Add Aerox 3 Wireless support (#167)
   * Save devices settings on disk
   * Add Black (code formatter)
   * Drop Python 3.5 support
