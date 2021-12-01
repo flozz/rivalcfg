@@ -222,10 +222,14 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.4.0]
+* **Rivalcfg NEXT:** [4.5.0]
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
+
+  * Nothing yet
+
+* **4.4.0:**
 
   * Add Prime support (#169, @sephiroth99)
   * Add Aerox 3 (non wireless version) support (#156)
@@ -257,7 +261,7 @@ Changelog
 
   * Rival 3: support of firmware v0.37.0.0 (#147)
   * Support of the Sensei TEN (1038:1832)
-  * Support of the Sensei TEN CS:GO Neon Rider Edition(1038:1834)
+  * Support of the Sensei TEN CS:GO Neon Rider Edition (1038:1834)
   * Rival 500:
 
     * Handles color shift
