@@ -227,7 +227,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet
+  * Do not try to open devices when not needed (#170)
 
 * **4.4.0:**
 

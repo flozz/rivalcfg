@@ -64,8 +64,18 @@ def main(args=sys.argv[1:]):
 
     # Try to open a mouse
     mouse = None
-    if "--print-debug" not in sys.argv:
-        mouse = get_first_mouse()
+    if (
+        "--print-debug" not in sys.argv
+        and "--list" not in sys.argv
+        and "--version" not in sys.argv
+        and "--update-udev" not in sys.argv
+        and "--print-udev" not in sys.argv
+    ):
+        try:
+            mouse = get_first_mouse()
+        except IOError as error:
+            if "--help" not in sys.argv and "-h" not in sys.argv:
+                raise error
 
     cli_parser = argparse.ArgumentParser(prog="rivalcfg", epilog=_EPILOG)
     cli.add_main_cli(cli_parser)
