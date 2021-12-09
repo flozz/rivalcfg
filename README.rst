@@ -81,6 +81,10 @@ SteelSeries Prime:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Prime                                            | 1038:182e |
 +--------------------------------------------------------------+-----------+
+| SteelSeries Prime Rainbow 6 Siege Black Ice Edition          | 1038:182a |
++--------------------------------------------------------------+-----------+
+| SteelSeries Prime CS:GO Neo Noir Edition                     | 1038:1856 |
++--------------------------------------------------------------+-----------+
 
 SteelSeries Rival 100 / SteelSeries Rival 105:
 
@@ -228,6 +232,9 @@ Changelog
   next Rivalcfg version:
 
   * Do not try to open devices when not needed (#170)
+  * Add support for SteelSeries Prime Rainbow 6 Siege Black Ice Edition
+    (1038:182A)
+  * Add support for SteelSeries Prime CS:GO Neo Noir Edition (1038:1856)
 
 * **4.4.0:**
 

@@ -10,6 +10,18 @@ profile = {
             "product_id": 0x182E,
             "endpoint": 0,
         },
+        {
+            "name": "SteelSeries Prime Rainbow 6 Siege Black Ice Edition",
+            "vendor_id": 0x1038,
+            "product_id": 0x182A,
+            "endpoint": 0,
+        },
+        {
+            "name": "SteelSeries Prime CS:GO Neo Noir Edition",
+            "vendor_id": 0x1038,
+            "product_id": 0x1856,
+            "endpoint": 0,
+        },
     ],
     "settings": {
         "sensitivity": {
