@@ -3,12 +3,22 @@ import pytest
 from rivalcfg import usbhid
 from rivalcfg import mouse
 from rivalcfg.devices import rival650
+from rivalcfg import mouse_settings
 
 
 class TestDevice(object):
     @pytest.fixture
     def mouse(self):
-        return mouse.Mouse(usbhid.FakeDevice(), rival650.profile)
+        settings = mouse_settings.FakeMouseSettings(
+            0x1038,
+            0xBAAD,
+            rival650.profile,
+        )
+        return mouse.Mouse(
+            usbhid.FakeDevice(),
+            rival650.profile,
+            settings,
+        )
 
     @pytest.mark.parametrize(
         "value,expected_hid_report",
