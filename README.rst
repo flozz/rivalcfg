@@ -170,10 +170,12 @@ SteelSeries Rival 600:
 | SteelSeries Rival 600 Dota 2 Edition                         | 1038:172e |
 +--------------------------------------------------------------+-----------+
 
-SteelSeries Rival 650:
+SteelSeries Rival 650 Wireless:
 
 +--------------------------------------------------------------+-----------+
-| SteelSeries Rival 650                                        | 1038:172b |
+| SteelSeries Rival 650 Wireless (wired mode)                  | 1038:172b |
++--------------------------------------------------------------+-----------+
+| SteelSeries Rival 650 Wireless (2.4 GHz wireless mode)       | 1038:1726 |
 +--------------------------------------------------------------+-----------+
 
 SteelSeries Rival 700 / SteelSeries Rival 710:
