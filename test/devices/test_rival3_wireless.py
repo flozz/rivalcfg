@@ -55,8 +55,8 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    # def test_save(self, mouse):
-        # mouse.save()
-        # mouse._hid_device.bytes.seek(0)
-        # hid_report = mouse._hid_device.bytes.read()
-        # assert hid_report == b"\x02\x00\x11\x00"
+    def test_save(self, mouse):
+        mouse.save()
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == b"\x02\x00\x09"

@@ -43,8 +43,8 @@ profile = {
             "default": 1000,
         },
     },
-    # "save_command": {
-        # "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-        # "command": [0x11, 0x00],
-    # },
+    "save_command": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x09],
+    },
 }
