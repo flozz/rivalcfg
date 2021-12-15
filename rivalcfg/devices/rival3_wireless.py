@@ -5,7 +5,7 @@ profile = {
     "name": "SteelSeries Rival 3 Wireless",
     "models": [
         {
-            "name": "SteelSeries Aerox 3 Wireless (wired mode)",
+            "name": "SteelSeries Rival 3 Wireless (2.4 GHz mode)",
             "vendor_id": 0x1038,
             "product_id": 0x1830,
             "endpoint": 3,
