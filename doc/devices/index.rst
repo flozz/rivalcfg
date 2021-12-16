@@ -13,6 +13,7 @@ Supported Devices
    ./kinzuv2.rst
    ./prime.rst
    ./rival3.rst
+   ./rival3_wireless.rst
    ./rival95.rst
    ./rival100.rst
    ./rival110.rst
