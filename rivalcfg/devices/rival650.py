@@ -63,5 +63,8 @@ profile = {
         "is_charging": lambda data: bool(data[2]),
         "level": lambda data: int(data[0]),
     },
-    "save_command": {},
+    "save_command": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x09],
+    },
 }
