@@ -56,5 +56,12 @@ profile = {
             "default": 1000,
         },
     },
+    "battery_level": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0xAA, 0x01],
+        "response_length": 3,
+        "is_charging": lambda data: bool(data[2]),
+        "level": lambda data: int(data[0]),
+    },
     "save_command": {},
 }
