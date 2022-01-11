@@ -165,6 +165,7 @@ from . import rival300s  # noqa: F401
 from . import rival310  # noqa: F401
 from . import rival500  # noqa: F401
 from . import rival600  # noqa: F401
+from . import rival650  # noqa: F401
 from . import rival700  # noqa: F401
 from . import sensei310  # noqa: F401
 from . import sensei_raw  # noqa: F401
