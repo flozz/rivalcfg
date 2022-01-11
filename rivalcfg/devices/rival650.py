@@ -82,6 +82,18 @@ profile = {
             # fmt: on
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=disabled; button7=dpi)",
         },
+        "sleep_timer": {
+            "label": "Sleep timer",
+            "description": "Set the IDLE time before the mouse goes to sleep mode (minutes)",
+            "cli": ["-t", "--sleep-timer"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x2B, 0x01, 0x01, 0x00, 0x00, 0x00],
+            "value_type": "range",
+            "input_range": [1, 20, 1],
+            "output_range": [0x003C, 0x04B0, 60],
+            "range_length_byte": 2,
+            "default": 5,
+        },
     },
     "battery_level": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
