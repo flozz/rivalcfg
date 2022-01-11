@@ -14,6 +14,15 @@ Command-Line Usage
 .. rivalcfg_device_cli:: rival650
 
 
+Buttons
+-------
+
+.. figure:: ./images/rival_3_wireless_buttons.svg
+   :alt: Rival 3 Wireless buttons schema
+
+.. include:: ./_buttons.rst
+
+
 Python API
 ----------
 
