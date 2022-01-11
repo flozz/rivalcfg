@@ -9,6 +9,14 @@ Supported Models
 .. rivalcfg_device_family:: aerox3_wireless_wireless
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* Powering settings (smart illumination, dim timer, sleep timer)
+
+
 Command-Line Usage
 ------------------
 
