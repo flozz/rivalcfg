@@ -250,6 +250,7 @@ Changelog
     (1038:182A)
   * Add support for SteelSeries Prime CS:GO Neo Noir Edition (1038:1856)
   * Add initial support for the Rival 3 Wireless mouse (#146)
+  * Add initial support for the Rival 650 mouse (#112)
 
 * **4.4.0:**
 
