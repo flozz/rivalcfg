@@ -8,6 +8,14 @@ Supported Models
 .. rivalcfg_device_family:: rival700
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* OLED screen image
+
+
 Command-Line Usage
 ------------------
 

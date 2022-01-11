@@ -8,6 +8,15 @@ Supported Models
 .. rivalcfg_device_family:: prime
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* Button mapping
+* Advanced color / illumination configurations
+
+
 Command-Line Usage
 ------------------
 

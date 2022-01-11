@@ -8,6 +8,16 @@ Supported Models
 .. rivalcfg_device_family:: rival3_wireless
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* Color / illumination
+* Wheel mapping
+* Powering settings (high efficiency, smart illumination, sleep timer)
+
+
 Command-Line Usage
 ------------------
 
