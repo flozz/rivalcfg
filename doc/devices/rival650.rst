@@ -27,8 +27,8 @@ Command-Line Usage
 Buttons
 -------
 
-.. figure:: ./images/rival_3_wireless_buttons.svg
-   :alt: Rival 3 Wireless buttons schema
+.. figure:: ./images/rival_650_buttons.svg
+   :alt: Rival 650 buttons schema
 
 .. include:: ./_buttons.rst
 
