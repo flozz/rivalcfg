@@ -240,10 +240,14 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.5.0]
+* **Rivalcfg NEXT:** [4.6.0]
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
+
+  * Nothing yet ;)
+
+* **4.5.0:**
 
   * Do not try to open devices when not needed (#170)
   * Add support for SteelSeries Prime Rainbow 6 Siege Black Ice Edition
