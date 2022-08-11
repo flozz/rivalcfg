@@ -7,7 +7,7 @@ profile = {
         {
             "name": "SteelSeries Prime Wireless (wired mode)",
             "vendor_id": 0x1038,
-            "product_id": 0x1840,
+            "product_id": 0x1842,
             "endpoint": 3,
         },
     ],
