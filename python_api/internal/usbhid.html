@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -97,7 +98,7 @@
            <div itemprop="articleBody">
              
   <section id="module-rivalcfg.usbhid">
-<span id="usbhid"></span><h1>usbhid<a class="headerlink" href="#module-rivalcfg.usbhid" title="Permalink to this headline"></a></h1>
+<span id="usbhid"></span><h1>usbhid<a class="headerlink" href="#module-rivalcfg.usbhid" title="Permalink to this heading"></a></h1>
 <p>This module contains low level functions to interact with USB HID devices. The
 <a class="reference external" href="https://pypi.org/project/hidapi/">hidapi</a> module is used to abstract the
 access to the devices across all different operating systems.</p>
@@ -118,7 +119,7 @@ plugged:</p>
 </li>
 </ul>
 <section id="constants">
-<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline"></a></h2>
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT">
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">HID_REPORT_TYPE_OUTPUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="Permalink to this definition"></a></dt>
@@ -133,7 +134,7 @@ plugged:</p>
 
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.usbhid.is_device_plugged">
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">is_device_plugged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.usbhid.is_device_plugged" title="Permalink to this definition"></a></dt>
@@ -190,7 +191,7 @@ issue, device busy,…).</p></li>
 
 </section>
 <section id="exceptions">
-<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline"></a></h2>
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.usbhid.DeviceNotFound">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">DeviceNotFound</span></span><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Permalink to this definition"></a></dt>
@@ -201,7 +202,7 @@ endpoint.</p>
 
 </section>
 <section id="fake-hid-device">
-<h2>Fake HID device<a class="headerlink" href="#fake-hid-device" title="Permalink to this headline"></a></h2>
+<h2>Fake HID device<a class="headerlink" href="#fake-hid-device" title="Permalink to this heading"></a></h2>
 <p>When the <code class="docutils literal notranslate"><span class="pre">RIVALCFG_DRY</span></code> environment variable is set, the <a class="reference internal" href="#rivalcfg.usbhid.open_device" title="rivalcfg.usbhid.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">open_device()</span></code></a>
 function of this module returns a fake device instead opening a real one. This
 is useful for debuging and testing purpose.</p>

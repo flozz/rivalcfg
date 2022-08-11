@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -88,15 +89,15 @@
            <div itemprop="articleBody">
              
   <section id="installing">
-<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline"></a></h1>
+<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this heading"></a></h1>
 <section id="archlinux-aur-package">
-<h2>Archlinux AUR Package<a class="headerlink" href="#archlinux-aur-package" title="Permalink to this headline"></a></h2>
+<h2>Archlinux AUR Package<a class="headerlink" href="#archlinux-aur-package" title="Permalink to this heading"></a></h2>
 <p>Use package <a class="reference external" href="https://aur.archlinux.org/packages/rivalcfg/">rivalcfg</a></p>
 </section>
 <section id="from-sources-git-pypi">
-<h2>From Sources (Git / PyPI)<a class="headerlink" href="#from-sources-git-pypi" title="Permalink to this headline"></a></h2>
+<h2>From Sources (Git / PyPI)<a class="headerlink" href="#from-sources-git-pypi" title="Permalink to this heading"></a></h2>
 <section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h3>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>In this page, only Python 3 commands are provided. Rivalcfg still work with
@@ -104,7 +105,7 @@ Python 2, but this support will be dropped in future versions… so prefer
 using Python 3 if available.</p>
 </div>
 <section id="linux">
-<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline"></a></h4>
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this heading"></a></h4>
 <p>Installation require a compilation toolchain and python headers to compile
 <code class="docutils literal notranslate"><span class="pre">hidapi</span></code>.</p>
 <p>On <strong>Debian / Ubuntu</strong>, this can be installed with the following command:</p>
@@ -118,7 +119,7 @@ using Python 3 if available.</p>
 </div>
 </section>
 <section id="windows">
-<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline"></a></h4>
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this heading"></a></h4>
 <p>On Windows, you have to install first:</p>
 <ul class="simple">
 <li><p>Python 3.6+ (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
@@ -127,14 +128,14 @@ using Python 3 if available.</p>
 </section>
 </section>
 <section id="installing-from-pypi">
-<h3>Installing From PyPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline"></a></h3>
+<h3>Installing From PyPI<a class="headerlink" href="#installing-from-pypi" title="Permalink to this heading"></a></h3>
 <p>Run the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </section>
 <section id="installing-from-github">
-<h3>Installing From Github<a class="headerlink" href="#installing-from-github" title="Permalink to this headline"></a></h3>
+<h3>Installing From Github<a class="headerlink" href="#installing-from-github" title="Permalink to this heading"></a></h3>
 <p>Clone the repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">flozz</span><span class="o">/</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">rivalcfg</span>
@@ -146,7 +147,7 @@ using Python 3 if available.</p>
 </div>
 </section>
 <section id="after-the-installation">
-<h3>After the installation<a class="headerlink" href="#after-the-installation" title="Permalink to this headline"></a></h3>
+<h3>After the installation<a class="headerlink" href="#after-the-installation" title="Permalink to this heading"></a></h3>
 <p>Once Rivalcfg installed from sources (Git or PyPI), you will have to run the
 following command on udev-based Linux distro (Debian / Ubuntu / Fedora / …):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">udev</span>

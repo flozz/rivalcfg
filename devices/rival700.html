@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -115,9 +116,9 @@
            <div itemprop="articleBody">
              
   <section id="steelseries-rival-700-and-rival-710">
-<h1>SteelSeries Rival 700 and Rival 710<a class="headerlink" href="#steelseries-rival-700-and-rival-710" title="Permalink to this headline"></a></h1>
+<h1>SteelSeries Rival 700 and Rival 710<a class="headerlink" href="#steelseries-rival-700-and-rival-710" title="Permalink to this heading"></a></h1>
 <section id="supported-models">
-<h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this headline"></a></h2>
+<h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
@@ -134,14 +135,14 @@
 </table>
 </section>
 <section id="missing-features">
-<h2>Missing Features<a class="headerlink" href="#missing-features" title="Permalink to this headline"></a></h2>
+<h2>Missing Features<a class="headerlink" href="#missing-features" title="Permalink to this heading"></a></h2>
 <p>The following feature are currently not supported by Rivalcfg:</p>
 <ul class="simple">
 <li><p>OLED screen image</p></li>
 </ul>
 </section>
 <section id="command-line-usage">
-<h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline"></a></h2>
+<h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [--print-udev] [--print-debug] [-s SENSITIVITY1]
                 [-S SENSITIVITY2] [-p POLLING_RATE] [-c LOGO_COLOR]
@@ -183,10 +184,10 @@ Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 </div>
 </section>
 <section id="colors">
-<h2>Colors<a class="headerlink" href="#colors" title="Permalink to this headline"></a></h2>
+<h2>Colors<a class="headerlink" href="#colors" title="Permalink to this heading"></a></h2>
 <p>This mouse supports colors. Various formats are supported.</p>
 <section id="hexadecimal-notation">
-<h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this headline"></a></h3>
+<h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this heading"></a></h3>
 <p>You can use a 24 bit hexadecimal notation (like in HTML / CSS documents).
 Example of “red” color using hexadecimal notation:</p>
 <ul class="simple">
@@ -197,7 +198,7 @@ Example of “red” color using hexadecimal notation:</p>
 </ul>
 </section>
 <section id="named-colors">
-<h3>Named Colors<a class="headerlink" href="#named-colors" title="Permalink to this headline"></a></h3>
+<h3>Named Colors<a class="headerlink" href="#named-colors" title="Permalink to this heading"></a></h3>
 <p>The folowing named colors are supported:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -231,7 +232,7 @@ Example of “red” color using hexadecimal notation:</p>
 </table>
 </section>
 <section id="rgb-tuple-python-api-only">
-<h3>RGB Tuple (Python API only)<a class="headerlink" href="#rgb-tuple-python-api-only" title="Permalink to this headline"></a></h3>
+<h3>RGB Tuple (Python API only)<a class="headerlink" href="#rgb-tuple-python-api-only" title="Permalink to this heading"></a></h3>
 <p>If you are using the <strong>Python API</strong> (not the command line interface), you can
 also pass colors as RGB <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
 <ul class="simple">
@@ -251,12 +252,12 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
 </style></section>
 </section>
 <section id="rgb-gradients">
-<h2>RGB Gradients<a class="headerlink" href="#rgb-gradients" title="Permalink to this headline"></a></h2>
+<h2>RGB Gradients<a class="headerlink" href="#rgb-gradients" title="Permalink to this heading"></a></h2>
 <p>This mouse supports RGB Gradient. In addition of static colors, you can
 configure a gradient. The color of the mouse will change according to the
 colors of the gradient.</p>
 <section id="rgb-gradient-expression">
-<h3>RGB Gradient expression<a class="headerlink" href="#rgb-gradient-expression" title="Permalink to this headline"></a></h3>
+<h3>RGB Gradient expression<a class="headerlink" href="#rgb-gradient-expression" title="Permalink to this heading"></a></h3>
 <p>The RGB Gradient follows this format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rgbgradient</span><span class="p">(</span><span class="n">duration</span><span class="o">=&lt;</span><span class="n">DURATION</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">colors</span><span class="o">=&lt;</span><span class="n">POS1</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">COLOR1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">POSN</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">COLORN</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
@@ -276,7 +277,7 @@ colors of the gradient.</p>
 </div>
 </section>
 <section id="example-gradients">
-<h3>Example Gradients<a class="headerlink" href="#example-gradients" title="Permalink to this headline"></a></h3>
+<h3>Example Gradients<a class="headerlink" href="#example-gradients" title="Permalink to this heading"></a></h3>
 <div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgbgradient(duration=5000; colors=0%: red, 33%: lime, 66%: blue)
 </pre></div>
 </div>
@@ -294,7 +295,7 @@ colors of the gradient.</p>
 </div>
 </section>
 <section id="rgb-gradient-dict-python-api-only">
-<h3>RGB Gradient Dict (Python API only)<a class="headerlink" href="#rgb-gradient-dict-python-api-only" title="Permalink to this headline"></a></h3>
+<h3>RGB Gradient Dict (Python API only)<a class="headerlink" href="#rgb-gradient-dict-python-api-only" title="Permalink to this heading"></a></h3>
 <p>If you are using the <strong>Python API</strong> (not the command line interface), you can also pass a Python <code class="docutils literal notranslate"><span class="pre">dict</span></code> to define a gradient.</p>
 <p>Example:</p>
 <div class="gradient-preview" style="background: linear-gradient(90deg, #ff0000 0%, #00ff00 33%, #0000ff 66%, #ff0000 100%);"></div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -318,7 +319,7 @@ colors of the gradient.</p>
 </style></section>
 </section>
 <section id="python-api">
-<h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline"></a></h2>
+<h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading"></a></h2>
 <p>TODO</p>
 </section>
 </section>
