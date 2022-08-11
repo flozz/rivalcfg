@@ -245,7 +245,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet ;)
+  * Remove Python 2.7 compatibility code
 
 * **4.5.0:**
 

@@ -178,12 +178,6 @@ LAYOUTS = {
 }
 
 
-# Compatibility with Python 2.7.
-# On Python 2 the type is 'unicode'
-# On Python 3 the type is 'str'
-_unicode_type = type(u"")
-
-
 def build_layout(layout):
     """Generates an usable layout from a layout module containing key mapping
     and aliases.
@@ -249,12 +243,12 @@ def process_value(setting_info, mapping):
     """
     # -- Parse input values
 
-    if type(mapping) in [str, _unicode_type] and REGEXP_PARAM_STRING.match(mapping):
+    if type(mapping) is str and REGEXP_PARAM_STRING.match(mapping):
         is_valid, reason = is_buttons(mapping, setting_info)
         if not is_valid:
             raise ValueError(reason)
         mapping = parse_param_string(mapping)
-    elif type(mapping) in [str, _unicode_type] and mapping.lower() == "default":
+    elif type(mapping) is str and mapping.lower() == "default":
         mapping = {"buttons": {}}
     elif type(mapping) is dict:
         pass

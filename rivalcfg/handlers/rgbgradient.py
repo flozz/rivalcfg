@@ -113,11 +113,6 @@ from ..color_helpers import is_color, parse_color_string
 from ..color_helpers import parse_color_gradient_string
 
 
-# Compatibility with Python 2.7.
-# On Python 2 the type is 'unicode'
-# On Python 3 the type is 'str'
-_unicode_type = type(u"")
-
 _default_duration = 1000
 
 
@@ -154,7 +149,7 @@ def _handle_rgbgradient_dict(colors):
     if "colors" in colors:
         for stop in colors["colors"]:
             color = stop["color"]
-            if type(color) in [str, _unicode_type]:
+            if type(color) is str:
                 color = parse_color_string(color)
             if type(color) not in [tuple, list] or len(color) != 3:
                 raise ValueError("Not a valid color %s" % str(color))
@@ -224,7 +219,7 @@ def process_value(setting_info, colors):
         gradient = _handle_color_tuple(colors)
 
     # Simple color string
-    elif type(colors) in [str, _unicode_type] and is_color(colors):
+    elif type(colors) is str and is_color(colors):
         is_gradient = False
         gradient = _handle_color_string(colors)
 

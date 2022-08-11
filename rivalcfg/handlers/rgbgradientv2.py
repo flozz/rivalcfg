@@ -109,11 +109,6 @@ from .rgbgradient import _handle_rgbgradient_dict, _handle_rgbgradient_string
 from .rgbgradient import is_rgbgradient, CheckGradientAction
 
 
-# Compatibility with Python 2.7.
-# On Python 2 the type is 'unicode'
-# On Python 3 the type is 'str'
-_unicode_type = type(u"")
-
 _default_duration = 1000
 
 
@@ -137,7 +132,7 @@ def process_value(setting_info, colors):
         gradient = _handle_color_tuple(colors)
 
     # Simple color string
-    elif type(colors) in [str, _unicode_type] and is_color(colors):
+    elif type(colors) is str and is_color(colors):
         gradient = _handle_color_string(colors)
 
     # Color gradient as dict
