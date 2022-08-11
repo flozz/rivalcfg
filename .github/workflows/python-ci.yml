@@ -1,4 +1,4 @@
-name: Lint and Tests
+name: "Lint and Tests"
 
 on: [push, pull_request]
 
@@ -7,28 +7,35 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: install build dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libusb-1.0-0-dev libudev-dev
-    - name: Install Nox
-      run: |
-        pip3 install setuptools
-        pip3 install nox
-    - name: Lint with flake8
-      run: |
-        python3 -m nox --session lint
-    - name: Test with pytest (and doctest if Python 3)
-      run: |
-        python3 -m nox --session test-${{ matrix.python-version }}
 
+      - name: "Pull the repository"
+        uses: actions/checkout@v2
+
+      - name: "Install OS Dependencies"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libusb-1.0-0-dev libudev-dev
+
+      - name: "Set up Python ${{ matrix.python-version }}"
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: "Install Nox"
+        run: |
+          pip3 install setuptools
+          pip3 install nox
+
+      - name: "Lint with Flake8 and Black"
+        run: |
+          python3 -m nox --session lint
+
+      - name: "Test with pytest"
+        run: |
+          python3 -m nox --session test-${{ matrix.python-version }}

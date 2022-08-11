@@ -22,27 +22,19 @@ def black_fix(session):
     session.run("black", *PYTHON_FILES)
 
 
-@nox.session(python=["2.7", "3.6", "3.7", "3.8", "3.9"], reuse_venv=True)
+@nox.session(python=["3.7", "3.8", "3.9", "3.10"], reuse_venv=True)
 def test(session):
     session.install("pytest")
     session.install(".")
-    # Do not run doctest when using Python 2 as the output of some functions
-    # looks deferent from the one of Python 3 and so it cannot be matched
-    # properly...
-    # Do not run doctest on Python < 3.7 because dict are not ordered so
-    # the result is not predictable...
-    if session.python in ["2.7", "3.6"]:
-        session.run("pytest", "test", env={"RIVALCFG_DRY": "1"})
-    else:
-        session.run(
-            "pytest",
-            "--doctest-modules",
-            "rivalcfg",
-            "test",
-            env={
-                "RIVALCFG_DRY": "1",
-            },
-        )
+    session.run(
+        "pytest",
+        "--doctest-modules",
+        "rivalcfg",
+        "test",
+        env={
+            "RIVALCFG_DRY": "1",
+        },
+    )
 
 
 @nox.session(reuse_venv=True)
