@@ -42,6 +42,15 @@ profile = {
             },
             "default": 1000,
         },
+        "color": {
+            "label": "LED color",
+            "description": "Set the mouse LED color",
+            "cli": ["-c", "--color"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x21, 0x01, 0x00],
+            "value_type": "rgbcolor",
+            "default": "red",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
