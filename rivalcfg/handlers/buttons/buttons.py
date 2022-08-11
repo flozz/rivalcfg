@@ -375,5 +375,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
         help=description,
         type=str,
         action=cli_buttons_validator(setting_info),
-        metavar=setting_name.upper()
+        metavar=setting_name.upper(),
     )

@@ -267,5 +267,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
         help=description,
         type=str,
         action=CheckGradientAction,
-        metavar=setting_name.upper()
+        metavar=setting_name.upper(),
     )

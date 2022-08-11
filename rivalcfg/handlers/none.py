@@ -72,5 +72,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
         *setting_info["cli"],
         help=setting_info["description"],
         action="store_const",
-        const=True
+        const=True,
     )

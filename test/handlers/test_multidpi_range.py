@@ -76,14 +76,11 @@ class TestProcessValue(object):
         [0, 1, 2, 3, 4],
     )
     def test_selected_preset(self, setting_info, selected):
-        assert (
-            multidpi_range.process_value(
-                setting_info,
-                "100,200,300,400,500",
-                selected_preset=selected,
-            )
-            == [0x05, selected + 1, 0x01, 0x02, 0x03, 0x04, 0x05]
-        )
+        assert multidpi_range.process_value(
+            setting_info,
+            "100,200,300,400,500",
+            selected_preset=selected,
+        ) == [0x05, selected + 1, 0x01, 0x02, 0x03, 0x04, 0x05]
 
     def test_selected_preset_out_of_range(self, setting_info):
         with pytest.raises(ValueError):

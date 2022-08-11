@@ -127,5 +127,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
         help=description,
         dest=setting_name.upper(),
         choices=choices_to_list(setting_info["choices"]),
-        metavar=setting_name.upper()
+        metavar=setting_name.upper(),
     )

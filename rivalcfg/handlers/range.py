@@ -204,5 +204,5 @@ def add_cli_option(cli_parser, setting_name, setting_info):
         help=description,
         dest=setting_name.upper(),
         type=int,
-        metavar=setting_name.upper()
+        metavar=setting_name.upper(),
     )
