@@ -1,6 +1,9 @@
 from .. import usbhid
 
 
+_BATTERY_CHARGING_FLAG = 0b10000000
+
+
 profile = {
     "name": "SteelSeries Prime Wireless",
     "models": [
@@ -79,6 +82,13 @@ profile = {
             # fmt: on
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
         },
+    },
+    "battery_level": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x92],
+        "response_length": 2,
+        "is_charging": lambda data: bool(data[1] & _BATTERY_CHARGING_FLAG),
+        "level": lambda data: ((data[1] & ~_BATTERY_CHARGING_FLAG) - 1) * 5,
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
