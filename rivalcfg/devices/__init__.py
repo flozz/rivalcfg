@@ -156,6 +156,7 @@ from . import kanav2  # noqa: F401
 from . import kinzuv2  # noqa: F401
 from . import prime  # noqa: F401
 from . import prime_wireless_wired  # noqa: F401
+from . import prime_wireless_wireless  # noqa: F401
 from . import rival3  # noqa: F401
 from . import rival3_wireless  # noqa: F401
 from . import rival95  # noqa: F401
