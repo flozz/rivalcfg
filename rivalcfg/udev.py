@@ -8,6 +8,7 @@ generate, check and update rules files.
 """
 
 import re
+import os.path
 import subprocess
 
 from .version import VERSION
@@ -85,6 +86,8 @@ def is_rules_file_up_to_date(path=RULES_FILE_PATH):
 
     :rtype: bool
     """
+    if not os.path.isfile(path):
+        return False
     path = str(path)  # py27 compatibility: coerce PosixPath to string
     with open(path, "r") as rules_file:
         return are_rules_up_to_date(rules_file.read())
