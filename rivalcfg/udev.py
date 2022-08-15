@@ -8,6 +8,7 @@ generate, check and update rules files.
 """
 
 import re
+import os.path
 import subprocess
 
 from .version import VERSION
@@ -52,7 +53,6 @@ def write_rules_file(path=RULES_FILE_PATH):
     :raise PermissionError: The user has not sufficient permissions to write
                             the file.
     """
-    path = str(path)  # py27 compatibility: coerce PosixPath to string
     rules = generate_rules()
     with open(path, "w") as rules_file:
         rules_file.write(rules)
@@ -85,6 +85,7 @@ def is_rules_file_up_to_date(path=RULES_FILE_PATH):
 
     :rtype: bool
     """
-    path = str(path)  # py27 compatibility: coerce PosixPath to string
+    if not os.path.isfile(path):
+        return False
     with open(path, "r") as rules_file:
         return are_rules_up_to_date(rules_file.read())
