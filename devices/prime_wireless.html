@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Rival 3 Wireless &mdash; rivalcfg 4.5.0 documentation</title>
+  <title>SteelSeries Prime Wireless &mdash; rivalcfg 4.5.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Rival 95 and Rival 100 PC Bang" href="rival95.html" />
-    <link rel="prev" title="SteelSeries Rival 3" href="rival3.html" /> 
+    <link rel="next" title="SteelSeries Rival 3" href="rival3.html" />
+    <link rel="prev" title="SteelSeries Prime" href="prime.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,13 +51,17 @@
 <li class="toctree-l2"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime.html">SteelSeries Prime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="prime_wireless.html">SteelSeries Prime Wireless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Rival 3 Wireless</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SteelSeries Prime Wireless</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#supported-models">Supported Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#missing-features">Missing Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#command-line-usage">Command-Line Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sensitivity-dpi">Sensitivity (DPI)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colors">Colors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hexadecimal-notation">Hexadecimal notation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#named-colors">Named Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-special-actions">Mapping Special Actions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-mouse-buttons">Mapping Mouse Buttons</a></li>
@@ -68,6 +72,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rival3_wireless.html">SteelSeries Rival 3 Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
@@ -102,9 +108,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">Supported Devices</a> &raquo;</li>
-      <li>SteelSeries Rival 3 Wireless</li>
+      <li>SteelSeries Prime Wireless</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/devices/rival3_wireless.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/devices/prime_wireless.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -112,8 +118,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="steelseries-rival-3-wireless">
-<h1>SteelSeries Rival 3 Wireless<a class="headerlink" href="#steelseries-rival-3-wireless" title="Permalink to this heading"></a></h1>
+  <section id="steelseries-prime-wireless">
+<h1>SteelSeries Prime Wireless<a class="headerlink" href="#steelseries-prime-wireless" title="Permalink to this heading"></a></h1>
 <section id="supported-models">
 <h2>Supported Models<a class="headerlink" href="#supported-models" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
@@ -122,8 +128,19 @@
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>SteelSeries Rival 3 Wireless (2.4 GHz mode)</p></td>
-<td><p>1038:1830</p></td>
+<tr class="row-odd"><td><p>SteelSeries Prime Wireless (wired mode)</p></td>
+<td><p>1038:1842</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>SteelSeries Prime Wireless (2.4 GHz wireless mode)</p></td>
+<td><p>1038:1840</p></td>
 </tr>
 </tbody>
 </table>
@@ -132,16 +149,15 @@
 <h2>Missing Features<a class="headerlink" href="#missing-features" title="Permalink to this heading"></a></h2>
 <p>The following feature are currently not supported by Rivalcfg:</p>
 <ul class="simple">
-<li><p>Color / illumination</p></li>
-<li><p>Wheel mapping</p></li>
-<li><p>Powering settings (high efficiency, smart illumination, sleep timer)</p></li>
+<li><p>Smart illumination</p></li>
 </ul>
 </section>
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [--print-udev] [--print-debug] [-s SENSITIVITY]
-                [-p POLLING_RATE] [-b BUTTONS_MAPPING] [-r] [--battery-level]
+                [-p POLLING_RATE] [-c COLOR] [-b BUTTONS_MAPPING]
+                [-t SLEEP_TIMER] [-T DIM_TIMER] [-r] [--battery-level]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -153,7 +169,7 @@ optional arguments:
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug informations and exit
 
-SteelSeries Rival 3 Wireless (2.4 GHz mode) Options:
+SteelSeries Prime Wireless (wired mode) Options:
   -s SENSITIVITY, --sensitivity SENSITIVITY
                         Set sensitivity preset (DPI) (up to 5 settings, from
                         100 dpi to 18000 dpi, default: &#39;400, 800, 1200, 2400,
@@ -161,11 +177,21 @@ SteelSeries Rival 3 Wireless (2.4 GHz mode) Options:
   -p POLLING_RATE, --polling-rate POLLING_RATE
                         Set polling rate (Hz) (values: 125, 250, 500, 1000,
                         default: 1000)
+  -c COLOR, --color COLOR
+                        Set the mouse LED color (e.g. red, #ff0000, ff0000,
+                        #f00, f00, default: red)
   -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
                         Set the mapping of the buttons (default:
                         buttons(button1=button1; button2=button2;
                         button3=button3; button4=button4; button5=button5;
-                        button6=dpi))
+                        button6=dpi; scrollup=scrollup; scrolldown=scrolldown;
+                        layout=qwerty))
+  -t SLEEP_TIMER, --sleep-timer SLEEP_TIMER
+                        Set the IDLE time before the mouse goes to sleep mode
+                        (minutes, 0 = disable) (from 0 to 20, default: 5)
+  -T DIM_TIMER, --dim-timer DIM_TIMER
+                        Set the IDLE time before the mouse light is dimmed
+                        (seconds, 0 = disable) (from 0 to 1200, default: 30)
   -r, --reset           Reset all settings to their factory default
   --battery-level       Print the battery level of the mouse and exit
 
@@ -199,10 +225,78 @@ as parameter. You are also able to change the currently selected preset:</p>
 </div>
 </div>
 </section>
+<section id="colors">
+<h2>Colors<a class="headerlink" href="#colors" title="Permalink to this heading"></a></h2>
+<p>This mouse supports colors. Various formats are supported.</p>
+<section id="hexadecimal-notation">
+<h3>Hexadecimal notation<a class="headerlink" href="#hexadecimal-notation" title="Permalink to this heading"></a></h3>
+<p>You can use a 24 bit hexadecimal notation (like in HTML / CSS documents).
+Example of “red” color using hexadecimal notation:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">FF0000</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">#F00</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">F00</span></code></p></li>
+</ul>
+</section>
+<section id="named-colors">
+<h3>Named Colors<a class="headerlink" href="#named-colors" title="Permalink to this heading"></a></h3>
+<p>The folowing named colors are supported:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 23%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: white;"></span> <code class="docutils literal notranslate"><span class="pre">white</span></code></p></td>
+<td><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">red</span></code></p></td>
+<td><p><span class="color-preview" style="background: lime;"></span> <code class="docutils literal notranslate"><span class="pre">lime</span></code></p></td>
+<td><p><span class="color-preview" style="background: blue;"></span> <code class="docutils literal notranslate"><span class="pre">blue</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: silver;"></span> <code class="docutils literal notranslate"><span class="pre">silver</span></code></p></td>
+<td><p><span class="color-preview" style="background: maroon;"></span> <code class="docutils literal notranslate"><span class="pre">maroon</span></code></p></td>
+<td><p><span class="color-preview" style="background: green;"></span> <code class="docutils literal notranslate"><span class="pre">green</span></code></p></td>
+<td><p><span class="color-preview" style="background: navy;"></span> <code class="docutils literal notranslate"><span class="pre">navy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="color-preview" style="background: gray;"></span> <code class="docutils literal notranslate"><span class="pre">gray</span></code></p></td>
+<td><p><span class="color-preview" style="background: yellow;"></span> <code class="docutils literal notranslate"><span class="pre">yellow</span></code></p></td>
+<td><p><span class="color-preview" style="background: aqua;"></span> <code class="docutils literal notranslate"><span class="pre">aqua</span></code></p></td>
+<td><p><span class="color-preview" style="background: fuchsia;"></span> <code class="docutils literal notranslate"><span class="pre">fuchsia</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="color-preview" style="background: black;"></span> <code class="docutils literal notranslate"><span class="pre">black</span></code></p></td>
+<td><p><span class="color-preview" style="background: olive;"></span> <code class="docutils literal notranslate"><span class="pre">olive</span></code></p></td>
+<td><p><span class="color-preview" style="background: teal;"></span> <code class="docutils literal notranslate"><span class="pre">teal</span></code></p></td>
+<td><p><span class="color-preview" style="background: purple;"></span> <code class="docutils literal notranslate"><span class="pre">purple</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rgb-tuple-python-api-only">
+<h3>RGB Tuple (Python API only)<a class="headerlink" href="#rgb-tuple-python-api-only" title="Permalink to this heading"></a></h3>
+<p>If you are using the <strong>Python API</strong> (not the command line interface), you can
+also pass colors as RGB <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code>:</p>
+<ul class="simple">
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">(255,</span> <span class="pre">0,</span> <span class="pre">0)</span></code></p></li>
+<li><p><span class="color-preview" style="background: red;"></span> <code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></li>
+</ul>
+<style>
+    .color-preview {
+         display: inline-block;
+         width: 16px;
+         height: 16px;
+         border: #444 solid 1px;
+         vertical-align: middle;
+         border-radius: 2px;
+         box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
+    }
+</style></section>
+</section>
 <section id="buttons">
 <h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this heading"></a></h2>
 <figure class="align-default">
-<img alt="Rival 3 Wireless buttons schema" src="../_images/rival_3_wireless_buttons.svg" /></figure>
+<img alt="Prime buttons schema" src="../_images/prime_buttons.svg" /></figure>
 <p>This mouse supports buttons mapping. Buttons can be mapped with:</p>
 <ul class="simple">
 <li><p>some special actions,</p></li>
@@ -320,8 +414,8 @@ available aliases, like <code class="docutils literal notranslate"><span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rival3.html" class="btn btn-neutral float-left" title="SteelSeries Rival 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rival95.html" class="btn btn-neutral float-right" title="SteelSeries Rival 95 and Rival 100 PC Bang" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prime.html" class="btn btn-neutral float-left" title="SteelSeries Prime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rival3.html" class="btn btn-neutral float-right" title="SteelSeries Rival 3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

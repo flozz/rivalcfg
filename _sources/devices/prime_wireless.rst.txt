@@ -1,12 +1,12 @@
-SteelSeries Aerox 3 Wireless
-============================
+SteelSeries Prime Wireless
+==========================
 
 
 Supported Models
 ----------------
 
-.. rivalcfg_device_family:: aerox3_wireless_wired
-.. rivalcfg_device_family:: aerox3_wireless_wireless
+.. rivalcfg_device_family:: prime_wireless_wired
+.. rivalcfg_device_family:: prime_wireless_wireless
 
 
 Missing Features
@@ -20,7 +20,7 @@ The following feature are currently not supported by Rivalcfg:
 Command-Line Usage
 ------------------
 
-.. rivalcfg_device_cli:: aerox3_wireless_wired
+.. rivalcfg_device_cli:: prime_wireless_wired
 
 
 Sensitivity (DPI)
@@ -59,18 +59,11 @@ This mouse supports colors. Various formats are supported.
 .. include:: ./_colors.rst
 
 
-Rainbow Effect
---------------
-
-The Aerox 3 offers an onboard rainbow light effect. Please note that the effect
-is reset if you change colors.
-
-
 Buttons
 -------
 
-.. figure:: ./images/aerox_3_buttons.svg
-   :alt: Aerox 3 buttons schema
+.. figure:: ./images/prime_buttons.svg
+   :alt: Prime buttons schema
 
 .. include:: ./_buttons.rst
 

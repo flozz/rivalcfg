@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kanav2.html">SteelSeries Kana v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime.html">SteelSeries Prime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prime_wireless.html">SteelSeries Prime Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3_wireless.html">SteelSeries Rival 3 Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
@@ -149,7 +150,7 @@
 <h2>Missing Features<a class="headerlink" href="#missing-features" title="Permalink to this heading"></a></h2>
 <p>The following feature are currently not supported by Rivalcfg:</p>
 <ul class="simple">
-<li><p>Powering settings (smart illumination, dim timer, sleep timer)</p></li>
+<li><p>Smart illumination</p></li>
 </ul>
 </section>
 <section id="command-line-usage">
@@ -158,8 +159,8 @@
                 [--print-udev] [--print-debug] [-s SENSITIVITY]
                 [-p POLLING_RATE] [--top-color Z1_COLOR]
                 [--middle-color Z2_COLOR] [--bottom-color Z3_COLOR]
-                [-a REACTIVE_COLOR] [-l LED_BRIGHTNESS] [-b BUTTONS_MAPPING]
-                [-e] [-r] [--battery-level]
+                [-a REACTIVE_COLOR] [-t SLEEP_TIMER] [-T DIM_TIMER]
+                [-b BUTTONS_MAPPING] [-e] [-r] [--battery-level]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -192,9 +193,12 @@ SteelSeries Aerox 3 Wireless (wired mode) Options:
                         Set the color of the LEDs in reaction to a button
                         click (e.g. off, disable, red, #ff0000, ff0000, #f00,
                         f00, default: off)
-  -l LED_BRIGHTNESS, --led-brightness LED_BRIGHTNESS
-                        Set the brightness of the LEDs (from 0 to 15, default:
-                        15)
+  -t SLEEP_TIMER, --sleep-timer SLEEP_TIMER
+                        Set the IDLE time before the mouse goes to sleep mode
+                        (minutes, 0 = disable) (from 0 to 20, default: 5)
+  -T DIM_TIMER, --dim-timer DIM_TIMER
+                        Set the IDLE time before the mouse light is dimmed
+                        (seconds, 0 = disable) (from 0 to 1200, default: 30)
   -b BUTTONS_MAPPING, --buttons BUTTONS_MAPPING
                         Set the mapping of the buttons (default:
                         buttons(button1=button1; button2=button2;
