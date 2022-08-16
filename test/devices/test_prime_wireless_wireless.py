@@ -102,10 +102,11 @@ class TestDevice(object):
         ],
     )
     def test_set_sleep_timer(self, mouse, value, expected_hid_report):
-        mouse.set_sleep_timer(value)
+        response = mouse.set_sleep_timer(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
+        assert len(response) == 64
 
     @pytest.mark.parametrize(
         "value,expected_hid_report",
@@ -118,10 +119,11 @@ class TestDevice(object):
         ],
     )
     def test_set_dim_timer(self, mouse, value, expected_hid_report):
-        mouse.set_dim_timer(value)
+        response = mouse.set_dim_timer(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
+        assert len(response) == 64
 
     def test_battery_level(self, mouse):
         battery_info = mouse.battery
