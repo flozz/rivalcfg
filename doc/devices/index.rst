@@ -12,6 +12,7 @@ Supported Devices
    ./kanav2.rst
    ./kinzuv2.rst
    ./prime.rst
+   ./prime_wireless.rst
    ./rival3.rst
    ./rival3_wireless.rst
    ./rival95.rst
