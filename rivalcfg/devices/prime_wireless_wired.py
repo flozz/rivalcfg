@@ -99,7 +99,7 @@ profile = {
             "description": "Set the IDLE time before the mouse light is dimmed (seconds, 0 = disable)",
             "cli": ["-T", "--dim-timer"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x23, 0x0F, 0x01, 0x01],
+            "command": [0x23, 0x0F, 0x01, 0x00, 0x00],
             "value_type": "range",
             "input_range": [0, 1200, 1],
             "output_range": [0x000000, 0x124F80, 1000],
