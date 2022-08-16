@@ -245,6 +245,14 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Add support for the Prime Wireless mouse (#172)
+  * Aerox 3 Wireless support improved:
+
+    * Sleep timer support implemented
+    * Dim timer support implemented
+    * Brightness removed to support Dim timer (it is still possible to dim the
+      LED by setting darker colors)
+
   * Fix a crash when printing debug information with udev rules not installed
   * Remove Python 2.7 compatibility code
 
