@@ -14,7 +14,7 @@ Missing Features
 
 The following feature are currently not supported by Rivalcfg:
 
-* Powering settings (smart illumination, dim timer)
+* Smart illumination
 
 
 Command-Line Usage

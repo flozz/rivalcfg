@@ -107,6 +107,22 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (0, b"\x02\x00\x63\x0F\x01\x01\x00\x00\x00"),
+            (30, b"\x02\x00\x63\x0F\x01\x01\x30\x75\x00"),
+            (60, b"\x02\x00\x63\x0F\x01\x01\x60\xEA\x00"),
+            (300, b"\x02\x00\x63\x0F\x01\x01\xE0\x93\x04"),
+            (1200, b"\x02\x00\x63\x0F\x01\x01\x80\x4F\x12"),
+        ],
+    )
+    def test_set_dim_timer(self, mouse, value, expected_hid_report):
+        mouse.set_dim_timer(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
     def test_battery_level(self, mouse):
         battery_info = mouse.battery
         mouse._hid_device.bytes.seek(0)

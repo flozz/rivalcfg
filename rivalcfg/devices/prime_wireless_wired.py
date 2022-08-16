@@ -94,6 +94,18 @@ profile = {
             "range_length_byte": 3,
             "default": 5,
         },
+        "dim_timer": {
+            "label": "Dim timer",
+            "description": "Set the IDLE time before the mouse light is dimmed (seconds, 0 = disable)",
+            "cli": ["-T", "--dim-timer"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x23, 0x0F, 0x01, 0x01],
+            "value_type": "range",
+            "input_range": [0, 1200, 1],
+            "output_range": [0x000000, 0x124F80, 1000],
+            "range_length_byte": 3,
+            "default": 30,
+        },
     },
     "battery_level": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
