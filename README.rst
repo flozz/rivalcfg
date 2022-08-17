@@ -252,10 +252,14 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.6.0]
+* **Rivalcfg NEXT:** [4.7.0]
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
+
+  * Nothing yet ;)
+
+* **4.6.0:**
 
   * Add support for the Prime Wireless mouse (#172)
   * Aerox 3 Wireless support improved:
