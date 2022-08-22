@@ -257,6 +257,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Improve udev rules reloading
   * Rival 100: Rivalcfg is now able to read the firmware version of this device
     (#179, @staticssleever668)
 

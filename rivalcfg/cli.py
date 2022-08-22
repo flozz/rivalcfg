@@ -63,6 +63,7 @@ class UpdateUdevRulesAction(argparse.Action):
             print("E: You must run rivalcfg as root to use the --update-udev option.")
             sys.exit(2)
         udev.write_rules_file()
+        udev.reload_rules()
         udev.trigger()
         sys.exit(0)
 

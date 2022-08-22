@@ -58,6 +58,11 @@ def write_rules_file(path=RULES_FILE_PATH):
         rules_file.write(rules)
 
 
+def reload_rules():
+    """Reload udev rules."""
+    subprocess.check_output(["udevadm", "control", "--reload-rules"])
+
+
 def trigger():
     """Trigger udev to take into account the new rules."""
     subprocess.check_output(["udevadm", "trigger"])
