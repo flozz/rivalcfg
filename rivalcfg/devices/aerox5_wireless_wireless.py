@@ -1,4 +1,4 @@
-from . import aerox3_wireless_wired
+from . import aerox5_wireless_wired
 
 
 _WIRELESS_FLAG = 0b01000000
@@ -29,8 +29,8 @@ profile = {
     ],
     "settings": {
         name: _patch_command(info)
-        for name, info in aerox3_wireless_wired.profile["settings"].items()
+        for name, info in aerox5_wireless_wired.profile["settings"].items()
     },
-    "battery_level": _patch_command(aerox3_wireless_wired.profile["battery_level"]),
-    "save_command": _patch_command(aerox3_wireless_wired.profile["save_command"]),
+    "battery_level": _patch_command(aerox5_wireless_wired.profile["battery_level"]),
+    "save_command": _patch_command(aerox5_wireless_wired.profile["save_command"]),
 }
