@@ -121,3 +121,9 @@ class TestDevice(object):
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == b"\x02\x00\x09\x00"
+
+    def test_firmware_version(self, mouse):
+        mouse.firmware_version_tuple
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == b"\x02\x00\x10\x00"
