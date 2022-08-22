@@ -257,7 +257,8 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
-  * Nothing yet ;)
+  * Rival 100: Rivalcfg is now able to read the firmware version of this device
+    (#179, @staticssleever668)
 
 * **4.6.0:**
 
