@@ -149,13 +149,19 @@ class Mouse:
             timeout_ms=200,
         )
 
-        if "is_charging" in self.mouse_profile["battery_level"]:
-            result["is_charging"] = self.mouse_profile["battery_level"]["is_charging"](
-                data
-            )
+        try:
+            if "is_charging" in self.mouse_profile["battery_level"]:
+                result["is_charging"] = self.mouse_profile["battery_level"][
+                    "is_charging"
+                ](data)
+        except Exception:
+            pass
 
-        if "level" in self.mouse_profile["battery_level"]:
-            result["level"] = self.mouse_profile["battery_level"]["level"](data)
+        try:
+            if "level" in self.mouse_profile["battery_level"]:
+                result["level"] = self.mouse_profile["battery_level"]["level"](data)
+        except Exception:
+            pass
 
         return result
 
