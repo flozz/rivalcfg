@@ -257,6 +257,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Fix inverted firmware version minor and major digits
   * Fix crash when reading battry level of a device in sleep mode
   * Improve udev rules reloading
   * Rival 100: Rivalcfg is now able to read the firmware version of this device

@@ -113,7 +113,9 @@ class Mouse:
             self.mouse_profile["firmware_version"]["response_length"],
             timeout_ms=200,
         )
-        return tuple(version[::-1])
+        if not version:
+            return (0,)
+        return tuple(version)
 
     @property
     def firmware_version(self):
