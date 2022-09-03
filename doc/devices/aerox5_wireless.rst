@@ -69,8 +69,8 @@ is reset if you change colors.
 Buttons
 -------
 
-.. .. figure:: ./images/aerox_5_buttons.svg
-..    :alt: Aerox 5 buttons schema
+.. figure:: ./images/aerox_5_wireless_buttons.svg
+   :alt: Aerox 5 buttons schema
 
 .. include:: ./_buttons.rst
 
