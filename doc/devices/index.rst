@@ -10,6 +10,7 @@ Supported Devices
    ./aerox3.rst
    ./aerox3_wireless.rst
    ./aerox5_wireless.rst
+   ./aerox9_wireless.rst
    ./kanav2.rst
    ./kinzuv2.rst
    ./prime.rst
