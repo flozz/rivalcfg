@@ -4,6 +4,13 @@ Things to do when releasing a new version
 This file is a memo for the maintainer.
 
 
+0. Checks
+---------
+
+* Check the device list is up to date in the README (``./scripts/update_readme_devices.py``)
+* Check SSDB is up to date (``nox -s update_ssdb``)
+
+
 1. Release
 ----------
 
@@ -22,7 +29,7 @@ Publish source dist and wheels on PyPI.
 
 
 3. Publish Github Release
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 * Make a release on Github
 * Add changelog
