@@ -269,6 +269,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Add initial Aerox 9 Wireless support (#188)
   * Add Aerox 5 Wireless support (#184)
   * Fix inverted firmware version minor and major digits
   * Fix crash when reading battry level of a device in sleep mode
