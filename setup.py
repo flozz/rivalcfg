@@ -15,7 +15,7 @@ except Exception as error:
 
 setup(
     name="rivalcfg",
-    version="4.6.0",
+    version="4.7.0",
     description="Configure SteelSeries gaming mice",
     url="https://github.com/flozz/rivalcfg",
     license="WTFPL",

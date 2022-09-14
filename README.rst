@@ -55,10 +55,6 @@ SteelSeries Aerox 3 Wireless:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Aerox 3 Wireless (wired mode)                    | 1038:183a |
 +--------------------------------------------------------------+-----------+
-
-SteelSeries Aerox 3 Wireless:
-
-+--------------------------------------------------------------+-----------+
 | SteelSeries Aerox 3 Wireless (2.4 GHz wireless mode)         | 1038:1838 |
 +--------------------------------------------------------------+-----------+
 
@@ -67,11 +63,15 @@ SteelSeries Aerox 5 Wireless:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Aerox 5 Wireless (wired mode)                    | 1038:1854 |
 +--------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless (2.4 GHz wireless mode)         | 1038:1852 |
++--------------------------------------------------------------+-----------+
 
-SteelSeries Aerox 5 Wireless:
+SteelSeries Aerox 9 Wireless:
 
 +--------------------------------------------------------------+-----------+
-| SteelSeries Aerox 5 Wireless (2.4 GHz wireless mode)         | 1038:1852 |
+| SteelSeries Aerox 9 Wireless (wired mode)                    | 1038:185a |
++--------------------------------------------------------------+-----------+
+| SteelSeries Aerox 9 Wireless (2.4 GHz wireless mode)         | 1038:1858 |
 +--------------------------------------------------------------+-----------+
 
 SteelSeries Kana v2:
@@ -264,10 +264,14 @@ SteelSeries Sensei TEN:
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.7.0]
+* **Rivalcfg NEXT:** [4.8.0]
 
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
+
+  * Nothing yet :)
+
+* **4.7.0:**
 
   * Add initial Aerox 9 Wireless support (#188)
   * Add Aerox 5 Wireless support (#184)
