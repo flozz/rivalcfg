@@ -14,12 +14,12 @@ jobs:
     steps:
 
       - name: "Checkout the repository"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: "Set up Python"
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: "3.11"
 
       - name: "Install Python build dependencies"
         run: |
@@ -34,7 +34,7 @@ jobs:
           python setup.py bdist_wheel
 
       - name: "Upload artifacts"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: rivalcfg-dist
           path: dist/
@@ -50,7 +50,7 @@ jobs:
     steps:
 
       - name: "Download artifacts"
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
 
       - name: "Move packages to the dist/ folder"
         run: |
