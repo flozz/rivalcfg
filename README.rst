@@ -261,6 +261,16 @@ SteelSeries Sensei TEN:
 .. devices-list-end
 
 
+Supporting this project
+-----------------------
+
+Wanna support this project?
+
+* `☕️ Buy me a coffee <https://www.buymeacoffee.com/flozz>`__,
+* `❤️ sponsor me on Github <https://github.com/sponsors/flozz>`__,
+* `💵️ or give me a tip on PayPal <https://www.paypal.me/0xflozz>`__.
+
+
 Changelog
 ---------
 
