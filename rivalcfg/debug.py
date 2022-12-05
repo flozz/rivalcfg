@@ -49,6 +49,7 @@ def _get_rivalcfg_info():
 
 def _get_python_info():
     from pkg_resources import get_distribution
+
     result = _make_title("Python")
     result += "Python version: %d.%d.%d\n" % sys.version_info[:3]
     result += "HIDAPI version: %s\n" % get_distribution("hidapi").version
