@@ -12,7 +12,6 @@ import argparse
 from . import handlers
 from . import devices
 from . import udev
-from . import debug
 from .version import VERSION
 
 
@@ -80,6 +79,7 @@ class PrintDebugAction(argparse.Action):
     """Prints debug informations and exit."""
 
     def __call__(self, parser, namespace, value, option_string=None):
+        from . import debug
         print(debug.get_debug_info())
         sys.exit(0)
 
