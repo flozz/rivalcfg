@@ -279,6 +279,7 @@ Changelog
   Features that are implemented on ``master`` and that will be released in the
   next Rivalcfg version:
 
+  * Improved CLI startup time (@gryzus24, #194)
   * Added Python 3.11 support
 
 * **4.7.0:**
