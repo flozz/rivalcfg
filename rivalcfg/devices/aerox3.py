@@ -137,6 +137,21 @@ profile = {
             # fmt: on
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
         },
+        "default_lighting": {
+            "label": "Default lighting",
+            "description": "Set default lighting at mouse startup",
+            "cli": ["-d", "--default-lighting"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x27],
+            "value_type": "choice",
+            "choices": {
+                "off": [0x00, 0x00],
+                "reactive": [0x00, 0x01],
+                "rainbow": [0x01, 0x00],
+                "reactive-rainbow": [0x01, 0x01],
+            },
+            "default": "rainbow",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,

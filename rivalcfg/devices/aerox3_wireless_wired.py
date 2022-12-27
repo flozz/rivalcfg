@@ -141,6 +141,21 @@ profile = {
             "command": [0x22, 0xFF],
             "value_type": "none",
         },
+        "default_lighting": {
+            "label": "Default lighting",
+            "description": "Set default lighting at mouse startup",
+            "cli": ["-d", "--default-lighting"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x27],
+            "value_type": "choice",
+            "choices": {
+                "off": [0x00, 0x00],
+                "reactive": [0x00, 0x01],
+                "rainbow": [0x01, 0x00],
+                "reactive-rainbow": [0x01, 0x01],
+            },
+            "default": "rainbow",
+        },
     },
     "battery_level": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,

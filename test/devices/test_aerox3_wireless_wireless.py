@@ -216,6 +216,21 @@ class TestDevice(object):
         assert hid_report == b"\x02\x00\x62\xff"
         assert len(response) == 64
 
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("off", b"\x02\x00\x67\x00\x00"),
+            ("reactive", b"\x02\x00\x67\x00\x01"),
+            ("rainbow", b"\x02\x00\x67\x01\x00"),
+            ("reactive-rainbow", b"\x02\x00\x67\x01\x01"),
+        ],
+    )
+    def test_set_default_lighting(self, mouse, value, expected_hid_report):
+        mouse.set_default_lighting(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
     def test_battery_level(self, mouse):
         battery_info = mouse.battery
         mouse._hid_device.bytes.seek(0)

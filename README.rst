@@ -280,6 +280,13 @@ Changelog
   next Rivalcfg version:
 
   * Improved CLI startup time (@gryzus24, #194)
+  * Added default lighting settings to following devices:
+    * Aerox 3
+    * Aerox 3 Wireless
+    * Aerox 5 Wireless
+    * Aerox 9 Wireless
+    * Prime
+    * Prime Wireless
   * Added Python 3.11 support
 
 * **4.7.0:**

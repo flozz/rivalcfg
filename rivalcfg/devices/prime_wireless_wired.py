@@ -106,6 +106,19 @@ profile = {
             "range_length_byte": 3,
             "default": 30,
         },
+        "default_lighting": {
+            "label": "Default lighting",
+            "description": "Set default lighting at mouse startup",
+            "cli": ["-d", "--default-lighting"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x27],
+            "value_type": "choice",
+            "choices": {
+                "off": 0x00,
+                "rainbow": 0x01,
+            },
+            "default": "rainbow",
+        },
     },
     "battery_level": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
