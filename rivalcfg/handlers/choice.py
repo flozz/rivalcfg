@@ -59,6 +59,8 @@ Functions
 ---------
 """
 
+from .. import helpers
+
 
 def choices_to_list(choices):
     """Helper function that transforms choices dict to an ordered string list.
@@ -106,7 +108,7 @@ def process_value(setting_info, choice):
             "value must be one of [%s]" % choices_to_string(setting_info["choices"])
         )
     value = choices[choice]
-    return [value]
+    return helpers.merge_bytes(value)
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):

@@ -15,6 +15,7 @@ class TestProcessValue(object):
                 0: 0xAA,
                 10: 0xBB,
                 20: 0xCC,
+                "multi": [0x11, 0x22],
             },
         }
 
@@ -26,6 +27,9 @@ class TestProcessValue(object):
 
     def test_valid_choice_str(self, setting_info):
         assert choice.process_value(setting_info, "foo") == [0xDD]
+
+    def test_valid_choice_with_multibyte_value(self, setting_info):
+        assert choice.process_value(setting_info, "multi") == [0x11, 0x22]
 
     def test_not_valid_choice(self, setting_info):
         with pytest.raises(ValueError):
