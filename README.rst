@@ -280,7 +280,7 @@ Changelog
   next Rivalcfg version:
 
   * Improved CLI startup time (@gryzus24, #194)
-  * Added default lighting settings to following devices:
+  * Added default lighting setting to following devices:
     * Aerox 3
     * Aerox 3 Wireless
     * Aerox 5 Wireless
@@ -453,7 +453,7 @@ Older changelog entries were moved to the `CHANGELOG.rst
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
 
-.. |Github Actions| image:: https://img.shields.io/github/workflow/status/flozz/rivalcfg/Lint%20and%20Tests/master
+.. |Github Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
    :target: https://github.com/flozz/rivalcfg/actions
 
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
