@@ -274,20 +274,23 @@ Wanna support this project?
 Changelog
 ---------
 
-* **Rivalcfg NEXT:** [4.8.0]
+* **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  Features that are implemented on ``master`` and that will be released in the
-  next Rivalcfg version:
+  * Nothing yet :)
+
+* **v4.8.0:**
 
   * Improved CLI startup time (@gryzus24, #194)
-  * Added default lighting setting to following devices:
+  * Added default lighting setting to following devices (@flozz, #191, #195):
+
     * Aerox 3
     * Aerox 3 Wireless
     * Aerox 5 Wireless
     * Aerox 9 Wireless
     * Prime
     * Prime Wireless
-  * Added Python 3.11 support
+
+  * Added Python 3.11 support (@flozz)
 
 * **4.7.0:**
 
