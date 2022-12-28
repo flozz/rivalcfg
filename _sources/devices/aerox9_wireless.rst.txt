@@ -59,12 +59,23 @@ This mouse supports colors. Various formats are supported.
 
 .. include:: ./_colors.rst
 
+.. IMPORTANT::
+
+   On newer SteelSeries mice, the color settings are not saved in the onboard
+   memory anymore (see Default Lighting bellow).
+
 
 Rainbow Effect
 --------------
 
-The Aerox 3 offers an onboard rainbow light effect. Please note that the effect
+The Aerox 9 offers an onboard rainbow light effect. Please note that the effect
 is reset if you change colors.
+
+
+Default Lighting
+----------------
+
+.. include:: ./_default_lighting_reactive.rst
 
 
 Python API

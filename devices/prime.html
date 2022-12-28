@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Prime &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>SteelSeries Prime &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -31,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,6 +67,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#rgb-tuple-python-api-only">RGB Tuple (Python API only)</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#default-lighting">Default Lighting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
@@ -104,9 +106,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Supported Devices</a> &raquo;</li>
-      <li>SteelSeries Prime</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Supported Devices</a></li>
+      <li class="breadcrumb-item active">SteelSeries Prime</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/devices/prime.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,9 +152,10 @@
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
                 [--print-udev] [--print-debug] [-s SENSITIVITY]
-                [-p POLLING_RATE] [-c COLOR] [-l LED_BRIGHTNESS] [-r]
+                [-p POLLING_RATE] [-c COLOR] [-l LED_BRIGHTNESS]
+                [-d DEFAULT_LIGHTING] [-r]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
@@ -176,6 +179,9 @@ SteelSeries Prime Options:
   -l LED_BRIGHTNESS, --led-brightness LED_BRIGHTNESS
                         Set the brightness of the wheel LED (from 0 to 256,
                         default: 256)
+  -d DEFAULT_LIGHTING, --default-lighting DEFAULT_LIGHTING
+                        Set default lighting at mouse startup (values: off,
+                        rainbow, default: rainbow)
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
@@ -274,7 +280,27 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
          border-radius: 2px;
          box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
     }
-</style></section>
+</style><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On newer SteelSeries mice, the color settings are not saved in the onboard
+memory anymore (see Default Lighting bellow).</p>
+</div>
+</section>
+</section>
+<section id="default-lighting">
+<h2>Default Lighting<a class="headerlink" href="#default-lighting" title="Permalink to this heading"></a></h2>
+<p>The color setting <strong>is not saved</strong> in the onboard memory on this device. You
+can only define if the light goes blank or rainbow at startup.</p>
+<p>Supported values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">off</span></code>: All LEDs are off when the mouse wakeup.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rainbow</span></code>: LEDs displays an animated raibow effet when the mouse wakeup.</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">off</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">rainbow</span>
+</pre></div>
+</div>
 </section>
 <section id="python-api">
 <h2>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading"></a></h2>

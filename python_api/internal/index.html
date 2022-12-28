@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Internal Python API &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>Internal Python API &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +32,7 @@
             <a href="../../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -81,9 +82,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Python API</a> &raquo;</li>
-      <li>Internal Python API</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
+      <li class="breadcrumb-item active">Internal Python API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/python_api/internal/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,11 +104,28 @@ interact with SteelSeries mice from your own scripts, read the
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="color_helpers.html">color_helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="color_helpers.html#rivalcfg.color_helpers.is_color"><code class="docutils literal notranslate"><span class="pre">is_color()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="color_helpers.html#rivalcfg.color_helpers.parse_color_gradient_string"><code class="docutils literal notranslate"><span class="pre">parse_color_gradient_string()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="color_helpers.html#rivalcfg.color_helpers.parse_color_string"><code class="docutils literal notranslate"><span class="pre">parse_color_string()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">cli</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.PrintDebugAction"><code class="docutils literal notranslate"><span class="pre">PrintDebugAction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.PrintSupportedDevicesAction"><code class="docutils literal notranslate"><span class="pre">PrintSupportedDevicesAction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.PrintUdevRulesAction"><code class="docutils literal notranslate"><span class="pre">PrintUdevRulesAction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.UpdateUdevRulesAction"><code class="docutils literal notranslate"><span class="pre">UpdateUdevRulesAction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.add_main_cli"><code class="docutils literal notranslate"><span class="pre">add_main_cli()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.add_mouse_cli"><code class="docutils literal notranslate"><span class="pre">add_mouse_cli()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#rivalcfg.cli.normalize_cli_option_name"><code class="docutils literal notranslate"><span class="pre">normalize_cli_option_name()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="devices.html">devices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="devices.html#profile-spec">Profile spec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices.html#module-api">Module API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices.html#rivalcfg.devices.UnsupportedDevice"><code class="docutils literal notranslate"><span class="pre">UnsupportedDevice</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices.html#rivalcfg.devices.get_profile"><code class="docutils literal notranslate"><span class="pre">get_profile()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices.html#rivalcfg.devices.list_plugged_devices"><code class="docutils literal notranslate"><span class="pre">list_plugged_devices()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="handlers/index.html">handlers</a><ul>
@@ -122,7 +140,16 @@ interact with SteelSeries mice from your own scripts, read the
 <li class="toctree-l2"><a class="reference internal" href="handlers/buttons.html">buttons</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="helpers.html">helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.REGEXP_PARAM_STRING"><code class="docutils literal notranslate"><span class="pre">REGEXP_PARAM_STRING</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.bytes_to_high_low_nibbles"><code class="docutils literal notranslate"><span class="pre">bytes_to_high_low_nibbles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.merge_bytes"><code class="docutils literal notranslate"><span class="pre">merge_bytes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.module_ls"><code class="docutils literal notranslate"><span class="pre">module_ls()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.nibbles_to_byte"><code class="docutils literal notranslate"><span class="pre">nibbles_to_byte()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.parse_param_string"><code class="docutils literal notranslate"><span class="pre">parse_param_string()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html#rivalcfg.helpers.uint_to_little_endian_bytearray"><code class="docutils literal notranslate"><span class="pre">uint_to_little_endian_bytearray()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="mouse.html">mouse</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mouse.html#factory-function">Factory Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mouse.html#mouse-class">Mouse Class</a></li>
@@ -134,7 +161,16 @@ interact with SteelSeries mice from your own scripts, read the
 <li class="toctree-l2"><a class="reference internal" href="mouse_settings.html#helper-functions">Helper functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="udev.html">udev</a></li>
+<li class="toctree-l1"><a class="reference internal" href="udev.html">udev</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.RULES_FILE_PATH"><code class="docutils literal notranslate"><span class="pre">RULES_FILE_PATH</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.are_rules_up_to_date"><code class="docutils literal notranslate"><span class="pre">are_rules_up_to_date()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.generate_rules"><code class="docutils literal notranslate"><span class="pre">generate_rules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.is_rules_file_up_to_date"><code class="docutils literal notranslate"><span class="pre">is_rules_file_up_to_date()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.reload_rules"><code class="docutils literal notranslate"><span class="pre">reload_rules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.trigger"><code class="docutils literal notranslate"><span class="pre">trigger()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="udev.html#rivalcfg.udev.write_rules_file"><code class="docutils literal notranslate"><span class="pre">write_rules_file()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usbhid.html">usbhid</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="usbhid.html#constants">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usbhid.html#functions">Functions</a></li>

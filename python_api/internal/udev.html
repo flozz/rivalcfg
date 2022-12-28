@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>udev &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>udev &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +32,7 @@
             <a href="../../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -57,7 +58,16 @@
 <li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mouse_settings.html">mouse_settings</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">udev</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">udev</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.RULES_FILE_PATH"><code class="docutils literal notranslate"><span class="pre">RULES_FILE_PATH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.are_rules_up_to_date"><code class="docutils literal notranslate"><span class="pre">are_rules_up_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.generate_rules"><code class="docutils literal notranslate"><span class="pre">generate_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.is_rules_file_up_to_date"><code class="docutils literal notranslate"><span class="pre">is_rules_file_up_to_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.reload_rules"><code class="docutils literal notranslate"><span class="pre">reload_rules()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.trigger"><code class="docutils literal notranslate"><span class="pre">trigger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.udev.write_rules_file"><code class="docutils literal notranslate"><span class="pre">write_rules_file()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="usbhid.html">usbhid</a></li>
 </ul>
 </li>
@@ -81,10 +91,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Python API</a> &raquo;</li>
-          <li><a href="index.html">Internal Python API</a> &raquo;</li>
-      <li>udev</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
+      <li class="breadcrumb-item active">udev</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/python_api/internal/udev.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,7 +120,7 @@ generate, check and update rules files.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.are_rules_up_to_date">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">are_rules_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'4.7.0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.are_rules_up_to_date" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">are_rules_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'4.8.0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.are_rules_up_to_date" title="Permalink to this definition"></a></dt>
 <dd><p>Check if the given udev rules are up to date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

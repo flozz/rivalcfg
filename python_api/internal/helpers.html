@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>helpers &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>helpers &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +32,7 @@
             <a href="../../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -54,7 +55,16 @@
 <li class="toctree-l3"><a class="reference internal" href="cli.html">cli</a></li>
 <li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">helpers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">helpers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.REGEXP_PARAM_STRING"><code class="docutils literal notranslate"><span class="pre">REGEXP_PARAM_STRING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.bytes_to_high_low_nibbles"><code class="docutils literal notranslate"><span class="pre">bytes_to_high_low_nibbles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.merge_bytes"><code class="docutils literal notranslate"><span class="pre">merge_bytes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.module_ls"><code class="docutils literal notranslate"><span class="pre">module_ls()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.nibbles_to_byte"><code class="docutils literal notranslate"><span class="pre">nibbles_to_byte()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.parse_param_string"><code class="docutils literal notranslate"><span class="pre">parse_param_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.helpers.uint_to_little_endian_bytearray"><code class="docutils literal notranslate"><span class="pre">uint_to_little_endian_bytearray()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="mouse.html">mouse</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mouse_settings.html">mouse_settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="udev.html">udev</a></li>
@@ -81,10 +91,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Python API</a> &raquo;</li>
-          <li><a href="index.html">Internal Python API</a> &raquo;</li>
-      <li>helpers</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
+      <li class="breadcrumb-item active">helpers</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/python_api/internal/helpers.rst.txt" rel="nofollow"> View page source</a>
       </li>

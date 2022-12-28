@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Aerox 3 Wireless &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>SteelSeries Aerox 3 Wireless &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -31,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,6 +63,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#rainbow-effect">Rainbow Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-lighting">Default Lighting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-special-actions">Mapping Special Actions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mapping-mouse-buttons">Mapping Mouse Buttons</a></li>
@@ -112,9 +114,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Supported Devices</a> &raquo;</li>
-      <li>SteelSeries Aerox 3 Wireless</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Supported Devices</a></li>
+      <li class="breadcrumb-item active">SteelSeries Aerox 3 Wireless</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/devices/aerox3_wireless.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -165,9 +167,10 @@
                 [-p POLLING_RATE] [--top-color Z1_COLOR]
                 [--middle-color Z2_COLOR] [--bottom-color Z3_COLOR]
                 [-a REACTIVE_COLOR] [-t SLEEP_TIMER] [-T DIM_TIMER]
-                [-b BUTTONS_MAPPING] [-e] [-r] [--battery-level]
+                [-b BUTTONS_MAPPING] [-e] [-d DEFAULT_LIGHTING] [-r]
+                [--battery-level]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
@@ -212,6 +215,9 @@ SteelSeries Aerox 3 Wireless (wired mode) Options:
                         layout=qwerty))
   -e, --rainbow-effect  Enable the rainbow effect (can be disabled by setting
                         a color)
+  -d DEFAULT_LIGHTING, --default-lighting DEFAULT_LIGHTING
+                        Set default lighting at mouse startup (values: off,
+                        reactive, rainbow, reactive-rainbow, default: rainbow)
   -r, --reset           Reset all settings to their factory default
   --battery-level       Print the battery level of the mouse and exit
 
@@ -311,12 +317,37 @@ also pass colors as RGB <code class="docutils literal notranslate"><span class="
          border-radius: 2px;
          box-shadow: inset -1px -1px 0 rgba(255, 255, 255, .5), inset 1px 1px 0 rgba(255, 255, 255, .5);
     }
-</style></section>
+</style><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On newer SteelSeries mice, the color settings are not saved in the onboard
+memory anymore (see Default Lighting bellow).</p>
+</div>
+</section>
 </section>
 <section id="rainbow-effect">
 <h2>Rainbow Effect<a class="headerlink" href="#rainbow-effect" title="Permalink to this heading"></a></h2>
 <p>The Aerox 3 offers an onboard rainbow light effect. Please note that the effect
 is reset if you change colors.</p>
+</section>
+<section id="default-lighting">
+<h2>Default Lighting<a class="headerlink" href="#default-lighting" title="Permalink to this heading"></a></h2>
+<p>The color setting <strong>is not saved</strong> in the onboard memory on this device. You
+can only define if the light goes blank or rainbow at startup.</p>
+<p>Supported values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">off</span></code>: All LEDs are off when the mouse wakeup. Clinking on mouse buttons do
+not trigger light reaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reactive</span></code>: All LEDs are off when the mouse wakeup. Clinking on mouse buttons trigger a light reacion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rainbow</span></code>: LEDs displays an animated raibow effet when the mouse wakeup.
+Clinking on mouse buttons do not trigger light reaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reactive-rainbow</span></code>: LEDs displays an animated raibow effet when the mouse
+wakeup. Clinking on mouse buttons trigger a light reacion.</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">off</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">reactive</span><span class="o">-</span><span class="n">rainbow</span>
+</pre></div>
+</div>
 </section>
 <section id="buttons">
 <h2>Buttons<a class="headerlink" href="#buttons" title="Permalink to this heading"></a></h2>

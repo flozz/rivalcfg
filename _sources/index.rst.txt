@@ -52,7 +52,7 @@ Indices and tables
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
 
-.. |Github Actions| image:: https://img.shields.io/github/workflow/status/flozz/rivalcfg/Lint%20and%20Tests/master
+.. |Github Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
    :target: https://github.com/flozz/rivalcfg/actions
 
 .. |License| image:: https://img.shields.io/github/license/flozz/rivalcfg

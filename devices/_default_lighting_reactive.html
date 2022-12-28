@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python API &mdash; rivalcfg v4.8.0 documentation</title>
+  <title>&lt;no title&gt; &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,9 +19,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="High Level Python API" href="high_level/index.html" />
-    <link rel="prev" title="Environment Variables" href="../env.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,17 +41,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="high_level/index.html">High Level Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/index.html">Internal Python API</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Supported Devices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 </ul>
@@ -72,9 +66,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Python API</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/python_api/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/devices/_default_lighting_reactive.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -82,47 +76,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="python-api">
-<h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this heading"></a></h1>
-<p><strong>Rivalcfg</strong> provides a complete <strong>Python API</strong> to configure <strong>SteelSeries
-gaming mice</strong>. To make things simpler, the Python API documentation have been
-splitted in half:</p>
+  <p>The color setting <strong>is not saved</strong> in the onboard memory on this device. You
+can only define if the light goes blank or rainbow at startup.</p>
+<p>Supported values are:</p>
 <ul class="simple">
-<li><p>the <strong>high level API</strong>: it is the one you want to use to interact with any supported
-mouse from your own scripts,</p></li>
-<li><p>the <strong>internal API</strong>: probably only useful to you if you want to develop
-rivalcfg itself.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">off</span></code>: All LEDs are off when the mouse wakeup. Clinking on mouse buttons do
+not trigger light reaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reactive</span></code>: All LEDs are off when the mouse wakeup. Clinking on mouse buttons trigger a light reacion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rainbow</span></code>: LEDs displays an animated raibow effet when the mouse wakeup.
+Clinking on mouse buttons do not trigger light reaction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reactive-rainbow</span></code>: LEDs displays an animated raibow effet when the mouse
+wakeup. Clinking on mouse buttons trigger a light reacion.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="high_level/index.html">High Level Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="high_level/index.html#rivalcfg.get_first_mouse"><code class="docutils literal notranslate"><span class="pre">get_first_mouse()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="internal/index.html">Internal Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="internal/color_helpers.html">color_helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/cli.html">cli</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/devices.html">devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/handlers/index.html">handlers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/helpers.html">helpers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/mouse.html">mouse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/mouse_settings.html">mouse_settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/udev.html">udev</a></li>
-<li class="toctree-l2"><a class="reference internal" href="internal/usbhid.html">usbhid</a></li>
-</ul>
-</li>
-</ul>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">off</span>
+<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">default</span><span class="o">-</span><span class="n">lighting</span> <span class="n">reactive</span><span class="o">-</span><span class="n">rainbow</span>
+</pre></div>
 </div>
-</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../env.html" class="btn btn-neutral float-left" title="Environment Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="high_level/index.html" class="btn btn-neutral float-right" title="High Level Python API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

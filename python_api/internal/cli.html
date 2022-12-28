@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cli &mdash; rivalcfg v4.7.0 documentation</title>
+  <title>cli &mdash; rivalcfg v4.8.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -31,7 +32,7 @@
             <a href="../../index.html" class="icon icon-home"> rivalcfg
           </a>
               <div class="version">
-                v4.7.0
+                v4.8.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -51,7 +52,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../high_level/index.html">High Level Python API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Internal Python API</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="color_helpers.html">color_helpers</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">cli</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">cli</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.PrintDebugAction"><code class="docutils literal notranslate"><span class="pre">PrintDebugAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.PrintSupportedDevicesAction"><code class="docutils literal notranslate"><span class="pre">PrintSupportedDevicesAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.PrintUdevRulesAction"><code class="docutils literal notranslate"><span class="pre">PrintUdevRulesAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.UpdateUdevRulesAction"><code class="docutils literal notranslate"><span class="pre">UpdateUdevRulesAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.add_main_cli"><code class="docutils literal notranslate"><span class="pre">add_main_cli()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.add_mouse_cli"><code class="docutils literal notranslate"><span class="pre">add_mouse_cli()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rivalcfg.cli.normalize_cli_option_name"><code class="docutils literal notranslate"><span class="pre">normalize_cli_option_name()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="devices.html">devices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="handlers/index.html">handlers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="helpers.html">helpers</a></li>
@@ -81,10 +91,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Python API</a> &raquo;</li>
-          <li><a href="index.html">Internal Python API</a> &raquo;</li>
-      <li>cli</li>
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
+      <li class="breadcrumb-item active">cli</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/python_api/internal/cli.rst.txt" rel="nofollow"> View page source</a>
       </li>
