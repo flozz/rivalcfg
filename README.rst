@@ -276,7 +276,8 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet :)
+  * Removed the default lighting option for the Prime mouse (reported not
+    working and not needed on this device) (@flozz, #196)
 
 * **v4.8.0:**
 

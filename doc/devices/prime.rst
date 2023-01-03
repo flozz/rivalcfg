@@ -58,17 +58,6 @@ This mouse supports colors. Various formats are supported.
 
 .. include:: ./_colors.rst
 
-.. IMPORTANT::
-
-   On newer SteelSeries mice, the color settings are not saved in the onboard
-   memory anymore (see Default Lighting bellow).
-
-
-Default Lighting
-----------------
-
-.. include:: ./_default_lighting.rst
-
 
 Python API
 ----------
