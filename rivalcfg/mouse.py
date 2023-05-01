@@ -33,7 +33,8 @@ def get_mouse(vendor_id=0x1038, product_id=None):
         profile,
     )
 
-    hid_device = usbhid.open_device(vendor_id, product_id, profile["endpoint"])
+    hid_device = usbhid.open_device(vendor_id, product_id, profile["endpoint"],
+                                    usage_page=0xffc0)
 
     return Mouse(hid_device, profile, settings)
 
@@ -64,7 +65,7 @@ class Mouse:
     >>> profile = devices.get_profile(vendor_id=0x1038, product_id=0x1702)
     >>> settings = get_mouse_settings(0x1038, 0x1702, profile)
     >>> Mouse(
-    ...     usbhid.open_device(vendor_id=0x1038, product_id=0x1702, endpoint=0),
+    ...     usbhid.open_device(vendor_id=0x1038, product_id=0x1702, endpoint=0, usage_page=0xffc0),
     ...     profile,
     ...     settings,
     ... )
