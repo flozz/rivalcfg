@@ -87,8 +87,8 @@ def open_device(vendor_id, product_id, endpoint):
             path = interface["path"]
             break
 
-    # HACK: On macOS Ventura, all endpoints has id 0, so we have to guess which
-    # one is the right one using the usage page. Usage pages from 0xFF00 to
+    # HACK: On macOS Ventura, all endpoints have id 0, so we have to guess
+    # which one to use by looking at the usage page. Usage pages from 0xFF00 to
     # 0xFFFF are vendor defined and seems to be used by SteelSeries to identify
     # the control endpoint.
     if not path:
