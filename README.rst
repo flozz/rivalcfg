@@ -278,6 +278,8 @@ Changelog
 
   * Removed the default lighting option for the Prime mouse (reported not
     working and not needed on this device) (@flozz, #196)
+  * Fixed devices endpoint not found on macOS Ventura (@glyph, @flozz, #200,
+    #202)
 
 * **v4.8.0:**
 
