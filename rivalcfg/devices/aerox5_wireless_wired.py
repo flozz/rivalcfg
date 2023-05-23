@@ -13,6 +13,12 @@ profile = {
             "product_id": 0x1854,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 5 Wireless Destiny 2 Edition (wired mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x185E,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         "sensitivity": {

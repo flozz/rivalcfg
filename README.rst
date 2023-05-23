@@ -280,6 +280,7 @@ Changelog
     working and not needed on this device) (@flozz, #196)
   * Fixed devices endpoint not found on macOS Ventura (@glyph, @flozz, #200,
     #202)
+  * Added Aerox 5 Wireless Destiny 2 Editon support (@flozz, #205)
 
 * **v4.8.0:**
 
