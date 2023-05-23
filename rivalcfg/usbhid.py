@@ -20,6 +20,7 @@ This module can also simulate devices:
 
 import os
 import struct
+import platform
 from io import BytesIO
 
 import hid
@@ -30,6 +31,11 @@ HID_REPORT_TYPE_OUTPUT = 0x02
 
 #: HID feature report
 HID_REPORT_TYPE_FEATURE = 0x03
+
+
+_IS_MACOS_VENTURA = (
+    platform.system() == "Darwin" and platform.mac_ver()[0].split(".")[0] == "13"
+)
 
 
 def is_device_plugged(vendor_id, product_id):
@@ -91,10 +97,11 @@ def open_device(vendor_id, product_id, endpoint):
     # which one to use by looking at the usage page. Usage pages from 0xFF00 to
     # 0xFFFF are vendor defined and seems to be used by SteelSeries to identify
     # the control endpoint.
-    if not path:
+    if _IS_MACOS_VENTURA:
         for interface in hid.enumerate(vendor_id, product_id):
             if interface["interface_number"] == 0 and interface["usage_page"] >= 0xFF00:
                 path = interface["path"]
+                break
 
     # Open the found device. This can raise an IOError.
     if path:
