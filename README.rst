@@ -281,6 +281,7 @@ Changelog
   * Fixed devices endpoint not found on macOS Ventura (@glyph, @flozz, #200,
     #202)
   * Added Aerox 5 Wireless Destiny 2 Editon support (@flozz, #205)
+  * Added Aerox 5 Wireless Diablo IV Edition support (@flozz, #206)
 
 * **v4.8.0:**
 

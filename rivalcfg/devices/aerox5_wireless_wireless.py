@@ -32,6 +32,12 @@ profile = {
             "product_id": 0x185C,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 5 Wireless Diablo IV Edition (2.4 GHz wireless mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x1860,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         name: _patch_command(info)
