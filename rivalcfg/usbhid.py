@@ -77,6 +77,13 @@ def open_device(vendor_id, product_id, endpoint):
     >>> usbhid.open_device(0x1038, 0x1702, 0)
     <hid.device at 0x...>
     """
+    from pprint import pprint  # XXX
+
+    print("=" * 80)  # XXX
+
+    print("_IS_MACOS_VENTURA: %i" % int(_IS_MACOS_VENTURA))  # XXX
+    print("-" * 80)  # XXX
+
     # Instanciate the device (real or fake depending of environment)
     if "RIVALCFG_DRY" in os.environ:
         # Setting a path allows the fake device to be opened even if requested
@@ -88,9 +95,18 @@ def open_device(vendor_id, product_id, endpoint):
         device = hid.device()
 
     # Search the device
-    for interface in hid.enumerate(vendor_id, product_id):
+    interfaces = hid.enumerate(vendor_id, product_id)
+
+    print("All interfaces:")  # XXX
+    pprint(interfaces)  # XXX
+    print("-" * 80)  # XXX
+
+    for interface in interfaces:
         if interface["interface_number"] == endpoint:
             path = interface["path"]
+            print("Regular found interface:")  # XXX
+            pprint(interface)  # XXX
+            print("-" * 80)  # XXX
             break
 
     # HACK: On macOS Ventura, all endpoints have id 0, so we have to guess
@@ -98,9 +114,12 @@ def open_device(vendor_id, product_id, endpoint):
     # 0xFFFF are vendor defined and seems to be used by SteelSeries to identify
     # the control endpoint.
     if _IS_MACOS_VENTURA:
-        for interface in hid.enumerate(vendor_id, product_id):
+        for interface in interfaces:
             if interface["interface_number"] == 0 and interface["usage_page"] >= 0xFF00:
                 path = interface["path"]
+                print("macOS Ventura found interface:")  # XXX
+                pprint(interface)  # XXX
+                print("-" * 80)  # XXX
                 break
 
     # Open the found device. This can raise an IOError.
