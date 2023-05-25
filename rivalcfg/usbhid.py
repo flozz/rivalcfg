@@ -87,15 +87,6 @@ def open_device(vendor_id, product_id, endpoint):
             path = interface["path"]
             break
 
-    # HACK: On macOS Ventura, all endpoints have id 0, so we have to guess
-    # which one to use by looking at the usage page. Usage pages from 0xFF00 to
-    # 0xFFFF are vendor defined and seems to be used by SteelSeries to identify
-    # the control endpoint.
-    if not path:
-        for interface in hid.enumerate(vendor_id, product_id):
-            if interface["interface_number"] == 0 and interface["usage_page"] >= 0xFF00:
-                path = interface["path"]
-
     # Open the found device. This can raise an IOError.
     if path:
         device.open_path(path)
