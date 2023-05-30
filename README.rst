@@ -60,11 +60,19 @@ SteelSeries Aerox 3 Wireless:
 
 SteelSeries Aerox 5 Wireless:
 
-+--------------------------------------------------------------+-----------+
-| SteelSeries Aerox 5 Wireless (wired mode)                    | 1038:1854 |
-+--------------------------------------------------------------+-----------+
-| SteelSeries Aerox 5 Wireless (2.4 GHz wireless mode)         | 1038:1852 |
-+--------------------------------------------------------------+-----------+
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless (wired mode)                              | 1038:1854 |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless Destiny 2 Edition (wired mode)            | 1038:185e |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless Diablo IV Edition (wired mode)            | 1038:1862 |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless (2.4 GHz wireless mode)                   | 1038:1852 |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless Destiny 2 Edition (2.4 GHz wireless mode) | 1038:185c |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5 Wireless Diablo IV Edition (2.4 GHz wireless mode) | 1038:1860 |
++------------------------------------------------------------------------+-----------+
 
 SteelSeries Aerox 9 Wireless:
 
@@ -276,11 +284,15 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Removed the default lighting option for the Prime mouse (reported not
-    working and not needed on this device) (@flozz, #196)
+  * Nothing yet ;)
+
+* **v4.9.0:**
+
   * Added Aerox 5 Wireless Destiny 2 Editon support (@flozz, #205)
   * Added Aerox 5 Wireless Diablo IV Edition support (@flozz, #206)
   * Updated HIDAPI to v0.14 to fix a macOS Ventura issue (@flozz, #200)
+  * Removed the default lighting option for the Prime mouse (reported not
+    working and not needed on this device) (@flozz, #196)
 
 * **v4.8.0:**
 
