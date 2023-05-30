@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>helpers &mdash; rivalcfg v4.8.0 documentation</title>
+  <title>helpers &mdash; rivalcfg v4.9.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> rivalcfg
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            rivalcfg
           </a>
               <div class="version">
-                v4.8.0
+                v4.9.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -91,7 +94,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
           <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
       <li class="breadcrumb-item active">helpers</li>
@@ -128,10 +131,10 @@
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">merge_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.merge_bytes" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a single list of int from given int and list of int.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>args</strong> (<em>int</em><em>,</em><em>list</em><em>[</em><em>int</em><em>]</em>) – Values to merge</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[int]</p>
 </dd>
 </dl>
@@ -151,10 +154,10 @@
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">module_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.module_ls" title="Permalink to this definition"></a></dt>
 <dd><p>List the content of the given Python module, ignoring private elements.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>module</strong> – The module to list.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>[str]</p>
 </dd>
 </dl>
@@ -175,13 +178,13 @@
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">parse_param_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paramstr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_parsers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.parse_param_string" title="Permalink to this definition"></a></dt>
 <dd><p>Parses a parameter string (used for rgbgrandiant).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>paramstr</strong> (<em>str</em>) – The parameter string.</p></li>
 <li><p><strong>value_parsers</strong> (<em>dict</em>) – Additional parsers to parse values.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -216,7 +219,7 @@ bellow.</p>
 <span class="go">{&#39;foo&#39;: {&#39;a&#39;: 42, &#39;b&#39;: 3.14}}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parse_param_string</span><span class="p">(</span><span class="s2">&quot;foobar[a=1]&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
-    <span class="o">...</span>
+<span class="w">    </span><span class="o">...</span>
 <span class="gr">ValueError</span>: <span class="n">invalid parameter string &#39;foobar[a=1]&#39;</span>
 </pre></div>
 </div>
@@ -227,13 +230,13 @@ bellow.</p>
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.helpers.</span></span><span class="sig-name descname"><span class="pre">uint_to_little_endian_bytearray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.helpers.uint_to_little_endian_bytearray" title="Permalink to this definition"></a></dt>
 <dd><p>Converts an unsigned interger to a little endian bytearray.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>number</strong> (<em>in</em>) – The number to convert.</p></li>
 <li><p><strong>size</strong> (<em>in</em>) – The length of the target bytearray.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>[int]</p>
 </dd>
 </dl>
@@ -247,7 +250,7 @@ bellow.</p>
 <span class="go">[66, 255, 0, 0]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">uint_to_little_endian_bytearray</span><span class="p">(</span><span class="mh">0xFFFFFF</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
-    <span class="o">...</span>
+<span class="w">    </span><span class="o">...</span>
 <span class="gr">ValueError</span>: <span class="n">integer overflow</span>
 </pre></div>
 </div>

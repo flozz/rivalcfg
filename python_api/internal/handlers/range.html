@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>range &mdash; rivalcfg v4.8.0 documentation</title>
+  <title>range &mdash; rivalcfg v4.9.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> rivalcfg
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            rivalcfg
           </a>
               <div class="version">
-                v4.8.0
+                v4.9.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -93,7 +96,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Python API</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Internal Python API</a></li>
           <li class="breadcrumb-item"><a href="index.html">handlers</a></li>
@@ -175,7 +178,7 @@ like <code class="docutils literal notranslate"><span class="pre">[0,</span> <sp
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.add_cli_option" title="Permalink to this definition"></a></dt>
 <dd><p>Add the given “range” type setting to the given CLI arguments parser.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cli_parser</strong> (<em>ArgumentParser</em>) – An <code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentParser</span></code> instance.</p></li>
 <li><p><strong>setting_name</strong> (<em>str</em>) – The name of the setting.</p></li>
@@ -193,14 +196,14 @@ device profile.</p></li>
 a float as step.</p>
 <p>I am not very proud of this but the Rival 110 requires a step of ~2.33…</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>start</strong> (<em>int</em>) – The start of the range.</p></li>
 <li><p><strong>stop</strong> (<em>int</em>) – The end of the range.</p></li>
 <li><p><strong>step</strong> (<em>float</em>) – The gap between two value in the range.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>generator(int)</p>
 </dd>
 </dl>
@@ -216,7 +219,7 @@ a float as step.</p>
 <dd><p>Helper function that matches the value with the nearest value in the
 given range.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>range_start</strong> (<em>int</em>) – The start of the range.</p></li>
 <li><p><strong>range_stop</strong> (<em>int</em>) – The end of the range.</p></li>
@@ -224,7 +227,7 @@ given range.</p>
 <li><p><strong>value</strong> (<em>int</em>) – The value to process.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -250,14 +253,14 @@ given range.</p>
 <dd><p>Called by the “range” functions to process ‘value’ with the specified
 range settings in ‘setting_info’.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
 device profile.</p></li>
 <li><p><strong>value</strong> – The input value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -269,14 +272,14 @@ device profile.</p></li>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “range” type setting.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>setting_info</strong> (<em>dict</em>) – The information dict of the setting from the
 device profile.</p></li>
 <li><p><strong>value</strong> – The input value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[int]</p>
 </dd>
 </dl>

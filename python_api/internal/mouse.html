@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mouse &mdash; rivalcfg v4.8.0 documentation</title>
+  <title>mouse &mdash; rivalcfg v4.9.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> rivalcfg
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            rivalcfg
           </a>
               <div class="version">
-                v4.8.0
+                v4.9.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,7 +89,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
           <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
       <li class="breadcrumb-item active">mouse</li>
@@ -108,7 +111,7 @@
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse.</span></span><span class="sig-name descname"><span class="pre">get_mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4152</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.get_mouse" title="Permalink to this definition"></a></dt>
 <dd><p>Get a <a class="reference internal" href="#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mouse</span></code></a> instance to manipulate requested device.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vendor_id</strong> (<em>int</em>) – The vendor id of the device (optional, by default
 this is set to the SteelSeries vendor id
@@ -117,11 +120,11 @@ this is set to the SteelSeries vendor id
 <code class="docutils literal notranslate"><span class="pre">0x1702</span></code>).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="devices.html#rivalcfg.devices.UnsupportedDevice" title="rivalcfg.devices.UnsupportedDevice"><strong>rivalcfg.devices.UnsupportedDevice</strong></a> – The requested device is not
 supported by rivalcfg.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse">Mouse</a></p>
 </dd>
 </dl>
@@ -150,7 +153,7 @@ profile. Read device specific documentation for more information.</p>
 <a class="reference internal" href="#rivalcfg.mouse.get_mouse" title="rivalcfg.mouse.get_mouse"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_mouse()</span></code></a> factory function instead.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>hid_device</strong> – The HID device to write in (provided by the
 <a class="reference internal" href="usbhid.html#rivalcfg.usbhid.open_device" title="rivalcfg.usbhid.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">rivalcfg.usbhid.open_device()</span></code></a>).</p></li>
@@ -178,7 +181,7 @@ profile. Read device specific documentation for more information.</p>
 <span class="sig-name descname"><span class="pre">_hid_write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">report_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packet_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.Mouse._hid_write" title="Permalink to this definition"></a></dt>
 <dd><p>Write data to the device.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>report_type</strong> (<em>int</em>) – The HID report type
 (<a class="reference internal" href="usbhid.html#rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT" title="rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT</span></code></a>
@@ -191,7 +194,7 @@ sent to the device (default: <code class="docutils literal notranslate"><span cl
 length)).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – Invalid report type, or HID device not openned.</p>
 </dd>
 </dl>
@@ -202,10 +205,10 @@ length)).</p></li>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">battery</span></span><a class="headerlink" href="#rivalcfg.mouse.Mouse.battery" title="Permalink to this definition"></a></dt>
 <dd><p>Information about the device battery.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">{&quot;is_charging&quot;:</span> <span class="pre">True|False|None,</span> <span class="pre">&quot;level&quot;:</span> <span class="pre">int(0-100)|None}</span></code>.</p>
 </dd>
 </dl>

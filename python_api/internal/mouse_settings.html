@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mouse_settings &mdash; rivalcfg v4.8.0 documentation</title>
+  <title>mouse_settings &mdash; rivalcfg v4.9.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> rivalcfg
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            rivalcfg
           </a>
               <div class="version">
-                v4.8.0
+                v4.9.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,7 +90,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Python API</a></li>
           <li class="breadcrumb-item"><a href="index.html">Internal Python API</a></li>
       <li class="breadcrumb-item active">mouse_settings</li>
@@ -114,7 +117,7 @@
 environment variable is set.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vendor_id</strong> (<em>int</em>) – The device’s vendor id (e.g. <code class="docutils literal notranslate"><span class="pre">0x1038</span></code>).</p></li>
 <li><p><strong>product_id</strong> (<em>int</em>) – The device’s product id (e.g. <code class="docutils literal notranslate"><span class="pre">``0xbaad</span></code>).</p></li>
@@ -135,7 +138,7 @@ default: <code class="docutils literal notranslate"><span class="pre">&quot;defa
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse_settings.</span></span><span class="sig-name descname"><span class="pre">MouseSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_profile_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse_settings.MouseSettings" title="Permalink to this definition"></a></dt>
 <dd><p>Stores the settings of a mouse.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vendor_id</strong> (<em>int</em>) – The device’s vendor id (e.g. <code class="docutils literal notranslate"><span class="pre">0x1038</span></code>).</p></li>
 <li><p><strong>product_id</strong> (<em>int</em>) – The device’s product id (e.g. <code class="docutils literal notranslate"><span class="pre">``0xbaad</span></code>).</p></li>
@@ -165,7 +168,7 @@ default: <code class="docutils literal notranslate"><span class="pre">&quot;defa
 <p>Not implemented yet!</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>profile_name</strong> (<em>str</em>) – The name of the new profile.</p></li>
 <li><p><strong>from_profile_name</strong> (<em>str</em>) – Clone the given profile name (optional,
@@ -180,7 +183,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse_settings.MouseSettings.get" title="Permalink to this definition"></a></dt>
 <dd><p>Get the value of a setting.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>setting_name</strong> (<em>str</em>) – The setting to set.</p>
 </dd>
 </dl>
@@ -191,7 +194,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <span class="sig-name descname"><span class="pre">get_default_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse_settings.MouseSettings.get_default_values" title="Permalink to this definition"></a></dt>
 <dd><p>Returns default settings of the device.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -216,7 +219,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <p>Not implemented yet!</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>profile_name</strong> (<em>str</em>) – The name of the profile to remove.</p>
 </dd>
 </dl>
@@ -238,7 +241,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse_settings.MouseSettings.set" title="Permalink to this definition"></a></dt>
 <dd><p>Set a value to a setting.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>setting_name</strong> (<em>str</em>) – The setting to set.</p></li>
 <li><p><strong>value</strong> – The value to set.</p></li>
@@ -256,7 +259,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <p>Not implemented yet!</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>profile_name</strong> (<em>str</em>) – The name of the profile.</p>
 </dd>
 </dl>
@@ -273,7 +276,7 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <dd><p>Returns the path of the folder where to store the configs (generally
 <code class="docutils literal notranslate"><span class="pre">$HOME/.config</span></code>).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -284,13 +287,13 @@ default: <code class="docutils literal notranslate"><span class="pre">None</span
 <span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse_settings.</span></span><span class="sig-name descname"><span class="pre">get_settings_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse_settings.get_settings_path" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the path of a specific mouse settings file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vendor_id</strong> (<em>int</em>) – The device’s vendor id (e.g. <code class="docutils literal notranslate"><span class="pre">0x1038</span></code>).</p></li>
 <li><p><strong>product_id</strong> (<em>int</em>) – The device’s product id (e.g. <code class="docutils literal notranslate"><span class="pre">0xbaad</span></code>).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
