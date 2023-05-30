@@ -280,6 +280,7 @@ Changelog
     working and not needed on this device) (@flozz, #196)
   * Added Aerox 5 Wireless Destiny 2 Editon support (@flozz, #205)
   * Added Aerox 5 Wireless Diablo IV Edition support (@flozz, #206)
+  * Updated HIDAPI to v0.14 to fix a macOS Ventura issue (@flozz, #200)
 
 * **v4.8.0:**
 

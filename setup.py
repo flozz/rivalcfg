@@ -38,7 +38,7 @@ setup(
     packages=find_packages(),
 
     install_requires=[
-        "hidapi>=0.7.99.post20",
+        "hidapi>=0.14.0",
         "setuptools",
     ],
 
