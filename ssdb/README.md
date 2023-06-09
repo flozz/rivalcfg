@@ -20,7 +20,7 @@ To update the `sse3.db.csv` database, you will have to install nox:
 
     pip3 install nox
 
-You will also need 7zip and wget. You can install them with the following command on Dabian and Ubuntu:
+You will also need 7zip and wget. You can install them with the following command on Debian and Ubuntu:
 
     sudo apt install wget p7zip
 
