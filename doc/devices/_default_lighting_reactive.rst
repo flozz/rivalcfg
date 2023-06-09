@@ -6,7 +6,7 @@ Supported values are:
 * ``off``: All LEDs are off when the mouse wakes up. Clicking on mouse buttons will
   not trigger light reaction.
 
-* ``reactive``: All LEDs are off when the mouse wakes up. Clicking on mouse buttons trigger a light reaction.
+* ``reactive``: All LEDs are off when the mouse wakes up. Clicking on mouse buttons will trigger a light reaction.
 
 * ``rainbow``: LEDs display an animated rainbow effect when the mouse wakes up.
   Clicking on mouse buttons will not trigger a light reaction.
