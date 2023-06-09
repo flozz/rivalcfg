@@ -42,7 +42,7 @@ If not, open an issue providing the following information:
 
 Then, it depend...
 
-Sometime SteelSeries release new mice that is identical to an existing model
+Sometimes SteelSeries releases new mice that are identical to an existing model
 but only with some aesthetic changes (like the Rival 100, Rival 100 Dota
 2 Edition, and so on). In that case, it will be easy to support your mouse.
 
