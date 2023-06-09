@@ -5,7 +5,7 @@ Supported values are:
 
 * ``off``: All LEDs are off when the mouse wakes up.
 
-* ``rainbow``: LEDs displays an animated rainbow effect when the mouse wakes up.
+* ``rainbow``: LEDs display an animated rainbow effect when the mouse wakes up.
 
 Examples::
 
