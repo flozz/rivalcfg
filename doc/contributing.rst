@@ -3,7 +3,7 @@
 Contributing
 ============
 
-Thank you for your interest about Rivalcfg. You will find here all useful
+Thank you for your interest about Rivalcfg. Here you will find all the useful
 information to contribute.
 
 
