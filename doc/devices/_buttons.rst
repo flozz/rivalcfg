@@ -102,7 +102,7 @@ Example::
 
 .. NOTE::
 
-   Some caracters like ``;`` or ``=`` cannot be used as a key identifier as they
+   Some characters like ``;`` or ``=`` cannot be used as a key identifier as they
    interfere with the ``buttons()`` syntax. For those keys, use one of the
    available aliases, like ``semicolon`` (instead of ``;``) or ``equal``
    (instead of ``=``).
