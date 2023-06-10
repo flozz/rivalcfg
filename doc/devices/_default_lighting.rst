@@ -3,9 +3,9 @@ can only define if the light goes blank or rainbow at startup.
 
 Supported values are:
 
-* ``off``: All LEDs are off when the mouse wakeup.
+* ``off``: All LEDs are off when the mouse wakes up.
 
-* ``rainbow``: LEDs displays an animated raibow effet when the mouse wakeup.
+* ``rainbow``: LEDs display an animated rainbow effect when the mouse wakes up.
 
 Examples::
 

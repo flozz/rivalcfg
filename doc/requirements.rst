@@ -10,7 +10,7 @@ Supported
 
 Rivalcfg was made to work on the following systems:
 
-* Linux (any distribution that use ``udev``, like Debian, Ubuntu, ArchLinux,
+* Linux (any distributions that use ``udev``, like Debian, Ubuntu, ArchLinux,
   Fedora,...)
 * Microsoft Windows
 

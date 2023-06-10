@@ -3,16 +3,16 @@ can only define if the light goes blank or rainbow at startup.
 
 Supported values are:
 
-* ``off``: All LEDs are off when the mouse wakeup. Clinking on mouse buttons do
+* ``off``: All LEDs are off when the mouse wakes up. Clicking on mouse buttons will
   not trigger light reaction.
 
-* ``reactive``: All LEDs are off when the mouse wakeup. Clinking on mouse buttons trigger a light reacion.
+* ``reactive``: All LEDs are off when the mouse wakes up. Clicking on mouse buttons will trigger a light reaction.
 
-* ``rainbow``: LEDs displays an animated raibow effet when the mouse wakeup.
-  Clinking on mouse buttons do not trigger light reaction.
+* ``rainbow``: LEDs display an animated rainbow effect when the mouse wakes up.
+  Clicking on mouse buttons will not trigger a light reaction.
 
-* ``reactive-rainbow``: LEDs displays an animated raibow effet when the mouse
-  wakeup. Clinking on mouse buttons trigger a light reacion.
+* ``reactive-rainbow``: LEDs display an animated rainbow effect when the mouse
+  wakes up. Clicking on mouse buttons will trigger a light reacion.
 
 Examples::
 

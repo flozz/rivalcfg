@@ -3,7 +3,7 @@
 Contributing
 ============
 
-Thank you for your interest about Rivalcfg. You will find here all useful
+Thank you for your interest about Rivalcfg. Here you will find all the useful
 information to contribute.
 
 
@@ -42,12 +42,12 @@ If not, open an issue providing the following information:
 
 Then, it depend...
 
-Sometime SteelSeries release new mice that are identical to an exiting model
+Sometimes SteelSeries releases new mice that are identical to an existing model
 but only with some aesthetic changes (like the Rival 100, Rival 100 Dota
 2 Edition, and so on). In that case, it will be easy to support your mouse.
 
-And sometime it is a brand new model that will need some reverse engineering...
-This can only be done by someone that own the mouse. It can be you (it is
+And sometimes it is a brand new model that will need some reverse engineering...
+This can only be done by someone that owns the mouse. It can be you (it is
 easier than you think), it can be me (if I can find someone to lend me the
 mouse) or it can be any other contributor.
 
