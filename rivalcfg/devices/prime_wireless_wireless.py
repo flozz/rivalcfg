@@ -26,6 +26,12 @@ profile = {
             "product_id": 0x1840,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Prime Mini Wireless (2.4 GHz wireless mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x1848,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         name: _patch_command(info)
