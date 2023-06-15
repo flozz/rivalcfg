@@ -149,6 +149,7 @@ Module API
 import os
 import types
 
+from .. import usbhid
 
 PROFILES = None
 
@@ -265,6 +266,7 @@ def _generate_profiles():
             #  TO-DO override defaults
             profiles[profile_name] = profile
     return profiles
+
 
 
 PROFILES = _generate_profiles()
