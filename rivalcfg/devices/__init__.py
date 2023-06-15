@@ -268,5 +268,4 @@ def _generate_profiles():
     return profiles
 
 
-
 PROFILES = _generate_profiles()
