@@ -147,7 +147,6 @@ Module API
 
 
 import os
-import types
 
 from .. import usbhid
 
@@ -222,7 +221,7 @@ def _generate_profiles():
 
     :rtype: dict
     """
-    from . import (
+    from . import (  # noqa: F401
         aerox3,  # noqa: F401
         aerox3_wireless_wired,  # noqa: F401
         aerox3_wireless_wireless,  # noqa: F401
@@ -250,7 +249,7 @@ def _generate_profiles():
         sensei310,  # noqa: F401
         sensei_raw,  # noqa: F401
         sensei_ten,  # noqa: F401
-    )
+    )  # noqa: F401
 
     profile_modules = locals()
     profiles = {}
@@ -268,7 +267,6 @@ def _generate_profiles():
             #  TO-DO override defaults
             profiles[profile_name] = profile
     return profiles
-
 
 
 PROFILES = _generate_profiles()
