@@ -222,34 +222,34 @@ def _generate_profiles():
     :rtype: dict
     """
     from . import (  # noqa: F401
-        aerox3,  # noqa: F401
-        aerox3_wireless_wired,  # noqa: F401
-        aerox3_wireless_wireless,  # noqa: F401
-        aerox5_wireless_wired,  # noqa: F401
-        aerox5_wireless_wireless,  # noqa: F401
-        aerox9_wireless_wired,  # noqa: F401
-        aerox9_wireless_wireless,  # noqa: F401
-        kanav2,  # noqa: F401
-        kinzuv2,  # noqa: F401
-        prime,  # noqa: F401
-        prime_wireless_wired,  # noqa: F401
-        prime_wireless_wireless,  # noqa: F401
-        rival3,  # noqa: F401
-        rival3_wireless,  # noqa: F401
-        rival95,  # noqa: F401
-        rival100,  # noqa: F401
-        rival110,  # noqa: F401
-        rival300,  # noqa: F401
-        rival300s,  # noqa: F401
-        rival310,  # noqa: F401
-        rival500,  # noqa: F401
-        rival600,  # noqa: F401
-        rival650,  # noqa: F401
-        rival700,  # noqa: F401
-        sensei310,  # noqa: F401
-        sensei_raw,  # noqa: F401
-        sensei_ten,  # noqa: F401
-    )  # noqa: F401
+        aerox3,
+        aerox3_wireless_wired,
+        aerox3_wireless_wireless,
+        aerox5_wireless_wired,
+        aerox5_wireless_wireless,
+        aerox9_wireless_wired,
+        aerox9_wireless_wireless,
+        kanav2,
+        kinzuv2,
+        prime,
+        prime_wireless_wired,
+        prime_wireless_wireless,
+        rival3,
+        rival3_wireless,
+        rival95,
+        rival100,
+        rival110,
+        rival300,
+        rival300s,
+        rival310,
+        rival500,
+        rival600,
+        rival650,
+        rival700,
+        sensei310,
+        sensei_raw,
+        sensei_ten,
+    )
 
     profile_modules = locals()
     profiles = {}
