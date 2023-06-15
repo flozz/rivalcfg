@@ -260,11 +260,6 @@ def _generate_profiles():
             del profile["models"]
             for k, v in model.items():
                 profile[k] = v
-            #   if k == "override_defaults":
-            #            continue
-            #        profile[k] = v
-
-            #  TO-DO override defaults
             profiles[profile_name] = profile
     return profiles
 
