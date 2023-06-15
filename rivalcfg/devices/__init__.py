@@ -259,6 +259,8 @@ def _generate_profiles():
             profile = item.profile.copy()
             profile_name = (model["vendor_id"], model["product_id"])
             del profile["models"]
+            for k, v in model.items():
+                profile[k] = v
             #   if k == "override_defaults":
             #            continue
             #        profile[k] = v
@@ -266,6 +268,7 @@ def _generate_profiles():
             #  TO-DO override defaults
             profiles[profile_name] = profile
     return profiles
+
 
 
 PROFILES = _generate_profiles()
