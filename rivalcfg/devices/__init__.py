@@ -149,35 +149,6 @@ Module API
 import os
 import types
 
-from . import aerox3  # noqa: F401
-from . import aerox3_wireless_wired  # noqa: F401
-from . import aerox3_wireless_wireless  # noqa: F401
-from . import aerox5_wireless_wired  # noqa: F401
-from . import aerox5_wireless_wireless  # noqa: F401
-from . import aerox9_wireless_wired  # noqa: F401
-from . import aerox9_wireless_wireless  # noqa: F401
-from . import kanav2  # noqa: F401
-from . import kinzuv2  # noqa: F401
-from . import prime  # noqa: F401
-from . import prime_wireless_wired  # noqa: F401
-from . import prime_wireless_wireless  # noqa: F401
-from . import rival3  # noqa: F401
-from . import rival3_wireless  # noqa: F401
-from . import rival95  # noqa: F401
-from . import rival100  # noqa: F401
-from . import rival110  # noqa: F401
-from . import rival300  # noqa: F401
-from . import rival300s  # noqa: F401
-from . import rival310  # noqa: F401
-from . import rival500  # noqa: F401
-from . import rival600  # noqa: F401
-from . import rival650  # noqa: F401
-from . import rival700  # noqa: F401
-from . import sensei310  # noqa: F401
-from . import sensei_raw  # noqa: F401
-from . import sensei_ten  # noqa: F401
-from .. import usbhid
-
 
 PROFILES = None
 
@@ -250,21 +221,48 @@ def _generate_profiles():
 
     :rtype: dict
     """
+    from . import (
+        aerox3,  # noqa: F401
+        aerox3_wireless_wired,  # noqa: F401
+        aerox3_wireless_wireless,  # noqa: F401
+        aerox5_wireless_wired,  # noqa: F401
+        aerox5_wireless_wireless,  # noqa: F401
+        aerox9_wireless_wired,  # noqa: F401
+        aerox9_wireless_wireless,  # noqa: F401
+        kanav2,  # noqa: F401
+        kinzuv2,  # noqa: F401
+        prime,  # noqa: F401
+        prime_wireless_wired,  # noqa: F401
+        prime_wireless_wireless,  # noqa: F401
+        rival3,  # noqa: F401
+        rival3_wireless,  # noqa: F401
+        rival95,  # noqa: F401
+        rival100,  # noqa: F401
+        rival110,  # noqa: F401
+        rival300,  # noqa: F401
+        rival300s,  # noqa: F401
+        rival310,  # noqa: F401
+        rival500,  # noqa: F401
+        rival600,  # noqa: F401
+        rival650,  # noqa: F401
+        rival700,  # noqa: F401
+        sensei310,  # noqa: F401
+        sensei_raw,  # noqa: F401
+        sensei_ten,  # noqa: F401
+    )
+
+    profile_modules = locals()
     profiles = {}
-    for item in [globals()[name] for name in globals()]:
-        if not isinstance(item, types.ModuleType):
-            continue
-        if not hasattr(item, "profile"):
-            continue
+    for item in profile_modules.values():
         for model in item.profile["models"]:
             profile = item.profile.copy()
             profile_name = (model["vendor_id"], model["product_id"])
             del profile["models"]
-            for k, v in model.items():
-                if k == "override_defaults":
-                    continue
-                profile[k] = v
-            # TODO override_defaults
+            #   if k == "override_defaults":
+            #            continue
+            #        profile[k] = v
+
+            #  TO-DO override defaults
             profiles[profile_name] = profile
     return profiles
 
