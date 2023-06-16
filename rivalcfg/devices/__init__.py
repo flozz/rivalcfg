@@ -31,10 +31,6 @@ Here is what a profile file looks like::
             "vendor_id": 0x1038,
             "product_id": 0x170a,
             "endpoint": 0,
-            # A device can override default values defined in settings
-            "override_defaults": {
-                "color": "#FF0000",
-            },
         }],
 
         # All available settings for the mice
