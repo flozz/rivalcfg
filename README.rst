@@ -284,7 +284,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * Improved device profile generation (@airblast-dev, #211)
 
 * **v4.9.0:**
 
