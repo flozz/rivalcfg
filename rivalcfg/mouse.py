@@ -133,7 +133,7 @@ class Mouse:
 
         .. NOTE::
 
-           A value of ``None`` means the featue is not supported.
+           A value of ``None`` means the feature is not supported or that the mouse is turned off.
         """
         result = {
             "is_charging": None,
@@ -150,6 +150,9 @@ class Mouse:
             self.mouse_profile["battery_level"]["response_length"],
             timeout_ms=200,
         )
+        
+        if data[1] == 0xff:
+            return result
 
         try:
             if "is_charging" in self.mouse_profile["battery_level"]:
