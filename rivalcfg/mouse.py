@@ -150,8 +150,8 @@ class Mouse:
             self.mouse_profile["battery_level"]["response_length"],
             timeout_ms=200,
         )
-        
-        if data[1] == 0xff:
+
+        if data[1] == 0xFF:
             return result
 
         try:
