@@ -76,7 +76,7 @@ def main(args=sys.argv[1:]):
     ):
         try:
             mouse = get_first_mouse()
-            if not mouse:
+            if "--help" not in sys.argv and "-h" not in sys.argv and not mouse:
                 print("E: No supported device found.")
                 sys.exit(1)
         except IOError as error:
