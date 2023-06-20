@@ -51,7 +51,7 @@ def _render_battery_level(level=None, is_charging=None):
         result.append("[%-10s] %i %%" % ("=" * int(level / 10), level))
 
     if is_charging is None and level is None:
-        result.append("Unable to get the battery level")
+        result.append("Unable to get the battery level. Is the mouse turned on?")
 
     return " ".join(result)
 
