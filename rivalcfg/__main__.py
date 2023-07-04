@@ -76,12 +76,13 @@ def main(args=sys.argv[1:]):
     ):
         try:
             mouse = get_first_mouse()
-            if "--help" not in args and "-h" not in args and not mouse:
-                print("E: No supported device found.")
-                sys.exit(1)
         except IOError as error:
             if "--help" not in args and "-h" not in args:
                 raise error
+
+        if not mouse and "--help" not in args and "-h" not in args:
+            print("E: No supported device found.")
+            sys.exit(1)
 
     cli_parser = argparse.ArgumentParser(prog="rivalcfg", epilog=_EPILOG)
     cli.add_main_cli(cli_parser)
