@@ -287,6 +287,8 @@ Changelog
   * Improved device profile generation (@airblast-dev, #211)
   * Fixed battery level reported at 630% when the mouse is off
     (@LennardKittner, #187, #212)
+  * Unrecognized arguments error when no device is found (@LennardKittner,
+    #213, #214)
 
 * **v4.9.0:**
 
