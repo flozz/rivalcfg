@@ -77,7 +77,7 @@ class PrintUdevRulesAction(argparse.Action):
 
 
 class PrintDebugAction(argparse.Action):
-    """Prints debug informations and exit."""
+    """Prints debug information and exit."""
 
     def __call__(self, parser, namespace, value, option_string=None):
         print(debug.get_debug_info())
@@ -126,7 +126,7 @@ def add_main_cli(cli_parser):
 
     cli_parser.add_argument(
         "--print-debug",
-        help="Prints debug informations and exit",
+        help="Prints debug information and exit",
         nargs=0,
         action=PrintDebugAction,
     )
