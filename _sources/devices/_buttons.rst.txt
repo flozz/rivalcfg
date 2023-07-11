@@ -60,7 +60,7 @@ Mapping Mouse Buttons
 
 Mouse buttons can be mapped to any other mouse button.
 
-For example, this swap the button 1 and 2 of the mouse::
+For example, this swaps the 1 and 2 buttons of the mouse::
 
     buttons(button1=button2; button2=button1)
 
@@ -72,7 +72,7 @@ Mouse buttons can be mapped to multimedia keys. The following keys are available
 
 * ``Mute``: turn off the sound
 * ``Next``: play next media
-* ``PlayPause``: toggle play / pause on the currently playing media
+* ``PlayPause``: toggle play / pause on the currently playing media
 * ``Previous``: play the previous media
 * ``VolumeUp``: increase the volume
 * ``VolumeDown``: decrease the volume
@@ -85,7 +85,7 @@ Example::
 Mapping Keyboard Keys
 ~~~~~~~~~~~~~~~~~~~~~
 
-Mouse buttons can be mapped to any keyboard keys, using different layouts.
+Mouse buttons can be mapped to any keyboard key, using different layouts.
 
 To select the desired layout, just use the ``layout`` parameter. If this
 parameter is not specified, the ``QWERTY`` layout will be used by default.
@@ -94,7 +94,7 @@ Available layouts:
 
 * ``QWERTY`` (`see available keys <https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py>`_)
 
-The available keys depends on the selected layout.
+The available keys depend on the selected layout.
 
 Example::
 
@@ -102,8 +102,8 @@ Example::
 
 .. NOTE::
 
-   Some caracters like ``;`` or ``=`` cannot be used as key identifier as they
-   interfer with the ``buttons()`` syntax. For those keys, use one of the
+   Some characters like ``;`` or ``=`` cannot be used as a key identifier as they
+   interfere with the ``buttons()`` syntax. For those keys, use one of the
    available aliases, like ``semicolon`` (instead of ``;``) or ``equal``
    (instead of ``=``).
 

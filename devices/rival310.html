@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Rival 310 &mdash; rivalcfg v4.9.0 documentation</title>
+  <title>SteelSeries Rival 310 &mdash; rivalcfg v4.9.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -35,7 +35,7 @@
             rivalcfg
           </a>
               <div class="version">
-                v4.9.0
+                v4.9.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -165,7 +165,7 @@ options:
   --update-udev         Updates udev rules (Linux only, requires to be run as
                         root)
   --print-udev          Prints udev rules and exit
-  --print-debug         Prints debug informations and exit
+  --print-debug         Prints debug information and exit
 
 SteelSeries Rival 310 Options:
   -s SENSITIVITY1, --sensitivity1 SENSITIVITY1
@@ -389,7 +389,7 @@ colors of the gradient.</p>
 <section id="mapping-mouse-buttons">
 <h3>Mapping Mouse Buttons<a class="headerlink" href="#mapping-mouse-buttons" title="Permalink to this heading"></a></h3>
 <p>Mouse buttons can be mapped to any other mouse button.</p>
-<p>For example, this swap the button 1 and 2 of the mouse:</p>
+<p>For example, this swaps the 1 and 2 buttons of the mouse:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -400,7 +400,7 @@ colors of the gradient.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Mute</span></code>: turn off the sound</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Next</span></code>: play next media</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PlayPause</span></code>: toggle play / pause on the currently playing media</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlayPause</span></code>: toggle play / pause on the currently playing media</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Previous</span></code>: play the previous media</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VolumeUp</span></code>: increase the volume</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">VolumeDown</span></code>: decrease the volume</p></li>
@@ -412,22 +412,22 @@ colors of the gradient.</p>
 </section>
 <section id="mapping-keyboard-keys">
 <h3>Mapping Keyboard Keys<a class="headerlink" href="#mapping-keyboard-keys" title="Permalink to this heading"></a></h3>
-<p>Mouse buttons can be mapped to any keyboard keys, using different layouts.</p>
+<p>Mouse buttons can be mapped to any keyboard key, using different layouts.</p>
 <p>To select the desired layout, just use the <code class="docutils literal notranslate"><span class="pre">layout</span></code> parameter. If this
 parameter is not specified, the <code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> layout will be used by default.</p>
 <p>Available layouts:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> (<a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/rivalcfg/handlers/buttons/layout_qwerty.py">see available keys</a>)</p></li>
 </ul>
-<p>The available keys depends on the selected layout.</p>
+<p>The available keys depend on the selected layout.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button7</span><span class="o">=</span><span class="n">PageDown</span><span class="p">;</span> <span class="n">button8</span><span class="o">=</span><span class="n">PageUp</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some caracters like <code class="docutils literal notranslate"><span class="pre">;</span></code> or <code class="docutils literal notranslate"><span class="pre">=</span></code> cannot be used as key identifier as they
-interfer with the <code class="docutils literal notranslate"><span class="pre">buttons()</span></code> syntax. For those keys, use one of the
+<p>Some characters like <code class="docutils literal notranslate"><span class="pre">;</span></code> or <code class="docutils literal notranslate"><span class="pre">=</span></code> cannot be used as a key identifier as they
+interfere with the <code class="docutils literal notranslate"><span class="pre">buttons()</span></code> syntax. For those keys, use one of the
 available aliases, like <code class="docutils literal notranslate"><span class="pre">semicolon</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">;</span></code>) or <code class="docutils literal notranslate"><span class="pre">equal</span></code>
 (instead of <code class="docutils literal notranslate"><span class="pre">=</span></code>).</p>
 <p>Example:</p>
