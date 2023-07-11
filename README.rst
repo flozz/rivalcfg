@@ -284,6 +284,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v4.9.1:**
+
   * Improved device profile generation (@airblast-dev, #211)
   * Fixed battery level reported at 630% when the mouse is off
     (@LennardKittner, #187, #212)
