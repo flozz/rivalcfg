@@ -106,11 +106,11 @@ def process_value(setting_info, color):
         return [0x00, 0x00, 0x00, 0x00, 0x00]
 
     # Color tuple
-    if type(color) in (tuple, list):
+    if isinstance(color, (tuple, list)):
         if len(color) != 3:
             raise ValueError("Not a valid color %s" % str(color))
         for channel in color:
-            if type(channel) != int or channel < 0 or channel > 255:
+            if not isinstance(channel, int) or channel < 0 or channel > 255:
                 raise ValueError("Not a valid color %s" % str(color))
         return [0x01, 0x00] + list(color)
     if is_color(color):

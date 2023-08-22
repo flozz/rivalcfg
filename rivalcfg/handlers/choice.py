@@ -75,7 +75,7 @@ def choices_to_list(choices):
     return list(
         map(
             str,
-            sorted(choices.keys(), key=lambda v: v if type(v) == int else -1),
+            sorted(choices.keys(), key=lambda v: v if isinstance(v, int) else -1),
         )
     )
 

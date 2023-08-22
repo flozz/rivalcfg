@@ -243,14 +243,14 @@ def process_value(setting_info, mapping):
     """
     # -- Parse input values
 
-    if type(mapping) is str and REGEXP_PARAM_STRING.match(mapping):
+    if isinstance(mapping, str) and REGEXP_PARAM_STRING.match(mapping):
         is_valid, reason = is_buttons(mapping, setting_info)
         if not is_valid:
             raise ValueError(reason)
         mapping = parse_param_string(mapping)
-    elif type(mapping) is str and mapping.lower() == "default":
+    elif isinstance(mapping, str) and mapping.lower() == "default":
         mapping = {"buttons": {}}
-    elif type(mapping) is dict:
+    elif isinstance(mapping, dict):
         pass
     else:
         raise ValueError("Invalid input value '%s'" % str(mapping))

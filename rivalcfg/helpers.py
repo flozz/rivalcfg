@@ -26,7 +26,7 @@ def merge_bytes(*args):
     """
     result = []
     for arg in args:
-        if type(arg) in [list, tuple]:
+        if isinstance(arg, (list, tuple)):
             result.extend(arg)
         else:
             result.append(arg)

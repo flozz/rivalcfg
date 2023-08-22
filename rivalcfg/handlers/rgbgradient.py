@@ -120,7 +120,7 @@ def _handle_color_tuple(color):
     if len(color) != 3:
         raise ValueError("Not a valid color %s" % str(color))
     for channel in color:
-        if type(channel) != int or channel < 0 or channel > 255:
+        if not isinstance(channel, int) or channel < 0 or channel > 255:
             raise ValueError("Not a valid color %s" % str(color))
     return [
         {
@@ -149,12 +149,12 @@ def _handle_rgbgradient_dict(colors):
     if "colors" in colors:
         for stop in colors["colors"]:
             color = stop["color"]
-            if type(color) is str:
+            if isinstance(color, str):
                 color = parse_color_string(color)
-            if type(color) not in [tuple, list] or len(color) != 3:
+            if not isinstance(color, (tuple, list)) or len(color) != 3:
                 raise ValueError("Not a valid color %s" % str(color))
             for channel in color:
-                if type(channel) != int or channel < 0 or channel > 255:
+                if not isinstance(channel, int) or channel < 0 or channel > 255:
                     raise ValueError("Not a valid color %s" % str(color))
             gradient.append(
                 {
@@ -214,17 +214,17 @@ def process_value(setting_info, colors):
     gradient = []
 
     # Color tuple
-    if type(colors) in (tuple, list):
+    if isinstance(colors, (tuple, list)):
         is_gradient = False
         gradient = _handle_color_tuple(colors)
 
     # Simple color string
-    elif type(colors) is str and is_color(colors):
+    elif isinstance(colors, str) and is_color(colors):
         is_gradient = False
         gradient = _handle_color_string(colors)
 
     # Color gradient as dict
-    elif type(colors) is dict:
+    elif isinstance(colors, dict):
         is_gradient = True
         duration, gradient = _handle_rgbgradient_dict(colors)
 

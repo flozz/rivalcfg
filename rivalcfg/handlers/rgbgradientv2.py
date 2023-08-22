@@ -128,15 +128,15 @@ def process_value(setting_info, colors):
     gradient = []
 
     # Color tuple
-    if type(colors) in (tuple, list):
+    if isinstance(colors, (tuple, list)):
         gradient = _handle_color_tuple(colors)
 
     # Simple color string
-    elif type(colors) is str and is_color(colors):
+    elif isinstance(colors, str) and is_color(colors):
         gradient = _handle_color_string(colors)
 
     # Color gradient as dict
-    elif type(colors) is dict:
+    elif isinstance(colors, dict):
         duration, gradient = _handle_rgbgradient_dict(colors)
 
     # Color gradient as string

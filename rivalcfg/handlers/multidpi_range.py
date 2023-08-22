@@ -96,9 +96,9 @@ def process_value(setting_info, value, selected_preset=None):
     """
     dpis = []
 
-    if type(value) in (int, float):
+    if isinstance(value, (int, float)):
         dpis = [int(value)]
-    elif type(value) in (list, tuple):
+    elif isinstance(value, (list, tuple)):
         dpis = [int(dpi) for dpi in value]
     else:
         dpis = [int(dpi) for dpi in value.replace(" ", "").split(",")]
