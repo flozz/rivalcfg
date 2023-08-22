@@ -284,7 +284,8 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * Added Prime Mini Wireless support (@intersectRaven, #210, #207)
+  * Code quality: more robust type comparison (@flozz)
 
 * **v4.9.1:**
 
