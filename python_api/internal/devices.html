@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>devices &mdash; rivalcfg v4.9.1 documentation</title>
+  <title>devices &mdash; rivalcfg v4.10.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=39d5f45e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -35,7 +35,7 @@
             rivalcfg
           </a>
               <div class="version">
-                v4.9.1
+                v4.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -105,11 +105,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-rivalcfg.devices">
-<span id="devices"></span><h1>devices<a class="headerlink" href="#module-rivalcfg.devices" title="Permalink to this heading"></a></h1>
-<p>This module provides access to the profile of each supported device.</p>
+  <section id="devices">
+<h1>devices<a class="headerlink" href="#devices" title="Link to this heading"></a></h1>
+<p id="module-rivalcfg.devices">This module provides access to the profile of each supported device.</p>
 <section id="profile-spec">
-<h2>Profile spec<a class="headerlink" href="#profile-spec" title="Permalink to this heading"></a></h2>
+<h2>Profile spec<a class="headerlink" href="#profile-spec" title="Link to this heading"></a></h2>
 <p>A profile is just a <code class="docutils literal notranslate"><span class="pre">dict</span></code> that contains information about one or more mouse.
 There is one profile file in <code class="docutils literal notranslate"><span class="pre">rivalcfg/devices/</span></code> by mouse familly (the “Rival
 100” and the “Rival 100 Dota 2 Edition” are mouse of the same familly).</p>
@@ -234,10 +234,10 @@ familly. The profiles will then look like this:</p>
 </div>
 </section>
 <section id="module-api">
-<h2>Module API<a class="headerlink" href="#module-api" title="Permalink to this heading"></a></h2>
+<h2>Module API<a class="headerlink" href="#module-api" title="Link to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="rivalcfg.devices.rivalcfg.devices.PROFILES">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">PROFILES</span></span><a class="headerlink" href="#rivalcfg.devices.rivalcfg.devices.PROFILES" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">PROFILES</span></span><a class="headerlink" href="#rivalcfg.devices.rivalcfg.devices.PROFILES" title="Link to this definition"></a></dt>
 <dd><p>Profiles of each supported devices:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="p">(</span><span class="n">vendor_id</span><span class="p">,</span> <span class="n">product_id</span><span class="p">):</span> <span class="p">{</span>
@@ -251,13 +251,13 @@ familly. The profiles will then look like this:</p>
 </section>
 <dl class="py exception">
 <dt class="sig sig-object py" id="rivalcfg.devices.UnsupportedDevice">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">UnsupportedDevice</span></span><a class="headerlink" href="#rivalcfg.devices.UnsupportedDevice" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">UnsupportedDevice</span></span><a class="headerlink" href="#rivalcfg.devices.UnsupportedDevice" title="Link to this definition"></a></dt>
 <dd><p>Exception raised when the requested device is not supported by rivalcfg.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.devices.get_profile">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">get_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4152</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.get_profile" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">get_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vendor_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4152</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.get_profile" title="Link to this definition"></a></dt>
 <dd><p>Get the profile of the requested device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -286,7 +286,7 @@ rivalcfg.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.devices.list_plugged_devices">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">list_plugged_devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.list_plugged_devices" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.devices.</span></span><span class="sig-name descname"><span class="pre">list_plugged_devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.devices.list_plugged_devices" title="Link to this definition"></a></dt>
 <dd><p>List all plugged devices that are supported by rivalcfg.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>

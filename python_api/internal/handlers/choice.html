@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>choice &mdash; rivalcfg v4.9.1 documentation</title>
+  <title>choice &mdash; rivalcfg v4.10.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=39d5f45e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -35,7 +35,7 @@
             rivalcfg
           </a>
               <div class="version">
-                v4.9.1
+                v4.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -110,12 +110,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-rivalcfg.handlers.choice">
-<span id="choice"></span><h1>choice<a class="headerlink" href="#module-rivalcfg.handlers.choice" title="Permalink to this heading"></a></h1>
-<p>The “choice” type alows to pick a value from a list and to match it with a
+  <section id="choice">
+<h1>choice<a class="headerlink" href="#choice" title="Link to this heading"></a></h1>
+<p id="module-rivalcfg.handlers.choice">The “choice” type alows to pick a value from a list and to match it with a
 corresponding value in a dict.</p>
 <section id="device-profile">
-<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this heading"></a></h2>
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Link to this heading"></a></h2>
 <p>Example of a choice value type in a device profile:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -150,7 +150,7 @@ corresponding value in a dict.</p>
 </div>
 </section>
 <section id="cli">
-<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this heading"></a></h2>
+<h2>CLI<a class="headerlink" href="#cli" title="Link to this heading"></a></h2>
 <p>Example of CLI option generated with this handler:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">e</span> <span class="n">LIGHT_EFFECT</span><span class="p">,</span> <span class="o">--</span><span class="n">light</span><span class="o">-</span><span class="n">effect</span><span class="o">=</span><span class="n">LIGHT_EFFECT</span>
                     <span class="n">Set</span> <span class="n">the</span> <span class="n">light</span> <span class="n">effect</span> <span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">steady</span><span class="p">,</span> <span class="n">breath</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
@@ -163,11 +163,11 @@ corresponding value in a dict.</p>
 </div>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 </section>
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.choice.add_cli_option">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.add_cli_option" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.add_cli_option" title="Link to this definition"></a></dt>
 <dd><p>Add the given “choice” type setting to the given CLI arguments parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -183,7 +183,7 @@ device profile.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.choice.choices_to_list">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">choices_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_list" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">choices_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_list" title="Link to this definition"></a></dt>
 <dd><p>Helper function that transforms choices dict to an ordered string list.
 Numeric values are sorted and placed after string values.</p>
 <dl class="field-list simple">
@@ -202,7 +202,7 @@ Numeric values are sorted and placed after string values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.choice.choices_to_string">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">choices_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_string" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">choices_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.choices_to_string" title="Link to this definition"></a></dt>
 <dd><p>Helper function that transforms choices dict to a printable string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -220,7 +220,7 @@ Numeric values are sorted and placed after string values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.choice.process_value">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.process_value" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.choice.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.choice.process_value" title="Link to this definition"></a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “choice” type setting.</p>
 <dl class="field-list simple">

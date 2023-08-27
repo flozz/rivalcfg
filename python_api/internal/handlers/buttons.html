@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>buttons &mdash; rivalcfg v4.9.1 documentation</title>
+  <title>buttons &mdash; rivalcfg v4.10.0 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=39d5f45e"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -35,7 +35,7 @@
             rivalcfg
           </a>
               <div class="version">
-                v4.9.1
+                v4.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -110,9 +110,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-rivalcfg.handlers.buttons.buttons">
-<span id="buttons"></span><h1>buttons<a class="headerlink" href="#module-rivalcfg.handlers.buttons.buttons" title="Permalink to this heading"></a></h1>
-<p>The “buttons” type handles buttons mapping on device that supports it.</p>
+  <section id="buttons">
+<h1>buttons<a class="headerlink" href="#buttons" title="Link to this heading"></a></h1>
+<p id="module-rivalcfg.handlers.buttons.buttons">The “buttons” type handles buttons mapping on device that supports it.</p>
 <p>Buttons syntax example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span>
 <span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button1</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button3</span><span class="o">=</span><span class="n">button3</span><span class="p">;</span> <span class="n">button4</span><span class="o">=</span><span class="n">button4</span><span class="p">;</span> <span class="n">button5</span><span class="o">=</span><span class="n">button5</span><span class="p">;</span> <span class="n">button6</span><span class="o">=</span><span class="n">dpi</span><span class="p">;</span> <span class="n">layout</span><span class="o">=</span><span class="n">qwerty</span><span class="p">)</span>
@@ -120,7 +120,7 @@
 </pre></div>
 </div>
 <section id="buttons-values">
-<h2>Buttons values<a class="headerlink" href="#buttons-values" title="Permalink to this heading"></a></h2>
+<h2>Buttons values<a class="headerlink" href="#buttons-values" title="Link to this heading"></a></h2>
 <p>Buttons can be mapped to different kind of values:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> (to explicitly set the button to its default value)</p></li>
@@ -130,7 +130,7 @@
 <li><p>Keyboard keys.</p></li>
 </ul>
 <section id="special-actions">
-<h3>Special actions<a class="headerlink" href="#special-actions" title="Permalink to this heading"></a></h3>
+<h3>Special actions<a class="headerlink" href="#special-actions" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">disabled</span></code>: disable this button,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: use this button to switch between DPI presets,</p></li>
@@ -143,7 +143,7 @@
 </div>
 </section>
 <section id="mouse-buttons">
-<h3>Mouse buttons<a class="headerlink" href="#mouse-buttons" title="Permalink to this heading"></a></h3>
+<h3>Mouse buttons<a class="headerlink" href="#mouse-buttons" title="Link to this heading"></a></h3>
 <p>Mouse buttons can be remapped using an other mouse button.</p>
 <p>For example, this swap the button 1 and 2 of the mouse:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button2</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">button1</span><span class="p">)</span>
@@ -156,7 +156,7 @@ click! ;)</p>
 </div>
 </section>
 <section id="multimedia-keys">
-<h3>Multimedia keys<a class="headerlink" href="#multimedia-keys" title="Permalink to this heading"></a></h3>
+<h3>Multimedia keys<a class="headerlink" href="#multimedia-keys" title="Link to this heading"></a></h3>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">button8</span><span class="o">=</span><span class="n">PlayPause</span><span class="p">)</span>
 </pre></div>
@@ -167,7 +167,7 @@ click! ;)</p>
 </ul>
 </section>
 <section id="keyboard-keys">
-<h3>Keyboard keys<a class="headerlink" href="#keyboard-keys" title="Permalink to this heading"></a></h3>
+<h3>Keyboard keys<a class="headerlink" href="#keyboard-keys" title="Link to this heading"></a></h3>
 <p>Keyboard keys depends on the selected layout.</p>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">;</span> <span class="n">button2</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
@@ -189,7 +189,7 @@ will have to use an alias:</p>
 </section>
 </section>
 <section id="layouts">
-<h2>Layouts<a class="headerlink" href="#layouts" title="Permalink to this heading"></a></h2>
+<h2>Layouts<a class="headerlink" href="#layouts" title="Link to this heading"></a></h2>
 <p>The layout used for mapping keyboard keys can be specified using the <code class="docutils literal notranslate"><span class="pre">layout</span></code>
 parameter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buttons</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="n">QWERTY</span><span class="p">)</span>
@@ -202,7 +202,7 @@ parameter:</p>
 <p>If not specified, the <code class="docutils literal notranslate"><span class="pre">QWERTY</span></code> layout is used.</p>
 </section>
 <section id="device-profile">
-<h2>Device Profile<a class="headerlink" href="#device-profile" title="Permalink to this heading"></a></h2>
+<h2>Device Profile<a class="headerlink" href="#device-profile" title="Link to this heading"></a></h2>
 <p>Example of a buttons value type in a device profile:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -246,7 +246,7 @@ parameter:</p>
 </div>
 </section>
 <section id="cli">
-<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this heading"></a></h2>
+<h2>CLI<a class="headerlink" href="#cli" title="Link to this heading"></a></h2>
 <p>Example of CLI option generated with this handler:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">b</span> <span class="n">BUTTONS_MAPPING</span><span class="p">,</span> <span class="o">--</span><span class="n">buttons</span> <span class="n">BUTTONS_MAPPING</span>
                       <span class="n">Set</span> <span class="n">the</span> <span class="n">mapping</span> <span class="n">of</span> <span class="n">the</span> <span class="n">buttons</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">buttons</span><span class="p">(</span><span class="n">button1</span><span class="o">=</span><span class="n">button1</span><span class="p">;</span>
@@ -260,17 +260,17 @@ parameter:</p>
 </div>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
 </section>
 <dl class="py data">
 <dt class="sig sig-object py" id="rivalcfg.handlers.buttons.buttons.LAYOUTS">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">LAYOUTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'qwerty':</span> <span class="pre">&lt;module</span> <span class="pre">'rivalcfg.handlers.buttons.layout_qwerty'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/rivalcfg/rivalcfg/rivalcfg/handlers/buttons/layout_qwerty.py'&gt;}</span></em><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.LAYOUTS" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">LAYOUTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'qwerty':</span> <span class="pre">&lt;module</span> <span class="pre">'rivalcfg.handlers.buttons.layout_qwerty'</span> <span class="pre">from</span> <span class="pre">'/home/runner/work/rivalcfg/rivalcfg/rivalcfg/handlers/buttons/layout_qwerty.py'&gt;}</span></em><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.LAYOUTS" title="Link to this definition"></a></dt>
 <dd><p>Available layouts</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.buttons.buttons.add_cli_option">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.add_cli_option" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">add_cli_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cli_parser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.add_cli_option" title="Link to this definition"></a></dt>
 <dd><p>Add the given “buttons” type setting to the given CLI arguments parser.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -286,7 +286,7 @@ device profile.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.buttons.buttons.build_layout">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">build_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.build_layout" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">build_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.build_layout" title="Link to this definition"></a></dt>
 <dd><p>Generates an usable layout from a layout module containing key mapping
 and aliases.</p>
 <dl class="field-list simple">
@@ -301,7 +301,7 @@ and aliases.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.buttons.buttons.is_buttons">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">is_buttons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.is_buttons" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">is_buttons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.is_buttons" title="Link to this definition"></a></dt>
 <dd><p>Checks if the regbradient expression is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -318,7 +318,7 @@ and aliases.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.handlers.buttons.buttons.process_value">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.process_value" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.buttons.buttons.</span></span><span class="sig-name descname"><span class="pre">process_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setting_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.buttons.buttons.process_value" title="Link to this definition"></a></dt>
 <dd><p>Called by the <a class="reference internal" href="../mouse.html#rivalcfg.mouse.Mouse" title="rivalcfg.mouse.Mouse"><code class="xref py py-class docutils literal notranslate"><span class="pre">rivalcfg.mouse.Mouse</span></code></a> class when processing a
 “buttons” type setting.</p>
 <dl class="field-list simple">

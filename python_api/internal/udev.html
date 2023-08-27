@@ -4,18 +4,18 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>udev &mdash; rivalcfg v4.9.1 documentation</title>
+  <title>udev &mdash; rivalcfg v4.10.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=39d5f45e"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -35,7 +35,7 @@
             rivalcfg
           </a>
               <div class="version">
-                v4.9.1
+                v4.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -107,9 +107,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-rivalcfg.udev">
-<span id="udev"></span><h1>udev<a class="headerlink" href="#module-rivalcfg.udev" title="Permalink to this heading"></a></h1>
-<p>This modules handles udev-related stuff on Linux. It contains function to
+  <section id="udev">
+<h1>udev<a class="headerlink" href="#udev" title="Link to this heading"></a></h1>
+<p id="module-rivalcfg.udev">This modules handles udev-related stuff on Linux. It contains function to
 generate, check and update rules files.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -117,13 +117,13 @@ generate, check and update rules files.</p>
 </div>
 <dl class="py data">
 <dt class="sig sig-object py" id="rivalcfg.udev.RULES_FILE_PATH">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">RULES_FILE_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></em><a class="headerlink" href="#rivalcfg.udev.RULES_FILE_PATH" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">RULES_FILE_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></em><a class="headerlink" href="#rivalcfg.udev.RULES_FILE_PATH" title="Link to this definition"></a></dt>
 <dd><p>Path to the udev rules file</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.are_rules_up_to_date">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">are_rules_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'4.9.1'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.are_rules_up_to_date" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">are_rules_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'4.10.0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.are_rules_up_to_date" title="Link to this definition"></a></dt>
 <dd><p>Check if the given udev rules are up to date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -140,7 +140,7 @@ generate, check and update rules files.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.generate_rules">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">generate_rules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.generate_rules" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">generate_rules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.generate_rules" title="Link to this definition"></a></dt>
 <dd><p>Generates the content of the udev rules file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -151,7 +151,7 @@ generate, check and update rules files.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.is_rules_file_up_to_date">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">is_rules_file_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.is_rules_file_up_to_date" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">is_rules_file_up_to_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.is_rules_file_up_to_date" title="Link to this definition"></a></dt>
 <dd><p>Check if the given udev rules file is up to date.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -165,19 +165,19 @@ generate, check and update rules files.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.reload_rules">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">reload_rules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.reload_rules" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">reload_rules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.reload_rules" title="Link to this definition"></a></dt>
 <dd><p>Reload udev rules.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.trigger">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.trigger" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">trigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.trigger" title="Link to this definition"></a></dt>
 <dd><p>Trigger udev to take into account the new rules.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rivalcfg.udev.write_rules_file">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">write_rules_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.write_rules_file" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">rivalcfg.udev.</span></span><span class="sig-name descname"><span class="pre">write_rules_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/etc/udev/rules.d/99-steelseries-rival.rules'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.udev.write_rules_file" title="Link to this definition"></a></dt>
 <dd><p>Generates and write the udev rules file at the given place.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
