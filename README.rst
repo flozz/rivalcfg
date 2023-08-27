@@ -111,11 +111,11 @@ SteelSeries Prime Wireless:
 +--------------------------------------------------------------+-----------+
 | SteelSeries Prime Wireless (wired mode)                      | 1038:1842 |
 +--------------------------------------------------------------+-----------+
-
-SteelSeries Prime Wireless:
-
+| SteelSeries Prime Mini Wireless (wired mode)                 | 1038:184a |
 +--------------------------------------------------------------+-----------+
 | SteelSeries Prime Wireless (2.4 GHz wireless mode)           | 1038:1840 |
++--------------------------------------------------------------+-----------+
+| SteelSeries Prime Mini Wireless (2.4 GHz wireless mode)      | 1038:1848 |
 +--------------------------------------------------------------+-----------+
 
 SteelSeries Rival 100 / SteelSeries Rival 105:
