@@ -240,7 +240,8 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet :)
+  * chore: Added Python 3.12 support
+  * chore!: Dropped Python 3.7 support
 
 * **v4.10.0:**
 
