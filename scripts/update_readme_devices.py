@@ -6,25 +6,29 @@ from rivalcfg import devices
 
 
 def list_devices():
+    last_profile_name = ""
     result = ""
+    result += "\n+%s+\n" % ("-" * 84)
     for item in [getattr(devices, name) for name in dir(devices)]:
         if not isinstance(item, types.ModuleType):
             continue
         if not hasattr(item, "profile"):
             continue
-        result += "\n%s:\n\n" % item.profile["name"]
-        result += "+%s+%s+\n" % (
-            "-" * 62,
-            "-" * 11,
-        )
+        if item.profile["name"] != last_profile_name:
+            result += "| %-82s |\n" % ("**%s**" % item.profile["name"])
+            result += "+%s+%s+\n" % (
+                "-" * 72,
+                "-" * 11,
+            )
+            last_profile_name = item.profile["name"]
         for model in item.profile["models"]:
-            result += "| %-60s | %04x:%04x |\n" % (
+            result += "| %-70s | %04x:%04x |\n" % (
                 model["name"],
                 model["vendor_id"],
                 model["product_id"],
             )
             result += "+%s+%s+\n" % (
-                "-" * 62,
+                "-" * 72,
                 "-" * 11,
             )
     return result
