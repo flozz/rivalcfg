@@ -143,18 +143,18 @@ def process_value(setting_info, colors):
     elif is_rgbgradient(colors)[0]:
         duration, gradient = _handle_rgbgradient_string(colors)
     else:
-        raise ValueError("Not a valid color or rgbgradient %s" % str(colors))
+        raise ValueError(f"Not a valid color or rgbgradient {str(colors)}")
 
     # -- Check
 
     if len(gradient) == 0:
-        raise ValueError("no color: %s" % str(colors))
+        raise ValueError(f"no color: {str(colors)}")
 
     # SSE allowes a maximun of 14 rgbgradient patterns but there is room in the
     # command for up to 16 rgbgradient patterns and it will take 16 arguments.
     gradient_length = len(gradient)
     if gradient_length > maxgradient:
-        raise ValueError("a maximum of %i color stops are allowed" % (maxgradient))
+        raise ValueError(f"a maximum of {maxgradient} color stops are allowed")
 
     # SSE limits minimum duration depening the the amount of gradient arguments
     minimum_duration = int(gradient_length * 33.3)
@@ -257,10 +257,7 @@ def add_cli_option(cli_parser, setting_name, setting_info):
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     """
-    description = "%s (default: %s)" % (
-        setting_info["description"],
-        str(setting_info["default"]).replace("%", "%%"),
-    )
+    description = f'{setting_info["description"]} (default: {str(setting_info["default"]).replace("%", "%%")})'
     cli_parser.add_argument(
         *setting_info["cli"],
         dest=setting_name,
