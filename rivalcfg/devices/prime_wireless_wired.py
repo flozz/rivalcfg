@@ -20,7 +20,7 @@ profile = {
             "endpoint": 3,
         },
         {
-            "name": "SteelSeries Prime Mini (not wireless),
+            "name": "SteelSeries Prime Mini (not wireless)",
             "vendor_id": 0x1038,
             "product_id": 0x184D,
             "endpoint": 3,
