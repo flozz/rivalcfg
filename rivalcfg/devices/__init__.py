@@ -228,6 +228,7 @@ def _generate_profiles():
         kanav2,
         kinzuv2,
         prime,
+        prime_mini,
         prime_wireless_wired,
         prime_wireless_wireless,
         rival3,
