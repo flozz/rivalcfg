@@ -93,6 +93,10 @@ Supported Devices
 +------------------------------------------------------------------------+-----------+
 | SteelSeries Prime CS:GO Neo Noir Edition                               | 1038:1856 |
 +------------------------------------------------------------------------+-----------+
+| **SteelSeries Prime Mini**                                                         |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Prime Mini                                                 | 1038:184d |
++------------------------------------------------------------------------+-----------+
 | **SteelSeries Prime Wireless**                                                     |
 +------------------------------------------------------------------------+-----------+
 | SteelSeries Prime Wireless (wired mode)                                | 1038:1842 |
@@ -240,6 +244,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * feat: Added Prime Mini support (@flozz, @NextWork123, #227)
   * chore: Added Python 3.12 support
   * chore!: Dropped Python 3.7 support
 
