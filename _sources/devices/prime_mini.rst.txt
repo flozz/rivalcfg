@@ -1,30 +1,22 @@
-SteelSeries Prime Wireless
-==========================
+SteelSeries Prime Mini
+======================
+
 
 .. NOTE::
 
-   * For Prime Mini (non-wireless version), see :doc:`./prime_mini`.
+   * For Prime Mini Wireless, see :doc:`./prime_wireless`.
 
 
 Supported Models
 ----------------
 
-.. rivalcfg_device_family:: prime_wireless_wired
-.. rivalcfg_device_family:: prime_wireless_wireless
-
-
-Missing Features
-----------------
-
-The following feature are currently not supported by Rivalcfg:
-
-* Smart illumination
+.. rivalcfg_device_family:: prime_mini
 
 
 Command-Line Usage
 ------------------
 
-.. rivalcfg_device_cli:: prime_wireless_wired
+.. rivalcfg_device_cli:: prime_mini
 
 
 Sensitivity (DPI)
