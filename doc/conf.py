@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "rivalcfg"
-copyright = "2016-2022, Fabien LOISON"
+copyright = "2016-2024, Fabien LOISON"
 author = "Fabien LOISON"
 
 # Project version

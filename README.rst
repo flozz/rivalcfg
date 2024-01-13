@@ -244,6 +244,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v4.11.0:**
+
   * feat: Added Prime Mini support (@flozz, @NextWork123, #227)
   * chore: Added Python 3.12 support
   * chore!: Dropped Python 3.7 support

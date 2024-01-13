@@ -9,6 +9,7 @@ This file is a memo for the maintainer.
 
 * Check the device list is up to date in the README (``./scripts/update_readme_devices.py``)
 * Check SSDB is up to date (``nox -s update_ssdb``)
+* Check copyright years in ``doc/conf.py``
 
 
 1. Release
