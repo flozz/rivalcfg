@@ -2,7 +2,6 @@
 This module contains varous helper functions.
 """
 
-
 import re
 
 

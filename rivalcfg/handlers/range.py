@@ -67,7 +67,6 @@ Functions
 ---------
 """
 
-
 from ..helpers import uint_to_little_endian_bytearray
 
 

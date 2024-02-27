@@ -141,7 +141,6 @@ Module API
        }
 """
 
-
 import os
 
 from .. import usbhid

@@ -2,7 +2,6 @@
 This module generates rivalcfg's CLI.
 """
 
-
 import os
 import sys
 import types

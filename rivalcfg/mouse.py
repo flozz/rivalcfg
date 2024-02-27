@@ -39,7 +39,6 @@ def get_mouse(vendor_id=0x1038, product_id=None):
 
 
 class Mouse:
-
     """Generic class to handle any supported mouse.
 
     .. NOTE::

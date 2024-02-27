@@ -2,7 +2,6 @@
 This file contains the layout for multimedia keys.
 """
 
-
 #: The multimedia keys layout
 layout = {
     "Mute": 0xE2,

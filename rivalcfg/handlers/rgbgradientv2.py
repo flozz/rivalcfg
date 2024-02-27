@@ -100,7 +100,6 @@ Functions
 ---------
 """
 
-
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
 from ..helpers import bytes_to_high_low_nibbles, nibbles_to_byte
 from ..color_helpers import is_color

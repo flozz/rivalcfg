@@ -17,7 +17,6 @@ This module can also simulate devices:
     RIVALCFG_PROFILE=1038:1702 rivalcfg -h
 """
 
-
 import os
 import struct
 from io import BytesIO
@@ -107,7 +106,6 @@ class DeviceNotFound(Exception):
 
 
 class FakeDevice:
-
     """This class simulate an HID device as provided by the `hidapi
     <https://pypi.org/project/hidapi/>`_ module.
 

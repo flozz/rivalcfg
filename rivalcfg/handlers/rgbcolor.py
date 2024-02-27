@@ -75,7 +75,6 @@ Functions
 ---------
 """
 
-
 import argparse
 
 from ..color_helpers import is_color, parse_color_string

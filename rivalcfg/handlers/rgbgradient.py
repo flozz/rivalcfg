@@ -104,7 +104,6 @@ Functions
 ---------
 """
 
-
 import argparse
 
 from ..helpers import uint_to_little_endian_bytearray, merge_bytes
