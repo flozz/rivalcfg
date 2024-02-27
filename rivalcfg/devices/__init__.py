@@ -221,6 +221,7 @@ def _generate_profiles():
         aerox3,
         aerox3_wireless_wired,
         aerox3_wireless_wireless,
+        aerox5,
         aerox5_wireless_wired,
         aerox5_wireless_wireless,
         aerox9_wireless_wired,
