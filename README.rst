@@ -244,7 +244,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * feat: Added Aerox 5 (wired) support (@flozz, #192)
 
 * **v4.11.0:**
 
