@@ -55,6 +55,10 @@ Supported Devices
 +------------------------------------------------------------------------+-----------+
 | SteelSeries Aerox 3 Wireless (2.4 GHz wireless mode)                   | 1038:1838 |
 +------------------------------------------------------------------------+-----------+
+| **SteelSeries Aerox 5**                                                            |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 5                                                    | 1038:1850 |
++------------------------------------------------------------------------+-----------+
 | **SteelSeries Aerox 5 Wireless**                                                   |
 +------------------------------------------------------------------------+-----------+
 | SteelSeries Aerox 5 Wireless (wired mode)                              | 1038:1854 |
@@ -244,13 +248,17 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v4.12.0:**
+
   * feat: Added Aerox 5 (wired) support (@flozz, #192)
 
 * **v4.11.0:**
 
   * feat: Added Prime Mini support (@flozz, @NextWork123, #227)
-  * chore: Added Python 3.12 support
-  * chore!: Dropped Python 3.7 support
+  * misc: Added Python 3.12 support
+  * misc!: Dropped Python 3.7 support
 
 * **v4.10.0:**
 
