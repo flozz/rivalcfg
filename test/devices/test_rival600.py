@@ -297,6 +297,65 @@ class TestDevice(object):
 
         assert hid_report == expected_hid_report
 
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (
+                "default",
+                b"\x03\x00"
+                b"\x31\x00"
+                b"\x01\x00\x00\x00\x00"
+                b"\x02\x00\x00\x00\x00"
+                b"\x03\x00\x00\x00\x00"
+                b"\x04\x00\x00\x00\x00"
+                b"\x05\x00\x00\x00\x00"
+                b"\x00\x00\x00\x00\x00"
+                b"\x30\x00\x00\x00\x00",
+            ),
+            (
+                "buttons(button2=button6)",
+                b"\x03\x00"
+                b"\x31\x00"
+                b"\x01\x00\x00\x00\x00"
+                b"\x06\x00\x00\x00\x00"
+                b"\x03\x00\x00\x00\x00"
+                b"\x04\x00\x00\x00\x00"
+                b"\x05\x00\x00\x00\x00"
+                b"\x00\x00\x00\x00\x00"
+                b"\x30\x00\x00\x00\x00",
+            ),
+            (
+                {"buttons": {"button2": "button6"}},
+                b"\x03\x00"
+                b"\x31\x00"
+                b"\x01\x00\x00\x00\x00"
+                b"\x06\x00\x00\x00\x00"
+                b"\x03\x00\x00\x00\x00"
+                b"\x04\x00\x00\x00\x00"
+                b"\x05\x00\x00\x00\x00"
+                b"\x00\x00\x00\x00\x00"
+                b"\x30\x00\x00\x00\x00",
+            ),
+            (
+                "buttons(Button1=ScrollDown; Button2=ScrollUp)",
+                b"\x03\x00"
+                b"\x31\x00"
+                b"\x32\x00\x00\x00\x00"
+                b"\x31\x00\x00\x00\x00"
+                b"\x03\x00\x00\x00\x00"
+                b"\x04\x00\x00\x00\x00"
+                b"\x05\x00\x00\x00\x00"
+                b"\x00\x00\x00\x00\x00"
+                b"\x30\x00\x00\x00\x00",
+            ),
+        ],
+    )
+    def test_set_buttons_mapping(self, mouse, value, expected_hid_report):
+        mouse.set_buttons_mapping(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)
