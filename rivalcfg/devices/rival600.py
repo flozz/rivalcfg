@@ -162,6 +162,33 @@ profile = {
             "led_id": 0x07,
             "default": _DEFAULT_RGBGRADIENT,
         },
+        "buttons_mapping": {
+            "label": "Buttons mapping",
+            "description": "Set the mapping of the buttons",
+            "cli": ["-b", "--buttons"],
+            "report_type": usbhid.HID_REPORT_TYPE_FEATURE,
+            "command": [0x31, 0x00],
+            "value_type": "buttons",
+            # fmt: off
+            "buttons": {
+                "Button1": {"id": 0x01, "offset": 0x00, "default": "button1"},
+                "Button2": {"id": 0x02, "offset": 0x05, "default": "button2"},
+                "Button3": {"id": 0x03, "offset": 0x0A, "default": "button3"},
+                "Button4": {"id": 0x04, "offset": 0x0F, "default": "button4"},
+                "Button5": {"id": 0x05, "offset": 0x14, "default": "button5"},
+                "Button6": {"id": 0x06, "offset": 0x19, "default": "disabled"},
+                "Button7": {"id": 0x00, "offset": 0x1E, "default": "dpi"},
+            },
+            "button_field_length": 5,
+            "button_disable":     0x00,
+            "button_keyboard":    0x51,
+            "button_multimedia":  0x61,
+            "button_dpi_switch":  0x30,
+            "button_scroll_up":   0x31,
+            "button_scroll_down": 0x32,
+            # fmt: on
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=disabled; button7=dpi)",
+        },
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,

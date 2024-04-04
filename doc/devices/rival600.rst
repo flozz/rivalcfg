@@ -28,6 +28,15 @@ RGB Gradients
 .. include:: ./_rgbgradient.rst
 
 
+Buttons
+-------
+
+.. figure:: ./images/rival_600_buttons.svg
+   :alt: Rival 600 buttons schema
+
+.. include:: ./_buttons.rst
+
+
 Python API
 ----------
 

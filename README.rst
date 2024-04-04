@@ -248,7 +248,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * feat: Added button binding support for Rival 600 (@flozz)
 
 * **v4.12.0:**
 
