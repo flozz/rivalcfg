@@ -76,15 +76,36 @@ class Mouse:
     #: The mouse settings (:class:`rivalcfg.mouse_settings.MouseSettings`)
     mouse_settings = None
 
-    #: Waiting time for the mouse LED to change color
-    waiting_led = None
+    #: Waiting time for the mouse to process and approve the command
+    # Setting the value too low may cause the device to freeze and potentially even break.
+    _MIN_COMMAND_APPROVE_DELAY = 0.001
+    _command_approve_delay = None
 
-    def __init__(self, hid_device, mouse_profile, mouse_settings, waiting_led=0.05):
+    def __init__(self, hid_device, mouse_profile, mouse_settings, command_approve_delay=0.05):
         """Constructor."""
         self._hid_device = hid_device
         self.mouse_profile = mouse_profile
         self.mouse_settings = mouse_settings
-        self.waiting_led = waiting_led
+        if command_approve_delay < self._MIN_COMMAND_APPROVE_DELAY:
+            ValueError(f"command_approve_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_APPROVE_DELAY} seconds")
+        else:
+            self._command_approve_delay = command_approve_delay
+
+    @property
+    def command_approve_delay(self):
+        """
+        Waiting time for the mouse to process and approve the command
+
+        Setting the value too low may cause the device to freeze and potentially even break.
+        """
+        return self._command_approve_delay
+
+    @command_approve_delay.setter
+    def command_approve_delay(self, new_value):
+        if new_value < self._MIN_COMMAND_APPROVE_DELAY:
+            raise ValueError(f"command_approve_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_APPROVE_DELAY} seconds")
+        
+        self._command_approve_delay = new_value
 
     @property
     def name(self):
@@ -268,7 +289,7 @@ class Mouse:
             raise ValueError("Invalid HID report type: %2x" % report_type)
 
         # Avoids sending multiple commands to quickly
-        time.sleep(self.waiting_led)
+        time.sleep(self._command_approve_delay)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
