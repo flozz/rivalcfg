@@ -76,11 +76,15 @@ class Mouse:
     #: The mouse settings (:class:`rivalcfg.mouse_settings.MouseSettings`)
     mouse_settings = None
 
-    def __init__(self, hid_device, mouse_profile, mouse_settings):
+    #: Waiting time for the mouse LED to change color
+    waiting_led = None
+
+    def __init__(self, hid_device, mouse_profile, mouse_settings, waiting_led=0.05):
         """Constructor."""
         self._hid_device = hid_device
         self.mouse_profile = mouse_profile
         self.mouse_settings = mouse_settings
+        self.waiting_led = waiting_led
 
     @property
     def name(self):
@@ -264,7 +268,7 @@ class Mouse:
             raise ValueError("Invalid HID report type: %2x" % report_type)
 
         # Avoids sending multiple commands to quickly
-        time.sleep(0.05)
+        time.sleep(self.waiting_led)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
