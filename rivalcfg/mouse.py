@@ -87,7 +87,7 @@ class Mouse:
         self.mouse_profile = mouse_profile
         self.mouse_settings = mouse_settings
         if command_approve_delay < self._MIN_COMMAND_APPROVE_DELAY:
-            ValueError(f"command_approve_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_APPROVE_DELAY} seconds")
+            raise ValueError(f"command_approve_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_APPROVE_DELAY} seconds")
         else:
             self._command_approve_delay = command_approve_delay
 
