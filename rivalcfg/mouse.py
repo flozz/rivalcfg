@@ -78,32 +78,29 @@ class Mouse:
 
     #: Waiting time for the mouse to process and approve the command
     # Setting the value too low may cause the device to freeze and potentially even break.
-    _MIN_COMMAND_APPROVE_DELAY = 0.001
+    _MIN_COMMAND_DELAY = 0.001
     _command_approve_delay = None
 
-    def __init__(
-        self, hid_device, mouse_profile, mouse_settings, command_approve_delay=0.05
-    ):
+    def __init__(self, hid_device, mouse_profile, mouse_settings, command_delay=0.05):
         """Constructor."""
         self._hid_device = hid_device
         self.mouse_profile = mouse_profile
         self.mouse_settings = mouse_settings
-        self.command_approve_delay = command_approve_delay
+        self.command_delay = command_delay
 
     @property
-    def command_approve_delay(self):
-        """
-        Waiting time for the mouse to process and approve the command
+    def command_delay(self):
+        """Waiting time for the mouse to process and approve the command
 
         Setting the value too low may cause the device to freeze and potentially even break.
         """
-        return self._command_approve_delay
+        return self._command_delay
 
-    @command_approve_delay.setter
-    def command_approve_delay(self, new_value):
-        if new_value < self._MIN_COMMAND_APPROVE_DELAY:
+    @command_delay.setter
+    def command_delay(self, new_value):
+        if new_value < self._MIN_COMMAND_DELAY:
             raise ValueError(
-                f"command_approve_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_APPROVE_DELAY} seconds"
+                f"command_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_DELAY} seconds"
             )
 
         self._command_approve_delay = new_value
