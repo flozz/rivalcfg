@@ -55,6 +55,8 @@ class Mouse:
                         :func:`rivalcfg.usbhid.open_device`).
     :param mouse_profile: One of the rivalcfg mouse profile (provided by
                             :func:`rivalcfg.devices.get_profile`).
+    :param float command_delay: Waiting time beween two commands to not
+                                overload the device.
 
     >>> from rivalcfg import usbhid
     >>> from rivalcfg import devices
@@ -76,8 +78,6 @@ class Mouse:
     #: The mouse settings (:class:`rivalcfg.mouse_settings.MouseSettings`)
     mouse_settings = None
 
-    #: Waiting time for the mouse to process and approve the command
-    # Setting the value too low may cause the device to freeze and potentially even break.
     _MIN_COMMAND_DELAY = 0.001
     _command_approve_delay = None
 
@@ -90,9 +90,13 @@ class Mouse:
 
     @property
     def command_delay(self):
-        """Waiting time for the mouse to process and approve the command
+        """Waiting time beween two commands to not overload the device.
 
-        Setting the value too low may cause the device to freeze and potentially even break.
+        .. WARNING::
+
+           Setting this value too low can hang the device. Some mice like the
+           Kinzu v2 are known to become laggy or even to crash when commands
+           are sent too quickly.
         """
         return self._command_delay
 
