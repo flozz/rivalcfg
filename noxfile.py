@@ -33,6 +33,7 @@ def test(session):
         "test",
         env={
             "RIVALCFG_DRY": "1",
+            "RIVALCFG_DEBUG_NO_COMMAND_DELAY": "1",
         },
     )
 

@@ -1,3 +1,4 @@
+import os
 import time
 
 from . import usbhid
@@ -291,7 +292,8 @@ class Mouse:
             raise ValueError("Invalid HID report type: %2x" % report_type)
 
         # Avoids sending multiple commands to quickly
-        time.sleep(self._command_approve_delay)
+        if "RIVALCFG_DEBUG_NO_COMMAND_DELAY" not in os.environ:
+            time.sleep(self._command_approve_delay)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
