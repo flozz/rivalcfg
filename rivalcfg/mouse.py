@@ -1,3 +1,4 @@
+import os
 import time
 
 from . import usbhid
@@ -55,6 +56,8 @@ class Mouse:
                         :func:`rivalcfg.usbhid.open_device`).
     :param mouse_profile: One of the rivalcfg mouse profile (provided by
                             :func:`rivalcfg.devices.get_profile`).
+    :param float command_delay: Waiting time beween two commands to not
+                                overload the device.
 
     >>> from rivalcfg import usbhid
     >>> from rivalcfg import devices
@@ -76,11 +79,36 @@ class Mouse:
     #: The mouse settings (:class:`rivalcfg.mouse_settings.MouseSettings`)
     mouse_settings = None
 
-    def __init__(self, hid_device, mouse_profile, mouse_settings):
+    _MIN_COMMAND_DELAY = 0.001
+    _command_approve_delay = None
+
+    def __init__(self, hid_device, mouse_profile, mouse_settings, command_delay=0.05):
         """Constructor."""
         self._hid_device = hid_device
         self.mouse_profile = mouse_profile
         self.mouse_settings = mouse_settings
+        self.command_delay = command_delay
+
+    @property
+    def command_delay(self):
+        """Waiting time beween two commands to not overload the device.
+
+        .. WARNING::
+
+           Setting this value too low can hang the device. Some mice like the
+           Kinzu v2 are known to become laggy or even to crash when commands
+           are sent too quickly.
+        """
+        return self._command_delay
+
+    @command_delay.setter
+    def command_delay(self, new_value):
+        if new_value < self._MIN_COMMAND_DELAY:
+            raise ValueError(
+                f"command_delay is unsafe to use, with a delay of less than {self._MIN_COMMAND_DELAY} seconds"
+            )
+
+        self._command_approve_delay = new_value
 
     @property
     def name(self):
@@ -264,7 +292,8 @@ class Mouse:
             raise ValueError("Invalid HID report type: %2x" % report_type)
 
         # Avoids sending multiple commands to quickly
-        time.sleep(0.05)
+        if "RIVALCFG_DEBUG_NO_COMMAND_DELAY" not in os.environ:
+            time.sleep(self._command_approve_delay)
 
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
