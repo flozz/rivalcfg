@@ -117,11 +117,12 @@ To run the tests only for a specific Python version, you can use following
 commands (the corresponding Python interpreter must be installed on your
 machine)::
 
-    nox --session test-2.7
-    nox --session test-3.6
-    nox --session test-3.7
     nox --session test-3.8
     nox --session test-3.9
+    nox --session test-3.10
+    nox --session test-3.11
+    nox --session test-3.12
+    nox --session test-3.13
 
 
 Building The Documentation

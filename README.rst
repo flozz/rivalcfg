@@ -250,6 +250,8 @@ Changelog
 
   * feat: Allow to reduce the delay between two commands sent to devices (@Miskler, #236)
   * feat: Added an env var to remove the delay between commands to speedup the tests (@flozz)
+  * misc: Added Python 3.13 support (@flozz)
+  * misc!: Removed Python 3.8 support (@flozz)
 
 * **v4.13.0:**
 
