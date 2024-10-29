@@ -40,5 +40,4 @@ Python Versions
 
 Rivalcfg currently supports
 
-* Python 2.7 (support will be dropped someday)
-* Python 3.5+
+* Python 3.9+

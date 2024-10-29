@@ -14,6 +14,12 @@ Usage::
     RIVALCFG_DRY=1
 
 
+RIVALCFG_DEBUG_NO_COMMAND_DELAY
+-------------------------------
+
+When set, this remove the delay between commands. This is only usefull to allow tests to run faster, you may not use this with real devices, they may hang or even crash. See :py:attr:`~rivalcfg.mouse.Mouse.command_delay`.
+
+
 RIVALCFG_PROFILE
 ----------------
 
@@ -26,3 +32,4 @@ Usage::
 For example, to load the Rival 100 profile and list its CLI options::
 
     RIVALCFG_PROFILE=1038:1702 RIVALCFG_DRY=1 rivalcfg --help
+

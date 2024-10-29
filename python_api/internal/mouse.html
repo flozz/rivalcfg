@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mouse &mdash; rivalcfg v4.13.0 documentation</title>
+  <title>mouse &mdash; rivalcfg v4.14.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=abaa2ab5"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=25f1db7b"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -36,9 +34,6 @@
           <a href="../../index.html" class="icon icon-home">
             rivalcfg
           </a>
-              <div class="version">
-                v4.13.0
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -142,7 +137,7 @@ supported by rivalcfg.</p>
 <h2>Mouse Class<a class="headerlink" href="#mouse-class" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.mouse.Mouse">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse.</span></span><span class="sig-name descname"><span class="pre">Mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hid_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.Mouse" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.mouse.</span></span><span class="sig-name descname"><span class="pre">Mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hid_device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouse_settings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.mouse.Mouse" title="Link to this definition"></a></dt>
 <dd><p>Generic class to handle any supported mouse.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -161,6 +156,8 @@ profile. Read device specific documentation for more information.</p>
 <a class="reference internal" href="usbhid.html#rivalcfg.usbhid.open_device" title="rivalcfg.usbhid.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">rivalcfg.usbhid.open_device()</span></code></a>).</p></li>
 <li><p><strong>mouse_profile</strong> – One of the rivalcfg mouse profile (provided by
 <a class="reference internal" href="devices.html#rivalcfg.devices.get_profile" title="rivalcfg.devices.get_profile"><code class="xref py py-func docutils literal notranslate"><span class="pre">rivalcfg.devices.get_profile()</span></code></a>).</p></li>
+<li><p><strong>command_delay</strong> (<em>float</em>) – Waiting time beween two commands to not
+overload the device.</p></li>
 </ul>
 </dd>
 </dl>
@@ -228,6 +225,18 @@ length)).</p></li>
 <p class="admonition-title">Warning</p>
 <p>Once called, any access of the Mouse class properties or function
 may raise an error.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="rivalcfg.mouse.Mouse.command_delay">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command_delay</span></span><a class="headerlink" href="#rivalcfg.mouse.Mouse.command_delay" title="Link to this definition"></a></dt>
+<dd><p>Waiting time beween two commands to not overload the device.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setting this value too low can hang the device. Some mice like the
+Kinzu v2 are known to become laggy or even to crash when commands
+are sent too quickly.</p>
 </div>
 </dd></dl>
 

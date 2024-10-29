@@ -41,7 +41,7 @@ Windows
 
 On Windows, you have to install first:
 
-* Python 3.6+ (see https://www.python.org/downloads/windows/)
+* Python 3.9+ (see https://www.python.org/downloads/windows/)
 * Visual C++ 2015 Build Tools: https://www.microsoft.com/en-us/download/details.aspx?id=48159
 
 
