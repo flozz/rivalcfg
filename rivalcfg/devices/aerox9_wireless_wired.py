@@ -13,6 +13,12 @@ profile = {
             "product_id": 0x185A,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 9 Wireless WOW Edition (wired mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x1876,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         "sensitivity": {
