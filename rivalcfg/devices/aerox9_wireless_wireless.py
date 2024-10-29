@@ -26,6 +26,12 @@ profile = {
             "product_id": 0x1858,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 9 Wireless WOW Edition (2.4 GHz wireless mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x1874,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         name: _patch_command(info)

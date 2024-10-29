@@ -77,7 +77,11 @@ Supported Devices
 +------------------------------------------------------------------------+-----------+
 | SteelSeries Aerox 9 Wireless (wired mode)                              | 1038:185a |
 +------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 9 Wireless WOW Edition (wired mode)                  | 1038:1876 |
++------------------------------------------------------------------------+-----------+
 | SteelSeries Aerox 9 Wireless (2.4 GHz wireless mode)                   | 1038:1858 |
++------------------------------------------------------------------------+-----------+
+| SteelSeries Aerox 9 Wireless WOW Edition (2.4 GHz wireless mode)       | 1038:1874 |
 +------------------------------------------------------------------------+-----------+
 | **SteelSeries Kana v2**                                                            |
 +------------------------------------------------------------------------+-----------+
@@ -248,6 +252,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * feat: Added partial support of the Aerox 9 Wireless WOW Edition (@flozz)
   * feat: Allow to reduce the delay between two commands sent to devices (@Miskler, #236)
   * feat: Added an env var to remove the delay between commands to speedup the tests (@flozz)
   * misc: Added Python 3.13 support (@flozz)
