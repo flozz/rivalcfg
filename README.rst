@@ -252,6 +252,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v4.14.0:**
+
   * feat: Added partial support of the Aerox 9 Wireless WOW Edition (@flozz)
   * feat: Allow to reduce the delay between two commands sent to devices (@Miskler, #236)
   * feat: Added an env var to remove the delay between commands to speedup the tests (@flozz)
