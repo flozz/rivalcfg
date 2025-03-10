@@ -134,12 +134,13 @@ profile = {
             },
             "default": "rainbow",
         },
-        "buttons_mapping1": {
-            "label": "Buttons mapping 1",
-            "description": "Set the mapping of the normal mouse buttons and scrollwheel left/right",
-            "cli": ["--buttons1"],
+        "buttons_mapping": {
+            "label": "Buttons mapping",
+            "description": "Set the mapping of the buttons",
+            "cli": ["-b", "--buttons"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x2A, 0x00],
+            "command": [0x2A],
+            "split_packet_at": [30, 60],
             "value_type": "buttons",
             # fmt: off
             "buttons": {
@@ -149,6 +150,20 @@ profile = {
                 "Button4":    {"id": 0x04, "offset":   15, "default": "button4"}, # Wheel Left
                 "Button5":    {"id": 0x05, "offset":   20, "default": "button5"}, # Wheel Right
                 "Button6":    {"id": 0x06, "offset":   25, "default": "dpi"},
+                "Numpad3":    {"id": 0x00, "offset":   30, "default": "3"},
+                "Numpad6":    {"id": 0x00, "offset":   35, "default": "6"}, # dpi?
+                "Numpad9":    {"id": 0x00, "offset":   40, "default": "9"},
+                "Numpad12":   {"id": 0x00, "offset":   45, "default": "="}, # numpad7
+                "Numpad2":    {"id": 0x00, "offset":   50, "default": "2"},
+                "Numpad5":    {"id": 0x00, "offset":   55, "default": "5"},     
+                "Numpad8":    {"id": 0x00, "offset":   60, "default": "8"},
+                "Numpad11":   {"id": 0x00, "offset":   65, "default": "-"},
+                "Numpad1":    {"id": 0x00, "offset":   70, "default": "1"},
+                "Numpad4":    {"id": 0x00, "offset":   75, "default": "4"},
+                "Numpad7":    {"id": 0x00, "offset":   80, "default": "7"},
+                "Numpad10":   {"id": 0x00, "offset":   85, "default": "0"},  
+                "ScrollUp":   {"id": 0x31, "offset":   90, "default": "scrollup"},
+                "ScrollDown": {"id": 0x32, "offset":   95, "default": "scrolldown"},    
             },
             "button_field_length": 5,
             "button_disable":     0x00,
@@ -158,61 +173,7 @@ profile = {
             "button_scroll_up":   None,
             "button_scroll_down": None,
             # fmt: on
-            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; layout=qwerty)",
-        },
-        "buttons_mapping_2": {
-            "label": "Buttons mapping 2",
-            "description": "Set the mapping of the first half of the numpad",
-            "cli": ["--buttons2"],
-            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x2A, 0x01],
-            "value_type": "buttons",
-            # fmt: off
-            "buttons": {
-                "Numpad3":    {"id": 0x01, "offset":    0, "default": "3"},
-                "Numpad6":    {"id": 0x02, "offset":    5, "default": "6"}, # dpi?
-                "Numpad9":    {"id": 0x03, "offset":   10, "default": "9"},
-                "Numpad12":   {"id": 0x04, "offset":   15, "default": "="}, # numpad7
-                "Numpad2":    {"id": 0x05, "offset":   20, "default": "2"},
-                "Numpad5":    {"id": 0x06, "offset":   25, "default": "5"},                
-            },
-            "button_field_length": 5,
-            "button_disable":     0x00,
-            "button_keyboard":    0x51,
-            "button_multimedia":  0x61,
-            "button_dpi_switch":  0x30,
-            "button_scroll_up":   None,
-            "button_scroll_down": None,
-            # fmt: on
-            "default": "buttons(numpad3=3; numpad6=6; numpad9=9; numpad12=equal; numpad2=2; numpad5=5; layout=qwerty)",
-        },
-        "buttons_mapping_3": {
-            "label": "Buttons mapping 3",
-            "description": "Set the mapping of the scrollwheel and the second half of the numpad",
-            "cli": ["--buttons3"],
-            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x2A, 0x02],
-            "value_type": "buttons",
-            # fmt: off
-            "buttons": {
-                "Numpad8":    {"id": 0x01, "offset":    0, "default": "8"},
-                "Numpad11":   {"id": 0x02, "offset":    5, "default": "-"},
-                "Numpad1":    {"id": 0x03, "offset":   10, "default": "1"},
-                "Numpad4":    {"id": 0x04, "offset":   15, "default": "4"},
-                "Numpad7":    {"id": 0x05, "offset":   20, "default": "7"},
-                "Numpad10":   {"id": 0x06, "offset":   25, "default": "0"},  
-                "ScrollUp":   {"id": 0x31, "offset":   30, "default": "scrollup"},
-                "ScrollDown": {"id": 0x32, "offset":   35, "default": "scrolldown"},     
-            },
-            "button_field_length": 5,
-            "button_disable":     0x00,
-            "button_keyboard":    0x51,
-            "button_multimedia":  0x61,
-            "button_dpi_switch":  0x30,
-            "button_scroll_up":   None,
-            "button_scroll_down": None,
-            # fmt: on
-            "default": "buttons(numpad8=8; numpad11=-; numpad1=1; numpad4=4; numpad7=7; numpad10=0; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
+            "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=dpi; numpad1=1; numpad2=2; numpad3=3; numpad4=4; numpad5=5; numpad6=6; numpad7=7; numpad8=8; numpad9=9; numpad10=0; numpad11=-; numpad12=equal; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
         },
     },
     "battery_level": {
