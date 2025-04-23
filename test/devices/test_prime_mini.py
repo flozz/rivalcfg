@@ -23,12 +23,12 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (100, b"\x02\x00\x2D\x01\x00\x02\x00"),
-            ("100", b"\x02\x00\x2D\x01\x00\x02\x00"),
-            ("500,2500", b"\x02\x00\x2D\x02\x00\x0A\x00\x32\x00"),
+            (100, b"\x02\x00\x2d\x01\x00\x02\x00"),
+            ("100", b"\x02\x00\x2d\x01\x00\x02\x00"),
+            ("500,2500", b"\x02\x00\x2d\x02\x00\x0a\x00\x32\x00"),
             (
                 "500,2500,11050,18000",
-                b"\x02\x00\x2D\x04\x00\x0A\x00\x32\x00\xDD\x00\x68\x01",
+                b"\x02\x00\x2d\x04\x00\x0a\x00\x32\x00\xdd\x00\x68\x01",
             ),
         ],
     )
@@ -56,8 +56,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x00\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x21\x00\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x00\xff\x00\x00"),
         ],
     )
     def test_set_color(self, mouse, value, expected_hid_report):

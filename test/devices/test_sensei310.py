@@ -74,15 +74,15 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
 
         expected_hid_report = b""
-        expected_hid_report += b"\x03\x00\x5B\x00\x00\xe8\x03\x00\x00\x00"
+        expected_hid_report += b"\x03\x00\x5b\x00\x00\xe8\x03\x00\x00\x00"
         #                        |wValue |command|LED|duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x04"
         #                            |rpt|           |trg|           |clr count
-        expected_hid_report += b"\xFF\x00\x00\xFF\x00\x00\x00\x00\xFF\x00"
+        expected_hid_report += b"\xff\x00\x00\xff\x00\x00\x00\x00\xff\x00"
         #                        |init color |color1     |ps1|color2     |
-        expected_hid_report += b"\x54\x00\x00\xFF\x54\xFF\x00\x00\x57"
+        expected_hid_report += b"\x54\x00\x00\xff\x54\xff\x00\x00\x57"
         #                        |ps2|color3     |ps3|color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -97,7 +97,7 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
 
         expected_hid_report = b""
-        expected_hid_report += b"\x03\x00\x5B\x00\x01\x88\x13\x00\x00\x00"
+        expected_hid_report += b"\x03\x00\x5b\x00\x01\x88\x13\x00\x00\x00"
         #                        |wValue |command|LED|duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #
@@ -107,11 +107,11 @@ class TestDevice(object):
         #                        |init color |
         expected_hid_report += b"\x11\x22\x33\x00"
         #                        |color1     |pos1|
-        expected_hid_report += b"\x44\x55\x66\x3F"
+        expected_hid_report += b"\x44\x55\x66\x3f"
         #                        |color2     |pos2|
         expected_hid_report += b"\x77\x88\x99\x40"
         #                        |color3     |pos3|
-        expected_hid_report += b"\xAA\xBB\xCC\x40"
+        expected_hid_report += b"\xaa\xbb\xcc\x40"
         #                        |color4     |pos4|
         expected_hid_report += b"\x11\x22\x33\x40"
         # (=color1: smoothing)   |color5     |pos5|
@@ -125,7 +125,7 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
 
         expected_hid_report = b""
-        expected_hid_report += b"\x03\x00\x5B\x00\x01\xe8\x03\x00\x00\x00"
+        expected_hid_report += b"\x03\x00\x5b\x00\x01\xe8\x03\x00\x00\x00"
         #                        |wValue |command|LED|duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #
@@ -148,8 +148,8 @@ class TestDevice(object):
                 b"\x03\x00\x00\x00\x00"
                 b"\x04\x00\x00\x00\x00"
                 b"\x05\x00\x00\x00\x00"
-                b"\x51\x4E\x00\x00\x00"
-                b"\x51\x4B\x00\x00\x00"
+                b"\x51\x4e\x00\x00\x00"
+                b"\x51\x4b\x00\x00\x00"
                 b"\x30\x00\x00\x00\x00",
             ),
             (
@@ -161,8 +161,8 @@ class TestDevice(object):
                 b"\x03\x00\x00\x00\x00"
                 b"\x04\x00\x00\x00\x00"
                 b"\x05\x00\x00\x00\x00"
-                b"\x51\x4E\x00\x00\x00"
-                b"\x51\x4B\x00\x00\x00"
+                b"\x51\x4e\x00\x00\x00"
+                b"\x51\x4b\x00\x00\x00"
                 b"\x30\x00\x00\x00\x00",
             ),
             (
@@ -174,8 +174,8 @@ class TestDevice(object):
                 b"\x03\x00\x00\x00\x00"
                 b"\x04\x00\x00\x00\x00"
                 b"\x05\x00\x00\x00\x00"
-                b"\x51\x4E\x00\x00\x00"
-                b"\x51\x4B\x00\x00\x00"
+                b"\x51\x4e\x00\x00\x00"
+                b"\x51\x4b\x00\x00\x00"
                 b"\x30\x00\x00\x00\x00",
             ),
         ],

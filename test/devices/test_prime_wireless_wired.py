@@ -26,7 +26,7 @@ class TestDevice(object):
             (100, b"\x02\x00\x2d\x01\x00\x00"),
             (200, b"\x02\x00\x2d\x01\x00\x01"),
             (300, b"\x02\x00\x2d\x01\x00\x02"),
-            (18000, b"\x02\x00\x2d\x01\x00\xD6"),
+            (18000, b"\x02\x00\x2d\x01\x00\xd6"),
             ("200,400", b"\x02\x00\x2d\x02\x00\x01\x03"),
             ("200,400,800,1600", b"\x02\x00\x2d\x04\x00\x01\x03\x08\x11"),
         ],
@@ -55,8 +55,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x01\x00\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x21\x01\x00\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x01\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x01\x00\xff\x00\x00"),
         ],
     )
     def test_set_color(self, mouse, value, expected_hid_report):
@@ -132,9 +132,9 @@ class TestDevice(object):
         "value,expected_hid_report",
         [
             (0, b"\x02\x00\x29\x00\x00\x00"),
-            (1, b"\x02\x00\x29\x60\xEA\x00"),
-            (5, b"\x02\x00\x29\xE0\x93\x04"),
-            (20, b"\x02\x00\x29\x80\x4F\x12"),
+            (1, b"\x02\x00\x29\x60\xea\x00"),
+            (5, b"\x02\x00\x29\xe0\x93\x04"),
+            (20, b"\x02\x00\x29\x80\x4f\x12"),
         ],
     )
     def test_set_sleep_timer(self, mouse, value, expected_hid_report):
@@ -146,11 +146,11 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (0, b"\x02\x00\x23\x0F\x01\x00\x00\x00\x00\x00"),
-            (30, b"\x02\x00\x23\x0F\x01\x00\x00\x30\x75\x00"),
-            (60, b"\x02\x00\x23\x0F\x01\x00\x00\x60\xEA\x00"),
-            (300, b"\x02\x00\x23\x0F\x01\x00\x00\xE0\x93\x04"),
-            (1200, b"\x02\x00\x23\x0F\x01\x00\x00\x80\x4F\x12"),
+            (0, b"\x02\x00\x23\x0f\x01\x00\x00\x00\x00\x00"),
+            (30, b"\x02\x00\x23\x0f\x01\x00\x00\x30\x75\x00"),
+            (60, b"\x02\x00\x23\x0f\x01\x00\x00\x60\xea\x00"),
+            (300, b"\x02\x00\x23\x0f\x01\x00\x00\xe0\x93\x04"),
+            (1200, b"\x02\x00\x23\x0f\x01\x00\x00\x80\x4f\x12"),
         ],
     )
     def test_set_dim_timer(self, mouse, value, expected_hid_report):

@@ -80,15 +80,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -109,15 +109,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -138,15 +138,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -167,15 +167,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -196,15 +196,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -225,15 +225,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -254,15 +254,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 
@@ -283,15 +283,15 @@ class TestDevice(object):
         #                       |duratio|
         expected_hid_report += b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
         #                                                |rpt|trg|
-        expected_hid_report += b"\x00\x04\xFF\x00\x00"
+        expected_hid_report += b"\x00\x04\xff\x00\x00"
         #                                |init color |
-        expected_hid_report += b"\xFF\x00\x00\x00"
+        expected_hid_report += b"\xff\x00\x00\x00"
         #                        |color1     |ps1|
-        expected_hid_report += b"\x00\xFF\x00\x54"
+        expected_hid_report += b"\x00\xff\x00\x54"
         #                        |color2     |ps2|
-        expected_hid_report += b"\x00\x00\xFF\x54"
+        expected_hid_report += b"\x00\x00\xff\x54"
         #                        |color3     |ps3|
-        expected_hid_report += b"\xFF\x00\x00\x57"
+        expected_hid_report += b"\xff\x00\x00\x57"
         #                        |color4     |ps4|
         # color4 = color1 (added for smoothing)
 

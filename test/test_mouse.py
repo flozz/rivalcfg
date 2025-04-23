@@ -163,23 +163,23 @@ class TestMouse(object):
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)
-        assert mouse._hid_device.bytes.read() == b"\x02\x00\x5A\x0E"
+        assert mouse._hid_device.bytes.read() == b"\x02\x00\x5a\x0e"
 
     def test_save_fixed_packet_length(self, mouse2):
         mouse2.save()
         mouse2._hid_device.bytes.seek(0)
         data = mouse2._hid_device.bytes.read()
         assert len(data) == 6
-        assert data == b"\x02\x00\x5A\x0E\x00\x00"
+        assert data == b"\x02\x00\x5a\x0e\x00\x00"
 
     def test_reset_settings(self, mouse):
         mouse.reset_settings()
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
-        assert b"\x02\x00\x5A\x0E" not in hid_report  # No save command
-        assert b"\x02\x00\xAA\xBB" in hid_report  # setting1
-        assert b"\x02\x00\xCC\x02" in hid_report  # setting2
-        assert b"\x03\x00\xC0\x10\x25" in hid_report  # setting3
+        assert b"\x02\x00\x5a\x0e" not in hid_report  # No save command
+        assert b"\x02\x00\xaa\xbb" in hid_report  # setting1
+        assert b"\x02\x00\xcc\x02" in hid_report  # setting2
+        assert b"\x03\x00\xc0\x10\x25" in hid_report  # setting3
 
     def test_repr(self, mouse):
         assert str(mouse) == "<Mouse Fake Mouse (1038:baad:02)>"
@@ -210,7 +210,7 @@ class TestMouse(object):
             data=[0xDA, 0x7A],
         )
         mouse._hid_device.bytes.seek(0)
-        assert mouse._hid_device.bytes.read() == b"\x02\x42\xDA\x7A"
+        assert mouse._hid_device.bytes.read() == b"\x02\x42\xda\x7a"
 
     def test__hid_write_with_fixed_packet_length(self, mouse):
         mouse._hid_write(packet_length=4)
@@ -227,7 +227,7 @@ class TestMouse(object):
     def test_set_setting1(self, mouse):
         mouse.set_setting1()
         mouse._hid_device.bytes.seek(0)
-        assert mouse._hid_device.bytes.read() == b"\x02\x00\xAA\xBB"
+        assert mouse._hid_device.bytes.read() == b"\x02\x00\xaa\xbb"
 
     def test_set_setting2_is_available(self, mouse):
         assert hasattr(mouse, "set_setting2")
@@ -235,8 +235,8 @@ class TestMouse(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("foo", b"\x02\x00\xCC\x01"),
-            ("bar", b"\x02\x00\xCC\x02"),
+            ("foo", b"\x02\x00\xcc\x01"),
+            ("bar", b"\x02\x00\xcc\x02"),
         ],
     )
     def test_setting2(self, mouse, value, expected_hid_report):
@@ -250,7 +250,7 @@ class TestMouse(object):
     def test_set_setting3(self, mouse):
         mouse.set_setting3()
         mouse._hid_device.bytes.seek(0)
-        assert mouse._hid_device.bytes.read() == b"\x03\x00\xC0\x10\x25"
+        assert mouse._hid_device.bytes.read() == b"\x03\x00\xc0\x10\x25"
 
     def test_set_setting4_packet_length(self, mouse):
         mouse.set_setting4()
@@ -263,7 +263,7 @@ class TestMouse(object):
         mouse.set_setting5(42)
         mouse._hid_device.bytes.seek(0)
         data = mouse._hid_device.bytes.read()
-        assert data == b"\x02\x00\x11\x22\xAA\x33\x44"
+        assert data == b"\x02\x00\x11\x22\xaa\x33\x44"
 
     def test_an_unexisting_setting(self, mouse):
         assert not hasattr(mouse, "set_xxx")

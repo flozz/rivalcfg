@@ -26,8 +26,8 @@ class TestDevice(object):
             (200, b"\x02\x00\x03\x01\x04"),
             (210, b"\x02\x00\x03\x01\x04"),
             (290, b"\x02\x00\x03\x01\x06"),
-            (4000, b"\x02\x00\x03\x01\x5C"),
-            (7200, b"\x02\x00\x03\x01\xA7"),
+            (4000, b"\x02\x00\x03\x01\x5c"),
+            (7200, b"\x02\x00\x03\x01\xa7"),
         ],
     )
     def test_set_sensitivity1(self, mouse, value, expected_hid_report):
@@ -43,8 +43,8 @@ class TestDevice(object):
             (200, b"\x02\x00\x03\x02\x04"),
             (210, b"\x02\x00\x03\x02\x04"),
             (290, b"\x02\x00\x03\x02\x06"),
-            (4000, b"\x02\x00\x03\x02\x5C"),
-            (7200, b"\x02\x00\x03\x02\xA7"),
+            (4000, b"\x02\x00\x03\x02\x5c"),
+            (7200, b"\x02\x00\x03\x02\xa7"),
         ],
     )
     def test_set_sensitivity2(self, mouse, value, expected_hid_report):
@@ -73,8 +73,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x05\x00\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x05\x00\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x05\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x05\x00\xff\x00\x00"),
         ],
     )
     def test_set_color(self, mouse, value, expected_hid_report):
@@ -105,8 +105,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("dpi", b"\x02\x00\x0B\x00"),
-            ("os", b"\x02\x00\x0B\x01"),
+            ("dpi", b"\x02\x00\x0b\x00"),
+            ("os", b"\x02\x00\x0b\x01"),
         ],
     )
     def test_set_btn6_mode(self, mouse, value, expected_hid_report):

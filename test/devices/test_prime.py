@@ -25,10 +25,10 @@ class TestDevice(object):
         [
             (100, b"\x02\x00\x61\x01\x00\x02\x00"),
             ("100", b"\x02\x00\x61\x01\x00\x02\x00"),
-            ("500,2500", b"\x02\x00\x61\x02\x00\x0A\x00\x32\x00"),
+            ("500,2500", b"\x02\x00\x61\x02\x00\x0a\x00\x32\x00"),
             (
                 "500,2500,11050,18000",
-                b"\x02\x00\x61\x04\x00\x0A\x00\x32\x00\xDD\x00\x68\x01",
+                b"\x02\x00\x61\x04\x00\x0a\x00\x32\x00\xdd\x00\x68\x01",
             ),
         ],
     )
@@ -41,10 +41,10 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (125, b"\x02\x00\x5D\x04"),
-            (250, b"\x02\x00\x5D\x03"),
-            (500, b"\x02\x00\x5D\x02"),
-            (1000, b"\x02\x00\x5D\x01"),
+            (125, b"\x02\x00\x5d\x04"),
+            (250, b"\x02\x00\x5d\x03"),
+            (500, b"\x02\x00\x5d\x02"),
+            (1000, b"\x02\x00\x5d\x01"),
         ],
     )
     def test_set_polling_rate(self, mouse, value, expected_hid_report):
@@ -58,11 +58,11 @@ class TestDevice(object):
         [
             (
                 "#ABCDEF",
-                b"\x02\x00\x62\x01\xAB\xCD\xEF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xFF",
+                b"\x02\x00\x62\x01\xab\xcd\xef\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff",
             ),
             (
                 "red",
-                b"\x02\x00\x62\x01\xFF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xFF",
+                b"\x02\x00\x62\x01\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff",
             ),
         ],
     )
@@ -75,9 +75,9 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (0, b"\x02\x00\x5F\x00\x00"),
-            (256, b"\x02\x00\x5F\x00\x01"),
-            (111, b"\x02\x00\x5F\x6F\x00"),
+            (0, b"\x02\x00\x5f\x00\x00"),
+            (256, b"\x02\x00\x5f\x00\x01"),
+            (111, b"\x02\x00\x5f\x6f\x00"),
         ],
     )
     def test_set_led_brightness(self, mouse, value, expected_hid_report):

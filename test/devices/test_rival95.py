@@ -76,8 +76,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("dpi", b"\x02\x00\x0B\x00"),
-            ("os", b"\x02\x00\x0B\x01"),
+            ("dpi", b"\x02\x00\x0b\x00"),
+            ("os", b"\x02\x00\x0b\x01"),
         ],
     )
     def test_set_btn6_mode(self, mouse, value, expected_hid_report):

@@ -26,9 +26,9 @@ class TestDevice(object):
             (90, b"\x02\x00\x03\x01\x01"),
             (180, b"\x02\x00\x03\x01\x02"),
             (1530, b"\x02\x00\x03\x01\x11"),
-            (2520, b"\x02\x00\x03\x01\x1C"),
-            (5400, b"\x02\x00\x03\x01\x3C"),
-            (5670, b"\x02\x00\x03\x01\x3F"),
+            (2520, b"\x02\x00\x03\x01\x1c"),
+            (5400, b"\x02\x00\x03\x01\x3c"),
+            (5670, b"\x02\x00\x03\x01\x3f"),
         ],
     )
     def test_set_sensitivity1(self, mouse, value, expected_hid_report):
@@ -43,9 +43,9 @@ class TestDevice(object):
             (90, b"\x02\x00\x03\x02\x01"),
             (180, b"\x02\x00\x03\x02\x02"),
             (1530, b"\x02\x00\x03\x02\x11"),
-            (2520, b"\x02\x00\x03\x02\x1C"),
-            (5400, b"\x02\x00\x03\x02\x3C"),
-            (5670, b"\x02\x00\x03\x02\x3F"),
+            (2520, b"\x02\x00\x03\x02\x1c"),
+            (5400, b"\x02\x00\x03\x02\x3c"),
+            (5670, b"\x02\x00\x03\x02\x3f"),
         ],
     )
     def test_set_sensitivity2(self, mouse, value, expected_hid_report):

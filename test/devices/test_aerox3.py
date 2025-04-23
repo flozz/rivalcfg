@@ -53,8 +53,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x01\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x21\x01\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x01\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x01\xff\x00\x00"),
         ],
     )
     def test_set_z1_color(self, mouse, value, expected_hid_report):
@@ -66,8 +66,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x02\x00\x00\x00\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x21\x02\x00\x00\x00\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x02\x00\x00\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x02\x00\x00\x00\xff\x00\x00"),
         ],
     )
     def test_set_z2_color(self, mouse, value, expected_hid_report):
@@ -79,8 +79,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xff\x00\x00"),
         ],
     )
     def test_set_z3_color(self, mouse, value, expected_hid_report):

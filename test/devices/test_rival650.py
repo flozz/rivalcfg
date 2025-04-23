@@ -143,7 +143,7 @@ class TestDevice(object):
         battery_info = mouse.battery
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
-        assert hid_report == b"\x02\x00\xAA\x01"
+        assert hid_report == b"\x02\x00\xaa\x01"
         assert "is_charging" in battery_info
         assert "level" in battery_info
 

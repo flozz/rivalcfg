@@ -72,8 +72,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x08\x01\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x08\x01\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x08\x01\xab\xcd\xef"),
+            ("red", b"\x02\x00\x08\x01\xff\x00\x00"),
         ],
     )
     def test_set_logo_color(self, mouse, value, expected_hid_report):
@@ -85,8 +85,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x08\x02\xAB\xCD\xEF"),
-            ("red", b"\x02\x00\x08\x02\xFF\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x08\x02\xab\xcd\xef"),
+            ("red", b"\x02\x00\x08\x02\xff\x00\x00"),
         ],
     )
     def test_set_wheel_color(self, mouse, value, expected_hid_report):

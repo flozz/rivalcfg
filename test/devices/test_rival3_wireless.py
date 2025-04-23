@@ -26,7 +26,7 @@ class TestDevice(object):
             (100, b"\x02\x00\x20\x01\x01\x00\x00"),
             (200, b"\x02\x00\x20\x01\x01\x01\x00"),
             (300, b"\x02\x00\x20\x01\x01\x02\x00"),
-            (18000, b"\x02\x00\x20\x01\x01\xD6\x00"),
+            (18000, b"\x02\x00\x20\x01\x01\xd6\x00"),
             ("200,400", b"\x02\x00\x20\x02\x01\x01\x00\x03\x00"),
             (
                 "200,400,800,1600",
@@ -114,7 +114,7 @@ class TestDevice(object):
         battery_info = mouse.battery
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
-        assert hid_report == b"\x02\x00\xAA\x01"
+        assert hid_report == b"\x02\x00\xaa\x01"
         assert "is_charging" in battery_info
         assert "level" in battery_info
 
