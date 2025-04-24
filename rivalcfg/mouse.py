@@ -192,7 +192,7 @@ class Mouse:
         except Exception:
             pass
 
-        if result["level"] > 100 or result["level"] < 0:
+        if result["level"] is None or result["level"] > 100 or result["level"] < 0:
             return {"is_charging": None, "level": None}
 
         return result
