@@ -252,7 +252,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * fix(mouse): Fixed a crash when getting battery level in some circumstances (@flozz, #245)
 
 * **v4.14.0:**
 
