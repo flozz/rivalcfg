@@ -4,8 +4,8 @@ rivalcfg: Configure SteelSeries gaming mice
 |Github| |Discord| |PYPI Version| |Github Actions| |Black| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
-to configure SteelSeries gaming mice on Linux and Windows (probably works on
-BSD and Mac OS too, but not tested).
+to configure SteelSeries gaming mice on Linux, macOS and Windows (probably works on
+BSD too, but not tested).
 
 I first created this program to configure my Rival 100 and the original Rival
 mice, then I added support for other Rival devices thanks to contributors.
