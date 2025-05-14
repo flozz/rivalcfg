@@ -253,6 +253,7 @@ Changelog
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
   * fix(mouse): Fixed a crash when getting battery level in some circumstances (@flozz, #245)
+  * docs(install): Updated install instructions for newer Python versions (@flozz #235)
 
 * **v4.14.0:**
 
