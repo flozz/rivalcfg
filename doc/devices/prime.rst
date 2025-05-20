@@ -59,6 +59,15 @@ This mouse supports colors. Various formats are supported.
 .. include:: ./_colors.rst
 
 
+Buttons
+-------
+
+.. figure:: ./images/prime_buttons.svg
+   :alt: Prime buttons schema
+
+.. include:: ./_buttons.rst
+
+
 Python API
 ----------
 
