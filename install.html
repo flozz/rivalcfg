@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing &mdash; rivalcfg v4.14.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>Installing &mdash; rivalcfg v4.15.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=25f1db7b"></script>
+      <script src="_static/documentation_options.js?v=54249122"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +46,6 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#archlinux-aur-package">Archlinux AUR Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#from-sources-git-pypi">From Sources (Git / PyPI)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
@@ -54,10 +53,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-from-pypi">Installing From PyPI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-from-github">Installing From Github</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#after-the-installation">After the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-from-github">Installing From GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-the-installation-linux">After the installation (Linux)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-rivalcfg-from-the-cli">Running Rivalcfg from the CLI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-rivalcfg-from-a-script-bash">Running Rivalcfg from a script (Bash)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#archlinux-aur-package">Archlinux AUR Package</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
@@ -94,70 +96,130 @@
              
   <section id="installing">
 <h1>Installing<a class="headerlink" href="#installing" title="Link to this heading"></a></h1>
-<section id="archlinux-aur-package">
-<h2>Archlinux AUR Package<a class="headerlink" href="#archlinux-aur-package" title="Link to this heading"></a></h2>
-<p>Use package <a class="reference external" href="https://aur.archlinux.org/packages/rivalcfg/">rivalcfg</a></p>
-</section>
 <section id="from-sources-git-pypi">
 <h2>From Sources (Git / PyPI)<a class="headerlink" href="#from-sources-git-pypi" title="Link to this heading"></a></h2>
 <section id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>In this page, only Python 3 commands are provided. Rivalcfg still work with
-Python 2, but this support will be dropped in future versions… so prefer
-using Python 3 if available.</p>
-</div>
 <section id="linux">
 <h4>Linux<a class="headerlink" href="#linux" title="Link to this heading"></a></h4>
 <p>Installation require a compilation toolchain and python headers to compile
-<code class="docutils literal notranslate"><span class="pre">hidapi</span></code>.</p>
-<p>On <strong>Debian / Ubuntu</strong>, this can be installed with the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">setuptools</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>
+<code class="docutils literal notranslate"><span class="pre">hidapi</span></code> (if the <em>wheel</em> (binary package) cannot be used).</p>
+<ul>
+<li><p>On <strong>Debian / Ubuntu</strong>, this can be installed with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libusb</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
-<p>On <strong>Solus</strong>, use the following commands:</p>
+</li>
+<li><p>On <strong>Solus</strong>, use the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">eopkg</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">system</span><span class="o">.</span><span class="n">devel</span>
 <span class="n">sudo</span> <span class="n">eopkg</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span> <span class="n">libusb</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>We will also need Python’s venv module that is packaged separately on Debian / Ubuntu, so you will have to install it with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
 </pre></div>
 </div>
 </section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h4>
-<p>On Windows, you have to install first:</p>
+<p>On Windows, you have to install Python first:</p>
 <ul class="simple">
-<li><p>Python 3.9+ (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
+<li><p>Python &gt;= 3.9 (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
+</ul>
+<p>And Vusual C++ build tools are also required to compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code> if the <em>weel</em> (binary package) cannot be used:</p>
+<ul class="simple">
 <li><p>Visual C++ 2015 Build Tools: <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=48159">https://www.microsoft.com/en-us/download/details.aspx?id=48159</a></p></li>
 </ul>
 </section>
 </section>
 <section id="installing-from-pypi">
 <h3>Installing From PyPI<a class="headerlink" href="#installing-from-pypi" title="Link to this heading"></a></h3>
-<p>Run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<p>First create a virtualenv using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>
 </pre></div>
 </div>
+<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.env</span></code> folder in the current directory. We will then be able to install Rivalcfg in it with the following command:</p>
+<ul>
+<li><p>On Linux or macOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+</pre></div>
+</div>
+</li>
+<li><p>On Windows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </section>
 <section id="installing-from-github">
-<h3>Installing From Github<a class="headerlink" href="#installing-from-github" title="Link to this heading"></a></h3>
+<h3>Installing From GitHub<a class="headerlink" href="#installing-from-github" title="Link to this heading"></a></h3>
 <p>Clone the repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">flozz</span><span class="o">/</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
-<p>Install rivalcfg:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">.</span>
+<p>Then create a virtualenv using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>
 </pre></div>
 </div>
+<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.env</span></code> folder in the current directory. Finally, install Rivalcfg in it with the following command:</p>
+<ul>
+<li><p>On Linux or macOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+</pre></div>
+</div>
+</li>
+<li><p>On Windows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </section>
-<section id="after-the-installation">
-<h3>After the installation<a class="headerlink" href="#after-the-installation" title="Link to this heading"></a></h3>
+<section id="after-the-installation-linux">
+<h3>After the installation (Linux)<a class="headerlink" href="#after-the-installation-linux" title="Link to this heading"></a></h3>
 <p>Once Rivalcfg installed from sources (Git or PyPI), you will have to run the
 following command on udev-based Linux distro (Debian / Ubuntu / Fedora / …):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rivalcfg</span> <span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">udev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">udev</span>
 </pre></div>
 </div>
 </section>
+<section id="running-rivalcfg-from-the-cli">
+<h3>Running Rivalcfg from the CLI<a class="headerlink" href="#running-rivalcfg-from-the-cli" title="Link to this heading"></a></h3>
+<p>On Linux and macOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>On Windows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</section>
+<section id="running-rivalcfg-from-a-script-bash">
+<h3>Running Rivalcfg from a script (Bash)<a class="headerlink" href="#running-rivalcfg-from-a-script-bash" title="Link to this heading"></a></h3>
+<p>To run Rivlacfg from a shell script, you can import the virtualenv at the start of the script (before calling the <code class="docutils literal notranslate"><span class="pre">rivalcfg</span></code> command for the first time).</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Import the virtualenv</span>
+<span class="nb">source</span><span class="w"> </span>/path/to/rivalcfg.env/bin/activate
+
+<span class="c1"># Call Rivalcfg</span>
+rivalcfg<span class="w"> </span>--help
+</pre></div>
+</div>
+</section>
+</section>
+<section id="archlinux-aur-package">
+<h2>Archlinux AUR Package<a class="headerlink" href="#archlinux-aur-package" title="Link to this heading"></a></h2>
+<p>Use package <a class="reference external" href="https://aur.archlinux.org/packages/rivalcfg/">rivalcfg</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This package is no longer maintained.</p>
+</div>
 </section>
 </section>
 
@@ -172,7 +234,7 @@ following command on udev-based Linux distro (Debian / Ubuntu / Fedora / …)
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2024, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

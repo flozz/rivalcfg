@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>usbhid &mdash; rivalcfg v4.14.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+  <title>usbhid &mdash; rivalcfg v4.15.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=25f1db7b"></script>
+      <script src="../../_static/documentation_options.js?v=54249122"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -154,7 +154,7 @@ plugged:</p>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">usbhid</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rivalcfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">usbhid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">usbhid</span><span class="o">.</span><span class="n">is_device_plugged</span><span class="p">(</span><span class="mh">0x1038</span><span class="p">,</span> <span class="mh">0xbaad</span><span class="p">)</span>
 <span class="go">False</span>
 </pre></div>
@@ -186,7 +186,7 @@ issue, device busy,…).</p></li>
 <dd class="field-odd"><p>hid.device</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg</span> <span class="kn">import</span> <span class="n">usbhid</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rivalcfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">usbhid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">usbhid</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="mh">0x1038</span><span class="p">,</span> <span class="mh">0x1702</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">&lt;hid.device at 0x...&gt;</span>
 </pre></div>
@@ -198,7 +198,7 @@ issue, device busy,…).</p></li>
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.usbhid.DeviceNotFound">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">DeviceNotFound</span></span><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">DeviceNotFound</span></span><a class="headerlink" href="#rivalcfg.usbhid.DeviceNotFound" title="Link to this definition"></a></dt>
 <dd><p>Exception raised when the requested device was not found (device not
 plugged to the computer) or when it does not provide the requested
 endpoint.</p>
@@ -212,7 +212,7 @@ function of this module returns a fake device instead opening a real one. This
 is useful for debuging and testing purpose.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rivalcfg.usbhid.FakeDevice">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">FakeDevice</span></span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rivalcfg.usbhid.</span></span><span class="sig-name descname"><span class="pre">FakeDevice</span></span><a class="headerlink" href="#rivalcfg.usbhid.FakeDevice" title="Link to this definition"></a></dt>
 <dd><p>This class simulate an HID device as provided by the <a class="reference external" href="https://pypi.org/project/hidapi/">hidapi</a> module.</p>
 <p>Data sent to the fake device can be read-back from the <a class="reference internal" href="#rivalcfg.usbhid.FakeDevice.bytes" title="rivalcfg.usbhid.FakeDevice.bytes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bytes</span></code></a>
 attribute of this class.</p>
@@ -250,7 +250,7 @@ attribute of this class.</p>
 <dd class="field-odd"><p><strong>data</strong> (<em>bytes</em>) – The data to send to the device.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.usbhid</span> <span class="kn">import</span> <span class="n">FakeDevice</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rivalcfg.usbhid</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeDevice</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span> <span class="o">=</span> <span class="n">FakeDevice</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">send_feature_report</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\xAA\xBB\xCC</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -272,7 +272,7 @@ attribute of this class.</p>
 <dd class="field-odd"><p><strong>data</strong> (<em>bytes</em>) – The data to send to the device.</p>
 </dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rivalcfg.usbhid</span> <span class="kn">import</span> <span class="n">FakeDevice</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">rivalcfg.usbhid</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeDevice</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span> <span class="o">=</span> <span class="n">FakeDevice</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x00\xAA\xBB\xCC</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dev</span><span class="o">.</span><span class="n">bytes</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -299,7 +299,7 @@ attribute of this class.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2024, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

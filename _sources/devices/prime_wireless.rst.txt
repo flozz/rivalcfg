@@ -77,7 +77,7 @@ Default Lighting
 Buttons
 -------
 
-.. figure:: ./images/prime_buttons.svg
+.. figure:: ./images/prime_wireless_buttons.svg
    :alt: Prime buttons schema
 
 .. include:: ./_buttons.rst
