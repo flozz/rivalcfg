@@ -252,8 +252,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * feat(devices): Added button support for Prime mouse (@flozz, 248)
   * fix(mouse): Fixed a crash when getting battery level in some circumstances (@flozz, #245)
   * docs(install): Updated install instructions for newer Python versions (@flozz #235)
+  * docs(devices): Updated Prime Wireless and Prime Mini button schema (@flozz)
 
 * **v4.14.0:**
 
