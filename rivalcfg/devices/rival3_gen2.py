@@ -2,10 +2,10 @@ from .. import usbhid
 
 
 profile = {
-    "name": "SteelSeries Aerox 3 Gen 2",
+    "name": "SteelSeries Rival 3 Gen 2",
     "models": [
         {
-            "name": "SteelSeries Aerox 3 Gen 2",
+            "name": "SteelSeries Rival 3 Gen 2",
             "vendor_id": 0x1038,
             "product_id": 0x1870,
             "endpoint": 3,
