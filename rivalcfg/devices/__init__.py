@@ -218,6 +218,7 @@ def _generate_profiles():
     """
     from . import (  # noqa: F401
         aerox3,
+        aerox3_gen2,
         aerox3_wireless_wired,
         aerox3_wireless_wireless,
         aerox5,
