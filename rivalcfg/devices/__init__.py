@@ -218,7 +218,6 @@ def _generate_profiles():
     """
     from . import (  # noqa: F401
         aerox3,
-        aerox3_gen2,
         aerox3_wireless_wired,
         aerox3_wireless_wireless,
         aerox5,
@@ -233,6 +232,7 @@ def _generate_profiles():
         prime_wireless_wired,
         prime_wireless_wireless,
         rival3,
+        rival3_gen2,
         rival3_wireless,
         rival95,
         rival100,
