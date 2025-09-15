@@ -11,21 +11,43 @@ profile = {
             "endpoint": 3,
         },
     ],
+    "firmware_version": {
+        "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+        "command": [0x90, 0x00],
+        "response_length": 64,  # Full response for "1.1.6 +e57ff6a1"
+    },
     "settings": {
         "sensitivity": {
-            "label": "Sensibility presets",
-            "description": "Set sensitivity preset (DPI)",
+            "label": "Sensibility presets (symmetric CPI)",
+            "description": "Set sensitivity preset (symmetric X=Y CPI values)",
             "cli": ["-s", "--sensitivity"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x34],
-            "value_type": "multidpi_range",
+            "command": [0x34],  # Placeholder, handled in code
+            "value_type": "multicpi_range",
             "input_range": [200, 8500, 100],
             "output_range": [0x04, 0xC5, 2.33],
-            "dpi_length_byte": 1,
+            "cpi_length_byte": 1,
             "first_preset": 1,
             "count_mode": "number",
             "max_preset_count": 5,
-            "default": "400, 800, 1600, 2400, 3200",
+            "default": "400,800,1600,2400,3200",
+            "sensitivity_mode": "single",
+        },
+	"sensitivity_xy": {
+            "label": "Sensibility presets (asymmetric CPI)",
+            "description": "Set sensitivity preset (asymmetric X,Y CPI values)",
+            "cli": ["-sxy", "--sensitivity-xy"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [],  # Handled in multicpi_range.py
+            "value_type": "multicpi_range",
+            "input_range": [200, 8500, 100],
+            "output_range": [0x04, 0xC5, 2.33],  # Ignored by custom_process_range
+            "cpi_length_byte": 1,
+            "first_preset": 1,
+            "count_mode": "number",
+            "max_preset_count": 4,  # Up to 4 X,Y pairs
+            # No default to prevent double initialization
+            "sensitivity_mode": "xy",
         },
         "polling_rate": {
             "label": "Polling rate",

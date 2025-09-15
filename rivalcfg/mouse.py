@@ -125,16 +125,65 @@ class Mouse:
         """The mouse product id."""
         return self.mouse_profile["product_id"]
 
+    def _send_firmware_query(self):
+        """Send 0x90 firmware query packet."""
+        if "firmware_version" not in self.mouse_profile:
+            print("No firmware_version in profile, skipping query")
+            return
+        self._hid_write(
+            report_type=self.mouse_profile["firmware_version"]["report_type"],
+            data=self.mouse_profile["firmware_version"]["command"],
+            packet_length=64,
+        )
+        response = self._hid_device.read(
+            self.mouse_profile["firmware_version"]["response_length"],
+            timeout_ms=200,
+        )
+        if response:
+            version_str = ''.join(chr(b) for b in response[1:16] if 32 <= b <= 126)
+            print(f"Firmware query response: {version_str}")
+        else:
+            print("No firmware response received")
+        time.sleep(0.1)
+
+    def _send_reset_packet(self, reset_packet=None):
+        """Send reset packet with retries."""
+        if reset_packet is None:
+            reset_packet = helpers.merge_bytes(0x34, 0x1, 0x0, 0x8, 0x8)
+        for _ in range(3):
+            self._hid_write(
+                report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
+                data=reset_packet,
+                packet_length=64,
+            )
+            print(f"Sent reset packet: {list(map(hex, reset_packet))}")
+            time.sleep(0.1)
+
+    def _send_initialization_sequence(self, reset_packet=None):
+        """Mimic PCAP initialization sequence."""
+        self._send_firmware_query()
+        if "button_mapping" in self.mouse_profile["settings"]:
+            self._hid_write(
+                report_type=self.mouse_profile["settings"]["button_mapping"]["report_type"],
+                data=self.mouse_profile["settings"]["button_mapping"]["command"],
+                packet_length=64,
+            )
+            print("Sent button_mapping packet: [0x31, 0x00]")
+            time.sleep(0.1)
+        if reset_packet:
+            self._send_reset_packet(reset_packet)
+        else:
+            self._send_reset_packet()
+
     @property
     def firmware_version_tuple(self):
-        """The firmware version of the device as a tuple (e.g.``(1, 33)``,
-        ``(0,)`` if not available).
-        """
+        """Firmware version as a tuple (e.g., (1, 1, 5))."""
         if "firmware_version" not in self.mouse_profile:
             return (0,)
         self._hid_write(
             self.mouse_profile["firmware_version"]["report_type"],
             data=self.mouse_profile["firmware_version"]["command"],
+            packet_length=64,
         )
         version = self._hid_device.read(
             self.mouse_profile["firmware_version"]["response_length"],
@@ -142,14 +191,38 @@ class Mouse:
         )
         if not version:
             return (0,)
+        if self.mouse_profile["firmware_version"]["response_length"] > 2:
+            try:
+                version_str = ''.join(chr(b) for b in version[1:6] if 32 <= b <= 126)
+                version_parts = version_str.split('.')
+                return tuple(int(part) for part in version_parts if part.isdigit())
+            except Exception:
+                return tuple(version[:2])
         return tuple(version)
 
     @property
     def firmware_version(self):
-        """The firmware version as an human readable string (e.g. ``"1.33"``,
-        ``"0"`` if not available).
-        """
-        return ".".join([str(i) for i in self.firmware_version_tuple])
+        """Firmware version as a string (e.g., '1.1.5 +9459436c')."""
+        if "firmware_version" not in self.mouse_profile:
+            return "0"
+        self._hid_write(
+            self.mouse_profile["firmware_version"]["report_type"],
+            data=self.mouse_profile["firmware_version"]["command"],
+            packet_length=64,
+        )
+        version = self._hid_device.read(
+            self.mouse_profile["firmware_version"]["response_length"],
+            timeout_ms=200,
+        )
+        if not version:
+            return "0"
+        if self.mouse_profile["firmware_version"]["response_length"] > 2:
+            try:
+                version_str = ''.join(chr(b) for b in version[1:16] if 32 <= b <= 126)
+                return version_str.strip()
+            except Exception:
+                return ".".join(str(i) for i in version[:2])
+        return ".".join(str(i) for i in version)
 
     @property
     def battery(self):
@@ -199,6 +272,40 @@ class Mouse:
 
     def reset_settings(self):
         """Sets all settings to their factory default values."""
+        self._send_initialization_sequence()
+
+        normal_dpi_value = 0x14
+        if "sensitivity" in self.mouse_profile["settings"] and "default" in self.mouse_profile["settings"]["sensitivity"]:
+            default_cpi = self.mouse_profile["settings"]["sensitivity"]["default"]
+            cpi_values = [int(x) for x in default_cpi.split(",")]
+            normal_dpi = cpi_values[len(cpi_values) // 2] if cpi_values else 800
+            cpi_mappings = {200: 0x04, 400: 0x08, 800: 0x14, 1600: 0x24, 2400: 0x37, 3200: 0x4C}
+            normal_dpi_value = cpi_mappings.get(normal_dpi, 0x14)
+            print(f"Using normal DPI for pre-reset: {normal_dpi} (0x{normal_dpi_value:02x})")
+
+        if any(key in self.mouse_profile["settings"] for key in ["sensitivity", "sensitivity1", "sensitivity2"]):
+            pre_reset_packet = [0x34, 0x4, 0x0, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value]
+            print(f"Sending four-pair pre-reset packet for -r: {list(map(hex, pre_reset_packet))}")
+            self._hid_write(data=pre_reset_packet)
+            time.sleep(0.1)
+
+            clear_packet = [0x34, 0x0, 0x0]
+            print(f"Sending clear packet for -r: {list(map(hex, clear_packet))}")
+            self._hid_write(data=clear_packet)
+            time.sleep(0.1)
+
+            pre_reset_single = [0x34, 0x1, 0x0, normal_dpi_value, normal_dpi_value]
+            print(f"Sending fallback pre-reset packet: {list(map(hex, pre_reset_single))}")
+            self._hid_write(data=pre_reset_single)
+            time.sleep(0.1)
+
+        for key in ["sensitivity", "sensitivity1", "sensitivity2"]:
+            if key in self.mouse_profile["settings"] and "default" in self.mouse_profile["settings"][key]:
+                print(f"Resetting {key} to default: {self.mouse_profile['settings'][key]['default']}")
+                getattr(self, f"set_{key}")(self.mouse_profile["settings"][key]["default"])
+                time.sleep(0.1)
+
+        # Process other settings
         for name, setting_info in self.mouse_profile["settings"].items():
             method_name = "set_%s" % name
             method = getattr(self, method_name)
@@ -207,9 +314,22 @@ class Mouse:
                 and setting_info["value_type"]
                 and setting_info["value_type"] != "none"
             ):
-                method(setting_info["default"])
+                if "default" in setting_info:
+                    print(f"Resetting {name} to default: {setting_info['default']}")
+                    method(setting_info["default"])
+                else:
+                    print(f"Skipping reset for {name}: no default value defined")
             else:
                 method()
+            time.sleep(0.1)
+
+        for key in ["sensitivity", "sensitivity1", "sensitivity2"]:
+            if key in self.mouse_profile["settings"] and "default" in self.mouse_profile["settings"][key]:
+                print(f"Retrying {key} reset to: {self.mouse_profile['settings'][key]['default']}")
+                getattr(self, f"set_{key}")(self.mouse_profile['settings'][key]["default"])
+                time.sleep(0.1)
+
+        self.save()
 
     def save(self):
         """Save current config to the mouse internal memory."""
@@ -331,6 +451,9 @@ class Mouse:
             suffix = setting_info["command_suffix"]
 
         def _exec_command(*args):
+            if setting_name in ["sensitivity", "sensitivity1", "sensitivity2"]:
+                self._send_initialization_sequence()
+
             data = []
             if handler_name:
                 data = getattr(handlers, handler_name).process_value(
