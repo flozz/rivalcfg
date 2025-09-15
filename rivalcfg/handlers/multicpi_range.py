@@ -74,8 +74,8 @@ def process_value(setting_info, value, selected_preset=None):
                 unique_pairs.append(pair)
                 seen.add(pair_tuple)
         final_pairs = unique_pairs
-        if len(final_pairs) == 1:
-            print("Single pair detected, keeping CPI_count=1")
+        #if len(final_pairs) == 1:
+            #print("Single pair detected, keeping CPI_count=1")
 
     # Define max_presets early
     max_presets = 4 if sensitivity_mode == "xy" else setting_info["max_preset_count"]
