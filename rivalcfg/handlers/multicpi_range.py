@@ -88,7 +88,7 @@ def process_value(setting_info, value, selected_preset=None):
         print(f"Warning: Using {len(final_pairs)} presets, expected up to {max_presets}: {final_pairs}")
 
     # Debug: Print parsed presets
-    print(f"Parsed CPI presets: {final_pairs}")
+    #print(f"Parsed CPI presets: {final_pairs}")
 
     # Selected preset
     if selected_preset is None:
@@ -128,7 +128,7 @@ def process_value(setting_info, value, selected_preset=None):
     # Pre-reset for -sxy to clear firmware state
     if sensitivity_mode == "xy":
         reset_packet = [0x34, 0x1, 0x0, 0x8, 0x8]  # Reset to 400x400
-        print(f"Sending pre-reset packet: {list(map(hex, reset_packet))}")
+        #print(f"Sending pre-reset packet: {list(map(hex, reset_packet))}")
         # Note: This requires mouse.py to send the packet
 
     # Process CPI values and construct packet
@@ -144,7 +144,7 @@ def process_value(setting_info, value, selected_preset=None):
             x_bytes = uint_to_little_endian_bytearray(x_value, cpi_length)
             y_bytes = uint_to_little_endian_bytearray(y_value, cpi_length)
             output_values = merge_bytes(x_bytes, y_bytes)
-            print(f"Mapped CPI {cpi_x}x{cpi_y} to X={x_value} (0x{x_value:02X}), Y={y_value} (0x{y_value:02X})")
+            #print(f"Mapped CPI {cpi_x}x{cpi_y} to X={x_value} (0x{x_value:02X}), Y={y_value} (0x{y_value:02X})")
             packet = merge_bytes(0x34, cpi_count, selected_preset, output_values)
         else:
             # Multi-pair: 7-byte packet for 2 presets, 11-byte for 4 presets
@@ -156,7 +156,7 @@ def process_value(setting_info, value, selected_preset=None):
                 x_bytes = uint_to_little_endian_bytearray(x_value, cpi_length)
                 y_bytes = uint_to_little_endian_bytearray(y_value, cpi_length)
                 output_values = merge_bytes(output_values, x_bytes, y_bytes)
-                print(f"Mapped CPI {cpi_x}x{cpi_y} to X={x_value} (0x{x_value:02X}), Y={y_value} (0x{y_value:02X})")
+                #print(f"Mapped CPI {cpi_x}x{cpi_y} to X={x_value} (0x{x_value:02X}), Y={y_value} (0x{y_value:02X})")
             packet = merge_bytes(0x34, cpi_count, selected_preset, output_values)
     else:
         for cpi_x, cpi_y in final_pairs:
@@ -165,10 +165,10 @@ def process_value(setting_info, value, selected_preset=None):
             value = mappings[cpi_x]
             value_bytes = uint_to_little_endian_bytearray(value, cpi_length)
             output_values = merge_bytes(output_values, value_bytes)
-            print(f"Mapped CPI {cpi_x}x{cpi_y} to {value} (0x{value:02X})")
+            #print(f"Mapped CPI {cpi_x}x{cpi_y} to {value} (0x{value:02X})")
         packet = merge_bytes(cpi_count, selected_preset, output_values)
 
-    print(f"Generated packet: {list(map(hex, packet))}")
+    #print(f"Generated packet: {list(map(hex, packet))}")
     return packet
 
 def cli_multirange_validator(max_preset_count, sensitivity_mode="single"):

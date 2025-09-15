@@ -128,7 +128,7 @@ class Mouse:
     def _send_firmware_query(self):
         """Send 0x90 firmware query packet."""
         if "firmware_version" not in self.mouse_profile:
-            print("No firmware_version in profile, skipping query")
+            #print("No firmware_version in profile, skipping query")
             return
         self._hid_write(
             report_type=self.mouse_profile["firmware_version"]["report_type"],
@@ -141,9 +141,9 @@ class Mouse:
         )
         if response:
             version_str = ''.join(chr(b) for b in response[1:16] if 32 <= b <= 126)
-            print(f"Firmware query response: {version_str}")
-        else:
-            print("No firmware response received")
+            #print(f"Firmware query response: {version_str}")
+        #else:
+            #print("No firmware response received")
         time.sleep(0.1)
 
     def _send_reset_packet(self, reset_packet=None):
@@ -156,7 +156,7 @@ class Mouse:
                 data=reset_packet,
                 packet_length=64,
             )
-            print(f"Sent reset packet: {list(map(hex, reset_packet))}")
+            #print(f"Sent reset packet: {list(map(hex, reset_packet))}")
             time.sleep(0.1)
 
     def _send_initialization_sequence(self, reset_packet=None):
@@ -168,7 +168,7 @@ class Mouse:
                 data=self.mouse_profile["settings"]["button_mapping"]["command"],
                 packet_length=64,
             )
-            print("Sent button_mapping packet: [0x31, 0x00]")
+            #print("Sent button_mapping packet: [0x31, 0x00]")
             time.sleep(0.1)
         if reset_packet:
             self._send_reset_packet(reset_packet)
@@ -281,27 +281,27 @@ class Mouse:
             normal_dpi = cpi_values[len(cpi_values) // 2] if cpi_values else 800
             cpi_mappings = {200: 0x04, 400: 0x08, 800: 0x14, 1600: 0x24, 2400: 0x37, 3200: 0x4C}
             normal_dpi_value = cpi_mappings.get(normal_dpi, 0x14)
-            print(f"Using normal DPI for pre-reset: {normal_dpi} (0x{normal_dpi_value:02x})")
+            #print(f"Using normal DPI for pre-reset: {normal_dpi} (0x{normal_dpi_value:02x})")
 
         if any(key in self.mouse_profile["settings"] for key in ["sensitivity", "sensitivity1", "sensitivity2"]):
             pre_reset_packet = [0x34, 0x4, 0x0, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value, normal_dpi_value]
-            print(f"Sending four-pair pre-reset packet for -r: {list(map(hex, pre_reset_packet))}")
+            #print(f"Sending four-pair pre-reset packet for -r: {list(map(hex, pre_reset_packet))}")
             self._hid_write(data=pre_reset_packet)
             time.sleep(0.1)
 
             clear_packet = [0x34, 0x0, 0x0]
-            print(f"Sending clear packet for -r: {list(map(hex, clear_packet))}")
+            #print(f"Sending clear packet for -r: {list(map(hex, clear_packet))}")
             self._hid_write(data=clear_packet)
             time.sleep(0.1)
 
             pre_reset_single = [0x34, 0x1, 0x0, normal_dpi_value, normal_dpi_value]
-            print(f"Sending fallback pre-reset packet: {list(map(hex, pre_reset_single))}")
+            #print(f"Sending fallback pre-reset packet: {list(map(hex, pre_reset_single))}")
             self._hid_write(data=pre_reset_single)
             time.sleep(0.1)
 
         for key in ["sensitivity", "sensitivity1", "sensitivity2"]:
             if key in self.mouse_profile["settings"] and "default" in self.mouse_profile["settings"][key]:
-                print(f"Resetting {key} to default: {self.mouse_profile['settings'][key]['default']}")
+                #print(f"Resetting {key} to default: {self.mouse_profile['settings'][key]['default']}")
                 getattr(self, f"set_{key}")(self.mouse_profile["settings"][key]["default"])
                 time.sleep(0.1)
 
@@ -315,17 +315,17 @@ class Mouse:
                 and setting_info["value_type"] != "none"
             ):
                 if "default" in setting_info:
-                    print(f"Resetting {name} to default: {setting_info['default']}")
+                    #print(f"Resetting {name} to default: {setting_info['default']}")
                     method(setting_info["default"])
-                else:
-                    print(f"Skipping reset for {name}: no default value defined")
+                #else:
+                    #print(f"Skipping reset for {name}: no default value defined")
             else:
                 method()
             time.sleep(0.1)
 
         for key in ["sensitivity", "sensitivity1", "sensitivity2"]:
             if key in self.mouse_profile["settings"] and "default" in self.mouse_profile["settings"][key]:
-                print(f"Retrying {key} reset to: {self.mouse_profile['settings'][key]['default']}")
+                #print(f"Retrying {key} reset to: {self.mouse_profile['settings'][key]['default']}")
                 getattr(self, f"set_{key}")(self.mouse_profile['settings'][key]["default"])
                 time.sleep(0.1)
 
