@@ -32,7 +32,7 @@ Windows
 
 On Windows, you have to install Python first:
 
-* Python >= 3.9 (see https://www.python.org/downloads/windows/)
+* Python >= 3.10 (see https://www.python.org/downloads/windows/)
 
 And Vusual C++ build tools are also required to compile ``hidapi`` if the *weel* (binary package) cannot be used:
 
