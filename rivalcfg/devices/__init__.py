@@ -232,6 +232,7 @@ def _generate_profiles():
         prime_wireless_wired,
         prime_wireless_wireless,
         rival3,
+        rival3_gen2,
         rival3_wireless,
         rival95,
         rival100,
