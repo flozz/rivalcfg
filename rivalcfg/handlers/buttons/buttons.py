@@ -327,6 +327,16 @@ def process_value(setting_info, mapping):
         else:
             raise ValueError("Unknown button, key or action '%s'" % value)
 
+    if "split_packet_at" in setting_info:
+        # If split_packet_at is defined, the packet will be split at the given indexes
+        # Each part will be prefixed with the number of the part
+        split_packet_at = setting_info["split_packet_at"]
+        packets = []
+        for i, split_index in enumerate(split_packet_at):
+            start_index = split_packet_at[i-1] if i != 0 else 0
+            packets.append([i] + packet[start_index:split_index])
+        packets.append([len(split_packet_at)] + packet[split_packet_at[-1]:])
+        return packets
     return packet
 
 
