@@ -166,7 +166,10 @@ def process_value(setting_info, value, selected_preset=None):
 
     #
 
-    return merge_bytes(dpi_count, selected_preset, output_values)
+    packet = merge_bytes(dpi_count, selected_preset, output_values)
+    #print(f"Generated packet: {list(map(hex, packet))}")
+
+    return packet
 
 
 def cli_multirange_validator(max_preset_count):
