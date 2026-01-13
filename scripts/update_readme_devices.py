@@ -5,30 +5,35 @@ import types
 from rivalcfg import devices
 
 
+TABLE_WIDTH = 92
+
+
 def list_devices():
     last_profile_name = ""
     result = ""
-    result += "\n+%s+\n" % ("-" * 84)
+    result += "\n+%s+\n" % ("-" * (TABLE_WIDTH - 2))
     for item in [getattr(devices, name) for name in dir(devices)]:
         if not isinstance(item, types.ModuleType):
             continue
         if not hasattr(item, "profile"):
             continue
         if item.profile["name"] != last_profile_name:
-            result += "| %-82s |\n" % ("**%s**" % item.profile["name"])
+            result += ("| %%-%is |\n" % (TABLE_WIDTH - 4)) % (
+                "**%s**" % item.profile["name"]
+            )
             result += "+%s+%s+\n" % (
-                "-" * 72,
+                "-" * (TABLE_WIDTH - 2 - 1 - 11),
                 "-" * 11,
             )
             last_profile_name = item.profile["name"]
         for model in item.profile["models"]:
-            result += "| %-70s | %04x:%04x |\n" % (
+            result += ("| %%-%is | %%04x:%%04x |\n" % (TABLE_WIDTH - 16)) % (
                 model["name"],
                 model["vendor_id"],
                 model["product_id"],
             )
             result += "+%s+%s+\n" % (
-                "-" * 72,
+                "-" * (TABLE_WIDTH - 2 - 1 - 11),
                 "-" * 11,
             )
     return result
