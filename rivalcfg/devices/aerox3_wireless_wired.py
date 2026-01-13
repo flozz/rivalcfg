@@ -13,6 +13,12 @@ profile = {
             "product_id": 0x183A,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 3 Wireless CS2 Dragon Lore Edition (wired mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x187A,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         "sensitivity": {

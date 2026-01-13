@@ -26,6 +26,12 @@ profile = {
             "product_id": 0x1838,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Aerox 3 Wireless CS2 Dragon Lore Edition (2.4 GHz wireless mode)",
+            "vendor_id": 0x1038,
+            "product_id": 0x1878,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         name: _patch_command(info)
