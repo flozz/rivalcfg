@@ -255,6 +255,7 @@ Changelog
   * feat(devices): Added support for the Aerox 3 Wireless CS2 Dragon Lore Edition (1038:187a, 1038:1878) (@flozz)
   * feat(handler): Added multidpi_range_choice handler (@flozz)
   * fix(devices): Fixed TrueMove DPI values for Aerox 3 Wireless devices (1038:183A, 1038:187A, 1038:1838, 1038:1878) (@flozz)
+  * fix(devices): Fixed TrueMove DPI values for Aerox 5 device (1038:1850) (@flozz)
   * misc: Added Python 3.14 support (@flozz)
   * misc!: Removed Python 3.9 support (@flozz)
 
