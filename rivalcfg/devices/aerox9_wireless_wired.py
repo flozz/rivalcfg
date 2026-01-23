@@ -1,3 +1,4 @@
+from .dpi import truemove_air
 from .. import usbhid
 
 _BATTERY_CHARGING_FLAG = 0b10000000
@@ -26,12 +27,10 @@ profile = {
             "cli": ["-s", "--sensitivity"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x2D],
-            "value_type": "multidpi_range",
+            "value_type": "multidpi_range_choice",
             "input_range": [100, 18000, 100],
-            "output_range": [0x00, 0xD6, 1.2],
-            "dpi_length_byte": 1,
+            "output_choices": truemove_air.choices,
             "first_preset": 0,
-            "count_mode": "number",
             "max_preset_count": 5,
             "default": "400, 800, 1200, 2400, 3200",
         },
