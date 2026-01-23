@@ -1,6 +1,5 @@
 from . import rival110
 
-
 # This device looks like a Rival 300 but works like a Rival 110
 profile = {
     "name": "SteelSeries Rival 300S",

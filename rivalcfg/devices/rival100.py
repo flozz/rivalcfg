@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 profile = {
     "name": "SteelSeries Rival 100 / SteelSeries Rival 105",
     "models": [

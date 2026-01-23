@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 profile = {
     "name": "SteelSeries Rival 3 Wireless",
     "models": [

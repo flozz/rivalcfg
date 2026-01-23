@@ -1,6 +1,5 @@
 from . import aerox9_wireless_wired
 
-
 _WIRELESS_FLAG = 0b01000000
 _READBACK_LENGTH = 64
 

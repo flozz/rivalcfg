@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 profile = {
     "name": "SteelSeries Aerox 5",
     "models": [

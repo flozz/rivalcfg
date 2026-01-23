@@ -107,7 +107,6 @@ from .rgbgradient import _handle_color_tuple, _handle_color_string
 from .rgbgradient import _handle_rgbgradient_dict, _handle_rgbgradient_string
 from .rgbgradient import is_rgbgradient, CheckGradientAction
 
-
 _default_duration = 1000
 
 

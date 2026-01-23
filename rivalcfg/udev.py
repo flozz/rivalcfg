@@ -14,7 +14,6 @@ import subprocess
 from .version import VERSION
 from .devices import PROFILES
 
-
 #: Path to the udev rules file
 RULES_FILE_PATH = "/etc/udev/rules.d/99-steelseries-rival.rules"
 

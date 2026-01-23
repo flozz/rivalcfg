@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 # fmt: off
 _RGBGRADIENTV2_HEADER = {
     "color_field_length": 139,  # Index of length of color field (used for padding)

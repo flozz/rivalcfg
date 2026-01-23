@@ -111,7 +111,6 @@ from ..helpers import parse_param_string, REGEXP_PARAM_STRING
 from ..color_helpers import is_color, parse_color_string
 from ..color_helpers import parse_color_gradient_string
 
-
 _default_duration = 1000
 
 

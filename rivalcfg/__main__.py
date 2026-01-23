@@ -8,7 +8,6 @@ from . import udev
 from . import devices
 from . import get_first_mouse
 
-
 _EPILOG = """
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
 """

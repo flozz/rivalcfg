@@ -169,7 +169,6 @@ from ...helpers import parse_param_string, REGEXP_PARAM_STRING
 from . import layout_multimedia
 from . import layout_qwerty
 
-
 #: Available layouts
 LAYOUTS = {
     "qwerty": layout_qwerty,

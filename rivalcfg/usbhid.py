@@ -23,7 +23,6 @@ from io import BytesIO
 
 import hid
 
-
 #: HID output report
 HID_REPORT_TYPE_OUTPUT = 0x02
 

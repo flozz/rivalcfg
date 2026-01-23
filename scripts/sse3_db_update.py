@@ -11,7 +11,6 @@ Requirements:
 * natsort (pypi)
 """
 
-
 import os
 import sys
 import csv
@@ -20,7 +19,6 @@ import json
 import sqlite3
 import tempfile
 import subprocess
-
 
 URL_LATEST_SSGG = "https://fr.steelseries.com/gg/downloads/gg/latest/windows"
 

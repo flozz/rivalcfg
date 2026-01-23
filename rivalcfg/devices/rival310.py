@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 # fmt: off
 _RGBGRADIENT_HEADER = {
     "header_length": 26,       # Length of the header excuding command / LED ID

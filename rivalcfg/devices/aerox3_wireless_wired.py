@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 _BATTERY_CHARGING_FLAG = 0b10000000
 
 

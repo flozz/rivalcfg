@@ -4,7 +4,6 @@ import types
 
 from rivalcfg import devices
 
-
 TABLE_WIDTH = 92
 
 

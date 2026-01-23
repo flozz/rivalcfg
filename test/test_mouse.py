@@ -4,7 +4,6 @@ from rivalcfg import mouse
 from rivalcfg import usbhid
 from rivalcfg import mouse_settings
 
-
 FAKE_PROFILE = {
     "name": "Fake Mouse",
     "vendor_id": 0x1038,

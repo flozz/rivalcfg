@@ -4,7 +4,6 @@ import pytest
 
 from rivalcfg import mouse_settings
 
-
 FAKE_PROFILE = {
     "settings": {
         "setting1": {

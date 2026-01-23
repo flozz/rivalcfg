@@ -1,6 +1,5 @@
 from .. import usbhid
 
-
 # This mouse requires a minimal packet length of 9 Bytes to work, but we set it
 # to 32 Bytes as this is the default with the SSE3 on Windows.
 _PACKET_LENGTH = 32

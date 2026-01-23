@@ -4,7 +4,6 @@ This module contains varous helper functions related to color.
 
 import re
 
-
 # fmt: off
 NAMED_COLORS = {
     "white":   (0xFF, 0xFF, 0xFF),
