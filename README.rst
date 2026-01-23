@@ -262,6 +262,8 @@ Changelog
     (1038:1854, 1038:185E, 1038:1862, 1038:1852, 1038:185C, 1038:1860) (@flozz)
   * fix(devices): Fixed TrueMove DPI values for Aerox 9 Wireless devices
     (1038:185A, 1038:1876, 1038:1858, 1038:1874) (@flozz)
+  * fix(devices): Fixed TrueMove DPI values for Prime Wireless devices
+    (1038:1842, 1038:184A, 1038:1840, 1038:1848) (@flozz)
   * misc(tests): Added tests for Aerox 5 device (1038:1850) (@flozz)
   * misc: Added Python 3.14 support (@flozz)
   * misc!: Removed Python 3.9 support (@flozz)
