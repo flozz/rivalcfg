@@ -48,6 +48,7 @@ Example of a multidpi_range_choice value type in a device profile:
                     ...
                     18000: 0xD6,
                 },
+                "dpi_length_byte": 1,    # Little endian
                 "first_preset": 1,
                 "max_preset_count": 5,
                 "default": "800, 1600",
@@ -81,7 +82,7 @@ Functions
 """
 
 from .multidpi_range import cli_multirange_validator
-from ..helpers import merge_bytes
+from ..helpers import merge_bytes, uint_to_little_endian_bytearray
 
 
 def find_nearest_choice(choices, value):
@@ -155,6 +156,11 @@ def process_value(setting_info, value, selected_preset=None):
     ):
         raise ValueError("the selected preset is out of range")
 
+    if "dpi_length_byte" not in setting_info:
+        raise ValueError(
+            "Missing 'dpi_length_byte' parameter for 'multidpi_range' handler"
+        )
+
     _first, _last, _step = setting_info["input_range"]
 
     if len(setting_info["output_choices"]) != (_last - _first + _step) / _step:
@@ -170,6 +176,8 @@ def process_value(setting_info, value, selected_preset=None):
             "Input range and output choices mismatch: not the same max value"
         )
 
+    dpi_length = setting_info["dpi_length_byte"]
+
     # DPIs
 
     output_values = []
@@ -177,6 +185,7 @@ def process_value(setting_info, value, selected_preset=None):
     for dpi in dpis:
         input_value = find_nearest_choice(setting_info["output_choices"].keys(), dpi)
         output_value = setting_info["output_choices"][input_value]
+        output_value = uint_to_little_endian_bytearray(output_value, dpi_length)
         output_values = merge_bytes(output_values, output_value)
 
     # Count

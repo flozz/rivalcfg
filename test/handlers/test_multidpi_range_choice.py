@@ -60,6 +60,7 @@ class TestProcessValue(object):
             },
             "first_preset": 1,
             "max_preset_count": 5,
+            "dpi_length_byte": 1,
             "default": "800, 1600",
         }
 
@@ -80,8 +81,32 @@ class TestProcessValue(object):
                 900: 0x13,
                 1000: 0x1A,
             },
+            "first_preset": 1,
+            "max_preset_count": 5,
+            "dpi_length_byte": 2,
+            "default": "800, 1600",
+        }
+
+    @pytest.fixture
+    def setting_info3(self):
+        return {
+            "value_type": "multidpi_range_choice",
+            "input_range": [100, 1000, 100],
+            "output_choices": {
+                100: 0x00,
+                200: 0x02,
+                300: 0x03,
+                400: 0x05,
+                500: 0x06,
+                600: 0x08,
+                700: 0x10,
+                800: 0x11,
+                900: 0x13,
+                1000: 0x1A,
+            },
             "first_preset": 0,
             "max_preset_count": 5,
+            "dpi_length_byte": 1,
             "default": "800, 1600",
         }
 
@@ -135,10 +160,19 @@ class TestProcessValue(object):
                 selected_preset=2,
             )
 
-    def test_first_preset(self, setting_info2):
+    def test_dpi_length_byte(self, setting_info2):
         # fmt: off
         assert (
             multidpi_range_choice.process_value(setting_info2, "100,200")
+            == [0x02, 0x01, 0x00, 0x00, 0x02, 0x00]
+            # . CNT,  SEL,  PRESSET1,   PRESSET2
+        )
+        # fmt: on
+
+    def test_first_preset(self, setting_info3):
+        # fmt: off
+        assert (
+            multidpi_range_choice.process_value(setting_info3, "100,200")
             == [0x02, 0x00, 0x00, 0x02]
             # . CNT,  SEL,  PST1, PST2
         )

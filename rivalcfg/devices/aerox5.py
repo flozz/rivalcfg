@@ -21,6 +21,7 @@ profile = {
             "value_type": "multidpi_range_choice",
             "input_range": [100, 18000, 100],
             "output_choices": truemove_air.choices,
+            "dpi_length_byte": 1,
             "first_preset": 0,
             "max_preset_count": 5,
             "default": "400, 800, 1200, 2400, 3200",
