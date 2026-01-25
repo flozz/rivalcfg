@@ -1,7 +1,7 @@
 """CPI Values for TrueMove Core sensor."""
 
 choices = {
-    0: 0x00,
+    # 0: 0x00,  <- theorically exists but we don't want to use it
     200: 0x04,
     300: 0x06,
     400: 0x08,
