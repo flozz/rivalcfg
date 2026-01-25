@@ -1,3 +1,4 @@
+from .dpi import pmw3326
 from .. import usbhid
 
 # This mouse requires a minimal packet length of 9 Bytes to work, but we set it
@@ -29,9 +30,9 @@ profile = {
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x01],
             "packet_length": _PACKET_LENGTH,
-            "value_type": "range",
+            "value_type": "range_choice",
             "input_range": [200, 7200, 100],
-            "output_range": [0x04, 0xA7, 2.33],
+            "output_choices": pmw3326.choices,
             "default": 800,
         },
         "sensitivity2": {
@@ -41,9 +42,9 @@ profile = {
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x03, 0x02],
             "packet_length": _PACKET_LENGTH,
-            "value_type": "range",
+            "value_type": "range_choice",
             "input_range": [200, 7200, 100],
-            "output_range": [0x04, 0xA7, 2.33],
+            "output_choices": pmw3326.choices,
             "default": 1600,
         },
         "polling_rate": {
