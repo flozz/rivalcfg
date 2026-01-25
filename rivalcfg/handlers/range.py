@@ -110,27 +110,6 @@ def matches_value_in_range(range_start, range_stop, range_step, value):
             return value - delta + range_step
 
 
-def custom_range(start, stop, step):
-    """Helper function that generates a range of integers but allowing to have
-    a float as step.
-
-    I am not very proud of this but the Rival 110 requires a step of ~2.33...
-
-    :param int start: The start of the range.
-    :param int stop: The end of the range.
-    :param float step: The gap between two value in the range.
-
-    :rtype: generator(int)
-
-    >>> list(custom_range(4, 168, 2.33))
-    [4, 6, 8, 10, 13, 15, ...160, 162, 164, 167]
-    """
-    i = start
-    while i < stop:
-        yield int(i)
-        i += step
-
-
 def process_range(setting_info, value):
     """Called by the "range" functions to process 'value' with the specified
     range settings in 'setting_info'.
@@ -148,7 +127,7 @@ def process_range(setting_info, value):
         )
     )
     output_range = list(
-        custom_range(
+        range(
             setting_info["output_range"][0],
             setting_info["output_range"][1] + 1,
             setting_info["output_range"][2],
