@@ -254,18 +254,27 @@ Changelog
 
   * feat(devices): Added support for the Aerox 3 Wireless CS2 Dragon Lore Edition (1038:187a, 1038:1878) (@flozz)
   * feat(handler): Added multidpi_range_choice handler (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Aerox 3 Wireless devices (1038:183A, 1038:187A, 1038:1838, 1038:1878) (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Aerox 5 device (1038:1850) (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Aerox 5 Wireless devices (1038:1854, 1038:185E, 1038:1862, 1038:1852, 1038:185C, 1038:1860) (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Aerox 9 Wireless devices (1038:185A, 1038:1876, 1038:1858, 1038:1874) (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Prime Wireless devices (1038:1842, 1038:184A, 1038:1840, 1038:1848) (@flozz)
-  * fix(devices): Fixed TrueMove Air DPI values for Rival 3 Wireless device (1038:1830) (@flozz)
-  * fix(devices): Fixed TrueMove Core DPI values for Aerox 3 device (1038:1836) (@flozz)
-  * fix(devices): Fixed TrueMove Core DPI values for Rival 3 devices (1038:1824, 1038:184C) (@flozz)
   * feat(handler): Added range_choice handler (@flozz)
-  * fix(devices): Fixed PixArt PMW3326 DPI values for Rival 110 device (1038:1729) (@flozz)
-  * fix(devices): Fixed PixArt PMW3326 DPI values for Rival 106 device (1038:1816) (@flozz)
-  * fix(devices): Fixed PixArt PMW3326 DPI values for Rival 300S device (1038:1810) (@flozz)
+  * fix(devices): Fixed DPI values for devices using the TrueMove Air senor (@flozz):
+
+      * Aerox 3 Wireless (1038:183A, 1038:187A, 1038:1838, 1038:1878)
+      * Aerox 5 (1038:1850)
+      * Aerox 5 Wireless (1038:1854, 1038:185E, 1038:1862, 1038:1852, 1038:185C, 1038:1860)
+      * Aerox 9 Wireless (1038:185A, 1038:1876, 1038:1858, 1038:1874)
+      * Prime Wireless (1038:1842, 1038:184A, 1038:1840, 1038:1848)
+      * Rival 3 Wireless (1038:1830)
+
+  * fix(devices): Fixed DPI values for devices using the TrueMove Core senor (@flozz):
+
+      * Aerox 3 (1038:1836)
+      * Rival 3 (1038:1824, 1038:184C)
+
+  * fix(devices): Fixed DPI values for devices using the PixArt PMW3326 senor (@flozz):
+
+      * Rival 106 device (1038:1816)
+      * Rival 110 device (1038:1729)
+      * Rival 300S device (1038:1810)
+
   * misc(tests): Added tests for Aerox 5 device (1038:1850) (@flozz)
   * misc: Added Python 3.14 support (@flozz)
   * misc!: Removed Python 3.9 support (@flozz)
