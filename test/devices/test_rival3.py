@@ -26,7 +26,7 @@ class TestDevice(object):
             (200, b"\x02\x00\x0b\x00\x01\x01\x04"),
             ("200", b"\x02\x00\x0b\x00\x01\x01\x04"),
             ("200,400", b"\x02\x00\x0b\x00\x02\x01\x04\x08"),
-            ("200,400,800,1600", b"\x02\x00\x0b\x00\x04\x01\x04\x08\x11\x24"),
+            ("200,400,800,1600", b"\x02\x00\x0b\x00\x04\x01\x04\x08\x12\x24"),
         ],
     )
     def test_set_sensitivity(self, mouse, value, expected_hid_report):

@@ -269,6 +269,8 @@ Changelog
     (1038:1830) (@flozz)
   * fix(devices): Fixed TrueMove Core DPI values for Aerox 3 device (1038:1836)
     (@flozz)
+  * fix(devices): Fixed TrueMove Core DPI values for Rival 3 devices
+    (1038:1824, 1038:184C) (@flozz)
   * misc(tests): Added tests for Aerox 5 device (1038:1850) (@flozz)
   * misc: Added Python 3.14 support (@flozz)
   * misc!: Removed Python 3.9 support (@flozz)
