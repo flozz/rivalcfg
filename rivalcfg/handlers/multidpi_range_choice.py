@@ -1,28 +1,28 @@
 """
-The "multidpi_range" type alows to pick values in an input range and transforms
-it into values from an output range. If the input values do not correspond to
-one of the input range step, they are rounded to match the nearest step.
+The "multidpi_range_choice" type alows to pick values in an input range and
+transforms it into values from a fixed output list. If the input values do not
+correspond to one of the input range step, they are rounded to match the
+nearest DPI.
 
 This type is used to support devices where we can configure from ``1`` to ``n``
-DPI settings in a single command, like the Rival 3.
+DPI settings in a single command, like the Aerox 3.
 
 For example with an input range like ``[0, 1000, 100]`` and an output range
-like ``[0, 10, 1]``, you can have the following pair:
+like ``{0: 0, 100: 1, 200: 2, 300: 4,...}``, you can have the following pair:
 
 * ``0`` -> ``0``
 * ``100`` -> ``1``
-* ``110`` -> ``1`` (``110`` rounded to ``100``)
-* ``190`` -> ``2`` (``190`` rounded to ``200``)
+* ``110`` -> ``1`` (``1100`` rounded to ``100``)
+* ``190`` -> ``2`` (``1900`` rounded to ``200``)
 * ``200`` -> ``2``
-* ``300`` -> ``3``
+* ``300`` -> ``4``
 * ...
-* ``1000`` -> ``10``
 
 
 Device Profile
 --------------
 
-Example of a multidpi_range value type in a device profile:
+Example of a multidpi_range_choice value type in a device profile:
 
 ::
 
@@ -38,12 +38,18 @@ Example of a multidpi_range value type in a device profile:
                 "cli": ["-s", "--sensitivity"],
                 "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
                 "command": [0x0B, 0x00],
-                "value_type": "multidpi_range",
-                "input_range": [200, 7200, 100],
-                "output_range": [0x04, 0xA7, 2],
-                "dpi_length_byte": 1,     # Little endian
+                "value_type": "multidpi_range_choice",
+                "input_range": [100, 18000, 100],
+                "output_choices": {
+                    100: 0x00,
+                    200: 0x02,
+                    300: 0x03,
+                    400: 0x04,
+                    ...
+                    18000: 0xD6,
+                },
+                "dpi_length_byte": 1,    # Little endian
                 "first_preset": 1,
-                "count_mode": "number",   # number, flag
                 "max_preset_count": 5,
                 "default": "800, 1600",
             },
@@ -75,16 +81,34 @@ Functions
 ---------
 """
 
-import re
-import argparse
-
+from .multidpi_range import cli_multirange_validator
 from ..helpers import merge_bytes, uint_to_little_endian_bytearray
-from .range import process_range
+
+
+def find_nearest_choice(choices, value):
+    """Find the nearest value from choice list.
+
+    :param list[int] choices: List of allowed values.
+    :param int value: the value to match with the ones of choices.
+
+    :rtype: int
+    :returns: The nearest value from choices.
+    """
+    nearest_delta = None
+    nearest_choice = None
+
+    for choice in sorted(choices):
+        delta = abs(choice - value)
+        if nearest_delta is None or delta < nearest_delta:
+            nearest_delta = delta
+            nearest_choice = choice
+
+    return nearest_choice
 
 
 def process_value(setting_info, value, selected_preset=None):
     """Called by the :class:`rivalcfg.mouse.Mouse` class when processing a
-    "multidpi_range" type setting.
+    "multidpi_range_choice" type setting.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
@@ -137,51 +161,40 @@ def process_value(setting_info, value, selected_preset=None):
             "Missing 'dpi_length_byte' parameter for 'multidpi_range' handler"
         )
 
-    if "count_mode" not in setting_info:
-        raise ValueError("Missing 'count_mode' parameter for 'multidpi_range' handler")
+    _first, _last, _step = setting_info["input_range"]
 
-    if setting_info["count_mode"] not in ("number", "flag"):
+    if len(setting_info["output_choices"]) != (_last - _first + _step) / _step:
+        raise ValueError("Input range and output choices mismatch: not the same length")
+
+    if min(setting_info["output_choices"].keys()) != _first:
         raise ValueError(
-            "Invalid 'count_mode' parameter '%s'" % setting_info["count_mode"]
+            "Input range and output choices mismatch: not the same min value"
+        )
+
+    if max(setting_info["output_choices"].keys()) != _last:
+        raise ValueError(
+            "Input range and output choices mismatch: not the same max value"
         )
 
     dpi_length = setting_info["dpi_length_byte"]
-    count_mode = setting_info["count_mode"]
 
     # DPIs
 
     output_values = []
 
     for dpi in dpis:
-        value = process_range(setting_info, dpi)
-        value = uint_to_little_endian_bytearray(value, dpi_length)
-        output_values = merge_bytes(output_values, value)
+        input_value = find_nearest_choice(setting_info["output_choices"].keys(), dpi)
+        output_value = setting_info["output_choices"][input_value]
+        output_value = uint_to_little_endian_bytearray(output_value, dpi_length)
+        output_values = merge_bytes(output_values, output_value)
 
     # Count
 
     dpi_count = len(dpis)
 
-    if count_mode == "flag":
-        dpi_count = 0b11111111 >> (8 - dpi_count)
-
     #
 
     return merge_bytes(dpi_count, selected_preset, output_values)
-
-
-def cli_multirange_validator(max_preset_count):
-    class CheckMultiDpiRange(argparse.Action):
-        """Validate value from CLI"""
-
-        def __call__(self, parser, namespace, value, option_string=None):
-            if not re.match(
-                r"^ *[0-9]+( *, *[0-9]+){0,%i} *$" % (max_preset_count - 1),
-                value,
-            ):
-                raise argparse.ArgumentError(self, "invalid DPI list: '%s'" % value)
-            setattr(namespace, self.dest.upper(), value)
-
-    return CheckMultiDpiRange
 
 
 def add_cli_option(cli_parser, setting_name, setting_info):

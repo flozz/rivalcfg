@@ -24,11 +24,11 @@ class TestDevice(object):
         "value,expected_hid_report",
         [
             (100, b"\x02\x00\x2d\x01\x00\x00"),
-            (200, b"\x02\x00\x2d\x01\x00\x01"),
-            (300, b"\x02\x00\x2d\x01\x00\x02"),
+            (200, b"\x02\x00\x2d\x01\x00\x02"),
+            (300, b"\x02\x00\x2d\x01\x00\x03"),
             (18000, b"\x02\x00\x2d\x01\x00\xd6"),
-            ("200,400", b"\x02\x00\x2d\x02\x00\x01\x03"),
-            ("200,400,800,1600", b"\x02\x00\x2d\x04\x00\x01\x03\x08\x11"),
+            ("200,400", b"\x02\x00\x2d\x02\x00\x02\x04"),
+            ("200,400,800,1600", b"\x02\x00\x2d\x04\x00\x02\x04\x09\x12"),
         ],
     )
     def test_set_sensitivity(self, mouse, value, expected_hid_report):

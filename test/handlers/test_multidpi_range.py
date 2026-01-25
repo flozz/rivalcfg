@@ -90,7 +90,7 @@ class TestProcessValue(object):
                 selected_preset=2,
             )
 
-    def test_count_format_flag(self, setting_info2):
+    def test_dpi_length_byte_count_mode_flag(self, setting_info2):
         # fmt: off
         assert (
             multidpi_range.process_value(setting_info2, "100,200")

@@ -2,7 +2,7 @@ import pytest
 
 from rivalcfg import usbhid
 from rivalcfg import mouse
-from rivalcfg.devices import aerox5_wireless_wired
+from rivalcfg.devices import aerox5
 from rivalcfg import mouse_settings
 
 
@@ -12,11 +12,11 @@ class TestDevice(object):
         settings = mouse_settings.FakeMouseSettings(
             0x1038,
             0xBAAD,
-            aerox5_wireless_wired.profile,
+            aerox5.profile,
         )
         return mouse.Mouse(
             usbhid.FakeDevice(),
-            aerox5_wireless_wired.profile,
+            aerox5.profile,
             settings,
         )
 
@@ -40,10 +40,10 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (125, b"\x02\x00\x2b\x03"),
-            (250, b"\x02\x00\x2b\x02"),
-            (500, b"\x02\x00\x2b\x01"),
-            (1000, b"\x02\x00\x2b\x00"),
+            (125, b"\x02\x00\x2b\x04"),
+            (250, b"\x02\x00\x2b\x03"),
+            (500, b"\x02\x00\x2b\x02"),
+            (1000, b"\x02\x00\x2b\x01"),
         ],
     )
     def test_set_polling_rate(self, mouse, value, expected_hid_report):
@@ -55,8 +55,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x01\x00\xab\xcd\xef"),
-            ("red", b"\x02\x00\x21\x01\x00\xff\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x01\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x01\xff\x00\x00"),
         ],
     )
     def test_set_z1_color(self, mouse, value, expected_hid_report):
@@ -68,8 +68,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x01\x01\xab\xcd\xef"),
-            ("red", b"\x02\x00\x21\x01\x01\xff\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x02\x00\x00\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x02\x00\x00\x00\xff\x00\x00"),
         ],
     )
     def test_set_z2_color(self, mouse, value, expected_hid_report):
@@ -81,8 +81,8 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            ("#ABCDEF", b"\x02\x00\x21\x01\x02\xab\xcd\xef"),
-            ("red", b"\x02\x00\x21\x01\x02\xff\x00\x00"),
+            ("#ABCDEF", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xab\xcd\xef"),
+            ("red", b"\x02\x00\x21\x04\x00\x00\x00\x00\x00\x00\xff\x00\x00"),
         ],
     )
     def test_set_z3_color(self, mouse, value, expected_hid_report):
@@ -109,14 +109,13 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (0, b"\x02\x00\x29\x00\x00\x00"),
-            (1, b"\x02\x00\x29\x60\xea\x00"),
-            (5, b"\x02\x00\x29\xe0\x93\x04"),
-            (20, b"\x02\x00\x29\x80\x4f\x12"),
+            (0, b"\x02\x00\x23\x00"),
+            (50, b"\x02\x00\x23\x32"),
+            (100, b"\x02\x00\x23\x64"),
         ],
     )
-    def test_set_sleep_timer(self, mouse, value, expected_hid_report):
-        mouse.set_sleep_timer(value)
+    def test_set_led_brightness(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
@@ -124,15 +123,17 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (0, b"\x02\x00\x23\x0f\x01\x00\x00\x00\x00\x00"),
-            (30, b"\x02\x00\x23\x0f\x01\x00\x00\x30\x75\x00"),
-            (60, b"\x02\x00\x23\x0f\x01\x00\x00\x60\xea\x00"),
-            (300, b"\x02\x00\x23\x0f\x01\x00\x00\xe0\x93\x04"),
-            (1200, b"\x02\x00\x23\x0f\x01\x00\x00\x80\x4f\x12"),
+            ("all", b"\x02\x00\x22\x07"),
+            ("bottom", b"\x02\x00\x22\x04"),
+            ("middle", b"\x02\x00\x22\x02"),
+            ("top", b"\x02\x00\x22\x01"),
+            ("bottom-middle", b"\x02\x00\x22\x06"),
+            ("middle-top", b"\x02\x00\x22\x03"),
+            ("bottom-top", b"\x02\x00\x22\x05"),
         ],
     )
-    def test_set_dim_timer(self, mouse, value, expected_hid_report):
-        mouse.set_dim_timer(value)
+    def test_set_rainbow_effect(self, mouse, value, expected_hid_report):
+        mouse.set_rainbow_effect(value)
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
@@ -212,12 +213,6 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    def test_set_rainbow_effect(self, mouse):
-        mouse.set_rainbow_effect()
-        mouse._hid_device.bytes.seek(0)
-        hid_report = mouse._hid_device.bytes.read()
-        assert hid_report == b"\x02\x00\x22\xff"
-
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
@@ -232,14 +227,6 @@ class TestDevice(object):
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
-
-    def test_battery_level(self, mouse):
-        battery_info = mouse.battery
-        mouse._hid_device.bytes.seek(0)
-        hid_report = mouse._hid_device.bytes.read()
-        assert hid_report == b"\x02\x00\x92"
-        assert "is_charging" in battery_info
-        assert "level" in battery_info
 
     def test_save(self, mouse):
         mouse.save()
