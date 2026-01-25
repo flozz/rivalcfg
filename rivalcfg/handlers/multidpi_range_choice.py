@@ -1,7 +1,7 @@
 """
 The "multidpi_range_choice" type alows to pick values in an input range and
 transforms it into values from a fixed output list. If the input values do not
-correspond to one of the input range step, they are rounded to match the
+correspond to one of the available output choices, they are rounded to match the
 nearest DPI.
 
 This type is used to support devices where we can configure from ``1`` to ``n``

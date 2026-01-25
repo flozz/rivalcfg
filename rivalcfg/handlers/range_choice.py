@@ -1,10 +1,10 @@
 """
-The "range" type alows to pick a value in an input range and transforms it into
-a value from an output range. If the input value do not correspond to one of
-the input range step, it is rounded to match the nearest step.
+The "range_choice" type alows to pick a value in an input range and transforms
+it into a value from a fixed output list. If the input value do not correspond to
+one of the available output choices, it is rounded to match the nearest DPI.
 
 For example with an input range like ``[0, 1000, 100]`` and an output range
-like ``[0, 10, 1]``, you can have the following pair:
+like ``{0: 0, 100: 1, 200: 2, 300: 4,...}``, you can have the following pair:
 
 * ``0`` -> ``0``
 * ``100`` -> ``1``
@@ -13,13 +13,12 @@ like ``[0, 10, 1]``, you can have the following pair:
 * ``200`` -> ``2``
 * ``300`` -> ``3``
 * ...
-* ``1000`` -> ``10``
 
 
 Device Profile
 --------------
 
-Example of a range value type in a device profile:
+Example of a range_choice value type in a device profile:
 
 ::
 
@@ -35,9 +34,15 @@ Example of a range value type in a device profile:
                 "cli": ["-s", "--sensitivity1"],
                 "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
                 "command": [0x03, 0x01],
-                "value_type": "range",
+                "value_type": "range_choice",
                 "input_range": [200, 7200, 100],
-                "output_range": [0x04, 0xA7, 2],
+                "output_choices": {
+                    200: 0x04,
+                    300: 0x06,
+                    400: 0x08,
+                    ...
+                    7200: 0xA7,
+                },
                 "range_length_byte": 1,  # optional, little endian
                 "default": 1000,
             },
@@ -70,80 +75,58 @@ Functions
 from ..helpers import uint_to_little_endian_bytearray
 
 
-def matches_value_in_range(range_start, range_stop, range_step, value):
-    """Helper function that matches the value with the nearest value in the
-    given range.
+def find_nearest_choice(choices, value):
+    """Find the nearest value from choice list.
 
-    :param int range_start: The start of the range.
-    :param int range_stop: The end of the range.
-    :param int range_step: The gap between two value in the range.
-    :param int value: The value to process.
+    :param list[int] choices: List of allowed values.
+    :param int value: the value to match with the ones of choices.
 
     :rtype: int
-
-    >>> matches_value_in_range(0, 100, 10, 40)
-    40
-    >>> matches_value_in_range(0, 100, 10, 42)
-    40
-    >>> matches_value_in_range(0, 1000, 100, 51)
-    100
-    >>> matches_value_in_range(42, 1000, 100, 150)
-    142
-    >>> matches_value_in_range(500, 1000, 100, 100)
-    500
-    >>> matches_value_in_range(500, 1000, 100, 4000)
-    1000
+    :returns: The nearest value from choices.
     """
-    if value <= range_start:
-        return range_start
+    nearest_delta = None
+    nearest_choice = None
 
-    if value >= range_stop:
-        return range_stop
+    for choice in sorted(choices):
+        delta = abs(choice - value)
+        if nearest_delta is None or delta < nearest_delta:
+            nearest_delta = delta
+            nearest_choice = choice
 
-    delta = (value - range_start) % range_step
-    if not delta:
-        return value
-    else:
-        if delta < range_step / 2:
-            return value - delta
-        else:
-            return value - delta + range_step
+    return nearest_choice
 
 
-def process_range(setting_info, value):
-    """Called by the "range" functions to process 'value' with the specified
-    range settings in 'setting_info'.
+def process_range_choice(setting_info, value):
+    """Called by the "range_choice" functions to process 'value' with the
+    specified range settings in 'setting_info'.
 
     :param dict setting_info: The information dict of the setting from the
                               device profile.
     :param value: The input value.
     :rtype: int
     """
-    input_range = list(
-        range(
-            setting_info["input_range"][0],
-            setting_info["input_range"][1] + 1,
-            setting_info["input_range"][2],
-        )
-    )
-    output_range = list(
-        range(
-            setting_info["output_range"][0],
-            setting_info["output_range"][1] + 1,
-            setting_info["output_range"][2],
-        )
-    )
 
-    if len(input_range) != len(output_range):
-        raise ValueError("Input range and output range must have the same length")
+    # Checks
 
-    matched_value = matches_value_in_range(
-        setting_info["input_range"][0],
-        setting_info["input_range"][1],
-        setting_info["input_range"][2],
-        int(value),
-    )
-    return output_range[input_range.index(matched_value)]
+    _first, _last, _step = setting_info["input_range"]
+
+    if len(setting_info["output_choices"]) != (_last - _first + _step) / _step:
+        raise ValueError("Input range and output choices mismatch: not the same length")
+
+    if min(setting_info["output_choices"].keys()) != _first:
+        raise ValueError(
+            "Input range and output choices mismatch: not the same min value"
+        )
+
+    if max(setting_info["output_choices"].keys()) != _last:
+        raise ValueError(
+            "Input range and output choices mismatch: not the same max value"
+        )
+
+    #
+
+    matched_dpi = find_nearest_choice(setting_info["output_choices"].keys(), int(value))
+    return setting_info["output_choices"][matched_dpi]
 
 
 def process_value(setting_info, value):
@@ -159,7 +142,7 @@ def process_value(setting_info, value):
     if "range_length_byte" in setting_info:
         range_length = setting_info["range_length_byte"]
     return uint_to_little_endian_bytearray(
-        process_range(setting_info, value), range_length
+        process_range_choice(setting_info, value), range_length
     )
 
 
