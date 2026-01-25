@@ -5,41 +5,6 @@ import pytest
 from rivalcfg.handlers import multidpi_range_choice
 
 
-class Test_find_nearest_choice(object):
-    @pytest.fixture
-    def choices(self):
-        return {
-            100: 0x00,
-            200: 0x02,
-            300: 0x03,
-            400: 0x05,
-            500: 0x06,
-            600: 0x08,
-            700: 0x10,
-            800: 0x11,
-            900: 0x13,
-            1000: 0x1A,
-        }
-
-    @pytest.mark.parametrize(
-        "input_,expected_output",
-        [
-            (99, 100),
-            (100, 100),
-            (150, 100),
-            (151, 200),
-            (999, 1000),
-            (1000, 1000),
-            (3000, 1000),
-        ],
-    )
-    def test_values(self, choices, input_, expected_output):
-        assert (
-            multidpi_range_choice.find_nearest_choice(choices.keys(), input_)
-            == expected_output
-        )
-
-
 class TestProcessValue(object):
     @pytest.fixture
     def setting_info(self):

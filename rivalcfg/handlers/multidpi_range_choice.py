@@ -81,29 +81,9 @@ Functions
 ---------
 """
 
+from .range_choice import process_range_choice
 from .multidpi_range import cli_multirange_validator
 from ..helpers import merge_bytes, uint_to_little_endian_bytearray
-
-
-def find_nearest_choice(choices, value):
-    """Find the nearest value from choice list.
-
-    :param list[int] choices: List of allowed values.
-    :param int value: the value to match with the ones of choices.
-
-    :rtype: int
-    :returns: The nearest value from choices.
-    """
-    nearest_delta = None
-    nearest_choice = None
-
-    for choice in sorted(choices):
-        delta = abs(choice - value)
-        if nearest_delta is None or delta < nearest_delta:
-            nearest_delta = delta
-            nearest_choice = choice
-
-    return nearest_choice
 
 
 def process_value(setting_info, value, selected_preset=None):
@@ -161,21 +141,6 @@ def process_value(setting_info, value, selected_preset=None):
             "Missing 'dpi_length_byte' parameter for 'multidpi_range' handler"
         )
 
-    _first, _last, _step = setting_info["input_range"]
-
-    if len(setting_info["output_choices"]) != (_last - _first + _step) / _step:
-        raise ValueError("Input range and output choices mismatch: not the same length")
-
-    if min(setting_info["output_choices"].keys()) != _first:
-        raise ValueError(
-            "Input range and output choices mismatch: not the same min value"
-        )
-
-    if max(setting_info["output_choices"].keys()) != _last:
-        raise ValueError(
-            "Input range and output choices mismatch: not the same max value"
-        )
-
     dpi_length = setting_info["dpi_length_byte"]
 
     # DPIs
@@ -183,8 +148,7 @@ def process_value(setting_info, value, selected_preset=None):
     output_values = []
 
     for dpi in dpis:
-        input_value = find_nearest_choice(setting_info["output_choices"].keys(), dpi)
-        output_value = setting_info["output_choices"][input_value]
+        output_value = process_range_choice(setting_info, dpi)
         output_value = uint_to_little_endian_bytearray(output_value, dpi_length)
         output_values = merge_bytes(output_values, output_value)
 
