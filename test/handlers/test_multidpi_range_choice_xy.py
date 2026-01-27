@@ -1,0 +1,248 @@
+import argparse
+
+import pytest
+
+from rivalcfg.handlers import multidpi_range_choice_xy
+
+
+class TestProcessValue(object):
+    @pytest.fixture
+    def setting_info(self):
+        return {
+            "value_type": "multidpi_range_choice",
+            "input_range": [100, 1000, 100],
+            "output_choices": {
+                100: 0x00,
+                200: 0x02,
+                300: 0x03,
+                400: 0x05,
+                500: 0x06,
+                600: 0x08,
+                700: 0x10,
+                800: 0x11,
+                900: 0x13,
+                1000: 0x1A,
+            },
+            "first_preset": 1,
+            "xy_mapping": "xyxy",
+            "max_preset_count": 5,
+            "dpi_length_byte": 1,
+            "default": "800:800, 1600:1600",
+        }
+
+    @pytest.mark.parametrize(
+        "input_,expected_output",
+        [
+            (100, [0x01, 0x01, 0x00, 0x00]),
+            ("100:200", [0x01, 0x01, 0x00, 0x02]),
+            ([100, [200, 300]], [0x02, 0x01, 0x00, 0x00, 0x02, 0x03]),
+            ("100, 200:300, 1000", [0x03, 0x01, 0x00, 0x00, 0x02, 0x03, 0x1A, 0x1A]),
+        ],
+    )
+    def test_values_xyxy(self, setting_info, input_, expected_output):
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, input_)
+            == expected_output
+        )
+
+    @pytest.mark.parametrize(
+        "input_,expected_output",
+        [
+            ([100, [200, 300]], [0x02, 0x01, 0x00, 0x02, 0x00, 0x03]),
+            ("100, 200:300, 1000", [0x03, 0x01, 0x00, 0x02, 0x1A, 0x00, 0x03, 0x1A]),
+        ],
+    )
+    def test_values_xxyy(self, setting_info, input_, expected_output):
+        setting_info["xy_mapping"] = "xxyy"
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, input_)
+            == expected_output
+        )
+
+    @pytest.mark.parametrize(
+        "input_",
+        [
+            "100, 200, 300, 400, 500, 600",
+            [100, 200, 300, 400, 500, 600],
+        ],
+    )
+    def test_too_many_pressets(self, setting_info, input_):
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, input_)
+
+    def test_too_fiew_pressets(self, setting_info):
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, [])
+
+    @pytest.mark.parametrize(
+        "selected",
+        [0, 1, 2, 3, 4],
+    )
+    def test_selected_preset(self, setting_info, selected):
+        assert multidpi_range_choice_xy.process_value(
+            setting_info,
+            "100,200,300,400,500",
+            selected_preset=selected,
+        ) == [
+            # fmt: off
+            0x05, selected + 1,
+            0x00, 0x00,
+            0x02, 0x02,
+            0x03, 0x03,
+            0x05, 0x05,
+            0x06, 0x06,
+            # fmt: on
+        ]
+
+    def test_selected_preset_out_of_range(self, setting_info):
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(
+                setting_info,
+                "100,200",
+                selected_preset=2,
+            )
+
+    def test_dpi_length_byte_xyxy(self, setting_info):
+        setting_info["dpi_length_byte"] = 2
+        # fmt: off
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, "100,200")
+            == [0x02, 0x01, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00]
+            # . CNT,  SEL,  PRESSET1 x, PRESSET1 y, PRESSET2 x, PRESSET2 y
+        )
+        # fmt: on
+
+    def test_dpi_length_byte_xxyy(self, setting_info):
+        setting_info["dpi_length_byte"] = 2
+        setting_info["xy_mapping"] = "xxyy"
+        # fmt: off
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, "100,200")
+            == [0x02, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00]
+            # . CNT,  SEL,  PRESSET1 x, PRESSET2 x, PRESSET1 y, PRESSET2 y
+        )
+        # fmt: on
+
+    def test_first_preset_zero(self, setting_info):
+        setting_info["first_preset"] = 0
+        # fmt: off
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, "100,200")
+            == [0x02, 0x00, 0x00, 0x00, 0x02, 0x02]
+            # . CNT,  SEL,  P1 x, P1 y, P2 x, P2 y
+        )
+        # fmt: on
+
+    def test_mismatch_input_range_and_output_choices_len(self):
+        setting_info = {
+            "value_type": "multidpi_range_choice",
+            "input_range": [100, 1000, 100],
+            "output_choices": {
+                100: 0x00,
+                200: 0x02,
+                300: 0x03,
+                400: 0x05,
+                500: 0x06,
+            },
+            "first_preset": 1,
+            "max_preset_count": 5,
+        }
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, [100])
+
+    def test_mismatch_input_range_and_output_choices_min(self):
+        setting_info = {
+            "value_type": "multidpi_range_choice",
+            "input_range": [100, 500, 100],
+            "output_choices": {
+                10: 0x00,
+                200: 0x02,
+                300: 0x03,
+                400: 0x05,
+                500: 0x06,
+            },
+            "first_preset": 1,
+            "max_preset_count": 5,
+        }
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, [100])
+
+    def test_mismatch_input_range_and_output_choices_max(self):
+        setting_info = {
+            "value_type": "multidpi_range_choice",
+            "input_range": [100, 500, 100],
+            "output_choices": {
+                100: 0x00,
+                200: 0x02,
+                300: 0x03,
+                400: 0x05,
+                1000: 0x06,
+            },
+            "first_preset": 1,
+            "max_preset_count": 5,
+        }
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, [100])
+
+
+class TestAddCliOption(object):
+    @pytest.fixture
+    def cli(self):
+        cli = argparse.ArgumentParser()
+        multidpi_range_choice_xy.add_cli_option(
+            cli,
+            "sensitivity42",
+            {
+                "label": "Sensibility presets",
+                "description": "Set sensitivity presets (DPI)",
+                "cli": ["-s", "--sensitivity", "--foobar"],
+                "command": [0x03, 0x01],
+                "value_type": "multidpi_range_choice",
+                "input_range": [100, 500, 100],
+                "output_choices": {
+                    100: 0x00,
+                    200: 0x02,
+                    300: 0x03,
+                    400: 0x05,
+                    500: 0x06,
+                },
+                "first_preset": 1,
+                "max_preset_count": 5,
+                "default": [100, 200],
+            },
+        )
+        return cli
+
+    def test_cli_options(self, cli):
+        assert "-s" in cli.format_help()
+        assert "--sensitivity" in cli.format_help()
+        assert "--foobar" in cli.format_help()
+
+    def test_cli_metavar(self, cli):
+        assert "-s SENSITIVITY42" in cli.format_help()
+
+    @pytest.mark.parametrize(
+        "value",
+        [
+            "200",
+            "210",
+            "7200, 400",
+            "100:150, 400:500",
+            " 100 : 150, 400  :  500 ",
+        ],
+    )
+    def test_passing_valid_value(self, cli, value):
+        params = cli.parse_args(["--sensitivity", value])
+        assert params.SENSITIVITY42 == value
+
+    def test_passing_invalid_value(self, cli):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--sensitivity", "hello"])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2
+
+    def test_passing_too_much_values(self, cli):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            cli.parse_args(["--sensitivity", "1:1,2,3,4,5,6"])
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 2

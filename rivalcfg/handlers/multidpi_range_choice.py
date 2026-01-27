@@ -126,7 +126,7 @@ def process_value(setting_info, value, selected_preset=None):
 
     if "first_preset" not in setting_info:
         raise ValueError(
-            "Missing 'first_preset' parameter for 'multidpi_range' handler"
+            "Missing 'first_preset' parameter for 'multidpi_range_choice' handler"
         )
 
     if (
@@ -138,7 +138,7 @@ def process_value(setting_info, value, selected_preset=None):
 
     if "dpi_length_byte" not in setting_info:
         raise ValueError(
-            "Missing 'dpi_length_byte' parameter for 'multidpi_range' handler"
+            "Missing 'dpi_length_byte' parameter for 'multidpi_range_choice' handler"
         )
 
     dpi_length = setting_info["dpi_length_byte"]
