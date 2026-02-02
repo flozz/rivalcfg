@@ -1,5 +1,5 @@
+from .dpi import truemove_core
 from .. import usbhid
-
 
 profile = {
     "name": "SteelSeries Rival 3 Gen 2",
@@ -12,7 +12,21 @@ profile = {
         },
     ],
     "settings": {
-        # TODO sensitivity
+        "sensitivity": {
+            "label": "Sensibility presets",
+            "description": "Set sensitivity preset (DPI)",
+            "cli": ["-s", "--sensitivity"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x34],
+            "value_type": "multidpi_range_choice_xy",
+            "input_range": [200, 8500, 100],
+            "output_choices": truemove_core.choices,
+            "xy_mapping": "xyxy",
+            "dpi_length_byte": 1,
+            "first_preset": 1,
+            "max_preset_count": 5,
+            "default": "800:800, 1600:1600",
+        },
         "polling_rate": {
             "label": "Polling rate",
             "description": "Set polling rate (Hz)",
@@ -29,10 +43,10 @@ profile = {
             "default": 1000,
         },
         # 0x21 <LED_ID> <R1> <G1> <B1> <R2> <G2> <B2> <R3> <G3> <B3>
-        # LED_ID: 0x00 all?
-        #         0x01 zone 1 (top)
-        #         0x02 zone 2 (middle)
-        #         0x03 zone 3 (bottom)
+        # LED_ID: 0b111 all?
+        #         0b001 zone 1 (top)
+        #         0b010 zone 2 (middle)
+        #         0b100 zone 3 (bottom)
         "z1_color": {
             "label": "Strip top LED color",
             "description": "Set the color of the top LED of the strip",

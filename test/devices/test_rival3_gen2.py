@@ -20,7 +20,23 @@ class TestDevice(object):
             settings,
         )
 
-    # TODO sensitivity
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (200, b"\x02\x00\x34\x01\x01\x04\x04"),
+            ("200", b"\x02\x00\x34\x01\x01\x04\x04"),
+            ("200:300,400:500", b"\x02\x00\x34\x02\x01\x04\x06\x08\x0b"),
+            (
+                "200,400,800,1600:1800",
+                b"\x02\x00\x34\x04\x01\x04\x04\x08\x08\x12\x12\x24\x29",
+            ),
+        ],
+    )
+    def test_set_sensitivity(self, mouse, value, expected_hid_report):
+        mouse.set_sensitivity(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
 
     @pytest.mark.parametrize(
         "value,expected_hid_report",
