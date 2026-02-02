@@ -253,6 +253,7 @@ Changelog
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
   * feat(devices): Added support for the Aerox 3 Wireless CS2 Dragon Lore Edition (1038:187a, 1038:1878) (@flozz)
+  * feat(devices): Added support for the Rival 3 Gen 2 (1038:1870) (#249, #257, @flozz, @orsonteodoro)
   * feat(handler): Added range_choice handler (@flozz)
   * feat(handler): Added multidpi_range_choice handler (@flozz)
   * feat(handler): Added multidpi_range_choice_xy handler (@flozz)

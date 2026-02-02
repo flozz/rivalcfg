@@ -17,6 +17,7 @@ Supported Devices
    ./prime_mini.rst
    ./prime_wireless.rst
    ./rival3.rst
+   ./rival3_gen2.rst
    ./rival3_wireless.rst
    ./rival95.rst
    ./rival100.rst
