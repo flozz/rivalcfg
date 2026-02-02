@@ -29,13 +29,12 @@ jobs:
 
       - name: "Install Nox"
         run: |
-          pip3 install setuptools
           pip3 install nox
 
-      - name: "Lint with Flake8 and Black"
+      - name: "Lint"
         run: |
           python3 -m nox --session lint
 
-      - name: "Test with pytest"
+      - name: "Test"
         run: |
           python3 -m nox --session test-${{ matrix.python-version }}

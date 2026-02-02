@@ -25,7 +25,6 @@ jobs:
 
       - name: "Install Python dependencies"
         run: |
-          pip3 install setuptools
           pip3 install nox
 
       - name: "Build Sphinx Doc"

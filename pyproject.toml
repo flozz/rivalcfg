@@ -1,2 +1,54 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "rivalcfg"
+version = "4.15.0"
+authors = [
+    {name = "Fabien LOISON"},
+]
+description = "Configure SteelSeries gaming mice"
+readme = "README.rst"
+keywords = ["steelseries", "rival", "sensei", "prime", "aerox", "mouse", "hid"]
+license = "WTFPL"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "hidapi>=0.14.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "Sphinx",
+    "black",
+    "flake8",
+    "flake8-pyproject",
+    "nox",
+    "pytest",
+    "sphinx-rtd-theme",
+    "validate-pyproject",
+]
+
+[project.scripts]
+rivalcfg = "rivalcfg.__main__:main"
+
+[project.urls]
+source = "https://github.com/flozz/rivalcfg"
+documentation = "https://flozz.github.io/rivalcfg/"
+changelog = "https://github.com/flozz/rivalcfg#changelog"
+issues = "https://github.com/flozz/rivalcfg/issues"
+Chat = "https://discord.gg/P77sWhuSs4"
+donate = "https://github.com/flozz/rivalcfg#supporting-this-project"
+
 [tool.black]
-target-version = ['py310']
+target-version = ["py310"]
+
+[tool.flake8]
+ignore = [
+    "E241",  # multiple spaces after ‘,’
+    "E203",  # whitespace before ':'
+    # ↓↓ Black handles that its way... :)
+    "W503",  # line break before binary operator
+    "E501",  # line too long (> 79 characters)
+]

@@ -278,6 +278,7 @@ Changelog
     * Rival 300S device (1038:1810)
 
   * misc(tests): Added tests for Aerox 5 device (1038:1850) (@flozz)
+  * misc: Modernized packaging setup.py/setuptools -> pyproject.toml/flint (@flozz)
   * misc: Added Python 3.14 support (@flozz)
   * misc!: Removed Python 3.9 support (@flozz)
 
