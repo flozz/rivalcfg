@@ -8,6 +8,14 @@ Supported Models
 .. rivalcfg_device_family:: rival500
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* Vibration motor (a.k.a "Tactile Alerts")
+
+
 Command-Line Usage
 ------------------
 

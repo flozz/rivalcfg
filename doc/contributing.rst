@@ -12,7 +12,7 @@ Questions
 
 If you have any question, you can:
 
-* `open an issue <https://github.com/flozz/rivalcfg/issues>`_ on Github,
+* `open an issue <https://github.com/flozz/rivalcfg/issues>`_ on GitHub,
 * or `ask on Discord <https://discord.gg/P77sWhuSs4>`_ (I am not always
   available for chatting but I try to answer to everyone).
 
@@ -22,7 +22,7 @@ Unsupported devices
 
 You just bought a brand new SteelSeries mouse and it is not supported by
 rivalcfg? The first thing to do is to check if someone else already reported
-this on the issue tracker on Github:
+this on the issue tracker on GitHub:
 
 * https://github.com/flozz/rivalcfg/issues
 
@@ -52,7 +52,7 @@ easier than you think), it can be me (if I can find someone to lend me the
 mouse) or it can be any other contributor.
 
 You can also consider supporting the project using the ``Sponsor`` button on
-Github to allow me buying new SteelSeries mice in order to support them in
+GitHub to allow me buying new SteelSeries mice in order to support them in
 rivalcfg.
 
 
@@ -60,7 +60,7 @@ Bugs
 ----
 
 Rivalcfg does not work? Please `open an issue
-<https://github.com/flozz/rivalcfg/issues>`_ on Github with as much information
+<https://github.com/flozz/rivalcfg/issues>`_ on GitHub with as much information
 as possible.
 
 When possible:

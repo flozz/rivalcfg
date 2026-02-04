@@ -1,7 +1,7 @@
 rivalcfg: Configure SteelSeries gaming mice
 ===========================================
 
-|Github| |Discord| |PYPI Version| |Github Actions| |Black| |License|
+|GitHub| |Discord| |PYPI Version| |GitHub Actions| |Black| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
 to configure SteelSeries gaming mice on Linux, macOS and Windows (probably works on
@@ -10,7 +10,7 @@ BSD too, but not tested).
 I first created this program to configure my Rival 100 and the original Rival
 mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
-Sensei,...).
+Sensei, Aerox, Prime,...).
 
    **IMPORTANT:** This is an unofficial software. It was made by reverse
    engineering devices and is not supported nor approved by SteelSeries.
@@ -18,7 +18,7 @@ Sensei,...).
 .. figure:: https://flozz.github.io/rivalcfg/_images/steelseries_mice.jpg
    :alt: SteelSeries Gaming Mice
 
-If you have any trouble running this software, please open an issue on Github:
+If you have any trouble running this software, please open an issue on GitHub:
 
 * https://github.com/flozz/rivalcfg/issues
 
@@ -243,7 +243,7 @@ Supporting this project
 Wanna support this project?
 
 * `☕️ Buy me a coffee <https://www.buymeacoffee.com/flozz>`__,
-* `❤️ sponsor me on Github <https://github.com/sponsors/flozz>`__,
+* `❤️ sponsor me on GitHub <https://github.com/sponsors/flozz>`__,
 * `💵️ or give me a tip on PayPal <https://www.paypal.me/0xflozz>`__.
 
 
@@ -501,7 +501,7 @@ Older changelog entries were moved to the `CHANGELOG.rst
 <https://github.com/flozz/rivalcfg/blob/master/CHANGELOG.rst>`_ file.
 
 
-.. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
+.. |GitHub| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=GitHub&logo=github
    :target: https://github.com/flozz/rivalcfg
 
 .. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
@@ -510,7 +510,7 @@ Older changelog entries were moved to the `CHANGELOG.rst
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
 
-.. |Github Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
+.. |GitHub Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
    :target: https://github.com/flozz/rivalcfg/actions
 
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg

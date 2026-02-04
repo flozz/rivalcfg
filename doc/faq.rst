@@ -59,7 +59,7 @@ possibilities:
 
 * Your device do not support this feature by hardware, so the SteelSeries
   Engine sends color command to the mouse several times per second. As Rivalcfg
-  is only a library and a CLI tool, not a deamon, it cannot support this
+  is only a library and a CLI tool, not a daemon, it cannot support this
   feature. But you can implement it yourself with a Bash script or using the
   Python API.
 
