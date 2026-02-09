@@ -110,22 +110,6 @@ def matches_value_in_range(range_start, range_stop, range_step, value):
             return value - delta + range_step
 
 
-def _build_range(range_info, expected_length=None):
-    start, stop, step = range_info
-    if isinstance(step, float):
-        if expected_length is None:
-            raise ValueError("expected_length is required for float ranges")
-        if expected_length <= 0:
-            return []
-        values = [
-            int(round(start + (step * index))) for index in range(expected_length)
-        ]
-        values[-1] = int(stop)
-        return values
-
-    return list(range(start, stop + 1, step))
-
-
 def process_range(setting_info, value):
     """Called by the "range" functions to process 'value' with the specified
     range settings in 'setting_info'.
@@ -135,10 +119,19 @@ def process_range(setting_info, value):
     :param value: The input value.
     :rtype: int
     """
-    input_range = _build_range(setting_info["input_range"])
-    output_range = _build_range(
-        setting_info["output_range"],
-        expected_length=len(input_range),
+    input_range = list(
+        range(
+            setting_info["input_range"][0],
+            setting_info["input_range"][1] + 1,
+            setting_info["input_range"][2],
+        )
+    )
+    output_range = list(
+        range(
+            setting_info["output_range"][0],
+            setting_info["output_range"][1] + 1,
+            setting_info["output_range"][2],
+        )
     )
 
     if len(input_range) != len(output_range):
