@@ -10,6 +10,12 @@ profile = {
             "product_id": 0x1836,
             "endpoint": 3,
         },
+        {
+            "name": "SteelSeries Rival 3 Gen 2",
+            "vendor_id": 0x1038,
+            "product_id": 0x1870,
+            "endpoint": 3,
+        },
     ],
     "settings": {
         "sensitivity": {
