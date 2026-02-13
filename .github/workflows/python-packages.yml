@@ -38,7 +38,7 @@ jobs:
       - name: "Upload artifacts"
         uses: actions/upload-artifact@v6
         with:
-          name: rivalcfg-dist
+          name: dist
           path: dist/
           retention-days: 1
 
@@ -54,10 +54,9 @@ jobs:
       - name: "Download artifacts"
         uses: actions/download-artifact@v7
 
-      - name: "Move packages to the dist/ folder"
+      - name: "List packages"
         run: |
-          mkdir dist/
-          mv rivalcfg-dist/* dist/
+          find . -name "*.whl" -o -name "*.tar.gz"
 
       - name: "Publish packages on PyPI"
         uses: pypa/gh-action-pypi-publish@release/v1
