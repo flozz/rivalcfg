@@ -6,20 +6,20 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>range &mdash; rivalcfg v4.15.0 documentation</title>
+  <title>range &mdash; rivalcfg v4.16.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=54249122"></script>
-      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/documentation_options.js?v=c65b4fc9"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="multidpi_range" href="multidpi_range.html" />
+    <link rel="next" title="range_choice" href="range_choice.html" />
     <link rel="prev" title="choice" href="choice.html" /> 
 </head>
 
@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../env.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Python API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../high_level/index.html">High Level Python API</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Internal Python API</a><ul class="current">
@@ -58,7 +59,10 @@
 <li class="toctree-l4"><a class="reference internal" href="none.html">none</a></li>
 <li class="toctree-l4"><a class="reference internal" href="choice.html">choice</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range_choice.html">range_choice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="multidpi_range.html">multidpi_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multidpi_range_choice.html">multidpi_range_choice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multidpi_range_choice_xy.html">multidpi_range_choice_xy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbcolor.html">rgbcolor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="reactive_rgbcolor.html">reactive_rgbcolor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgbgradient.html">rgbgradient</a></li>
@@ -75,7 +79,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../devices/index.html">Supported Devices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
 </ul>
@@ -142,7 +145,7 @@ like <code class="docutils literal notranslate"><span class="pre">[0,</span> <sp
             <span class="s2">&quot;value_type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
             <span class="s2">&quot;input_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
             <span class="s2">&quot;output_range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mh">0x04</span><span class="p">,</span> <span class="mh">0xA7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-            <span class="s2">&quot;range_length_byte&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># optional</span>
+            <span class="s2">&quot;range_length_byte&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># optional, little endian</span>
             <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
         <span class="p">},</span>
 
@@ -184,30 +187,6 @@ device profile.</p></li>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="rivalcfg.handlers.range.custom_range">
-<span class="sig-prename descclassname"><span class="pre">rivalcfg.handlers.range.</span></span><span class="sig-name descname"><span class="pre">custom_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rivalcfg.handlers.range.custom_range" title="Link to this definition"></a></dt>
-<dd><p>Helper function that generates a range of integers but allowing to have
-a float as step.</p>
-<p>I am not very proud of this but the Rival 110 requires a step of ~2.33…</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>start</strong> (<em>int</em>) – The start of the range.</p></li>
-<li><p><strong>stop</strong> (<em>int</em>) – The end of the range.</p></li>
-<li><p><strong>step</strong> (<em>float</em>) – The gap between two value in the range.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>generator(int)</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">custom_range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mf">2.33</span><span class="p">))</span>
-<span class="go">[4, 6, 8, 10, 13, 15, ...160, 162, 164, 167]</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -289,13 +268,13 @@ device profile.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="choice.html" class="btn btn-neutral float-left" title="choice" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="multidpi_range.html" class="btn btn-neutral float-right" title="multidpi_range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="range_choice.html" class="btn btn-neutral float-right" title="range_choice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2026, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

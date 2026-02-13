@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to rivalcfg’s documentation! &mdash; rivalcfg v4.15.0 documentation</title>
+  <title>Welcome to rivalcfg’s documentation! &mdash; rivalcfg v4.16.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=54249122"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/documentation_options.js?v=c65b4fc9"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -47,8 +47,8 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env.html">Environment Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
@@ -79,14 +79,14 @@
              
   <section id="welcome-to-rivalcfg-s-documentation">
 <h1>Welcome to rivalcfg’s documentation!<a class="headerlink" href="#welcome-to-rivalcfg-s-documentation" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="https://github.com/flozz/rivalcfg"><img alt="Github" src="https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&amp;logo=github" /></a> <a class="reference external" href="https://discord.gg/P77sWhuSs4"><img alt="Discord" src="https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&amp;logoColor=ffffff" /></a> <a class="reference external" href="https://pypi.org/project/rivalcfg/"><img alt="PYPI Version" src="https://img.shields.io/pypi/v/rivalcfg?logo=python&amp;logoColor=f1f1f1" /></a> <a class="reference external" href="https://github.com/flozz/rivalcfg/actions"><img alt="Github Actions" src="https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg" /></a> <a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/flozz/rivalcfg" /></a></p>
+<p><a class="reference external" href="https://github.com/flozz/rivalcfg"><img alt="GitHub" src="https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&amp;logo=github" /></a> <a class="reference external" href="https://discord.gg/P77sWhuSs4"><img alt="Discord" src="https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&amp;logoColor=ffffff" /></a> <a class="reference external" href="https://pypi.org/project/rivalcfg/"><img alt="PYPI Version" src="https://img.shields.io/pypi/v/rivalcfg?logo=python&amp;logoColor=f1f1f1" /></a> <a class="reference external" href="https://github.com/flozz/rivalcfg/actions"><img alt="GitHub Actions" src="https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg" /></a> <a class="reference external" href="https://black.readthedocs.io/en/stable/"><img alt="Black" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a> <a class="reference external" href="https://github.com/flozz/rivalcfg/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/flozz/rivalcfg" /></a></p>
 <p>Rivalcfg is a <strong>Python library</strong> and a <strong>CLI utility program</strong> that allows you
-to configure SteelSeries gaming mice on Linux and Windows (probably works on
-BSD and Mac OS too, but not tested).</p>
+to configure SteelSeries gaming mice on Linux, macOS and Windows (probably works on
+BSD too, but not tested).</p>
 <p>I first created this program to configure my Rival 100 and the original Rival
 mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
-Sensei,…).</p>
+Sensei, Aerox, Prime,…).</p>
 <figure class="align-default">
 <img alt="SteelSeries Gaming Mice" src="_images/steelseries_mice.jpg" />
 </figure>
@@ -115,11 +115,6 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="env.html#rivalcfg-profile">RIVALCFG_PROFILE</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="python_api/high_level/index.html">High Level Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_api/internal/index.html">Internal Python API</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox3.html">SteelSeries Aerox 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox3_wireless.html">SteelSeries Aerox 3 Wireless</a></li>
@@ -131,7 +126,9 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="devices/prime_mini.html">SteelSeries Prime Mini</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/prime_wireless.html">SteelSeries Prime Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival3.html">SteelSeries Rival 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices/rival3_gen2.html">SteelSeries Rival 3 Gen 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival3_wireless.html">SteelSeries Rival 3 Wireless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices/rival3_wireless_gen2.html">SteelSeries Rival 3 Wireless Gen 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
@@ -145,6 +142,11 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="devices/sensei310.html">SteelSeries Sensei 310</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/sensei_raw.html">SteelSeries Sensei [RAW]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/sensei_ten.html">SteelSeries Sensei TEN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_api/high_level/index.html">High Level Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/internal/index.html">Internal Python API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
@@ -184,7 +186,7 @@ devices and is not supported nor approved by SteelSeries.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2026, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

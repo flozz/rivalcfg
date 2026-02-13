@@ -1,16 +1,16 @@
 Welcome to rivalcfg's documentation!
 ====================================
 
-|Github| |Discord| |PYPI Version| |Github Actions| |License|
+|GitHub| |Discord| |PYPI Version| |Github Actions| |Black| |License|
 
 Rivalcfg is a **Python library** and a **CLI utility program** that allows you
-to configure SteelSeries gaming mice on Linux and Windows (probably works on
-BSD and Mac OS too, but not tested).
+to configure SteelSeries gaming mice on Linux, macOS and Windows (probably works on
+BSD too, but not tested).
 
 I first created this program to configure my Rival 100 and the original Rival
 mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
-Sensei,...).
+Sensei, Aerox, Prime,...).
 
 .. figure:: ./images/steelseries_mice.jpg
    :alt: SteelSeries Gaming Mice
@@ -29,8 +29,8 @@ Sensei,...).
    ./install.rst
    ./cli.rst
    ./env.rst
-   ./python_api/index.rst
    ./devices/index.rst
+   ./python_api/index.rst
    ./faq.rst
    ./contributing.rst
 
@@ -43,7 +43,7 @@ Indices and tables
 * :ref:`search`
 
 
-.. |Github| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
+.. |GitHub| image:: https://img.shields.io/github/stars/flozz/rivalcfg?label=Github&logo=github
    :target: https://github.com/flozz/rivalcfg
 
 .. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
@@ -52,8 +52,11 @@ Indices and tables
 .. |PYPI Version| image:: https://img.shields.io/pypi/v/rivalcfg?logo=python&logoColor=f1f1f1
    :target: https://pypi.org/project/rivalcfg/
 
-.. |Github Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
+.. |GitHub Actions| image:: https://github.com/flozz/rivalcfg/actions/workflows/python-ci.yml/badge.svg
    :target: https://github.com/flozz/rivalcfg/actions
+
+.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://black.readthedocs.io/en/stable/
 
 .. |License| image:: https://img.shields.io/github/license/flozz/rivalcfg
    :target: https://github.com/flozz/rivalcfg/blob/master/LICENSE

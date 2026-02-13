@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing &mdash; rivalcfg v4.15.0 documentation</title>
+  <title>Installing &mdash; rivalcfg v4.16.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=54249122"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/documentation_options.js?v=c65b4fc9"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -49,6 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#from-sources-git-pypi">From Sources (Git / PyPI)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macos">macOS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
@@ -64,8 +65,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env.html">Environment Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 </ul>
@@ -122,13 +123,21 @@
 </pre></div>
 </div>
 </section>
+<section id="macos">
+<h4>macOS<a class="headerlink" href="#macos" title="Link to this heading"></a></h4>
+<p>On macOS, you will probably need to install XCode to compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code> (if the <em>wheel</em> (binary package) cannot be used). This can be done with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
+</pre></div>
+</div>
+<p>Other requirements may be required, open an issue on GitHub if you are in trouble.</p>
+</section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h4>
 <p>On Windows, you have to install Python first:</p>
 <ul class="simple">
-<li><p>Python &gt;= 3.9 (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
+<li><p>Python &gt;= 3.10 (see <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>)</p></li>
 </ul>
-<p>And Vusual C++ build tools are also required to compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code> if the <em>weel</em> (binary package) cannot be used:</p>
+<p>And Visual C++ build tools are also required to compile <code class="docutils literal notranslate"><span class="pre">hidapi</span></code> if the <em>weel</em> (binary package) cannot be used:</p>
 <ul class="simple">
 <li><p>Visual C++ 2015 Build Tools: <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=48159">https://www.microsoft.com/en-us/download/details.aspx?id=48159</a></p></li>
 </ul>
@@ -137,18 +146,18 @@
 <section id="installing-from-pypi">
 <h3>Installing From PyPI<a class="headerlink" href="#installing-from-pypi" title="Link to this heading"></a></h3>
 <p>First create a virtualenv using the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span>
 </pre></div>
 </div>
-<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.env</span></code> folder in the current directory. We will then be able to install Rivalcfg in it with the following command:</p>
+<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.venv</span></code> folder in the current directory. We will then be able to install Rivalcfg in it with the following command:</p>
 <ul>
 <li><p>On Linux or macOS:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </li>
 <li><p>On Windows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </li>
@@ -162,18 +171,18 @@
 </pre></div>
 </div>
 <p>Then create a virtualenv using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span>
 </pre></div>
 </div>
-<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.env</span></code> folder in the current directory. Finally, install Rivalcfg in it with the following command:</p>
+<p>This will create a <code class="docutils literal notranslate"><span class="pre">rivalcfg.venv</span></code> folder in the current directory. Finally, install Rivalcfg in it with the following command:</p>
 <ul>
 <li><p>On Linux or macOS:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </li>
 <li><p>On Windows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">pip</span> <span class="n">install</span> <span class="n">rivalcfg</span>
 </pre></div>
 </div>
 </li>
@@ -183,18 +192,18 @@
 <h3>After the installation (Linux)<a class="headerlink" href="#after-the-installation-linux" title="Link to this heading"></a></h3>
 <p>Once Rivalcfg installed from sources (Git or PyPI), you will have to run the
 following command on udev-based Linux distro (Debian / Ubuntu / Fedora / …):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">udev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">update</span><span class="o">-</span><span class="n">udev</span>
 </pre></div>
 </div>
 </section>
 <section id="running-rivalcfg-from-the-cli">
 <h3>Running Rivalcfg from the CLI<a class="headerlink" href="#running-rivalcfg-from-the-cli" title="Link to this heading"></a></h3>
 <p>On Linux and macOS:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
 <p>On Windows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">env</span>\<span class="n">Scripts</span>\<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span>\<span class="n">rivalcfg</span><span class="o">.</span><span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">rivalcfg</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
 </section>
@@ -205,7 +214,7 @@ following command on udev-based Linux distro (Debian / Ubuntu / Fedora / …)
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
 <span class="c1"># Import the virtualenv</span>
-<span class="nb">source</span><span class="w"> </span>/path/to/rivalcfg.env/bin/activate
+<span class="nb">source</span><span class="w"> </span>/path/to/rivalcfg.venv/bin/activate
 
 <span class="c1"># Call Rivalcfg</span>
 rivalcfg<span class="w"> </span>--help
@@ -216,9 +225,9 @@ rivalcfg<span class="w"> </span>--help
 <section id="archlinux-aur-package">
 <h2>Archlinux AUR Package<a class="headerlink" href="#archlinux-aur-package" title="Link to this heading"></a></h2>
 <p>Use package <a class="reference external" href="https://aur.archlinux.org/packages/rivalcfg/">rivalcfg</a></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This package is no longer maintained.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I do not maintain this package anymore but other contributor seems to conitue updating it. Please check it is up to date before repporting issues. :)</p>
 </div>
 </section>
 </section>
@@ -234,7 +243,7 @@ rivalcfg<span class="w"> </span>--help
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2026, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

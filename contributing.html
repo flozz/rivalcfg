@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; rivalcfg v4.15.0 documentation</title>
+  <title>Contributing &mdash; rivalcfg v4.16.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=54249122"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/documentation_options.js?v=c65b4fc9"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -47,8 +47,8 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env.html">Environment Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#questions">Questions</a></li>
@@ -93,7 +93,7 @@ information to contribute.</p>
 <h2>Questions<a class="headerlink" href="#questions" title="Link to this heading"></a></h2>
 <p>If you have any question, you can:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/flozz/rivalcfg/issues">open an issue</a> on Github,</p></li>
+<li><p><a class="reference external" href="https://github.com/flozz/rivalcfg/issues">open an issue</a> on GitHub,</p></li>
 <li><p>or <a class="reference external" href="https://discord.gg/P77sWhuSs4">ask on Discord</a> (I am not always
 available for chatting but I try to answer to everyone).</p></li>
 </ul>
@@ -102,7 +102,7 @@ available for chatting but I try to answer to everyone).</p></li>
 <h2>Unsupported devices<a class="headerlink" href="#unsupported-devices" title="Link to this heading"></a></h2>
 <p>You just bought a brand new SteelSeries mouse and it is not supported by
 rivalcfg? The first thing to do is to check if someone else already reported
-this on the issue tracker on Github:</p>
+this on the issue tracker on GitHub:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/flozz/rivalcfg/issues">https://github.com/flozz/rivalcfg/issues</a></p></li>
 </ul>
@@ -130,12 +130,12 @@ This can only be done by someone that owns the mouse. It can be you (it is
 easier than you think), it can be me (if I can find someone to lend me the
 mouse) or it can be any other contributor.</p>
 <p>You can also consider supporting the project using the <code class="docutils literal notranslate"><span class="pre">Sponsor</span></code> button on
-Github to allow me buying new SteelSeries mice in order to support them in
+GitHub to allow me buying new SteelSeries mice in order to support them in
 rivalcfg.</p>
 </section>
 <section id="bugs">
 <h2>Bugs<a class="headerlink" href="#bugs" title="Link to this heading"></a></h2>
-<p>Rivalcfg does not work? Please <a class="reference external" href="https://github.com/flozz/rivalcfg/issues">open an issue</a> on Github with as much information
+<p>Rivalcfg does not work? Please <a class="reference external" href="https://github.com/flozz/rivalcfg/issues">open an issue</a> on GitHub with as much information
 as possible.</p>
 <p>When possible:</p>
 <ul class="simple">
@@ -185,12 +185,11 @@ this command:</p>
 <p>To run the tests only for a specific Python version, you can use following
 commands (the corresponding Python interpreter must be installed on your
 machine):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.8</span>
-<span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.9</span>
-<span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.10</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.10</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.11</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.12</span>
 <span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.13</span>
+<span class="n">nox</span> <span class="o">--</span><span class="n">session</span> <span class="n">test</span><span class="o">-</span><span class="mf">3.14</span>
 </pre></div>
 </div>
 </section>
@@ -217,7 +216,7 @@ machine):</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2016-2025, Fabien LOISON.</p>
+    <p>&#169; Copyright 2016-2026, Fabien LOISON.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
