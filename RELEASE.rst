@@ -34,3 +34,4 @@ Publish source dist and wheels on PyPI.
 
 * Make a release on Github
 * Add changelog
+* Publish release notes on rivalcfg.flozz.org

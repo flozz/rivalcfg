@@ -234,6 +234,7 @@ def _generate_profiles():
         rival3,
         rival3_gen2,
         rival3_wireless,
+        rival3_wireless_gen2,
         rival5,
         rival95,
         rival100,

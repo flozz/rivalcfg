@@ -136,4 +136,4 @@ Use package `rivalcfg <https://aur.archlinux.org/packages/rivalcfg/>`_
 
 .. NOTE::
 
-   I do not maintain this package anymore but other contributor seems to conitue updating it. Please check it is up to date before repporting issues. :)
+   I do not maintain this package anymore but other contributor seems to continue to update it. Please check if it is up to date before repporting issues. :)
