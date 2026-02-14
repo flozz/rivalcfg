@@ -3,6 +3,7 @@ from . import choice
 from . import range
 from . import range_choice
 from . import rgbcolor
+from . import onestr_rgbcolor
 from . import reactive_rgbcolor
 from . import rgbgradient
 from . import rgbgradientv2
