@@ -76,16 +76,24 @@ class CheckColorsAction(argparse.Action):
 def add_cli_option(cli_parser, setting_name, setting_info):
     """Add the given "onestr_rgbcolor" type setting to the given CLI parser."""
     led_count = setting_info.get("led_count")
-    if led_count:
+    set_one_color = setting_info.get("set_one_color")
+    if led_count and not set_one_color:
         count_hint = " (1 or %d colors)" % led_count
     else:
         count_hint = ""
 
-    description = "%s (colors separated by ';'%s, default: %s)" % (
-        setting_info["description"],
-        count_hint,
-        str(setting_info["default"]),
-    )
+    description = ""
+    if set_one_color:
+        description = "%s (default: %s)" % (
+            setting_info["description"],
+            str(setting_info["default"]),
+        )
+    else:
+        description = "%s (multiple colors separated by ';'%s, default: %s)" % (
+            setting_info["description"],
+            count_hint,
+            str(setting_info["default"]),
+        )
 
     cli_parser.add_argument(
         *setting_info["cli"],
