@@ -29,7 +29,8 @@ Documentation
 Main topics:
 
 * `Requirements <https://flozz.github.io/rivalcfg/requirements.html>`_
-* `Installing Rivalcfg <https://flozz.github.io/rivalcfg/install.html>`_
+* `Download Rivalcfg <https://rivalcfg.flozz.org/download.html>`_
+* `Install Rivalcfg from sources <https://flozz.github.io/rivalcfg/install.html>`_
 * `Documentation of supported devices <https://flozz.github.io/rivalcfg/devices/index.html>`_
 * `FAQ <https://flozz.github.io/rivalcfg/faq.html>`_
 * `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`_ (please read before opening issues and PRs 😀️)
