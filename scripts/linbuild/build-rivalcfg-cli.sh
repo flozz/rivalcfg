@@ -21,8 +21,9 @@ pip install -e .
 # Build
 python -m nuitka \
     --mode=standalone \
-    --python-flag=-O,isolated \
     --follow-imports \
+    --python-flag=-O,isolated \
+    --no-deployment-flag=self-execution \
     --output-dir=$BUILD_DIR \
     --output-filename=rivalcfg \
     $LINBUILD_DIR/rivalcfg-cli.py
