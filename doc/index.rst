@@ -33,6 +33,7 @@ Sensei, Aerox, Prime,...).
    ./python_api/index.rst
    ./faq.rst
    ./contributing.rst
+   ./build/index.rst
 
 
 Indices and tables
