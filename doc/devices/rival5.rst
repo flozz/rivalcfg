@@ -48,28 +48,6 @@ This mouse supports colors. Various formats are supported.
 
 .. include:: ./_colors.rst
 
-The ``--color`` option (short option: ``-c``) applies the same color to all
-LEDs. Example::
-
-	rivalcfg --color green
-
-If you want to set each LED separately, use the following options:
-
-- ``--wheel-color`` (short option: ``-cw``)
-- ``--top-left-color`` (short option: ``-ctl``)
-- ``--top-right-color`` (short option: ``-ctr``)
-- ``--middle1-left-color`` (short option: ``-cml1``)
-- ``--middle1-right-color`` (short option: ``-cmr1``)
-- ``--middle2-left-color`` (short option: ``-cml2``)
-- ``--middle2-right-color`` (short option: ``-cmr2``)
-- ``--bottom-left-color`` (short option: ``-cbl``)
-- ``--bottom-right-color`` (short option: ``-cbr``)
-- ``--logo-color`` (short option: ``-cl``)
-
-Or use the ``--strip-color`` (short option: ``-z``) with 10 colors separated by ``;``. Example::
-
-	rivalcfg --strip-color "11ff11; 22ff22; 66ff66; 33ff33; 77ff77; 44ff44; 88ff88; 55ff55; 99ff99; aaffaa"
-
 .. IMPORTANT::
 
    On newer SteelSeries mice, the color settings are not saved in the onboard
