@@ -35,6 +35,37 @@ jobs:
           name: standalone_linux_x86_64
           path: "dist/*.tar.gz"
 
+  macos:
+    name: "macOS Standalone Build"
+    runs-on: macos-15
+
+    steps:
+      - name: "Checkout the repository"
+        uses: actions/checkout@v6
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+
+      - name: "Build"
+        run: |
+          ./scripts/macbuild/build-rivalcfg-cli.sh
+
+      - name: "Check the build is working"
+        run: |
+          ./build/rivalcfg.macbuild/rivalcfg-cli.dist/rivalcfg --version
+
+      - name: "Make the release DMG"
+        run: |
+          ./scripts/macbuild/release-rivalcfg-cli.sh
+
+      - name: "Upload macOS DMG"
+        uses: actions/upload-artifact@v6
+        with:
+          name: standalone_macos_arm64
+          path: "dist/*.dmg"
+
   windows:
     name: "Windows Standalone Build"
     runs-on: windows-2022
