@@ -4,7 +4,7 @@ FOR /F %%i IN ('python -c "import tomllib;print(tomllib.load(open('pyproject.tom
 )
 
 :: Output name
-SET OUTPUT_NAME=rivalcfg_v%VERSION%_windows_x86_64
+SET OUTPUT_NAME=rivalcfg-cli_v%VERSION%_windows_x86_64
 
 :: Create required folders
 mkdir build
