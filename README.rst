@@ -265,7 +265,8 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * Nothing yet ;)
+  * misc(standalone): Added a standalone build for Linux (@flozz)
+  * misc(standalone): Added a standalone build for Windows (@flozz, #231)
 
 * **v4.16.0:**
 
