@@ -34,3 +34,34 @@ jobs:
         with:
           name: standalone_linux_x86_64
           path: "dist/*.tar.gz"
+
+  windows:
+    name: "Windows Standalone Build"
+    runs-on: windows-2022
+
+    steps:
+      - name: "Checkout the repository"
+        uses: actions/checkout@v6
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"  # NOTE: 3.14 not compatible yet
+
+      - name: "Build"
+        run: |
+          .\scripts\winbuild\build-rivalcfg-cli.bat
+
+      - name: "Check the build is working"
+        run: |
+          .\build\rivalcfg.winbuild\rivalcfg-cli.dist\rivalcfg.exe --version
+
+      - name: "Make the release Zip"
+        run: |
+          .\scripts\winbuild\release-rivalcfg-cli.bat
+
+      - name: "Upload Windows Zip"
+        uses: actions/upload-artifact@v6
+        with:
+          name: standalone_windows_x86_64
+          path: "dist/*.zip"

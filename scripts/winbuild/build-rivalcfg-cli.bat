@@ -5,6 +5,9 @@ IF NOT EXIST build\winbuild.venv (
 )
 CALL build\winbuild.venv\Scripts\activate.bat
 
+:: Print python version
+python --version
+
 :: Install dependencies.
 pip install -r scripts\winbuild\requirements.txt
 pip install -e .
