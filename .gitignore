@@ -10,3 +10,4 @@ __pycache__
 .pytest_cache
 TODO.md
 .ccls-cache/
+/copy-*.sh

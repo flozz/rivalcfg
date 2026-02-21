@@ -6,3 +6,4 @@ Build Rivalcfg
    :caption: Contents:
 
    ./linbuild.rst
+   ./winbuild.rst

@@ -1,5 +1,5 @@
 Rivalcfg Standalone Build for Linux
------------------------------------
+===================================
 
 Rivalcfg is a CLI utility program that allows you to configure SteelSeries
 gaming mice.
