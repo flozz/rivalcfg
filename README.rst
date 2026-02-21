@@ -267,6 +267,7 @@ Changelog
 
   * misc(standalone): Added a standalone build for Linux (@flozz)
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
+  * misc(standalone): Added a standalone build for macOS (@flozz)
 
 * **v4.16.0:**
 

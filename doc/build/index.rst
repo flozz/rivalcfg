@@ -6,4 +6,5 @@ Build Rivalcfg
    :caption: Contents:
 
    ./linbuild.rst
+   ./macbuild.rst
    ./winbuild.rst

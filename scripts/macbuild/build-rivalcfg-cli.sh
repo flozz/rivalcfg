@@ -1,8 +1,8 @@
 #!/bin/bash
 
-VENV_DIR=./build/linbuild.venv
-LINBUILD_DIR=./scripts/linbuild
-BUILD_DIR=./build/rivalcfg.linbuild
+VENV_DIR=./build/macbuild.venv
+MACBUILD_DIR=./scripts/macbuild
+BUILD_DIR=./build/rivalcfg.macbuild
 
 # Exit on error
 set -e
@@ -18,7 +18,7 @@ source $VENV_DIR/bin/activate
 python --version
 
 # Install dependencies
-pip install -r $LINBUILD_DIR/requirements.txt
+pip install -r $MACBUILD_DIR/requirements.txt
 pip install -e .
 
 # Build
@@ -27,6 +27,7 @@ python -m nuitka \
     --follow-imports \
     --python-flag=-O,isolated \
     --no-deployment-flag=self-execution \
+    --assume-yes-for-downloads \
     --output-dir=$BUILD_DIR \
     --output-filename=rivalcfg \
-    $LINBUILD_DIR/rivalcfg-cli.py
+    $MACBUILD_DIR/rivalcfg-cli.py
