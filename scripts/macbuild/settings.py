@@ -1,3 +1,6 @@
+# Settings for dmgbuild.
+# See: https://dmgbuild.readthedocs.io/en/latest/
+
 import tomllib
 
 _BUILD_DIR = "./build/rivalcfg.macbuild"
