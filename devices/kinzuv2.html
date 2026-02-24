@@ -45,7 +45,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Rivalcfg From Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supported Devices</a><ul class="current">
@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build/index.html">Build Rivalcfg</a></li>
 </ul>
 
         </div>
@@ -129,30 +130,27 @@
 </section>
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Link to this heading"></a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [--print-udev] [--print-debug] [-s SENSITIVITY1]
-                [-S SENSITIVITY2] [-p POLLING_RATE] [-r]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev] [--print-udev]
+                [--print-debug] [-s SENSITIVITY1] [-S SENSITIVITY2] [-p POLLING_RATE] [-r]
 
 options:
   -h, --help            show this help message and exit
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
   --no-save             Do not persist settings in the internal device memory
-  --update-udev         Updates udev rules (Linux only, requires to be run as
-                        root)
+  --update-udev         Updates udev rules (Linux only, requires to be run as root)
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug information and exit
 
 SteelSeries Kinzu v2 Options:
   -s, --sensitivity1 SENSITIVITY1
-                        Set sensitivity preset 1 (DPI) (values: 400, 800,
-                        1600, 3200, default: 800)
+                        Set sensitivity preset 1 (DPI) (values: 400, 800, 1600, 3200,
+                        default: 800)
   -S, --sensitivity2 SENSITIVITY2
-                        Set sensitivity preset 2 (DPI) (values: 400, 800,
-                        1600, 3200, default: 3200)
+                        Set sensitivity preset 2 (DPI) (values: 400, 800, 1600, 3200,
+                        default: 3200)
   -p, --polling-rate POLLING_RATE
-                        Set polling rate (Hz) (values: 125, 250, 500, 1000,
-                        default: 1000)
+                        Set polling rate (Hz) (values: 125, 250, 500, 1000, default: 1000)
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues

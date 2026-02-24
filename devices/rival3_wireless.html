@@ -45,7 +45,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Rivalcfg From Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Supported Devices</a><ul class="current">
@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build/index.html">Build Rivalcfg</a></li>
 </ul>
 
         </div>
@@ -144,32 +145,28 @@
 </section>
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Link to this heading"></a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
-                [--print-udev] [--print-debug] [-s SENSITIVITY]
-                [-p POLLING_RATE] [-b BUTTONS_MAPPING] [-r] [--battery-level]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev] [--print-udev]
+                [--print-debug] [-s SENSITIVITY] [-p POLLING_RATE] [-b BUTTONS_MAPPING] [-r]
+                [--battery-level]
 
 options:
   -h, --help            show this help message and exit
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
   --no-save             Do not persist settings in the internal device memory
-  --update-udev         Updates udev rules (Linux only, requires to be run as
-                        root)
+  --update-udev         Updates udev rules (Linux only, requires to be run as root)
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug information and exit
 
 SteelSeries Rival 3 Wireless (2.4 GHz mode) Options:
   -s, --sensitivity SENSITIVITY
-                        Set sensitivity preset (DPI) (up to 5 settings, from
-                        100 dpi to 18000 dpi, default: &#39;400, 800, 1200, 2400,
-                        3200&#39;)
+                        Set sensitivity preset (DPI) (up to 5 settings, from 100 dpi to 18000
+                        dpi, default: &#39;400, 800, 1200, 2400, 3200&#39;)
   -p, --polling-rate POLLING_RATE
-                        Set polling rate (Hz) (values: 125, 250, 500, 1000,
-                        default: 1000)
+                        Set polling rate (Hz) (values: 125, 250, 500, 1000, default: 1000)
   -b, --buttons BUTTONS_MAPPING
-                        Set the mapping of the buttons (default:
-                        buttons(button1=button1; button2=button2;
-                        button3=button3; button4=button4; button5=button5;
+                        Set the mapping of the buttons (default: buttons(button1=button1;
+                        button2=button2; button3=button3; button4=button4; button5=button5;
                         button6=dpi))
   -r, --reset           Reset all settings to their factory default
   --battery-level       Print the battery level of the mouse and exit

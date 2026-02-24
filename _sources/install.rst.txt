@@ -1,139 +1,252 @@
-Installing
-==========
+Install Rivalcfg From Sources
+=============================
 
-From Sources (Git / PyPI)
--------------------------
+This page contains instructions to install Rivalcfg from sources on different operating systems.
+
+See the documentation from the Rivalcfg website for other installation methods:
+
+* https://rivalcfg.flozz.org/download.html
+
+
+Linux
+-----
 
 Prerequisites
 ~~~~~~~~~~~~~
 
-Linux
-^^^^^
+Installation requires a complete Python 3 installation that contains the ``venv`` module. You can install it using one of the following commands depending of your distribution::
 
-Installation require a compilation toolchain and python headers to compile
-``hidapi`` (if the *wheel* (binary package) cannot be used).
+    # Debian / Ubuntu
+    sudo apt install python3-venv
 
-* On **Debian / Ubuntu**, this can be installed with the following command::
+    # Fedora
+    # Nothing to install
 
-   sudo apt install build-essential python3-dev libusb-1.0-0-dev libudev-dev
+    # Solus
+    # Nothing to install
 
-* On **Solus**, use the following commands::
+In some rare cases, you may need additional dependencies to build ``hidapi`` package if now wheel (binary pakage) is available for your system. You can install everything required with following commands::
 
-   sudo eopkg install -c system.devel
-   sudo eopkg install python3 python3-devel libusb-devel
+    # Debian / Ubuntu
+    sudo apt install build-essential python3-dev libusb-1.0-0-dev libudev-dev
 
-We will also need Python's venv module that is packaged separately on Debian / Ubuntu, so you will have to install it with the following command::
+    # Fedora
+    sudo dnf groupinstall "Development Tools"
+    sudo dnf install python3-devel libusb1-devel
 
-   sudo apt install python3-venv
-
-
-macOS
-^^^^^
-
-On macOS, you will probably need to install XCode to compile ``hidapi`` (if the *wheel* (binary package) cannot be used). This can be done with the following command::
-
-    xcode-select --install
-
-Other requirements may be required, open an issue on GitHub if you are in trouble.
+    # Solus
+    sudo eopkg install -c system.devel
+    sudo eopkg install python3-devel libusb-devel
 
 
-Windows
-^^^^^^^
-
-On Windows, you have to install Python first:
-
-* Python >= 3.10 (see https://www.python.org/downloads/windows/)
-
-And Visual C++ build tools are also required to compile ``hidapi`` if the *weel* (binary package) cannot be used:
-
-* Visual C++ 2015 Build Tools: https://www.microsoft.com/en-us/download/details.aspx?id=48159
-
-
-Installing From PyPI
-~~~~~~~~~~~~~~~~~~~~
+Install / Update / Remove
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First create a virtualenv using the following command::
 
     python3 -m venv ./rivalcfg.venv
 
-This will create a ``rivalcfg.venv`` folder in the current directory. We will then be able to install Rivalcfg in it with the following command:
+This will create a ``rivalcfg.venv`` folder in the current directory. Then you can install Rivalcfg:
 
-* On Linux or macOS::
-
-   ./rivalcfg.venv/bin/pip install rivalcfg
-
-* On Windows::
-
-   .\rivalcfg.venv\Scripts\pip install rivalcfg
+* from PyPI (recommended),
+* or from Git repository.
 
 
-Installing From GitHub
-~~~~~~~~~~~~~~~~~~~~~~
+From PyPI (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Clone the repository::
+To install latest stable version of Rivalcfg from PyPI, use the following command::
 
-   git clone https://github.com/flozz/rivalcfg.git
-   cd rivalcfg
+    ./rivalcfg.venv/bin/pip install rivalcfg
 
-Then create a virtualenv using::
+Later, to update Rivalcfg, you will be able to use the following command::
 
-    python3 -m venv ./rivalcfg.venv
+    ./rivalcfg.venv/bin/pip install --upgrade rivalcfg
 
-This will create a ``rivalcfg.venv`` folder in the current directory. Finally, install Rivalcfg in it with the following command:
-
-* On Linux or macOS::
-
-   ./rivalcfg.venv/bin/pip install rivalcfg
-
-* On Windows::
-
-   .\rivalcfg.venv\Scripts\pip install rivalcfg
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
 
 
-After the installation (Linux)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+From Git
+^^^^^^^^
 
-Once Rivalcfg installed from sources (Git or PyPI), you will have to run the
-following command on udev-based Linux distro (Debian / Ubuntu / Fedora / ...)::
+To install Rivalcfg from Git, to test the latest development version, use the following command::
 
-   sudo ./rivalcfg.venv/bin/rivalcfg --update-udev
-
-
-Running Rivalcfg from the CLI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-On Linux and macOS::
-
-   ./rivalcfg.venv/bin/rivalcfg --help
-
-On Windows::
-
-   .\rivalcfg.venv\Scripts\rivalcfg --help
-
-
-Running Rivalcfg from a script (Bash)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To run Rivlacfg from a shell script, you can import the virtualenv at the start of the script (before calling the ``rivalcfg`` command for the first time).
-
-Example:
-
-.. code-block:: bash
-
-   #!/bin/bash
-
-   # Import the virtualenv
-   source /path/to/rivalcfg.venv/bin/activate
-
-   # Call Rivalcfg
-   rivalcfg --help
-
-
-Archlinux AUR Package
----------------------
-
-Use package `rivalcfg <https://aur.archlinux.org/packages/rivalcfg/>`_
+    ./rivalcfg.venv/bin/pip install git+https://github.com/flozz/rivalcfg.git#master
 
 .. NOTE::
 
-   I do not maintain this package anymore but other contributor seems to conitue updating it. Please check it is up to date before repporting issues. :)
+    * For everyday use, prefer installing stable versions of Rivalcfg from PyPI.
+    * The ``git`` utility must be installed on your system (``sudo apt install git`` on Debian / Ubuntu).
+    * You can install the version from a specific branch by replacing ``master`` by the branch name at the end of the repository URL.
+
+Later, to update Rivalcfg, you will need to uninstall Rivlacfg first using the command bellow and then reinstall it using the previous command::
+
+    ./rivalcfg.venv/bin/pip uninstall rivalcfg
+    ./rivalcfg.venv/bin/pip install git+https://github.com/flozz/rivalcfg.git#master
+
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
+
+
+After Installation
+~~~~~~~~~~~~~~~~~~
+
+Once Rivalcfg installed from sources (either from PyPI or Git), you will have to run the following command on udev-based Linux distro (Debian / Ubuntu / Fedora / ...)::
+
+   sudo ./rivalcfg.venv/bin/rivalcfg --update-udev
+
+This will install *udev* rules to allow non-privileged users to configure the devices.
+
+
+Run Rivalcfg
+~~~~~~~~~~~~
+
+You can now run Rivalcfg with commands like::
+
+   ./rivalcfg.venv/bin/rivalcfg --help
+
+
+macOS
+-----
+
+Prerequisites
+~~~~~~~~~~~~~
+
+On macOS, **you may not need any requirement**. But in some cases you may need a compiler to build the ``hidapi`` package if now wheel (binary pakage) is available for your system and Python version.
+
+You should be able to install XCode with the following command::
+
+    xcode-select --install
+
+Other requirements may be needed, open an issue on GitHub if you are in trouble.
+
+
+Install / Update / Remove
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First create a virtualenv using the following command::
+
+    python3 -m venv ./rivalcfg.venv
+
+This will create a ``rivalcfg.venv`` folder in the current directory. Then you can install Rivalcfg:
+
+* from PyPI (recommended),
+* or from Git repository.
+
+
+From PyPI (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+To install latest stable version of Rivalcfg from PyPI, use the following command::
+
+    ./rivalcfg.venv/bin/pip install rivalcfg
+
+Later, to update Rivalcfg, you will be able to use the following command::
+
+    ./rivalcfg.venv/bin/pip install --upgrade rivalcfg
+
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
+
+
+From Git
+^^^^^^^^
+
+To install Rivalcfg from Git, to test the latest development version, use the following command::
+
+    ./rivalcfg.venv/bin/pip install git+https://github.com/flozz/rivalcfg.git#master
+
+.. NOTE::
+
+    * For everyday use, prefer installing stable versions of Rivalcfg from PyPI.
+    * The ``git`` utility must be installed on your system.
+    * You can install the version from a specific branch by replacing ``master`` by the branch name at the end of the repository URL.
+
+Later, to update Rivalcfg, you will need to uninstall Rivlacfg first using the command bellow and then reinstall it using the previous command::
+
+    ./rivalcfg.venv/bin/pip uninstall rivalcfg
+    ./rivalcfg.venv/bin/pip install git+https://github.com/flozz/rivalcfg.git#master
+
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
+
+
+Run Rivalcfg
+~~~~~~~~~~~~
+
+You can now run Rivalcfg with commands like::
+
+   ./rivalcfg.venv/bin/rivalcfg --help
+
+
+Windows
+-------
+
+Prerequisites
+~~~~~~~~~~~~~
+
+On Windows, you have to install Python first:
+
+* Download Python >= 3.10 from https://www.python.org/downloads/windows/
+* **IMPORTANT:** During the installation process, check the "Add Python X.Y to PATH" checkbox.
+* Finally reboot your computer to complete the installation.
+
+It should be enough to install and run Rivalcfg, but in some cases you may need to install additional tools to build the ``hidapi`` package if not wheel (binary package) is available for your system:
+
+* Visual C++ 2015 Build Tools: https://www.microsoft.com/en-us/download/details.aspx?id=48159
+
+
+Install / Update / Remove
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First open a terminal (either CMD.exe or PowerShell).
+
+Then create a virtualenv using the following command::
+
+    python -m venv .\rivalcfg.venv
+
+This will create a ``rivalcfg.venv`` folder in the current directory. Then you can install Rivalcfg:
+
+* from PyPI (recommended),
+* or from Git repository.
+
+
+From PyPI (recommended)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+To install latest stable version of Rivalcfg from PyPI, use the following command::
+
+    .\rivalcfg.venv\Scripts\pip install rivalcfg
+
+Later, to update Rivalcfg, you will be able to use the following command::
+
+    .\rivalcfg.venv\Scripts\pip install --upgrade rivalcfg
+
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
+
+
+From Git
+^^^^^^^^
+
+To install Rivalcfg from Git, to test the latest development version, use the following command::
+
+    .\rivalcfg.venv\Scripts\pip install git+https://github.com/flozz/rivalcfg.git#master
+
+.. NOTE::
+
+    * For everyday use, prefer installing stable versions of Rivalcfg from PyPI.
+    * The ``git`` utility must be installed on your system and available in the ``PATH``.
+    * You can install the version from a specific branch by replacing ``master`` by the branch name at the end of the repository URL.
+
+Later, to update Rivalcfg, you will need to uninstall Rivlacfg first using the command bellow and then reinstall it using the previous command::
+
+    .\rivalcfg.venv\Scripts\pip uninstall rivalcfg
+    .\rivalcfg.venv\Scripts\pip install git+https://github.com/flozz/rivalcfg.git#master
+
+To remove Rivalcfg from your computer, simply delete the ``rivalcfg.venv`` folder.
+
+
+Run Rivalcfg
+~~~~~~~~~~~~
+
+You can now run Rivalcfg with commands like::
+
+   .\rivalcfg.venv\Scripts\rivalcfg --help
+
