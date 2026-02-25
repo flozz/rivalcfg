@@ -331,31 +331,35 @@ class Mouse:
             suffix = setting_info["command_suffix"]
 
         def _exec_command(*args):
-            data = []
+            packets = []
             if handler_name:
-                data = getattr(handlers, handler_name).process_value(
+                packets = getattr(handlers, handler_name).process_value(
                     setting_info, *args
                 )
-            # Write data to the device
-            self._hid_write(
-                report_type=setting_info["report_type"],
-                data=helpers.merge_bytes(setting_info["command"], data, suffix),
-                packet_length=packet_length,
-            )
-            # Readback when required
-            response = None
-            if "readback_length" in setting_info and setting_info["readback_length"]:
-                response = self._hid_device.read(
-                    setting_info["readback_length"],
-                    timeout_ms=200,
+            if not isinstance(packets[0] if packets else [], list):
+                # Make sure packets is a list of packets and not a single packet
+                packets = [packets]
+            responses = []
+            for data in packets:
+                # Write data to the device
+                self._hid_write(
+                    report_type=setting_info["report_type"],
+                    data=helpers.merge_bytes(setting_info["command"], data, suffix),
+                    packet_length=packet_length,
                 )
+                # Readback when required
+                if "readback_length" in setting_info and setting_info["readback_length"]:
+                    responses.append(self._hid_device.read(
+                        setting_info["readback_length"],
+                        timeout_ms=200,
+                    ))
             # Save settings
             if len(args) == 1:
                 self.mouse_settings.set(setting_name, args[0])
             else:
                 self.mouse_settings.set(setting_name, args)
             #
-            return response
+            return responses[0] if responses else None
 
         return _exec_command
 
