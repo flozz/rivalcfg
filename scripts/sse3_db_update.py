@@ -24,12 +24,17 @@ URL_LATEST_SSGG = "https://fr.steelseries.com/gg/downloads/gg/latest/windows"
 
 SQL_LIST_MICE = """
 SELECT "1038" AS vendor_id,
-       PRINTF("%04x", product_id & 0x0000FFFF) AS product_id,
-       name,
-       full_name,
-       settings
+       PRINTF("%04x", devices.product_id & 0x0000FFFF) AS mouse_product_id,
+       CASE WHEN physical_devices.product_id IS NOT NULL
+           THEN PRINTF("%04x", physical_devices.product_id & 0x0000FFFF)
+           ELSE NULL
+           END AS dongle_product_id,
+       devices.name,
+       devices.full_name,
+       devices.settings
 FROM devices
-WHERE type = 1 AND name != "generic_bootloader";
+LEFT JOIN physical_devices ON physical_devices.name == CONCAT(devices.name, "_dongle")
+WHERE devices.type = 1 AND devices.name != "generic_bootloader";
 """
 
 
@@ -96,16 +101,18 @@ def write_csv(data, filename):
             [
                 "vendor_id",
                 "product_id",
+                "dongle_product_id",
                 "name",
                 "full_name",
                 "default_settings",
             ]
         )
-        for pid, vid, name, full_name, settings in data:
+        for vid, pid, dpid, name, full_name, settings in data:
             csvfile.writerow(
                 [
-                    pid,
                     vid,
+                    pid,
+                    dpid,
                     name,
                     full_name,
                     json.dumps(json.loads(settings)),
@@ -115,17 +122,17 @@ def write_csv(data, filename):
 
 
 def print_result(data):
-    _table = "| %-4s | %-4s | %-30s | %-29s |"
+    _table = "| %-4s | %-4s | %-4s | %-26s | %-34s |"
     print("\n* Found mice:")
 
-    print("-" * 80)
-    print(_table % ("VID", "PID", "NAME", "FULL NAME"))
-    print("-" * 80)
+    print("-" * 88)
+    print(_table % ("VID", "PID", "dPID", "NAME", "FULL NAME"))
+    print("-" * 88)
 
-    for pid, vid, name, full_name, _ in data:
-        print(_table % (pid, vid, name, full_name))
+    for vid, pid, dpid, name, full_name, _ in data:
+        print(_table % (vid, pid, dpid or "", name, full_name))
 
-    print("-" * 80)
+    print("-" * 88)
 
     print("\n==> %i mice found!\n" % len(data))
 

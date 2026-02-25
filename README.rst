@@ -265,10 +265,11 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
-  * fix(debug): Fixed a crash when getting hidapi version without having setuptools installed
+  * fix(debug): Fixed a crash when getting hidapi version without having setuptools installed (@flozz)
   * misc(standalone): Added a standalone build for Linux (@flozz)
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
   * misc(standalone): Added a standalone build for macOS (@flozz)
+  * misc(ssdb): Updated ssdb script to extract the product_id of wireless mice dongles (@flozz)
 
 * **v4.16.0:**
 
