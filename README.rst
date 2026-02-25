@@ -265,6 +265,7 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * fix(debug): Fixed a crash when getting hidapi version without having setuptools installed
   * misc(standalone): Added a standalone build for Linux (@flozz)
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
   * misc(standalone): Added a standalone build for macOS (@flozz)
