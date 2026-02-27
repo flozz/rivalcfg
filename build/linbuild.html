@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Standalone Build For Linux &mdash; rivalcfg v4.16.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c65b4fc9"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Standalone Build For macOS" href="macbuild.html" />
+    <link rel="prev" title="Build Rivalcfg" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            rivalcfg
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install Rivalcfg From Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">Command-Line Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../env.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devices/index.html">Supported Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Build Rivalcfg</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Standalone Build For Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compile-rivalcfg-for-linux">Compile Rivalcfg for Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-distribuable-files">Build distribuable files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="macbuild.html">Standalone Build For macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="winbuild.html">Standalone Build For Windows</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rivalcfg</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Build Rivalcfg</a></li>
+      <li class="breadcrumb-item active">Standalone Build For Linux</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/build/linbuild.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="standalone-build-for-linux">
+<h1>Standalone Build For Linux<a class="headerlink" href="#standalone-build-for-linux" title="Link to this heading"></a></h1>
+<p>Standalone builds are compiled versions of Rivalcfg that can be run without having to install Python and other dependencies. They are built using <a class="reference external" href="https://nuitka.net">Nuitka</a>, a Python compiler.</p>
+<p>This document contains instruction to build the standalone build of Rivalcfg for Linux.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<p>To build Rivalcfg for Linux, you need:</p>
+<ul class="simple">
+<li><p>A Linux distribution. The older, the better (libc compat).</p></li>
+<li><p>A complete Python 3 distribution, with <code class="docutils literal notranslate"><span class="pre">venv</span></code> module, and headers.</p></li>
+<li><p>Compilation tools (gcc &amp; co).</p></li>
+</ul>
+<p>On Debian and Ubuntu, this can be installed with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span>
+</pre></div>
+</div>
+</section>
+<section id="compile-rivalcfg-for-linux">
+<h2>Compile Rivalcfg for Linux<a class="headerlink" href="#compile-rivalcfg-for-linux" title="Link to this heading"></a></h2>
+<p>Run the following command from project’s root dir (the one with the <code class="docutils literal notranslate"><span class="pre">&quot;pyproject.toml&quot;</span></code> file):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">scripts</span><span class="o">/</span><span class="n">linbuild</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">rivalcfg</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Result goes to <code class="docutils literal notranslate"><span class="pre">&quot;build/rivalcfg.linbuild/rivalcfg-cli.dist/&quot;</span></code>.</p>
+</section>
+<section id="build-distribuable-files">
+<h2>Build distribuable files<a class="headerlink" href="#build-distribuable-files" title="Link to this heading"></a></h2>
+<p>To generate the release Tarball, run the following command from project’s root dir (the one with the <code class="docutils literal notranslate"><span class="pre">&quot;pyproject.toml&quot;</span></code> file):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">scripts</span><span class="o">/</span><span class="n">linbuild</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="n">rivalcfg</span><span class="o">-</span><span class="n">cli</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>Result goes to <code class="docutils literal notranslate"><span class="pre">&quot;dist/rivalcfg-cli_v&lt;VERSION&gt;_linux_&lt;ARCH&gt;.tar.gz&quot;</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Build Rivalcfg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="macbuild.html" class="btn btn-neutral float-right" title="Standalone Build For macOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Fabien LOISON.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

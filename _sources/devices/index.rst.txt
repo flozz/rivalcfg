@@ -9,6 +9,7 @@ Supported Devices
 
    ./aerox3.rst
    ./aerox3_wireless.rst
+   ./aerox5.rst
    ./aerox5_wireless.rst
    ./aerox9_wireless.rst
    ./kanav2.rst
