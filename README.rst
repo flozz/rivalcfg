@@ -1,4 +1,4 @@
-rivalcfg: Configure SteelSeries gaming mice
+Rivalcfg: Configure SteelSeries gaming mice
 ===========================================
 
 |GitHub| |Discord| |PYPI Version| |GitHub Actions| |Black| |License|
@@ -22,25 +22,21 @@ If you have any trouble running this software, please open an issue on GitHub:
 
 * https://github.com/flozz/rivalcfg/issues
 
-Project's website:
 
-* https://rivalcfg.flozz.org/
+Links
+-----
 
+* `Project website (rivalcfg.flozz.org) <https://rivalcfg.flozz.org/>`__
+* `News and announces <https://rivalcfg.flozz.org/news/>`__
+* `Download Rivalcfg <https://rivalcfg.flozz.org/download.html>`__
+* `Supported and unsupported devices <https://rivalcfg.flozz.org/devices.html>`__
+* `Rivalcfg documentation <https://flozz.github.io/rivalcfg/>`__:
 
-Documentation
--------------
-
-Main topics:
-
-* `Requirements <https://flozz.github.io/rivalcfg/requirements.html>`_
-* `Download Rivalcfg <https://rivalcfg.flozz.org/download.html>`_
-* `Supported devices <https://rivalcfg.flozz.org/devices.html#supported-devices>`_
-* `FAQ <https://flozz.github.io/rivalcfg/faq.html>`_
-* `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`_ (please read before opening issues and PRs 😀️)
-
-... and more at:
-
-* https://flozz.github.io/rivalcfg/
+  * `Requirements <https://flozz.github.io/rivalcfg/requirements.html>`__
+  * `Install from sources <https://flozz.github.io/rivalcfg/install.html>`__
+  * `Devices documentation <https://flozz.github.io/rivalcfg/devices/index.html>`__
+  * `FAQ <https://flozz.github.io/rivalcfg/faq.html>`__
+  * `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`__ (please read before opening issues and PRs 😀️)
 
 
 Supporting this project
