@@ -34,6 +34,8 @@ dev = [
 rivalcfg = "rivalcfg.__main__:main"
 
 [project.urls]
+homepage = "https://rivalcfg.flozz.org/"
+download = "https://rivalcfg.flozz.org/download.html"
 source = "https://github.com/flozz/rivalcfg"
 documentation = "https://flozz.github.io/rivalcfg/"
 changelog = "https://github.com/flozz/rivalcfg#changelog"

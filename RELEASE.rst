@@ -7,7 +7,6 @@ This file is a memo for the maintainer.
 0. Checks
 ---------
 
-* Check the device list is up to date in the README (``./scripts/update_readme_devices.py``)
 * Check SSDB is up to date (``nox -s update_ssdb``)
 * Check copyright years in ``doc/conf.py``
 
@@ -41,4 +40,5 @@ Publish source dist and wheels on PyPI.
 ---------------------
 
 * Update the download page
+* Update the devices page if required
 * Publish release notes on rivalcfg.flozz.org
