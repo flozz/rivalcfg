@@ -30,7 +30,7 @@ jobs:
           ./scripts/linbuild/release-rivalcfg-cli.sh
 
       - name: "Upload Linux tarball"
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: standalone_linux_x86_64
           path: "dist/*.tar.gz"
@@ -61,7 +61,7 @@ jobs:
           ./scripts/macbuild/release-rivalcfg-cli.sh
 
       - name: "Upload macOS DMG"
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: standalone_macos_arm64
           path: "dist/*.dmg"
@@ -92,7 +92,7 @@ jobs:
           .\scripts\winbuild\release-rivalcfg-cli.bat
 
       - name: "Upload Windows Zip"
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: standalone_windows_x86_64
           path: "dist/*.zip"
