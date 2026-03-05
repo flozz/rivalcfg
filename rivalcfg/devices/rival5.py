@@ -46,7 +46,13 @@ profile = {
             "description": "Set the color of the wheel LED",
             "cli": ["-C", "--wheel-color", "--z0"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x01, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00000001, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 0,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#11ff11",
         },
@@ -55,7 +61,13 @@ profile = {
             "description": "Set the color of the top LED of the left strip",
             "cli": ["--left-strip-top-color", "--z2"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x02, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00000010, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 1,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#22ff22",
         },
@@ -64,7 +76,13 @@ profile = {
             "description": "Set the color of the top LED of the right strip",
             "cli": ["--right-strip-top-color", "--z3"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00000100, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 2,  # padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#66ff66",
         },
@@ -73,7 +91,13 @@ profile = {
             "description": "Set the color of the middle top LED of the left strip",
             "cli": ["--left-strip-middle-top-color", "--z4"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00001000, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 3,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#33ff33",
         },
@@ -82,7 +106,13 @@ profile = {
             "description": "Set the color of the middle top LED of the right strip",
             "cli": ["--right-strip-middle-top-color", "--z5"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00010000, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 4,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#77ff77",
         },
@@ -91,7 +121,13 @@ profile = {
             "description": "Set the color of the middle bottom LED of the left strip",
             "cli": ["--left-strip-middle-bottom-color", "--z6"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00100000, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 5,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#44ff44",
         },
@@ -100,7 +136,13 @@ profile = {
             "description": "Set the color of the middle bottom LED of the right strip",
             "cli": ["--right-strip-middle-bottom-color", "--z7"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b01000000, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 6,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#88ff88",
         },
@@ -109,7 +151,13 @@ profile = {
             "description": "Set the color of the bottom LED of the left strip",
             "cli": ["--left-strip-bottom-color", "--z8"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b10000000, 0b00000000,   # Flags
+                *[0x00, 0x00, 0x00] * 7,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#55ff55",
         },
@@ -118,7 +166,13 @@ profile = {
             "description": "Set the color of the bottom LED of the right strip",
             "cli": ["--right-strip-bottom-color", "--z9"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00000000, 0b00000001,   # Flags
+                *[0x00, 0x00, 0x00] * 8,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#99ff99",
         },
@@ -127,7 +181,13 @@ profile = {
             "description": "Set the color of the logo LED",
             "cli": ["-c", "--logo-color", "--z1"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x21, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+            # fmt: off
+            "command": [
+                0x21,                     # Command
+                0b00000000, 0b00000010,   # Flags
+                *[0x00, 0x00, 0x00] * 9,  # Padding
+            ],
+            # fmt: on
             "value_type": "rgbcolor",
             "default": "#aaffaa",
         },
