@@ -245,6 +245,8 @@ profile = {
             "button_scroll_down": None,
             "default": "buttons(button1=button1; button2=button2; button3=button3; button4=button4; button5=button5; button6=disabled; button7=disabled; button8=disabled; button9=dpi; scrollup=scrollup; scrolldown=scrolldown; layout=qwerty)",
         },
+        # XXX It is possible to reset only some of the LEDs using the same
+        # XXX bit mask than for color commands. (TODO later)
         "rainbow_effect": {
             "label": "rainbow effect",
             "description": "Enable the rainbow effect (can be disabled by setting a color)",
@@ -261,8 +263,8 @@ profile = {
             "command": [0x27],
             "value_type": "choice",
             "choices": {
-                "off": [0x00, 0x00, 0x00],
-                "rainbow": [0x01, 0x00, 0x00],
+                "off": 0x00,
+                "rainbow": 0x01,
             },
             "default": "rainbow",
         },
