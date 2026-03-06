@@ -37,6 +37,8 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
+    # TODO polling_rate
+
     def test_set_wheel_color(self, mouse):
         mouse.set_wheel_color("ABCDEF")
         mouse._hid_device.bytes.seek(0)
@@ -191,3 +193,73 @@ class TestDevice(object):
             00 00 00
             AB CD EF
         """)
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("#ABCDEF", bytes.fromhex("02 00 26 01 00 AB CD EF")),
+            ("off", bytes.fromhex("02 00 26 00 00 00 00 00")),
+        ],
+    )
+    def test_set_reactive_color(self, mouse, value, expected_hid_report):
+        mouse.set_reactive_color(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("100", bytes.fromhex("02 00 23 64")),
+            ("75", bytes.fromhex("02 00 23 32")),
+            ("50", bytes.fromhex("02 00 23 19")),
+            ("25", bytes.fromhex("02 00 23 0C")),
+            ("0", bytes.fromhex("02 00 23 00")),
+        ],
+    )
+    def test_set_led_brightness(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    def test_set_buttons_mapping(self, mouse):
+        mouse.set_buttons_mapping(
+            "buttons(button1=button2; button2=a; button3=ScrollUp)"
+        )
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == bytes.fromhex("""
+            02 00
+            2A
+            02 00 00 00 00
+            51 04 00 00 00
+            31 00 00 00 00
+            04 00 00 00 00
+            05 00 00 00 00
+            00 00 00 00 00
+            00 00 00 00 00
+            00 00 00 00 00
+            30 00 00 00 00
+            31 00 00 00 00
+            32 00 00 00 00
+            """)
+
+    def test_set_rainbow_effect(self, mouse):
+        mouse.set_rainbow_effect()
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == bytes.fromhex("02 00 22 FF 03")
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("off", bytes.fromhex("02 00 27 00")),
+            ("rainbow", bytes.fromhex("02 00 27 01")),
+        ],
+    )
+    def test_set_default_lighting(self, mouse, value, expected_hid_report):
+        mouse.set_default_lighting(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
