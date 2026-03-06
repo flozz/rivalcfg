@@ -37,7 +37,20 @@ class TestDevice(object):
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
 
-    # TODO polling_rate
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (125, b"\x02\x00\x2b\x04"),
+            (250, b"\x02\x00\x2b\x03"),
+            (500, b"\x02\x00\x2b\x02"),
+            (1000, b"\x02\x00\x2b\x01"),
+        ],
+    )
+    def test_set_polling_rate(self, mouse, value, expected_hid_report):
+        mouse.set_polling_rate(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
 
     def test_set_wheel_color(self, mouse):
         mouse.set_wheel_color("ABCDEF")
