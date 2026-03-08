@@ -54,7 +54,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#11ff11",
+            "default": "#ff1800",
         },
         "z2_color": {
             "label": "Left strip, top LED color",
@@ -69,7 +69,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#22ff22",
+            "default": "#ff1800",
         },
         "z3_color": {
             "label": "Right strip, top LED color",
@@ -84,7 +84,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#66ff66",
+            "default": "#ff1800",
         },
         "z4_color": {
             "label": "Left strip, middle top LED color",
@@ -99,7 +99,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#33ff33",
+            "default": "#ff1800",
         },
         "z5_color": {
             "label": "Right strip, middle top LED color",
@@ -114,7 +114,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#77ff77",
+            "default": "#ff1800",
         },
         "z6_color": {
             "label": "Left strip, middle bottom LED color",
@@ -129,7 +129,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#44ff44",
+            "default": "#ff1800",
         },
         "z7_color": {
             "label": "Right strip, middle bottom LED color",
@@ -144,7 +144,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#88ff88",
+            "default": "#ff1800",
         },
         "z8_color": {
             "label": "Left strip, bottom LED color",
@@ -159,7 +159,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#55ff55",
+            "default": "#ff1800",
         },
         "z9_color": {
             "label": "Right strip, bottom LED color",
@@ -174,7 +174,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#99ff99",
+            "default": "#ff1800",
         },
         "logo_color": {
             "label": "Logo LED color",
@@ -189,7 +189,7 @@ profile = {
             ],
             # fmt: on
             "value_type": "rgbcolor",
-            "default": "#aaffaa",
+            "default": "#ff1800",
         },
         "reactive_color": {
             "label": "Reactive color",
@@ -198,7 +198,7 @@ profile = {
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
             "command": [0x26],
             "value_type": "reactive_rgbcolor",
-            "default": "off",
+            "default": "white",
         },
         "led_brightness": {
             "label": "LED Brightness",

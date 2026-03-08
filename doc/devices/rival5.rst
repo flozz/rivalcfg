@@ -8,6 +8,14 @@ Supported Models
 .. rivalcfg_device_family:: rival5
 
 
+Missing Features
+----------------
+
+The following feature are currently not supported by Rivalcfg:
+
+* Selective rainbow effect (rainbow effect on some LEDs only instead of all LEDs).
+
+
 Command-Line Usage
 ------------------
 
@@ -22,8 +30,8 @@ You can define them like this:
 
 ::
 
-	rivalcfg --sensitivity 800       # one preset
-	rivalcfg --sensitivity 800,1600  # two presets
+    rivalcfg --sensitivity 800       # one preset
+    rivalcfg --sensitivity 800,1600  # two presets
 
 You can switch preset using the button under the mouse wheel.
 
@@ -60,8 +68,8 @@ Reactive Color
 The reactive color changes LED colors when you click a button. You can disable
 it with ``off`` or ``disable``. Example::
 
-	rivalcfg --reactive-color off
-	rivalcfg --reactive-color red
+    rivalcfg --reactive-color off
+    rivalcfg --reactive-color white
 
 
 LED Brightness
@@ -72,19 +80,19 @@ percent. Supported values are
 ``100``, ``75``, ``50``, ``25`` and ``0``.
 
 
-Lighting Effects
-----------------
+Rainbow Effects
+---------------
 
 Use ``--rainbow-effect`` (short option: ``-e``) to enable the onboard rainbow
-effect. You can also
-set the default lighting on startup with ``--default-lighting`` (``off`` or
-``rainbow``). The short option for ``--default-lighting`` is ``-d``.
+effect on all LEDs.
+
+You can also set this effect as default at startup using the ``--default-lighting rainbow`` option (see bellow).
 
 
 Default Lighting
 ----------------
 
-.. include:: ./_default_lighting_reactive.rst
+.. include:: ./_default_lighting.rst
 
 
 Buttons
