@@ -9,7 +9,13 @@ profile = {
             "vendor_id": 0x1038,
             "product_id": 0x183C,
             "endpoint": 0,
-        }
+        },
+        {
+            "name": "SteelSeries Rival 5 Destiny Edition",
+            "vendor_id": 0x1038,
+            "product_id": 0x183E,
+            "endpoint": 0,
+        },
     ],
     "settings": {
         "sensitivity": {

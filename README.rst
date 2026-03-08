@@ -55,6 +55,7 @@ Changelog
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
   * feat(device) Added support of the Rival 5 (1038:183C) device (@Saltblob, @nonoo, @flozz, #165, #268)
+  * feat(device) Added support of the Rival 5 Destiny Edition (1038:183E) device (@flozz)
   * fix(debug): Fixed a crash when getting hidapi version without having setuptools installed (@flozz)
   * misc(standalone): Added a standalone build for Linux (@flozz)
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
