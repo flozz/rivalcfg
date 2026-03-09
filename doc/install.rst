@@ -3,7 +3,7 @@ Install Rivalcfg From Sources
 
 This page contains instructions to install Rivalcfg from sources on different operating systems.
 
-See the documentation from the Rivalcfg website for other installation methods:
+See the documentation from the Rivalcfg website for downloads and other installation methods:
 
 * https://rivalcfg.flozz.org/download.html
 

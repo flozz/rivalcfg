@@ -12,13 +12,18 @@ mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
 Sensei, Aerox, Prime,...).
 
-.. figure:: ./images/steelseries_mice.jpg
-   :alt: SteelSeries Gaming Mice
+**Links:**
+
+* `Official Website (rivalcfg.flozz.org) <https://rivalcfg.flozz.org/>`__
+* `Source Code (GitHub) <https://github.com/flozz/rivalcfg>`__
 
 .. IMPORTANT::
 
    This is an unofficial software. It was made by reverse engineering
    devices and is not supported nor approved by SteelSeries.
+
+.. figure:: ./images/steelseries_mice.jpg
+   :alt: SteelSeries Gaming Mice
 
 
 .. toctree::
