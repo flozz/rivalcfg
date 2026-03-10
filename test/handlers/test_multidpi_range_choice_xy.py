@@ -48,8 +48,26 @@ class TestProcessValue(object):
     @pytest.mark.parametrize(
         "input_,expected_output",
         [
-            ([100, [200, 300]], [0x02, 0x01, 0x00, 0x02, 0x00, 0x03]),
-            ("100, 200:300, 1000", [0x03, 0x01, 0x00, 0x02, 0x1A, 0x00, 0x03, 0x1A]),
+            (
+                [100, [200, 300]],
+                [
+                    # fmt: off
+                    0x02, 0x01,
+                    0x00, 0x02, 0x00, 0x00, 0x00,
+                    0x00, 0x03, 0x00, 0x00, 0x00,
+                    # fmt: on
+                ],
+            ),
+            (
+                "100, 200:300, 1000",
+                [
+                    # fmt: off
+                    0x03, 0x01,
+                    0x00, 0x02, 0x1A, 0x00, 0x00,
+                    0x00, 0x03, 0x1A, 0x00, 0x00,
+                    # fmt: on
+                ],
+            ),
         ],
     )
     def test_values_xxyy(self, setting_info, input_, expected_output):
@@ -108,7 +126,7 @@ class TestProcessValue(object):
         assert (
             multidpi_range_choice_xy.process_value(setting_info, "100,200")
             == [0x02, 0x01, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00]
-            # . CNT,  SEL,  PRESSET1 x, PRESSET1 y, PRESSET2 x, PRESSET2 y
+            # . CNT,  SEL,  PRESET1 x , PRESET1 y , PRESET2 x , PRESET2 y ;
         )
         # fmt: on
 
@@ -118,8 +136,14 @@ class TestProcessValue(object):
         # fmt: off
         assert (
             multidpi_range_choice_xy.process_value(setting_info, "100,200")
-            == [0x02, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00]
-            # . CNT,  SEL,  PRESSET1 x, PRESSET2 x, PRESSET1 y, PRESSET2 y
+            == [
+                0x02 , 0x01,
+                # CNT, SEL ,
+                0x00, 0x00 , 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                # PRESET1 x, PRESET2 x , PADDING3 x, PADDING4 x, PADDING5 x,
+                0x00, 0x00 , 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                # PRESET1 y, PRESET2 y , PADDING3 y, PADDING4 y, PADDING5 y,
+            ]
         )
         # fmt: on
 
