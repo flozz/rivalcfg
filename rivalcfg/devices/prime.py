@@ -21,6 +21,12 @@ profile = {
             "product_id": 0x1856,
             "endpoint": 0,
         },
+        {
+            "name": "SteelSeries Prime+",
+            "vendor_id": 0x1038,
+            "product_id": 0x182C,
+            "endpoint": 0,
+        },
     ],
     "settings": {
         "sensitivity": {
