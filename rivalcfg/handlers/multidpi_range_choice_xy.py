@@ -182,6 +182,8 @@ def process_value(setting_info, value, selected_preset=None):
             % (len(dpis), setting_info["max_preset_count"])
         )
 
+    max_preset_count = setting_info["max_preset_count"]
+
     if "first_preset" not in setting_info:
         raise ValueError(
             "Missing 'first_preset' parameter for 'multidpi_range_choice_xy' handler"
@@ -236,6 +238,10 @@ def process_value(setting_info, value, selected_preset=None):
         output_values = merge_bytes(*output_values)
         output_values = merge_bytes(*output_values)
     else:  # xxyy
+        if len(output_values) < max_preset_count:
+            output_values += [[[0] * dpi_length, [0] * dpi_length]] * (
+                max_preset_count - len(output_values)
+            )
         output_values = merge_bytes(
             *[dx for dx, dy in output_values],
             *[dy for dx, dy in output_values],
