@@ -65,7 +65,7 @@ Changelog
 * **v4.16.1 (hotfix):**
 
   * fix(device): Fixed Rival 3 Wireless Gen 2 becoming unusable after setting sensitivity (@flozz, #273)
-  * fix(handler): Fixed ``multidpi_range_choice_xy`` handler with xxyy mapping using less ``than max_preset_count`` presets (@flozz, #273)
+  * fix(handler): Fixed ``multidpi_range_choice_xy`` handler with xxyy mapping using less than ``max_preset_count`` presets (@flozz, #273)
 
 * **v4.16.0:**
 
