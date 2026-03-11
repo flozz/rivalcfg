@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to rivalcfg’s documentation! &mdash; rivalcfg v4.16.1 documentation</title>
+  <title>Welcome to rivalcfg’s documentation! &mdash; Rivalcfg v4.16.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -26,12 +26,13 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: #b32a3a" >
 
           
           
           <a href="#" class="icon icon-home">
-            rivalcfg
+            Rivalcfg
+              <img src="_static/rivalcfg-logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,22 +45,23 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install Rivalcfg From Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="env.html">Environment Variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="python_api/index.html">Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build/index.html">Build Rivalcfg</a></li>
 </ul>
 
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #b32a3a" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">rivalcfg</a>
+          <a href="#">Rivalcfg</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -87,14 +89,19 @@ BSD too, but not tested).</p>
 mice, then I added support for other Rival devices thanks to contributors.
 Today this project aims to support any SteelSeries gaming mice (Rival,
 Sensei, Aerox, Prime,…).</p>
-<figure class="align-default">
-<img alt="SteelSeries Gaming Mice" src="_images/steelseries_mice.jpg" />
-</figure>
+<p><strong>Links:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rivalcfg.flozz.org/">Official Website (rivalcfg.flozz.org)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/flozz/rivalcfg">Source Code (GitHub)</a></p></li>
+</ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>This is an unofficial software. It was made by reverse engineering
 devices and is not supported nor approved by SteelSeries.</p>
 </div>
+<figure class="align-default">
+<img alt="SteelSeries Gaming Mice" src="_images/steelseries_mice.jpg" />
+</figure>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -103,9 +110,10 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="requirements.html#python-versions">Python Versions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#from-sources-git-pypi">From Sources (Git / PyPI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#archlinux-aur-package">Archlinux AUR Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install Rivalcfg From Sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#linux">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#macos">macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#windows">Windows</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-Line Usage</a></li>
@@ -118,6 +126,7 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l1"><a class="reference internal" href="devices/index.html">Supported Devices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox3.html">SteelSeries Aerox 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox3_wireless.html">SteelSeries Aerox 3 Wireless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices/aerox5.html">SteelSeries Aerox 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox5_wireless.html">SteelSeries Aerox 5 Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/aerox9_wireless.html">SteelSeries Aerox 9 Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/kanav2.html">SteelSeries Kana v2</a></li>
@@ -129,6 +138,7 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival3_gen2.html">SteelSeries Rival 3 Gen 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival3_wireless.html">SteelSeries Rival 3 Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival3_wireless_gen2.html">SteelSeries Rival 3 Wireless Gen 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devices/rival5.html">SteelSeries Rival 5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival95.html">SteelSeries Rival 95 and Rival 100 PC Bang</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival100.html">SteelSeries Rival 100 and Rival 105</a></li>
 <li class="toctree-l2"><a class="reference internal" href="devices/rival110.html">SteelSeries Rival 110 and Rival 106</a></li>
@@ -162,6 +172,12 @@ devices and is not supported nor approved by SteelSeries.</p>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#pull-requests">Pull Requests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#running-the-tests">Running The Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#building-the-documentation">Building The Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build/index.html">Build Rivalcfg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build/linbuild.html">Standalone Build For Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build/macbuild.html">Standalone Build For macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build/winbuild.html">Standalone Build For Windows</a></li>
 </ul>
 </li>
 </ul>
