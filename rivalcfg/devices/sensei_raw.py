@@ -42,7 +42,7 @@ profile = {
     ],
     "settings": {
         "sensitivity1": {
-            "label": "Sensibility preset 1",
+            "label": "Sensitivity preset 1",
             "description": "Set sensitivity preset 1 (DPI)",
             "cli": ["-s", "--sensitivity1"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
