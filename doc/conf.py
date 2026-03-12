@@ -58,6 +58,7 @@ exclude_patterns = []
 #
 html_theme = "sphinx_rtd_theme"
 html_logo = "images/rivalcfg-logo.svg"
+html_favicon = "images/favicon.svg"
 html_theme_options = {
     "style_nav_header_background": "#b32a3a",
 }
