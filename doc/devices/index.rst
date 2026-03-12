@@ -16,6 +16,7 @@ Supported Devices
    ./kinzuv2.rst
    ./prime.rst
    ./prime_mini.rst
+   ./prime_plus.rst
    ./prime_wireless.rst
    ./rival3.rst
    ./rival3_gen2.rst
