@@ -42,3 +42,10 @@ Publish source dist and wheels on PyPI.
 * Update the download page
 * Update the devices page if required
 * Publish release notes on rivalcfg.flozz.org
+
+
+5. Misc
+-------
+
+* Flag ArchLinux AUR package as out of date:
+  https://aur.archlinux.org/packages/rivalcfg
