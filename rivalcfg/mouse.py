@@ -140,6 +140,10 @@ class Mouse:
             self.mouse_profile["firmware_version"]["response_length"],
             timeout_ms=200,
         )
+
+        if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
+            print("[USBHID]>       | %s" % " ".join(["%02X" % b for b in version]))
+
         if not version:
             return (0,)
         return tuple(version)
@@ -177,6 +181,11 @@ class Mouse:
             self.mouse_profile["battery_level"]["response_length"],
             timeout_ms=200,
         )
+
+        if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
+            print(
+                "[USBHID]>       | %s" % " ".join(["%02X" % b for b in data]),
+            )
 
         try:
             if "is_charging" in self.mouse_profile["battery_level"]:
@@ -284,6 +293,17 @@ class Mouse:
             )
         else:
             bytes_ = bytearray(helpers.merge_bytes(report_id, data))
+
+        if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
+            print(
+                "[USBHID]< %02X %02X | %s"
+                % (
+                    report_type,
+                    report_id,
+                    " ".join(["%02X" % b for b in bytes_[1:]]),
+                )
+            )
+
         if report_type == usbhid.HID_REPORT_TYPE_OUTPUT:
             self._hid_device.write(bytes_)
         elif report_type == usbhid.HID_REPORT_TYPE_FEATURE:
