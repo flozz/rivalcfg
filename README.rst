@@ -58,6 +58,7 @@ Changelog
   * feat(device) Added support of the Rival 5 Destiny Edition (1038:183E) mouse (@flozz)
   * feat(device) Added initial support of the Prime+ (1038:182C) mouse (@BenJamesAndo, @flozz, #201)
   * feat(debug): Allowed to print bytes send to/received from the device by setting the ``RIVALCFG_DEBUG_PRINT_HID_REPORT`` env var (@flozz)
+  * feat(debug): Do not print the udev rules warning in DRY debug mode (@flozz)
   * fix(debug): Fixed a crash when getting hidapi version without having setuptools installed (@flozz)
   * misc(standalone): Added a standalone build for Linux (@flozz)
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
