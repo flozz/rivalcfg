@@ -54,6 +54,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master`` that have not been released yet):
 
+  * Nothing yet ;)
+
+* **v4.17.0:**
+
   * feat(device) Added support of the Rival 5 (1038:183C) mouse (@Saltblob, @nonoo, @flozz, #165, #268)
   * feat(device) Added support of the Rival 5 Destiny Edition (1038:183E) mouse (@flozz)
   * feat(device) Added initial support of the Prime+ (1038:182C) mouse (@BenJamesAndo, @flozz, #201)
@@ -62,6 +66,7 @@ Changelog
   * misc(standalone): Added a standalone build for Windows (@flozz, #231)
   * misc(standalone): Added a standalone build for macOS (@flozz)
   * misc(ssdb): Updated ssdb script to extract the product_id of wireless mice dongles (@flozz)
+  * docs(device): Added missing Aerox 5 documentation (@flozz)
 
 * **v4.16.1 (hotfix):**
 
