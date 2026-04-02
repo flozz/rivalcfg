@@ -1,4 +1,4 @@
-Welcome to rivalcfg's documentation!
+Welcome to Rivalcfg's documentation!
 ====================================
 
 |GitHub| |Discord| |PYPI Version| |Github Actions| |Black| |License|

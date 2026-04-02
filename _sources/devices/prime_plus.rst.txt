@@ -1,11 +1,11 @@
-SteelSeries Prime
-=================
+SteelSeries Prime+
+==================
 
 
 Supported Models
 ----------------
 
-.. rivalcfg_device_family:: prime
+.. rivalcfg_device_family:: prime_plus
 
 
 Missing Features
@@ -13,6 +13,8 @@ Missing Features
 
 The following feature are currently not supported by Rivalcfg:
 
+* OLED screen under the mouse
+* Lift-off distance
 * Advanced color / illumination configurations
 * Button bindings for mouse wheel (scroll)
 
@@ -20,7 +22,7 @@ The following feature are currently not supported by Rivalcfg:
 Command-Line Usage
 ------------------
 
-.. rivalcfg_device_cli:: prime
+.. rivalcfg_device_cli:: prime_plus
 
 
 Sensitivity (DPI)
@@ -62,8 +64,8 @@ This mouse supports colors. Various formats are supported.
 Buttons
 -------
 
-.. figure:: ./images/prime_buttons.svg
-   :alt: Prime buttons schema
+.. figure:: ./images/prime_plus_buttons.svg
+   :alt: Prime+ buttons schema
 
 .. include:: ./_buttons.rst
 

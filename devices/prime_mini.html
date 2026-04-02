@@ -6,20 +6,21 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Prime Mini &mdash; Rivalcfg v4.16.1 documentation</title>
+  <title>SteelSeries Prime Mini &mdash; Rivalcfg v4.17.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6223cbd0"></script>
+      <script src="../_static/documentation_options.js?v=b78e0590"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SteelSeries Prime Wireless" href="prime_wireless.html" />
+    <link rel="next" title="SteelSeries Prime+" href="prime_plus.html" />
     <link rel="prev" title="SteelSeries Prime" href="prime.html" /> 
 </head>
 
@@ -79,6 +80,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#python-api">Python API</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="prime_plus.html">SteelSeries Prime+</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime_wireless.html">SteelSeries Prime Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3_gen2.html">SteelSeries Rival 3 Gen 2</a></li>
@@ -151,35 +153,40 @@
 </section>
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Link to this heading"></a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev] [--print-udev]
-                [--print-debug] [-s SENSITIVITY] [-p POLLING_RATE] [-c COLOR]
-                [-b BUTTONS_MAPPING] [-d DEFAULT_LIGHTING] [-r]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+                [--print-udev] [--print-debug] [-s SENSITIVITY]
+                [-p POLLING_RATE] [-c COLOR] [-b BUTTONS_MAPPING]
+                [-d DEFAULT_LIGHTING] [-r]
 
 options:
   -h, --help            show this help message and exit
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
   --no-save             Do not persist settings in the internal device memory
-  --update-udev         Updates udev rules (Linux only, requires to be run as root)
+  --update-udev         Updates udev rules (Linux only, requires to be run as
+                        root)
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug information and exit
 
 SteelSeries Prime Mini Options:
   -s, --sensitivity SENSITIVITY
-                        Set sensitivity preset (DPI) (up to 5 settings, from 50 dpi to 18000
-                        dpi, default: &#39;400, 800, 1200, 2400, 3200&#39;)
+                        Set sensitivity presets (DPI) (up to 5 settings, from
+                        50 dpi to 18000 dpi, default: &#39;400, 800, 1200, 2400,
+                        3200&#39;)
   -p, --polling-rate POLLING_RATE
-                        Set polling rate (Hz) (values: 125, 250, 500, 1000, default: 1000)
-  -c, --color COLOR     Set the mouse LED color (e.g. red, #ff0000, ff0000, #f00, f00,
-                        default: red)
+                        Set polling rate (Hz) (values: 125, 250, 500, 1000,
+                        default: 1000)
+  -c, --color COLOR     Set the mouse LED color (e.g. red, #ff0000, ff0000,
+                        #f00, f00, default: red)
   -b, --buttons BUTTONS_MAPPING
-                        Set the mapping of the buttons (default: buttons(button1=button1;
-                        button2=button2; button3=button3; button4=button4; button5=button5;
+                        Set the mapping of the buttons (default:
+                        buttons(button1=button1; button2=button2;
+                        button3=button3; button4=button4; button5=button5;
                         button6=dpi; scrollup=scrollup; scrolldown=scrolldown;
                         layout=qwerty))
   -d, --default-lighting DEFAULT_LIGHTING
-                        Set default lighting at mouse startup (values: off, rainbow, default:
-                        rainbow)
+                        Set default lighting at mouse startup (values: off,
+                        rainbow, default: rainbow)
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
@@ -417,7 +424,7 @@ available aliases, like <code class="docutils literal notranslate"><span class="
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="prime.html" class="btn btn-neutral float-left" title="SteelSeries Prime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="prime_wireless.html" class="btn btn-neutral float-right" title="SteelSeries Prime Wireless" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="prime_plus.html" class="btn btn-neutral float-right" title="SteelSeries Prime+" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

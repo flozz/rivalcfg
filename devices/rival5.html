@@ -6,14 +6,15 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SteelSeries Rival 5 &mdash; Rivalcfg v4.16.1 documentation</title>
+  <title>SteelSeries Rival 5 &mdash; Rivalcfg v4.17.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
+    <link rel="shortcut icon" href="../_static/favicon.svg"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6223cbd0"></script>
+      <script src="../_static/documentation_options.js?v=b78e0590"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -59,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="kinzuv2.html">SteelSeries Kinzu v2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime.html">SteelSeries Prime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime_mini.html">SteelSeries Prime Mini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prime_plus.html">SteelSeries Prime+</a></li>
 <li class="toctree-l2"><a class="reference internal" href="prime_wireless.html">SteelSeries Prime Wireless</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3.html">SteelSeries Rival 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rival3_gen2.html">SteelSeries Rival 3 Gen 2</a></li>
@@ -160,15 +162,18 @@
 </section>
 <section id="command-line-usage">
 <h2>Command-Line Usage<a class="headerlink" href="#command-line-usage" title="Link to this heading"></a></h2>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev] [--print-udev]
-                [--print-debug] [-s SENSITIVITY] [-p POLLING_RATE] [-C WHEEL_COLOR]
-                [--left-strip-top-color Z2_COLOR] [--right-strip-top-color Z3_COLOR]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: rivalcfg [-h] [--list] [--version] [--no-save] [--update-udev]
+                [--print-udev] [--print-debug] [-s SENSITIVITY]
+                [-p POLLING_RATE] [-C WHEEL_COLOR]
+                [--left-strip-top-color Z2_COLOR]
+                [--right-strip-top-color Z3_COLOR]
                 [--left-strip-middle-top-color Z4_COLOR]
                 [--right-strip-middle-top-color Z5_COLOR]
                 [--left-strip-middle-bottom-color Z6_COLOR]
                 [--right-strip-middle-bottom-color Z7_COLOR]
-                [--left-strip-bottom-color Z8_COLOR] [--right-strip-bottom-color Z9_COLOR]
-                [-c LOGO_COLOR] [-a REACTIVE_COLOR] [-l LED_BRIGHTNESS] [-b BUTTONS_MAPPING]
+                [--left-strip-bottom-color Z8_COLOR]
+                [--right-strip-bottom-color Z9_COLOR] [-c LOGO_COLOR]
+                [-a REACTIVE_COLOR] [-l LED_BRIGHTNESS] [-b BUTTONS_MAPPING]
                 [-e] [-d DEFAULT_LIGHTING] [-r]
 
 options:
@@ -176,61 +181,75 @@ options:
   --list                List supported devices and exit
   --version             show program&#39;s version number and exit
   --no-save             Do not persist settings in the internal device memory
-  --update-udev         Updates udev rules (Linux only, requires to be run as root)
+  --update-udev         Updates udev rules (Linux only, requires to be run as
+                        root)
   --print-udev          Prints udev rules and exit
   --print-debug         Prints debug information and exit
 
 SteelSeries Rival 5 Options:
   -s, --sensitivity SENSITIVITY
-                        Set sensitivity preset (DPI) (up to 5 settings, from 100 dpi to 18000
-                        dpi, default: &#39;400, 800, 1200, 2400, 3200&#39;)
+                        Set sensitivity presets (DPI) (up to 5 settings, from
+                        100 dpi to 18000 dpi, default: &#39;400, 800, 1200, 2400,
+                        3200&#39;)
   -p, --polling-rate POLLING_RATE
-                        Set polling rate (Hz) (values: 125, 250, 500, 1000, default: 1000)
+                        Set polling rate (Hz) (values: 125, 250, 500, 1000,
+                        default: 1000)
   -C, --wheel-color, --z0 WHEEL_COLOR
-                        Set the color of the wheel LED (e.g. red, #ff0000, ff0000, #f00, f00,
-                        default: #ff1800)
+                        Set the color of the wheel LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #ff1800)
   --left-strip-top-color, --z2 Z2_COLOR
-                        Set the color of the top LED of the left strip (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the top LED of the left strip (e.g.
+                        red, #ff0000, ff0000, #f00, f00, default: #ff1800)
   --right-strip-top-color, --z3 Z3_COLOR
-                        Set the color of the top LED of the right strip (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the top LED of the right strip (e.g.
+                        red, #ff0000, ff0000, #f00, f00, default: #ff1800)
   --left-strip-middle-top-color, --z4 Z4_COLOR
-                        Set the color of the middle top LED of the left strip (e.g. red,
-                        #ff0000, ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the middle top LED of the left strip
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   --right-strip-middle-top-color, --z5 Z5_COLOR
-                        Set the color of the middle top LED of the right strip (e.g. red,
-                        #ff0000, ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the middle top LED of the right strip
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   --left-strip-middle-bottom-color, --z6 Z6_COLOR
-                        Set the color of the middle bottom LED of the left strip (e.g. red,
-                        #ff0000, ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the middle bottom LED of the left
+                        strip (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   --right-strip-middle-bottom-color, --z7 Z7_COLOR
-                        Set the color of the middle bottom LED of the right strip (e.g. red,
-                        #ff0000, ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the middle bottom LED of the right
+                        strip (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   --left-strip-bottom-color, --z8 Z8_COLOR
-                        Set the color of the bottom LED of the left strip (e.g. red, #ff0000,
-                        ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the bottom LED of the left strip
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   --right-strip-bottom-color, --z9 Z9_COLOR
-                        Set the color of the bottom LED of the right strip (e.g. red,
-                        #ff0000, ff0000, #f00, f00, default: #ff1800)
+                        Set the color of the bottom LED of the right strip
+                        (e.g. red, #ff0000, ff0000, #f00, f00, default:
+                        #ff1800)
   -c, --logo-color, --z1 LOGO_COLOR
-                        Set the color of the logo LED (e.g. red, #ff0000, ff0000, #f00, f00,
-                        default: #ff1800)
+                        Set the color of the logo LED (e.g. red, #ff0000,
+                        ff0000, #f00, f00, default: #ff1800)
   -a, --reactive-color REACTIVE_COLOR
-                        Set the color of the LEDs in reaction to a button click (e.g. off,
-                        disable, red, #ff0000, ff0000, #f00, f00, default: white)
+                        Set the color of the LEDs in reaction to a button
+                        click (e.g. off, disable, red, #ff0000, ff0000, #f00,
+                        f00, default: white)
   -l, --led-brightness LED_BRIGHTNESS
-                        Set the brightness of the LEDs (values: 0, 25, 50, 75, 100, default:
-                        100)
+                        Set the brightness of the LEDs (values: 0, 25, 50, 75,
+                        100, default: 100)
   -b, --buttons BUTTONS_MAPPING
-                        Set the mapping of the buttonsX (default: buttons(button1=button1;
-                        button2=button2; button3=button3; button4=button4; button5=button5;
-                        button6=disabled; button7=disabled; button8=disabled; button9=dpi;
-                        scrollup=scrollup; scrolldown=scrolldown; layout=qwerty))
-  -e, --rainbow-effect  Enable the rainbow effect (can be disabled by setting a color)
+                        Set the mapping of the buttonsX (default:
+                        buttons(button1=button1; button2=button2;
+                        button3=button3; button4=button4; button5=button5;
+                        button6=disabled; button7=disabled; button8=disabled;
+                        button9=dpi; scrollup=scrollup; scrolldown=scrolldown;
+                        layout=qwerty))
+  -e, --rainbow-effect  Enable the rainbow effect (can be disabled by setting
+                        a color)
   -d, --default-lighting DEFAULT_LIGHTING
-                        Set default lighting at mouse startup, Reactive-color must be toggled
-                        separately! (values: off, rainbow, default: rainbow)
+                        Set default lighting at mouse startup, Reactive-color
+                        must be toggled separately! (values: off, rainbow,
+                        default: rainbow)
   -r, --reset           Reset all settings to their factory default
 
 Please report any bug on Github: https://github.com/flozz/rivalcfg/issues
