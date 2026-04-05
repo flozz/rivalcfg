@@ -142,7 +142,7 @@ class Mouse:
         )
 
         if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
-            print("[USBHID]>       | %s" % " ".join(["%02X" % b for b in version]))
+            print("[USBHID]>       | %s" % bytes(version).hex(" ").upper())
 
         if not version:
             return (0,)
@@ -183,9 +183,7 @@ class Mouse:
         )
 
         if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
-            print(
-                "[USBHID]>       | %s" % " ".join(["%02X" % b for b in data]),
-            )
+            print("[USBHID]>       | %s" % bytes(data).hex(" ").upper())
 
         try:
             if "is_charging" in self.mouse_profile["battery_level"]:
@@ -300,7 +298,7 @@ class Mouse:
                 % (
                     report_type,
                     report_id,
-                    " ".join(["%02X" % b for b in bytes_[1:]]),
+                    bytes_[1:].hex(" ").upper(),
                 )
             )
 
