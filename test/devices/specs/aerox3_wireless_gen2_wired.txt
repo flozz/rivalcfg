@@ -1,0 +1,210 @@
+:1038:1892 SteelSeries Aerox 3 Wireless Gen 2 (wired mode)
+
+# ==== Sensitivity ====
+
+--sensitivity 100
+< 02 00 |
+  2D              # Command
+  01              # DPI preset count (1-5)
+  00              # Active DPI preset (0-4)
+  64 00 64 00 00  # DPI preset 1
+  #___/ \___/ \/
+  # \     \    \_ Lift off distance (00 = 1mm, 01 = 2mm)
+  #  \     \_____ DPI on vertical (Y) axis (50-26000, inc: 50, LE)
+  #   \__________ DPI on horizontal (X) axis (50-26000, inc: 50, LE)
+  00 00 00 00 00  # DPI preset 2 (padding)
+  00 00 00 00 00  # DPI preset 3 (padding)
+  00 00 00 00 00  # DPI preset 4 (padding)
+  00 00 00 00 00  # DPI preset 5 (padding)
+< 02 00 | 11 00
+
+--sensitivity 100:200
+< 02 00 | 2D 01 00
+  64 00 C8 00 00  # DPI preset 1
+  00 00 00 00 00  # DPI preset 2 (padding)
+  00 00 00 00 00  # DPI preset 3 (padding)
+  00 00 00 00 00  # DPI preset 4 (padding)
+  00 00 00 00 00  # DPI preset 5 (padding)
+< 02 00 | 11 00
+
+--sensitivity 100:200,1000:2000
+< 02 00 | 2D 02 00
+  64 00 C8 00 00  # DPI preset 1
+  E8 03 D0 07 00  # DPI preset 2
+  00 00 00 00 00  # DPI preset 3 (padding)
+  00 00 00 00 00  # DPI preset 4 (padding)
+  00 00 00 00 00  # DPI preset 5 (padding)
+< 02 00 | 11 00
+
+--sensitivity 100:200,1000,2000,3000,26000
+< 02 00 | 2D 05 00
+  64 00 C8 00 00  # DPI preset 1
+  E8 03 E8 03 00  # DPI preset 2
+  d0 07 d0 07 00  # DPI preset 3
+  B8 0B B8 0B 00  # DPI preset 4
+  90 65 90 65 00  # DPI preset 5
+< 02 00 | 11 00
+
+# ==== Polling rate ====
+
+--polling-rate 125
+< 02 00 | 2B 03
+< 02 00 | 11 00
+
+--polling-rate 250
+< 02 00 | 2B 02
+< 02 00 | 11 00
+
+--polling-rate 500
+< 02 00 | 2B 01
+< 02 00 | 11 00
+
+--polling-rate 1000
+< 02 00 | 2B 00
+< 02 00 | 11 00
+
+# ==== Top color (z1) ====
+
+--top-color ABCDEF
+< 02 00 | 21 01 00 AB CD EF
+< 02 00 | 11 00
+
+--z1 ABCDEF
+< 02 00 | 21 01 00 AB CD EF
+< 02 00 | 11 00
+
+# ==== Middle color (z2) ====
+
+--middle-color ABCDEF
+< 02 00 | 21 01 01 AB CD EF
+< 02 00 | 11 00
+
+--z2 ABCDEF
+< 02 00 | 21 01 01 AB CD EF
+< 02 00 | 11 00
+
+# ==== Bottom color (z3) ====
+
+--bottom-color ABCDEF
+< 02 00 | 21 01 02 AB CD EF
+< 02 00 | 11 00
+--z3 ABCDEF
+< 02 00 | 21 01 02 AB CD EF
+< 02 00 | 11 00
+
+# ==== Reactive color ====
+
+--reactive-color ABCDEF
+< 02 00 | 26 01 00 AB CD EF
+< 02 00 | 11 00
+
+--reactive-color disable
+< 02 00 | 26 00 00 00 00 00
+< 02 00 | 11 00
+
+# ==== Sleep timer ====
+
+--sleep-timer 0
+< 02 00 | 29 00 00 00
+< 02 00 | 11 00
+
+--sleep-timer 1
+< 02 00 | 29 60 EA 00
+< 02 00 | 11 00
+
+--sleep-timer 5
+< 02 00 | 29 E0 93 04
+< 02 00 | 11 00
+
+--sleep-timer 20
+< 02 00 | 29 80 4F 12
+< 02 00 | 11 00
+
+# ==== Dim timer ====
+
+--dim-timer 0
+< 02 00 | 23 0F 01 00 00 00 00 00
+< 02 00 | 11 00
+
+--dim-timer 30
+< 02 00 | 23 0F 01 00 00 30 75 00
+< 02 00 | 11 00
+
+--dim-timer 60
+< 02 00 | 23 0F 01 00 00 60 EA 00
+< 02 00 | 11 00
+
+--dim-timer 300
+< 02 00 | 23 0F 01 00 00 E0 93 04
+< 02 00 | 11 00
+
+--dim-timer 1200
+< 02 00 | 23 0F 01 00 00 80 4F 12
+< 02 00 | 11 00
+
+# ==== Button mapping ====
+
+--buttons default
+< 02 00 | 2A
+  01 00 00 00 00
+  02 00 00 00 00
+  03 00 00 00 00
+  04 00 00 00 00
+  05 00 00 00 00
+  30 00 00 00 00
+  31 00 00 00 00
+  32 00 00 00 00
+< 02 00 | 11 00
+
+--buttons buttons(button2=button6)
+< 02 00 | 2A
+  01 00 00 00 00
+  06 00 00 00 00
+  03 00 00 00 00
+  04 00 00 00 00
+  05 00 00 00 00
+  30 00 00 00 00
+  31 00 00 00 00
+  32 00 00 00 00
+< 02 00 | 11 00
+
+--buttons buttons(ScrollUp=ScrollDown;ScrollDown=ScrollUp)
+< 02 00 | 2A
+  01 00 00 00 00
+  02 00 00 00 00
+  03 00 00 00 00
+  04 00 00 00 00
+  05 00 00 00 00
+  30 00 00 00 00
+  32 00 00 00 00
+  31 00 00 00 00
+< 02 00 | 11 00
+
+# ==== Rainbow effect ====
+
+--rainbow-effect
+< 02 00 | 22 FF
+< 02 00 | 11 00
+
+# ==== Default lighting ====
+
+--default-lighting off
+< 02 00 | 27 00 00
+< 02 00 | 11 00
+
+--default-lighting reactive
+< 02 00 | 27 00 01
+< 02 00 | 11 00
+
+--default-lighting rainbow
+< 02 00 | 27 01 00
+< 02 00 | 11 00
+
+--default-lighting reactive-rainbow
+< 02 00 | 27 01 01
+< 02 00 | 11 00
+
+# ==== Battery level ====
+
+--battery-level
+< 02 00 | 92
