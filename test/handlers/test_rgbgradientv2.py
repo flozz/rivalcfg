@@ -159,6 +159,14 @@ class TestProcessValue(object):
         ]
         # fmt: on
 
+    def test_dict_without_colors_key(self, setting_info1):
+        with pytest.raises(ValueError):
+            rgbgradientv2.process_value(setting_info1, {"duration": 1000})
+
+    def test_dict_with_empty_colors(self, setting_info1):
+        with pytest.raises(ValueError):
+            rgbgradientv2.process_value(setting_info1, {"colors": []})
+
     # RGB Gradient String
 
     @pytest.mark.parametrize(

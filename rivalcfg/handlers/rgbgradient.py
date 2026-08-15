@@ -161,8 +161,11 @@ def _handle_rgbgradient_dict(colors):
                 }
             )
 
-    # Smooth gradient (if possible) by adding a final color
-    if len(gradient) < 14 and gradient[-1]["pos"] != 100:
+    # Smooth gradient (if possible) by adding a final color. Guard against an
+    # empty gradient (e.g. a dict with no "colors", or "colors": []): without
+    # it, gradient[-1] raises IndexError here before process_value() can report
+    # the intended "no color" ValueError.
+    if gradient and len(gradient) < 14 and gradient[-1]["pos"] != 100:
         gradient.append(
             {
                 "pos": 100,
