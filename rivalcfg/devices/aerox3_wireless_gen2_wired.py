@@ -156,9 +156,9 @@ profile = {
     "battery_level": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
         "command": [0x92],
-        "response_length": 2,
-        "is_charging": lambda data: bool(data[1] & _BATTERY_CHARGING_FLAG),
-        "level": lambda data: ((data[1] & ~_BATTERY_CHARGING_FLAG) - 1) * 5,
+        "response_length": 4,
+        "is_charging": lambda data: bool(data[1]),
+        "level": lambda data: min(data[2], 100) if data[2] != 0xFF else None,
     },
     "save_command": {
         "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
