@@ -23,7 +23,7 @@ profile = {
             "output_choices": truemove_core.choices,
             "xy_mapping": "xyxy",
             "dpi_length_byte": 1,
-            "first_preset": 1,
+            "first_preset": 0,
             "max_preset_count": 5,
             "default": "800:800, 1600:1600",
         },
