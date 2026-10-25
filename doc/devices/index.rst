@@ -23,6 +23,7 @@ Supported Devices
    ./rival3_wireless.rst
    ./rival3_wireless_gen2.rst
    ./rival5.rst
+   ./rival_pro.rst
    ./rival95.rst
    ./rival100.rst
    ./rival110.rst

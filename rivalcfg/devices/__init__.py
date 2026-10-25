@@ -102,6 +102,10 @@ Here is what a profile file looks like::
             "command": [0x90, 0x00],
             # The length of the response (bytes)
             "response_length": 2,
+            # (optional) A function that converts the raw response into a
+            # list of version numbers (e.g. ``[2, 14, 2]``). By default the
+            # raw bytes are used as version numbers.
+            "parse": lambda data: [data[0], data[1]],
         },
 
     }
@@ -237,6 +241,7 @@ def _generate_profiles():
         rival3_wireless,
         rival3_wireless_gen2,
         rival5,
+        rival_pro,
         rival95,
         rival100,
         rival110,

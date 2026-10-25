@@ -147,6 +147,33 @@ class TestProcessValue(object):
         )
         # fmt: on
 
+    def test_preset_suffix(self, setting_info):
+        setting_info["preset_suffix"] = [0xAA, 0xBB]
+        # fmt: off
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, "100,200:300")
+            == [0x02, 0x01, 0x00, 0x00, 0xAA, 0xBB, 0x02, 0x03, 0xAA, 0xBB]
+            # . CNT,  SEL,  P1 x, P1 y, SUFFIX1   , P2 x, P2 y, SUFFIX2
+        )
+        # fmt: on
+
+    def test_preset_suffix_dpi_length_byte(self, setting_info):
+        setting_info["preset_suffix"] = [0x03, 0x03]
+        setting_info["dpi_length_byte"] = 2
+        # fmt: off
+        assert (
+            multidpi_range_choice_xy.process_value(setting_info, "100")
+            == [0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x03, 0x03]
+            # . CNT,  SEL,  PRESET1 x , PRESET1 y , SUFFIX1
+        )
+        # fmt: on
+
+    def test_preset_suffix_xxyy_unsupported(self, setting_info):
+        setting_info["preset_suffix"] = [0x03, 0x03]
+        setting_info["xy_mapping"] = "xxyy"
+        with pytest.raises(ValueError):
+            multidpi_range_choice_xy.process_value(setting_info, "100")
+
     def test_first_preset_zero(self, setting_info):
         setting_info["first_preset"] = 0
         # fmt: off
