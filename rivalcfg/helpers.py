@@ -125,8 +125,12 @@ def uint_to_little_endian_bytearray(number, size):
     Traceback (most recent call last):
         ...
     ValueError: integer overflow
+    >>> uint_to_little_endian_bytearray(-1, 1)
+    Traceback (most recent call last):
+        ...
+    ValueError: integer overflow
     """
-    if number > (2 ** (8 * size) - 1):
+    if number < 0 or number > (2 ** (8 * size) - 1):
         raise ValueError("integer overflow")
     nle = [0] * size
     for i in range(size):
