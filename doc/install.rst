@@ -184,7 +184,7 @@ Prerequisites
 
 On Windows, you have to install Python first:
 
-* Download Python >= 3.10 from https://www.python.org/downloads/windows/
+* Download Python >= 3.11 from https://www.python.org/downloads/windows/
 * **IMPORTANT:** During the installation process, check the "Add Python X.Y to PATH" checkbox.
 * Finally reboot your computer to complete the installation.
 

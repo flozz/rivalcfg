@@ -13,7 +13,7 @@ readme = "README.rst"
 keywords = ["steelseries", "rival", "sensei", "prime", "aerox", "mouse", "hid"]
 license = "WTFPL"
 license-files = ["LICENSE"]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "hidapi>=0.14.0",
 ]
@@ -44,7 +44,7 @@ Chat = "https://discord.gg/P77sWhuSs4"
 donate = "https://github.com/flozz/rivalcfg#supporting-this-project"
 
 [tool.black]
-target-version = ["py310"]
+target-version = ["py311"]
 
 [tool.flake8]
 ignore = [

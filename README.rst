@@ -60,6 +60,8 @@ Changelog
   * fix(color_helpers): Fixed color-gradient validation (@eeshsaxena, #287)
   * misc(test): New E2E tests for devices (@flozz)
   * misc(standalone): Windows standalone build is now using Python 3.14 (@flozz)
+  * misc: Added Python 3.15 support (@flozz)
+  * misc!: Removed Python 3.10 support (@flozz)
 
 * **v4.17.0:**
 
