@@ -159,6 +159,32 @@ class TestMouse(object):
     def test_firmware_version(self, mouse):
         assert mouse.firmware_version == "0"
 
+    def test_firmware_version_parse(self, monkeypatch):
+        profile = dict(FAKE_PROFILE)
+        profile["firmware_version"] = {
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x90],
+            "response_length": 16,
+            "parse": lambda data: [
+                int(n) for n in bytes(data[2:]).split(b"\0")[0].split(b".")
+            ],
+        }
+        device = usbhid.FakeDevice()
+        monkeypatch.setattr(
+            device,
+            "read",
+            lambda max_length, timeout_ms=0: list(
+                b"\x90\x002.14.2".ljust(max_length, b"\0")
+            ),
+        )
+        mouse_ = mouse.Mouse(
+            device,
+            profile,
+            mouse_settings.FakeMouseSettings(0x1038, 0xBAAD, profile),
+        )
+        assert mouse_.firmware_version_tuple == (2, 14, 2)
+        assert mouse_.firmware_version == "2.14.2"
+
     def test_save(self, mouse):
         mouse.save()
         mouse._hid_device.bytes.seek(0)

@@ -146,6 +146,8 @@ class Mouse:
 
         if not version:
             return (0,)
+        if "parse" in self.mouse_profile["firmware_version"]:
+            return tuple(self.mouse_profile["firmware_version"]["parse"](version))
         return tuple(version)
 
     @property

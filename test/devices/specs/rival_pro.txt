@@ -1,0 +1,209 @@
+:1038:1880 SteelSeries Rival Pro
+
+# ==== Sensitivity ====
+# 34 <count> <selected> (<x:u16le> <y:u16le> <lift-off> <landing>)*count
+
+--sensitivity 800
+< 02 00 | 34 01 00 20 03 20 03 03 03
+< 02 00 | 09
+
+--sensitivity 800:1600
+< 02 00 | 34 01 00 20 03 40 06 03 03
+< 02 00 | 09
+
+--sensitivity 1
+< 02 00 | 34 01 00 01 00 01 00 03 03
+< 02 00 | 09
+
+--sensitivity 42000
+< 02 00 | 34 01 00 10 A4 10 A4 03 03
+< 02 00 | 09
+
+--sensitivity 65000
+< 02 00 | 34 01 00 E8 FD E8 FD 03 03
+< 02 00 | 09
+
+# Same bytes as SteelSeries GG's factory presets
+--sensitivity 400,800,1600,2400,3200
+< 02 00 | 34 05 00
+          90 01 90 01 03 03
+          20 03 20 03 03 03
+          40 06 40 06 03 03
+          60 09 60 09 03 03
+          80 0C 80 0C 03 03
+< 02 00 | 09
+
+# ==== Polling rate ====
+# 2D <count> <selected> <sensor rate> <uwb rate>
+
+--polling-rate 125
+< 02 00 | 2D 01 00 06 06
+< 02 00 | 09
+
+--polling-rate 250
+< 02 00 | 2D 01 00 05 05
+< 02 00 | 09
+
+--polling-rate 500
+< 02 00 | 2D 01 00 04 04
+< 02 00 | 09
+
+--polling-rate 1000
+< 02 00 | 2D 01 00 03 03
+< 02 00 | 09
+
+--polling-rate 2000
+< 02 00 | 2D 01 00 02 02
+< 02 00 | 09
+
+--polling-rate 4000
+< 02 00 | 2D 01 00 01 01
+< 02 00 | 09
+
+--polling-rate 8000
+< 02 00 | 2D 01 00 00 00
+< 02 00 | 09
+
+# ==== Buttons ====
+
+--buttons default
+< 02 00 | 2A
+          01 00 00 00 00
+          02 00 00 00 00
+          03 00 00 00 00
+          04 00 00 00 00
+          05 00 00 00 00
+          30 00 00 00 00
+          31 00 00 00 00
+          32 00 00 00 00
+< 02 00 | 09
+
+# Same mappings as captured from SteelSeries GG
+--buttons buttons(button4=A;button5=VolumeUp;button6=disabled)
+< 02 00 | 2A
+          01 00 00 00 00
+          02 00 00 00 00
+          03 00 00 00 00
+          51 04 00 00 00
+          61 E9 00 00 00
+          00 00 00 00 00
+          31 00 00 00 00
+          32 00 00 00 00
+< 02 00 | 09
+
+# ==== Sleep timer ====
+
+--sleep-timer 1
+< 02 00 | 29 60 EA 00
+< 02 00 | 09
+
+--sleep-timer 5
+< 02 00 | 29 E0 93 04
+< 02 00 | 09
+
+--sleep-timer 10
+< 02 00 | 29 C0 27 09
+< 02 00 | 09
+
+--sleep-timer 20
+< 02 00 | 29 80 4F 12
+< 02 00 | 09
+
+# ==== Click response ====
+
+--click-response 0
+< 02 00 | 1C 00
+< 02 00 | 09
+
+--click-response 8
+< 02 00 | 1C 08
+< 02 00 | 09
+
+--click-response 20
+< 02 00 | 1C 14
+< 02 00 | 09
+
+# ==== Scroll jump protection ====
+
+--scroll-jump-protection off
+< 02 00 | 16 00 F4 01
+< 02 00 | 09
+
+--scroll-jump-protection 100
+< 02 00 | 16 01 64 00
+< 02 00 | 09
+
+--scroll-jump-protection 500
+< 02 00 | 16 01 F4 01
+< 02 00 | 09
+
+--scroll-jump-protection 1500
+< 02 00 | 16 01 DC 05
+< 02 00 | 09
+
+# ==== Motion sync ====
+
+--motion-sync on
+< 02 00 | 18 01
+< 02 00 | 09
+
+--motion-sync off
+< 02 00 | 18 00
+< 02 00 | 09
+
+# ==== LAN mode ====
+
+--lan-mode on
+< 02 00 | 1A 01
+< 02 00 | 09
+
+--lan-mode off
+< 02 00 | 1A 00
+< 02 00 | 09
+
+# ==== Max performance ====
+
+--max-performance on
+< 02 00 | 1B 01
+< 02 00 | 09
+
+--max-performance off
+< 02 00 | 1B 00
+< 02 00 | 09
+
+# ==== LED indicator ====
+
+--led-indicator polling-rate
+< 02 00 | 25 00
+< 02 00 | 09
+
+--led-indicator battery
+< 02 00 | 25 01
+< 02 00 | 09
+
+--led-indicator off
+< 02 00 | 25 02
+< 02 00 | 09
+
+# ==== Low power mode polling rate ====
+# 19 00 <threshold %> <rate>
+
+--low-power-polling-rate 125
+< 02 00 | 19 00 05 06
+< 02 00 | 09
+
+--low-power-polling-rate 250
+< 02 00 | 19 00 05 05
+< 02 00 | 09
+
+--low-power-polling-rate 500
+< 02 00 | 19 00 05 04
+< 02 00 | 09
+
+--low-power-polling-rate 1000
+< 02 00 | 19 00 05 03
+< 02 00 | 09
+
+--low-power-polling-rate led-only
+< 02 00 | 19 00 05 07
+< 02 00 | 09

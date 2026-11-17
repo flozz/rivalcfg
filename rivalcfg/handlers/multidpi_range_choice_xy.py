@@ -53,6 +53,7 @@ Example of a multidpi_range_choice value type in a device profile:
                 },
                 "xy_mapping": "xyxy",     # "xyxy" or "xxyy"
                 "dpi_length_byte": 1,  # Little endian
+                "preset_suffix": [0x03, 0x03],  # Optional, "xyxy" only
                 "first_preset": 1,
                 "max_preset_count": 5,
                 "default": "800:800, 1600:1600",
@@ -63,6 +64,12 @@ Example of a multidpi_range_choice value type in a device profile:
         # ...
 
     }
+
+The optional ``preset_suffix`` parameter contains fixed bytes that are appended
+after the X and Y values of each preset. It is only supported with the
+``"xyxy"`` mapping. It is used by devices that store extra per-preset values in
+the sensitivity command, like the lift-off and landing distances of the Rival
+Pro.
 
 
 CLI
@@ -215,6 +222,13 @@ def process_value(setting_info, value, selected_preset=None):
 
     dpi_length = setting_info["dpi_length_byte"]
 
+    preset_suffix = setting_info.get("preset_suffix", [])
+
+    if preset_suffix and xy_mapping != "xyxy":
+        raise ValueError(
+            "'preset_suffix' parameter is only supported with 'xyxy' xy-mapping"
+        )
+
     # DPIs
 
     output_values = []
@@ -230,6 +244,7 @@ def process_value(setting_info, value, selected_preset=None):
                     process_range_choice(setting_info, dpi_y),
                     dpi_length,
                 ),
+                *([preset_suffix] if preset_suffix else []),
             ]
         )
 
