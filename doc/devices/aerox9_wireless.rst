@@ -15,7 +15,6 @@ Missing Features
 The following feature are currently not supported by Rivalcfg:
 
 * Smart illumination
-* Button mapping
 
 
 Command-Line Usage
@@ -76,6 +75,12 @@ Default Lighting
 ----------------
 
 .. include:: ./_default_lighting_reactive.rst
+
+
+Buttons
+-------
+
+.. include:: ./_buttons.rst
 
 
 Python API
