@@ -39,6 +39,13 @@ Links
   * `Contributing <https://flozz.github.io/rivalcfg/contributing.html>`__ (please read before opening issues and PRs 😀️)
 
 
+Community Integrations
+----------------------
+
+* `SteelSeries Rivalcfg Control (GNOME Shell Extension) <https://github.com/YusufKaya00/rivalcfg-gnome-control>`__:
+  Top-bar battery indicator and RGB/hardware settings menu for GNOME Shell 45–47.
+
+
 Supporting this project
 -----------------------
 

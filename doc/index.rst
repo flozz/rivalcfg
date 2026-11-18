@@ -16,6 +16,7 @@ Sensei, Aerox, Prime,...).
 
 * `Official Website (rivalcfg.flozz.org) <https://rivalcfg.flozz.org/>`__
 * `Source Code (GitHub) <https://github.com/flozz/rivalcfg>`__
+* `GNOME Shell Extension (Community) <https://github.com/YusufKaya00/rivalcfg-gnome-control>`__
 
 .. IMPORTANT::
 
