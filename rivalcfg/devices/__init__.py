@@ -55,6 +55,13 @@ Here is what a profile file looks like::
                 # A fixed amount of data to send to the mouse (optional).
                 # This is required by some mice like the Rival 110.
                 "packet_length": 32,
+                # (optional) When several settings are sent to the device in
+                # a single command, the layout of the command data: a list of
+                # setting names and constant bytes. When this setting is
+                # changed, the value of the other settings is read from the
+                # saved settings to not overwrite them (e.g.
+                # ``["led_brightness", 0x00, "dim_timer"]``).
+                "shared_command": [],
                 # If greater that 0, the number of bytes to read from the
                 # device after the command. This is required by some wireless
                 # mice like the Aerox 3 Wireless in wireless mode.

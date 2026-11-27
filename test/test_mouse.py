@@ -278,3 +278,47 @@ class TestMouse(object):
         assert response is None
         response = mouse.set_setting6()
         assert response is None
+
+
+class TestMouseSharedCommand(object):
+    @pytest.fixture
+    def mouse(self):
+        layout = ["setting_a", 0xFF, "setting_b"]
+        profile = dict(
+            FAKE_PROFILE,
+            settings={
+                name: {
+                    "label": name,
+                    "description": name,
+                    "cli": ["--%s" % name],
+                    "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+                    "command": [0x23],
+                    "shared_command": layout,
+                    "value_type": "choice",
+                    "choices": {"foo": 0x01, "bar": 0x02},
+                    "default": "foo",
+                }
+                for name in ("setting_a", "setting_b")
+            },
+        )
+        settings = mouse_settings.FakeMouseSettings(0x1038, 0xBAAD, profile)
+        return mouse.Mouse(usbhid.FakeDevice(), profile, settings)
+
+    def test_other_settings_use_their_default_value(self, mouse):
+        mouse.set_setting_b("bar")
+        mouse._hid_device.bytes.seek(0)
+        assert mouse._hid_device.bytes.read() == b"\x02\x00\x23\x01\xff\x02"
+
+    def test_other_settings_keep_their_last_value(self, mouse):
+        mouse.set_setting_a("bar")
+        mouse._hid_device.bytes.seek(0)
+        mouse._hid_device.bytes.truncate()
+        mouse.set_setting_b("bar")
+        mouse._hid_device.bytes.seek(0)
+        assert mouse._hid_device.bytes.read() == b"\x02\x00\x23\x02\xff\x02"
+
+    def test_settings_saved_by_an_older_version(self, mouse):
+        del mouse.mouse_settings._settings["default"]["setting_a"]
+        mouse.set_setting_b("bar")
+        mouse._hid_device.bytes.seek(0)
+        assert mouse._hid_device.bytes.read() == b"\x02\x00\x23\x01\xff\x02"

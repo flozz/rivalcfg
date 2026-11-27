@@ -3,6 +3,15 @@ from .. import usbhid
 
 _BATTERY_CHARGING_FLAG = 0b10000000
 
+# These settings are sent to the mouse in a single command (0x23)
+_ILLUMINATION_COMMAND = [
+    "led_brightness",
+    "dim_brightness",
+    "smart_illumination",
+    0x00,
+    "dim_timer",
+]
+
 
 profile = {
     "name": "SteelSeries Aerox 5 Wireless",
@@ -104,12 +113,51 @@ profile = {
             "range_length_byte": 3,
             "default": 5,
         },
+        "led_brightness": {
+            "label": "LED brightness",
+            "description": "Set the brightness of the LEDs",
+            "cli": ["-l", "--led-brightness"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x23],
+            "shared_command": _ILLUMINATION_COMMAND,
+            "value_type": "range",
+            "input_range": [0, 15, 1],
+            "output_range": [0x00, 0x0F, 1],
+            "default": 15,
+        },
+        "dim_brightness": {
+            "label": "Dim brightness",
+            "description": "Set the brightness of the LEDs when the mouse light is dimmed (0 = off)",
+            "cli": ["--dim-brightness"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x23],
+            "shared_command": _ILLUMINATION_COMMAND,
+            "value_type": "range",
+            "input_range": [0, 15, 1],
+            "output_range": [0x00, 0x0F, 1],
+            "default": 1,
+        },
+        "smart_illumination": {
+            "label": "Smart illumination",
+            "description": "Turn the LEDs off while the mouse is moving",
+            "cli": ["--smart-illumination"],
+            "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
+            "command": [0x23],
+            "shared_command": _ILLUMINATION_COMMAND,
+            "value_type": "choice",
+            "choices": {
+                "off": 0x00,
+                "on": 0x01,
+            },
+            "default": "on",
+        },
         "dim_timer": {
             "label": "Dim timer",
             "description": "Set the IDLE time before the mouse light is dimmed (seconds, 0 = disable)",
             "cli": ["-T", "--dim-timer"],
             "report_type": usbhid.HID_REPORT_TYPE_OUTPUT,
-            "command": [0x23, 0x0F, 0x01, 0x00, 0x00],
+            "command": [0x23],
+            "shared_command": _ILLUMINATION_COMMAND,
             "value_type": "range",
             "input_range": [0, 1200, 1],
             "output_range": [0x000000, 0x124F80, 1000],
