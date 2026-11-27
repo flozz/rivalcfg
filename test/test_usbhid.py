@@ -24,3 +24,24 @@ class TestOpenDevice(object):
         assert hasattr(device, "write")
         assert hasattr(device, "close")
         assert hasattr(device, "send_feature_report")
+
+    def test_search_by_usage_page(self, monkeypatch):
+        monkeypatch.delenv("RIVALCFG_DRY")  # Be sure that dry mode is disabled
+        opened = []
+
+        class FakeHidDevice:
+            def open_path(self, path):
+                opened.append(path)
+
+        interfaces = [
+            {"interface_number": -1, "usage_page": 0x0001, "path": b"mouse"},
+            {"interface_number": -1, "usage_page": 0xFFC0, "path": b"vendor"},
+        ]
+        monkeypatch.setattr(usbhid.hid, "enumerate", lambda *args: interfaces)
+        monkeypatch.setattr(usbhid.hid, "device", FakeHidDevice)
+
+        usbhid.open_device(0x0111, 0x1854, 0, usage_page=0xFFC0)
+        assert opened == [b"vendor"]
+
+        with pytest.raises(usbhid.DeviceNotFound):
+            usbhid.open_device(0x0111, 0x1854, 0, usage_page=0xFFC1)

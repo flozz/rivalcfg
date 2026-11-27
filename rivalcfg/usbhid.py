@@ -50,13 +50,17 @@ def is_device_plugged(vendor_id, product_id):
     return len(hid.enumerate(vendor_id, product_id)) > 0
 
 
-def open_device(vendor_id, product_id, endpoint):
+def open_device(vendor_id, product_id, endpoint, usage_page=None):
     """Opens and returns the HID device
 
     :param int vendor_id: The vendor id of the device (e.g. ``0x1038``)).
     :param int product_id: The product id of the device (e.g. ``0x1710``).
     :param int endpoint: The number of the endpoint to open on the device (e.g.
                          ``0``).
+    :param int usage_page: When defined, the device is searched by its HID
+                           usage page instead of its endpoint number (e.g.
+                           ``0xFFC0``). This is required for Bluetooth devices
+                           that have no endpoint number.
 
     :raise DeviceNotFound: The requested device is not plugged to the computer
                            or it does not provide the requested endpoint.
@@ -81,7 +85,11 @@ def open_device(vendor_id, product_id, endpoint):
 
     # Search the device
     for interface in hid.enumerate(vendor_id, product_id):
-        if interface["interface_number"] == endpoint:
+        if usage_page is not None:
+            if interface["usage_page"] == usage_page:
+                path = interface["path"]
+                break
+        elif interface["interface_number"] == endpoint:
             path = interface["path"]
             break
 

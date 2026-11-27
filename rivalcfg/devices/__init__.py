@@ -26,6 +26,14 @@ Here is what a profile file looks like::
             "product_id": 0x1702,
             # The control endpoint of the device (probably 0)
             "endpoint": 0,
+            # (optional) The HID usage page of the control interface. When
+            # defined, the device is searched by usage page instead of
+            # endpoint number (required for Bluetooth devices)
+            "usage_page": 0xFFC0,
+            # (optional) The id of the HID reports used to control the
+            # device (default: 0x00). When defined, the responses of the
+            # device are expected to be prefixed by this id
+            "report_id": 0x04,
         }, {
             "name": "SteelSeries Rival 100 (Dell China)",
             "vendor_id": 0x1038,
@@ -221,6 +229,7 @@ def _generate_profiles():
         aerox3_wireless_wired,
         aerox3_wireless_wireless,
         aerox5,
+        aerox5_wireless_bluetooth,
         aerox5_wireless_wired,
         aerox5_wireless_wireless,
         aerox9_wireless_wired,

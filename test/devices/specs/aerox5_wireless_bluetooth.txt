@@ -1,0 +1,69 @@
+:0111:1854 SteelSeries Aerox 5 Wireless (Bluetooth mode)
+
+# Same commands as the wired mode, sent with the report id 0x04
+
+# ==== Sensitivity ====
+
+--sensitivity 100
+< 02 04 | 2D 01 00 00
+< 02 04 | 11 00
+
+--sensitivity 200,400,800,1600
+< 02 04 | 2D 04 00 02 04 09 12
+< 02 04 | 11 00
+
+# ==== Polling rate ====
+
+--polling-rate 125
+< 02 04 | 2B 03
+< 02 04 | 11 00
+
+--polling-rate 1000
+< 02 04 | 2B 00
+< 02 04 | 11 00
+
+# ==== Colors ====
+
+--top-color ABCDEF
+< 02 04 | 21 01 00 AB CD EF
+< 02 04 | 11 00
+
+--middle-color red
+< 02 04 | 21 01 01 FF 00 00
+< 02 04 | 11 00
+
+--bottom-color 00b0ff
+< 02 04 | 21 01 02 00 B0 FF
+< 02 04 | 11 00
+
+--reactive-color 0000ff
+< 02 04 | 26 01 00 00 00 FF
+< 02 04 | 11 00
+
+--reactive-color off
+< 02 04 | 26 00 00 00 00 00
+< 02 04 | 11 00
+
+# ==== Lighting ====
+
+--rainbow-effect
+< 02 04 | 22 FF
+< 02 04 | 11 00
+
+--default-lighting reactive
+< 02 04 | 27 00 01
+< 02 04 | 11 00
+
+--default-lighting rainbow
+< 02 04 | 27 01 00
+< 02 04 | 11 00
+
+# ==== Timers ====
+
+--sleep-timer 5
+< 02 04 | 29 E0 93 04
+< 02 04 | 11 00
+
+--dim-timer 30
+< 02 04 | 23 0F 01 00 00 30 75 00
+< 02 04 | 11 00

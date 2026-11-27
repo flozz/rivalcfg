@@ -7,6 +7,21 @@ Supported Models
 
 .. rivalcfg_device_family:: aerox5_wireless_wired
 .. rivalcfg_device_family:: aerox5_wireless_wireless
+.. rivalcfg_device_family:: aerox5_wireless_bluetooth
+
+
+Bluetooth Mode
+--------------
+
+The mouse can also be configured when it is connected over Bluetooth. This
+mode has only been tested on macOS with lighting settings and battery level;
+other settings and other operating systems may not work.
+
+.. NOTE::
+
+   On macOS, the terminal application must be allowed in **System Settings →
+   Privacy & Security → Input Monitoring**, otherwise the device cannot be
+   opened.
 
 
 Missing Features
