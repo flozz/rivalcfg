@@ -313,6 +313,35 @@ class Mouse:
         if "RIVALCFG_DEBUG_NO_COMMAND_DELAY" not in os.environ:
             time.sleep(self._command_approve_delay)
 
+    def _get_shared_command_data(self, setting_name, args):
+        """
+        Build the data of a command that is shared by several settings: the
+        value of the other settings is read from the saved settings (or from
+        their default value) to not overwrite them.
+
+        :param str setting_name: The setting that is being set.
+        :param tuple args: The value of the setting that is being set.
+
+        :rtype: list(int)
+        """
+        settings = self.mouse_profile["settings"]
+        data = []
+        for item in settings[setting_name]["shared_command"]:
+            # Constant byte
+            if isinstance(item, int):
+                data.append(item)
+                continue
+            if item == setting_name:
+                value = args
+            else:
+                try:
+                    value = [self.mouse_settings.get(item)]
+                except KeyError:  # settings saved by an older version
+                    value = [settings[item]["default"]]
+            handler = getattr(handlers, settings[item]["value_type"])
+            data.extend(handler.process_value(settings[item], *value))
+        return data
+
     def __getattr__(self, name):
         # Handle every set_xxx methods generated from device's profiles
 
@@ -350,7 +379,9 @@ class Mouse:
 
         def _exec_command(*args):
             data = []
-            if handler_name:
+            if "shared_command" in setting_info:
+                data = self._get_shared_command_data(setting_name, args)
+            elif handler_name:
                 data = getattr(handlers, handler_name).process_value(
                     setting_info, *args
                 )

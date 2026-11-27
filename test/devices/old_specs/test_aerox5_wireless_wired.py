@@ -124,11 +124,11 @@ class TestDevice(object):
     @pytest.mark.parametrize(
         "value,expected_hid_report",
         [
-            (0, b"\x02\x00\x23\x0f\x01\x00\x00\x00\x00\x00"),
-            (30, b"\x02\x00\x23\x0f\x01\x00\x00\x30\x75\x00"),
-            (60, b"\x02\x00\x23\x0f\x01\x00\x00\x60\xea\x00"),
-            (300, b"\x02\x00\x23\x0f\x01\x00\x00\xe0\x93\x04"),
-            (1200, b"\x02\x00\x23\x0f\x01\x00\x00\x80\x4f\x12"),
+            (0, b"\x02\x00\x23\x0f\x01\x01\x00\x00\x00\x00"),
+            (30, b"\x02\x00\x23\x0f\x01\x01\x00\x30\x75\x00"),
+            (60, b"\x02\x00\x23\x0f\x01\x01\x00\x60\xea\x00"),
+            (300, b"\x02\x00\x23\x0f\x01\x01\x00\xe0\x93\x04"),
+            (1200, b"\x02\x00\x23\x0f\x01\x01\x00\x80\x4f\x12"),
         ],
     )
     def test_set_dim_timer(self, mouse, value, expected_hid_report):
@@ -136,6 +136,57 @@ class TestDevice(object):
         mouse._hid_device.bytes.seek(0)
         hid_report = mouse._hid_device.bytes.read()
         assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (0, b"\x02\x00\x23\x00\x01\x01\x00\x30\x75\x00"),
+            (3, b"\x02\x00\x23\x03\x01\x01\x00\x30\x75\x00"),
+            (15, b"\x02\x00\x23\x0f\x01\x01\x00\x30\x75\x00"),
+        ],
+    )
+    def test_set_led_brightness(self, mouse, value, expected_hid_report):
+        mouse.set_led_brightness(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            (0, b"\x02\x00\x23\x0f\x00\x01\x00\x30\x75\x00"),
+            (1, b"\x02\x00\x23\x0f\x01\x01\x00\x30\x75\x00"),
+            (15, b"\x02\x00\x23\x0f\x0f\x01\x00\x30\x75\x00"),
+        ],
+    )
+    def test_set_dim_brightness(self, mouse, value, expected_hid_report):
+        mouse.set_dim_brightness(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    @pytest.mark.parametrize(
+        "value,expected_hid_report",
+        [
+            ("on", b"\x02\x00\x23\x0f\x01\x01\x00\x30\x75\x00"),
+            ("off", b"\x02\x00\x23\x0f\x01\x00\x00\x30\x75\x00"),
+        ],
+    )
+    def test_set_smart_illumination(self, mouse, value, expected_hid_report):
+        mouse.set_smart_illumination(value)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == expected_hid_report
+
+    def test_illumination_settings_do_not_overwrite_each_other(self, mouse):
+        mouse.set_smart_illumination("off")
+        mouse.set_led_brightness(3)
+        mouse._hid_device.bytes.seek(0)
+        mouse._hid_device.bytes.truncate()
+        mouse.set_dim_timer(5)
+        mouse._hid_device.bytes.seek(0)
+        hid_report = mouse._hid_device.bytes.read()
+        assert hid_report == b"\x02\x00\x23\x03\x01\x00\x00\x88\x13\x00"
 
     @pytest.mark.parametrize(
         "value,expected_hid_report",

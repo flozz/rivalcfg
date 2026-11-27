@@ -9,14 +9,6 @@ Supported Models
 .. rivalcfg_device_family:: aerox5_wireless_wireless
 
 
-Missing Features
-----------------
-
-The following feature are currently not supported by Rivalcfg:
-
-* Smart illumination
-
-
 Command-Line Usage
 ------------------
 
@@ -75,6 +67,34 @@ Default Lighting
 ----------------
 
 .. include:: ./_default_lighting_reactive.rst
+
+
+Brightness, Dimming and Smart Illumination
+------------------------------------------
+
+The brightness of the LEDs can be set from 0 to 15::
+
+    rivalcfg --led-brightness 15
+
+The LEDs are dimmed when the mouse stays idle. Both the delay (seconds, 0 to
+disable) and the brightness of the dimmed LEDs (0 to 15, 0 turns them off) can
+be set::
+
+    rivalcfg --dim-timer 30
+    rivalcfg --dim-brightness 1
+
+The smart illumination turns the LEDs off while the mouse is moving to save
+battery::
+
+    rivalcfg --smart-illumination on
+    rivalcfg --smart-illumination off
+
+.. NOTE::
+
+   These four settings are sent to the mouse in a single command. Rivalcfg
+   cannot read them back from the mouse: when you change one of them, the
+   others are set to the last value you defined with Rivalcfg (or to their
+   default value).
 
 
 Buttons
