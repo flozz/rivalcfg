@@ -34,7 +34,12 @@ def get_mouse(vendor_id=0x1038, product_id=None):
         profile,
     )
 
-    hid_device = usbhid.open_device(vendor_id, product_id, profile["endpoint"])
+    hid_device = usbhid.open_device(
+        vendor_id,
+        product_id,
+        profile["endpoint"],
+        usage_page=profile.get("usage_page"),
+    )
 
     return Mouse(hid_device, profile, settings)
 
@@ -136,9 +141,8 @@ class Mouse:
             self.mouse_profile["firmware_version"]["report_type"],
             data=self.mouse_profile["firmware_version"]["command"],
         )
-        version = self._hid_device.read(
-            self.mouse_profile["firmware_version"]["response_length"],
-            timeout_ms=200,
+        version = self._hid_read(
+            self.mouse_profile["firmware_version"]["response_length"]
         )
 
         if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
@@ -177,10 +181,7 @@ class Mouse:
             self.mouse_profile["battery_level"]["report_type"],
             data=self.mouse_profile["battery_level"]["command"],
         )
-        data = self._hid_device.read(
-            self.mouse_profile["battery_level"]["response_length"],
-            timeout_ms=200,
-        )
+        data = self._hid_read(self.mouse_profile["battery_level"]["response_length"])
 
         if "RIVALCFG_DEBUG_PRINT_HID_REPORT" in os.environ:
             print("[USBHID]>       | %s" % bytes(data).hex(" ").upper())
@@ -242,9 +243,8 @@ class Mouse:
             "readback_length" in self.mouse_profile["save_command"]
             and self.mouse_profile["save_command"]["readback_length"]
         ):
-            response = self._hid_device.read(
-                self.mouse_profile["save_command"]["readback_length"],
-                timeout_ms=200,
+            response = self._hid_read(
+                self.mouse_profile["save_command"]["readback_length"]
             )
 
         self.mouse_settings.save()
@@ -261,10 +261,35 @@ class Mouse:
         """
         self._hid_device.close()
 
+    def _hid_read(self, length):
+        """
+        Read the response of the device.
+
+        :param int length: The length of the response (bytes).
+
+        :rtype: list(int)
+        """
+        report_id = self.mouse_profile.get("report_id")
+
+        if not report_id:
+            return self._hid_device.read(length, timeout_ms=200)
+
+        # Devices with numbered reports (e.g. Bluetooth ones) prefix the
+        # response with the report id and send unrelated reports (mouse
+        # movements,...) on the same handle: skip them.
+        deadline = time.monotonic() + 1
+        for _ in range(128):
+            data = self._hid_device.read(length + 1, timeout_ms=200)
+            if data and data[0] == report_id:
+                return data[1:]
+            if time.monotonic() > deadline:
+                break
+        return []
+
     def _hid_write(
         self,
         report_type=usbhid.HID_REPORT_TYPE_OUTPUT,
-        report_id=0x00,
+        report_id=None,
         data=[],
         packet_length=0,
     ):
@@ -275,7 +300,9 @@ class Mouse:
                                 (:data:`rivalcfg.usbhid.HID_REPORT_TYPE_OUTPUT`
                                 or
                                 :data:`rivalcfg.usbhid.HID_REPORT_TYPE_FEATURE`).
-        :param int report_id: The id of the report (always ``0x00``).
+        :param int report_id: The id of the report (default: the
+                              ``report_id`` of the device profile or ``0x00``
+                              if not defined).
         :param list(int) data: The data to send to the mouse.
         :param int packet_length: The fixed length of the packet that will be
                                   sent to the device (default: ``0`` (no fixed
@@ -283,6 +310,9 @@ class Mouse:
 
         :raises ValueError: Invalid report type, or HID device not openned.
         """
+        if report_id is None:
+            report_id = self.mouse_profile.get("report_id", 0x00)
+
         if packet_length:
             bytes_ = bytearray(
                 helpers.merge_bytes(
@@ -363,10 +393,7 @@ class Mouse:
             # Readback when required
             response = None
             if "readback_length" in setting_info and setting_info["readback_length"]:
-                response = self._hid_device.read(
-                    setting_info["readback_length"],
-                    timeout_ms=200,
-                )
+                response = self._hid_read(setting_info["readback_length"])
             # Save settings
             if len(args) == 1:
                 self.mouse_settings.set(setting_name, args[0])

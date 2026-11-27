@@ -278,3 +278,24 @@ class TestMouse(object):
         assert response is None
         response = mouse.set_setting6()
         assert response is None
+
+
+class TestMouseWithReportId(object):
+    @pytest.fixture
+    def mouse(self):
+        profile = dict(FAKE_PROFILE, report_id=0x04)
+        settings = mouse_settings.FakeMouseSettings(0x1038, 0xBAAD, profile)
+        return mouse.Mouse(usbhid.FakeDevice(), profile, settings)
+
+    def test__hid_write_uses_the_report_id_of_the_profile(self, mouse):
+        mouse._hid_write(data=[0xAA, 0xBB])
+        mouse._hid_device.bytes.seek(0)
+        assert mouse._hid_device.bytes.read() == b"\x02\x04\xaa\xbb"
+
+    def test__hid_read_skips_other_reports_and_strips_the_report_id(self, mouse):
+        reports = [[0x01, 0x00, 0xFE], [], [0x04, 0x92, 0x05], [0x04, 0xFF, 0xFF]]
+        mouse._hid_device.read = lambda length, timeout_ms=0: reports.pop(0)
+        assert mouse._hid_read(2) == [0x92, 0x05]
+
+    def test__hid_read_without_response(self, mouse):
+        assert mouse._hid_read(2) == []
